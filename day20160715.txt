@@ -1,0 +1,25 @@
+1.Tbox休眠唤醒的功能
+
+//判断CAN的状态
+PMAPP_SF_GetCanFreeSt()
+	if(FALSE==GetCanOnLine())
+		/* GetCanOnLine
+		 * 		return CanOnLineFlg
+		 * SetCanActive
+		 * 		CanOnLineFlg = TRUE;
+		 *	  CanOnLineDly = 500;//用于检测CAN没有报文的超时时间,每次都会激活的时候都会重置这个值
+		 * Can_MainFunction_Read
+		 *		  CanOnLineProc
+		 *		    //如果CanOnLineDly自减等于0还没有CAN数据,则认为CAN没有数据过来
+		 *	     	CanOnLineFlg=FALSE;
+		 */
+		CanSleepFlg = TRUE;
+	//设置PM_SV_ParaStu.mMCUSt
+	PMAPP_SF_SetMCUSt(BOX_MODE_SLEEP);
+		PM_SV_ParaStu.mMCUSt = BOX_MODE_SLEEP
+
+
+判断PM_SV_ParaStu.mMCUSt
+PMAPP_SF_GetMCUSt()
+	//BOX_MODE_SLEEP
+	PMAPP_SF_McuSleep

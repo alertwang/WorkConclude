@@ -1,0 +1,34 @@
+//周期任务10s
+//100*10ms发送一次消息
+PeriTask
+	CommonOSMsgPost(MAIN_TASK_MSG_TASK_MNG, 0U, 0U, (void *)0, (void *)0, MainMsg);
+MainTask
+	TSP_Alarm_Pro();
+	
+
+1.内存的创建和分配
+OS_MemInit
+													//静态结构体数组
+		pmem = (OS_MEM *) &OSMemTbl[0];
+							struct OS_MEM OSMemTbl[0]                                                             struct OS_MEM OSMemTbl[1]
+		 ----------------------------------------------------------------------------      ----------------------------------------------------------------------------  
+		|OSMemNFree=0,OSMemNBlks=0,OSMemBlkSize=0,OSMemAddr=(void *)0,OSMemFreeList--|--> |OSMemNFree=0,OSMemNBlks=0,OSMemBlkSize=0,OSMemAddr=(void *)0,OSMemFreeList--|-->  ......
+		 ----------------------------------------------------------------------------      ----------------------------------------------------------------------------    
+		//这样形成链表		
+		//链表头
+		OSMemFreeList = (OS_MEM *) &OSMemTbl[0]; 
+
+PublicRamInit
+																//S_ucPublicRam1KBSize[MEM_RAM_SIZE_1KB_BLOCK_NUM][MEM_RAM_SIZE_1KB+MEM_RAM_STRUCT_OFFSET];
+		S_PublicRam1KB = OSMemCreate(S_ucPublicRam1KBSize, MEM_RAM_SIZE_1KB_BLOCK_NUM, (MEM_RAM_SIZE_1KB + MEM_RAM_STRUCT_OFFSET), ucErr);
+																//静态数组						 //=10												//1024+0
+			 //最终从OSMemFreeList链表中取得	
+			 
+2.AT命令发送超时的处理过程
+GPRS_SendCommand
+	Write(pCmd->pszCmd, pCmd->usLength, pstuHwObj->stuHWCRArray[usIndex].etuChannel);
+	Ril_OS_WaitEvt(ETU_BASE_TASK_COMMAND_EVENT, ETU_BASE_TASK_COMMAND_ALARM, ulTimer);、
+	//如果发送不成功的话
+	pCmd->ucStatus = RIL_QUEUE_COMAMD_STATUS_RESEND;
+	pCmd->ucStatus = RIL_QUEUE_COMAMD_STATUS_READY;
+	Ril_OS_SendMsg(RIL_COMHANDLE_CHANNEL_CMD, 0);			 					

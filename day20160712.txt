@@ -1,0 +1,49 @@
+stuCallback.pRilHWfunc  = (PFN_RILAPP_HW_MGR)RilHWImplFunc;
+RIL_Init(ETU_RIL_INIT_TYPE_GPRS, &stuCallback, &errorcode);	
+	Initialize(ETU_RIL_INIT_TYPE_GPRS, G_stuRilInitParam, &stuCallback);
+		Initialize_HW(&G_stuRilInitParam, RilHWImplFunc);
+			&G_stuRilInitParam->stuHWCR.pstuHwMgr = RilHWImplFunc;
+			Ril_InitializeHW(ETU_RIL_INIT_TYPE_GPS, &G_stuRilInitParam->stuHWCR);
+				 G_stuHwHandle.pstuHwMgr = G_stuRilInitParam->stuHWCR->pstuHwMgr = RilHWImplFunc;
+			
+			
+GPS_Initialize();
+	Ril_StartGPS(RIL_GPS_NMEA_PROT, RIL_GPS_SENTENCE_RMC, (PFN_RILAPP_GPS)GPS_FUNC, &Errs);
+		StartGPS(RIL_GPS_SENTENCE_RMC, GPS_FUNC, errors);
+			G_PF = GPS_FUNC;
+	Ril_PowerOn(ETU_RIL_INIT_TYPE_GPS, FALSE);
+		UpdatePWN(ETU_RIL_INIT_TYPE_GPS, FALSE, POWER_ON);
+        usHwCtl = ETU_RIL_HW_POWER_ON;
+        tuCB.usFuncLst = ETU_RIL_HW_POWER_ON;
+        stuCB.usType    = ETU_RIL_INIT_TYPE_GPS;
+        stuCB.usSubType = RIL_GPS_NMEA_PROT=1;
+        G_stuHwHandle->pstuHwMgr((PSTU_RIL_CALLBACK_FUNCPROC)&stuCB);
+        RilHWImplFunc(stuCB)
+        	GPS_PW_ON((PFN_RILAPP_OS_MGR)RilOSImplFunc, RIL_GPS_NMEA_PROT);
+        			SIU.GPDO[99].R =   0x00;
+        			SIU.GPDO[83].R =   0x00;
+        			SIU.PCR[84].B.OBE = 1;
+        			SIU.GPDO[84].R = 0x00U;
+
+
+Ril_BufferCom2PutRx(ETU_RIL_INIT_TYPE_GPS,(LYCBYTE)temp);
+	Ril_Com2PutBuffer(ETU_RIL_INIT_TYPE_GPS, temp);
+		Com2PutGPS(temp);
+			pstuBuffer = &(G_stuBuffer.stuBuffArray[ETU_RIL_INIT_TYPE_GPS -1]);
+			/* pszBuff存放真正的数据,usHead存放长度 */
+			*(pstuBuffer->pszBuff + pstuBuffer->usHead) = (LYCBYTE)temp;
+			pstuBuffer->usHead++;
+			/* 如果连续出现'\r' '\n' */
+			SetMytimer(1,10);
+					uctimerflg[1] = 1;
+        	ustimercnt[1] = 10;
+在周期任务
+PeriTask
+	CommonOSMsgPost(MAIN_TASK_MSG_GPS, 0, 0, (void     *)0, (void     *)0, MainMsg); 
+MainTask
+	Ril_TskRespProc(0, RIL_COM_CHANNEL_GPS, &errorcode);
+ResponseThread
+	GPS_RECV(&errorcode);
+			pstuAnalyzerBuffer = &G_stuBuffer.stuAnalyZerBuffArray[etuChannel -1];
+			GetBufferWithCharacter(pstuAnalyzerBuffer, ETU_RIL_INIT_TYPE_GPS,"\n");//"\n"
+					 pRbuf = &G_stuBuffer.stuBuffArray[etuChannel-1]
