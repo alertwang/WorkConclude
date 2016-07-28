@@ -1,0 +1,33 @@
+1.EBD串口的中断
+USART3_IRQHandler //底层接收和发送数据
+	//读取数据
+	Res=USART_ReceiveData(USART3);
+	//放入队列UART2RecBuf
+	QueueWrite(UART2RecBuf,&Res);
+	//从发送队列中读取数据
+	QueueRead(&Res,UART2SendBuf)
+	//发送数据
+	USART3->DR = Res; 
+
+usart_task //中间层对数据的处理
+	//如果队列中的数据不为0
+	ProcessUartFifo();	
+		//取出完成的一帧数据,存入dataBuf
+		// 'L''Y'|datalen(2Byte)|datalen长度的数据|crc(2Byte)|0xAA 0x55|
+		ProcessUartData(dataBuf);		
+				UartFrameTypedef *UartFrame  = (UartFrameTypedef*)dataBuf;
+				//根据EBD的串口协议解析数据
+				APK_2_MCU_HAND_SHAKE
+						OSFlagPost(SendData_flags,FLAG_HAND_SHAKE_RESP,OS_FLAG_SET,&err);
+		ComActSt = 1;
+		
+SendDataTask //发送数据给Android Apk
+	get_flags = OSFlagPend(SendData_flags,0xFFFF,OS_FLAG_WAIT_SET_ANY,0,&err);
+	ProMcuStatus(FLAG_HAND_SHAKE_RESP);
+		//判断回复消息的类型
+		HandShakeResp();
+			//tmpdata生成响应数据
+			QueueWrite(COM_OUT_BUF=UART2SendBuf,&tmpdata[i]); 
+
+2.Serria 4G模块开发的参考文档
+Legato - WiFi Hotspot using Atheros AR6003 SDIO.pdf
