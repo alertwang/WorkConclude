@@ -1,0 +1,44 @@
+1.编译LegatoApp的过程:
+		设置环境变量:
+		. bin/configlegatoenv
+		bin/legs
+		//查看环境变量的值
+		env
+		//进入到legato中间件的源码的路径
+		cd $(PATH)/legato-16.01.0.m1
+		//清理目标文件
+		make clean
+		//编译ar7794版本的中间件,ar7586的命令????
+		make ar7
+		//进入到源码的目录
+		cd $(PATH)/legato-16.01.0.m1/app/sample/legacy/tcu_c_cross/
+		//设置protobuf相关环境变量的路径
+		sh protobuf-2.5.0-arm.sh
+		//清理目标文件
+		make clean
+		//编译ar7794版本的中间件,ar7586的命令????
+		make ar7
+		
+2.如何烧写运行编译出来的App
+		1)连接打印串口
+		2)启动之后,root登陆
+		3)ifconfig 查看ip地址 usb0
+		4)设置host(ubuntu12.04)的ip地址和板子的ip地址在同一网段, [ping 开发板的地址]进行测试
+		5)删除两个app,目的?????
+			app remove dataDispatchServer
+			app remove systemService
+		6)删除原始app
+			app remove tcu4GNetServer
+		7)需要将某个文件更改后缀???
+			cp 
+		8)在host的终端中
+			instapp tcu4GNetServer.ar7.update(编译出来的Bin文件)  192.168.2.1(目标板子的Ip地址,见步骤3)
+		至此App更新完成
+		
+3)如何更新整个包
+		1)断开host的usb网络
+		2)安装Window下usb网络的驱动程序
+				ManufacturingDrivers.exe --> 路径: svn://127.0.0.1/TCU/doc/legato系统相关资料/AR755x_9903450_Build4078_Manufacturing/Build4078_Manufacturing
+		3)接上usb后会发现相关的驱动程序
+		4)打开cmd
+		5)使用FDT工具烧写cwe文件
