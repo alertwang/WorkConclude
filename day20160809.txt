@@ -1,0 +1,36 @@
+1.MCU和4G模块交互的部分
+		//通信协议见 svn://127.0.0.1/TCU/doc/v1.0/MCU&4G通讯协议.docx
+	main (tcu4GNetServer.c)	
+		//接收MCU串口数据
+		uart_server_start
+			RingBufferInit(uart_server.recv_rbuf,UARTSERVER_RECV_RBUF_SIZE)
+			open(uart_4g, O_RDWR|O_NOCTTY|O_NDELAY)
+			pthread_create(&uart_server.thread_recv_id, NULL, uart_monitor_recv, NULL)
+				//线程开始Running
+				uart_monitor_recv
+					read(uart_server.fd,buffer,UARTSERVER_RECV_BUF_SIZE)
+					CbWrite(uart_server.recv_rbuf, buffer, len)
+		//4G模块创建服务器
+		da_server_start
+			//DA连接上来的时候发送过来的数据存放net_recv_rbuf
+			RingBufferInit(da_server.net_recv_rbuf,DASERVER_RECV_RBUF_SIZE)
+			//socket创建流程
+			......
+			//创建线程,用于接收DA的数据
+			pthread_create(&da_server.thread_recv_id, NULL, da_handle_recv, NULL);
+					//线程开始Running
+					da_handle_recv
+						 //客服端socket句柄
+						 da_server.client_socket = accept(da_server.server_socket, (struct sockaddr *)&da_server.client_addr, &sin_size );
+						 //接收数据
+						 recv(da_server.client_socket, buf, sizeof(buf), 0);
+						 CbWrite(da_server.net_recv_rbuf, buf, len);
+		//数据解析线程
+		parse_server_start
+			pthread_create(&parse_server.thread_parse_uart_id, NULL, parse_uart_recv_data, NULL);
+					//解析收到MCU的数据
+					parse_uart_recv_data
+			pthread_create(&parse_server.thread_parse_da_id, NULL, parse_da_recv_data, NULL);
+					//解析收到的DA的数据
+					parse_da_recv_data
+			
