@@ -22,7 +22,7 @@
 2.如何烧写运行编译出来的App
 		1)连接打印串口
 		2)启动之后,root登陆
-		3)ifconfig 查看ip地址 usb0
+		3)ifconfig 查看ip地址 usb0, 需要在板子上的执行ifconfig,即在串口中输入
 		4)设置host(ubuntu12.04)的ip地址和板子的ip地址在同一网段, [ping 开发板的地址]进行测试
 		5)删除两个app,目的?????
 			app remove dataDispatchServer

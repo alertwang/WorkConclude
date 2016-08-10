@@ -1,0 +1,1044 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+     
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    
+<head>   
+   
+
+    <script type="text/javascript" src="http://c.csdnimg.cn/pubfooter/js/tracking.js" charset="utf-8"></script>  
+
+    <script type="text/javascript">
+        var protocol = window.location.protocol;
+        document.write('<script type="text/javascript" src="' + protocol + '//csdnimg.cn/pubfooter/js/repoAddr2.js?v=' + Math.random() + '"></' + 'script>');
+    </script>
+
+  
+ <meta http-equiv="Cache-Control" content="no-siteapp" /><link rel="alternate" media="handheld" href="#" />
+
+    <title>让svn在使用checkout命令时不含根目录 - 墨迹兔
+        - 博客频道 - CSDN.NET</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Solve this problem," />
+    <script src="http://static.blog.csdn.net/scripts/jquery.js" type="text/javascript"></script>
+      <script type="text/javascript" src="http://static.blog.csdn.net/scripts/jquery-version.js"></script>
+    <script type="text/javascript" src="http://static.blog.csdn.net/scripts/ad.js?v=1.1"></script>
+        <!--new top-->
+               <link rel="stylesheet" href="http://c.csdnimg.cn/public/common/toolbar/css/index.css">        <!--new top-->
+    
+      <!-- ad begin -->
+         <script language="javascript" type="text/javascript" src="http://ads.csdn.net/js/tracking.js"></script>
+    <!-- ad end-->
+
+    <link rel="Stylesheet" type="text/css" href="http://static.blog.csdn.net/skin/skin-yellow/css/style.css?v=1.1" />
+    <link id="RSSLink" title="RSS" type="application/rss+xml" rel="alternate" href="/yuyueliuliu/rss/list" />
+    <link rel="shortcut icon" href="http://c.csdnimg.cn/public/favicon.ico" />
+    <link type="text/css" rel="stylesheet" href="http://static.blog.csdn.net/scripts/SyntaxHighlighter/styles/default.css" />
+ 
+
+
+</head>
+<body>
+    <!-- 广告位开始 -->
+        <ins data-revive-zoneid="149" data-revive-id="8c38e720de1c90a6f6ff52f3f89c4d57"></ins>
+    <!-- 广告位结束 -->
+
+    
+   
+      <!--new top-->
+    <script id="toolbar-tpl-scriptId" fixed="true" prod="blog" skin="black" src="http://c.csdnimg.cn/public/common/toolbar/js/html.js" type="text/javascript"></script>
+     <!--new top-->
+    <div id="container">
+        <div id="header">
+    <div class="header">
+        <div id="blog_title">
+            <h2>
+                <a href="http://blog.csdn.net/yuyueliuliu">墨迹兔</a></h2>
+            <h3>生如夏花之绚烂 死如秋叶之静美</h3>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+        
+    </div>
+</div>
+<div id="navigator">
+    <div class="navigator_bg">
+    </div>
+    <div class="navigator">
+        <ul>
+            
+                <li id="btnContents"><a href="http://blog.csdn.net/yuyueliuliu?viewmode=contents"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_mulu'])">
+                    <img src="http://static.blog.csdn.net/images/ico_list.gif">目录视图</span></a></li>
+                <li id="btnView"><a href="http://blog.csdn.net/yuyueliuliu?viewmode=list"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_zhaiyao'])">
+                    <img src="http://static.blog.csdn.net/images/ico_summary.gif">摘要视图</span></a></li>
+                <li id="btnRss"><a href="http://blog.csdn.net/yuyueliuliu/rss/list"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_RSS'])">
+                    <img src="http://static.blog.csdn.net/images/ico_rss.gif">订阅</span></a></li>                
+            
+
+            </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    var username = "yuyueliuliu";
+    var _blogger = username;
+    var blog_address = "http://blog.csdn.net/yuyueliuliu";
+    var static_host = "http://static.blog.csdn.net";
+    var currentUserName = "";  
+</script>
+
+        <div id="body">
+            <div id="main">
+                <div class="main">
+                        <div class="ad_class">
+<div class="notice tracking-ad" data-mod='popu_3' > 
+
+
+<a href="http://blog.csdn.net/blogdevteam/article/details/51919935">
+<font color=blue>【公告】博客系统优化升级</font></a>
+&nbsp;&nbsp;&nbsp;
+<a href="http://lib.csdn.net/base/scala">
+<font color=red>【收藏】Scala 资源一应俱全
+</font></a>
+&nbsp;&nbsp;&nbsp;
+<a href="http://blog.csdn.net/blogdevteam/article/details/51984275">
+<font color=blue>博乐招募开始啦
+</font></a>
+&nbsp;&nbsp;&nbsp;
+
+<a href="http://geek.csdn.net/news/detail/94222">
+<font color=red>程序员七夕表白礼品指南
+</font></a>
+&nbsp;&nbsp;&nbsp;
+
+</font></a>
+</div>                        </div>
+                        
+
+
+
+<!-- 广告位开始 -->
+<ins data-revive-zoneid="72" data-revive-id="8c38e720de1c90a6f6ff52f3f89c4d57"></ins>
+<!-- 广告位结束 -->
+
+  
+<link href="http://static.blog.csdn.net/css/comment1.css" type="text/css" rel="stylesheet" />
+<link href="http://static.blog.csdn.net/css/style1.css" type="text/css" rel="stylesheet" />
+<script language='JavaScript' type='text/javascript' src='http://download.csdn.net/js/jquery.cookie.js'></script>
+<script type="text/javascript" src="http://c.csdnimg.cn/rabbit/search-service/main.js"></script>
+<link rel="stylesheet" href="http://static.blog.csdn.net/public/res-min/markdown_views.css?v=1.0" />
+<link rel="stylesheet" href="http://static.blog.csdn.net/css/category.css?v=1.0" />
+<script type="text/javascript" src="http://static.blog.csdn.net/public/res/bower-libs/MathJax/MathJax.js?config=TeX-AMS_HTML"></script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/web-storage-cache.min.js"></script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/replace.min.js"></script>
+
+
+
+
+  <script type="text/ecmascript">
+      window.quickReplyflag = true;
+           
+            var isBole = false;
+            
+          
+    </script>
+<div id="article_details" class="details">
+    <div class="article_title">   
+         <span class="ico ico_type_Original"></span>
+
+
+    <h1>
+        <span class="link_title"><a href="/yuyueliuliu/article/details/8911752">
+        让svn在使用checkout命令时不含根目录            
+        </a></span>
+    </h1>
+</div>
+
+   
+
+        <div class="article_manage clearfix">
+        <div class="article_r">
+            <span class="link_postdate">2013-05-10 17:07</span>
+            <span class="link_view" title="阅读次数">4864人阅读</span>
+            <span class="link_comments" title="评论次数"> <a href="#comments" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_pinglun'])">评论</a>(1)</span>
+            <span class="link_collect tracking-ad" data-mod="popu_171"> <a href="javascript:void(0);" onclick="javascript:collectArticle('让svn在使用checkout命令时不含根目录','8911752');return false;" title="收藏">收藏</a></span>
+             <span class="link_report"> <a href="#report" onclick="javascript:report(8911752,2);return false;" title="举报">举报</a></span>
+
+        </div>
+    </div>
+    <div class="embody"  style="display:none" id="embody">
+        <span class="embody_t">本文章已收录于：</span>
+        <div class="embody_c" id="lib" value="{&quot;err&quot;:0,&quot;msg&quot;:&quot;ok&quot;,&quot;data&quot;:[]}"></div>
+    </div>
+    <style type="text/css">        
+            .embody{
+                padding:10px 10px 10px;
+                margin:0 -20px;
+                border-bottom:solid 1px #ededed;                
+            }
+            .embody_b{
+                margin:0 ;
+                padding:10px 0;
+            }
+            .embody .embody_t,.embody .embody_c{
+                display: inline-block;
+                margin-right:10px;
+            }
+            .embody_t{
+                font-size: 12px;
+                color:#999;
+            }
+            .embody_c{
+                font-size: 12px;
+            }
+            .embody_c img,.embody_c em{
+                display: inline-block;
+                vertical-align: middle;               
+            }
+             .embody_c img{               
+                width:30px;
+                height:30px;
+            }
+            .embody_c em{
+                margin: 0 20px 0 10px;
+                color:#333;
+                font-style: normal;
+            }
+    </style>
+    <script  type="text/javascript">
+        $(function () {
+            try
+            {
+                var lib = eval("("+$("#lib").attr("value")+")");
+                var html = "";
+                if (lib.err == 0) {
+                    $.each(lib.data, function (i) {
+                        var obj = lib.data[i];
+                        //html += '<img src="' + obj.logo + '"/>' + obj.name + "&nbsp;&nbsp;";
+                        html += ' <a href="' + obj.url + '" target="_blank">';
+                        html += ' <img src="' + obj.logo + '">';
+                        html += ' <em><b>' + obj.name + '</b></em>';
+                        html += ' </a>';
+                    });
+                    if (html != "") {
+                        setTimeout(function () {
+                            $("#lib").html(html);                      
+                            $("#embody").show();
+                        }, 100);
+                    }
+                }      
+            } catch (err)
+            { }
+            
+        });
+    </script>
+      <div class="category clearfix">
+        <div class="category_l">
+           <img src="http://static.blog.csdn.net/images/category_icon.jpg">
+            <span>分类：</span>
+        </div>
+        <div class="category_r">
+                    <label  onclick="GetCategoryArticles('513635','yuyueliuliu','top','8911752');">
+                        <span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_fenlei']);">3.2 其他<em>（3）</em></span>
+                      <img class="arrow-down" src="http://static.blog.csdn.net/images/arrow_triangle _down.jpg" style="display:inline;">
+                      <img class="arrow-up" src="http://static.blog.csdn.net/images/arrow_triangle_up.jpg" style="display:none;">
+                        <div class="subItem">
+                            <div class="subItem_t"><a  href="http://blog.csdn.net/yuyueliuliu/article/category/513635"  target="_blank">作者同类文章</a><i class="J_close">X</i></div>
+                            <ul class="subItem_l" id="top_513635">                            
+                            </ul>
+                        </div>
+                    </label>                    
+        </div>
+    </div>
+    <script   type="text/javascript" src="http://static.blog.csdn.net/scripts/category.js"></script>  
+        <div   class="bog_copyright">         
+            <p  class="copyright_p" >版权声明：本文为博主原创文章，未经博主允许不得转载。</p>
+        </div>
+
+  
+
+  
+  
+     
+
+<div id="article_content" class="article_content">
+
+<span style="font-size:18px">让svn在checkout时不含根目录,使用图形模式时很方便,使用命令行模式时需要注意：<br>
+<br>
+不含根目录的意思：比如我要checkout &nbsp;http://192.168.9.12:8443/svn/保卫萝卜/ 下面的所有文件，但是不包括保卫萝卜文件夹,<br>
+我们可以在路径文件夹后面打个空&#26684;，再加个“.”就O了<br>
+示例:&nbsp;<br>
+set svn_url=http://192.168.9.12:8443/svn/保卫萝卜<span style="color:#ff0000">/ .</span><br>
+set svn_user=mojitu<br>
+set svn_ps=123456<br>
+svn checkout %svn_url% --username %svn_user% --password %svn_ps%</span>
+   
+</div>
+
+
+
+
+<!-- Baidu Button BEGIN -->
+
+
+
+
+<div class="bdsharebuttonbox tracking-ad" style="float: right;" data-mod="popu_172">
+<a href="#" class="bds_more" data-cmd="more" style="background-position:0 0 !important; background-image: url(http://bdimg.share.baidu.com/static/api/img/share/icons_0_16.png?v=d754dcc0.png) !important"></a>
+<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"  style="background-position:0 -52px !important"></a>
+<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"style="background-position:0 -104px !important"></a>
+<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"style="background-position:0 -260px !important"></a>
+<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"style="background-position:0 -208px !important"></a>
+<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"style="background-position:0 -1612px !important" ></a>
+</div>
+<script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "1", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
+<!-- Baidu Button END -->
+
+   <link rel="stylesheet" href="http://static.blog.csdn.net/css/blog_detail.css" />
+
+    
+<!--172.16.140.13-->
+
+<!-- Baidu Button BEGIN -->
+<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=1536434" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+    document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script>
+<!-- Baidu Button END -->
+
+ 
+
+        <div id="digg" ArticleId="8911752" >
+            <dl id="btnDigg" class="digg digg_disable"  onclick="btndigga();">
+               
+                 <dt>顶</dt>
+                <dd>0</dd>
+            </dl>
+           
+              
+            <dl id="btnBury" class="digg digg_disable"  onclick="btnburya();">
+              
+                  <dt>踩</dt>
+                <dd>0</dd>               
+            </dl>
+            
+        </div>
+     <div class="tracking-ad" data-mod="popu_222"><a href="javascript:void(0);" >&nbsp;</a>   </div>
+    <div class="tracking-ad" data-mod="popu_223"> <a href="javascript:void(0);" >&nbsp;</a></div>
+    <script type="text/javascript">
+                function btndigga() {
+                    $(".tracking-ad[data-mod='popu_222'] a").click();
+                }
+                function btnburya() {
+                    $(".tracking-ad[data-mod='popu_223'] a").click();
+                }
+            </script>
+
+   <ul class="article_next_prev">
+                <li class="prev_article"><span  onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_shangyipian']);location.href='/yuyueliuliu/article/details/8149047';">上一篇</span><a href="/yuyueliuliu/article/details/8149047" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_shangyipian'])">error C2236: unexpected &#39;class&#39; &#39;CExplosionData&#39;. Did you forget a &#39;;&#39;?</a></li>
+                <li class="next_article"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_xiayipian']);location.href='/yuyueliuliu/article/details/9271605';">下一篇</span><a href="/yuyueliuliu/article/details/9271605" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_xiayipian'])">cocos2d-x使用extension扩展包的方法</a></li>
+    </ul>
+
+    <div style="clear:both; height:10px;"></div>
+
+
+        <div class="similar_article"  style="display:none">
+                <h4>我的同类文章</h4>
+                <div class="similar_c"style="margin:20px 0px 0px 0px">
+                    <div class="similar_c_t">
+                                <label class="similar_cur">
+                                    <span  style="cursor:pointer"  onclick="GetCategoryArticles('513635','yuyueliuliu','foot','8911752');">3.2 其他<em>（3）</em></span>
+                                </label>
+                    </div>
+                   
+                    <div class="similar_wrap tracking-ad" data-mod="popu_141"  style="max-height:195px;">
+                        <a href="http://blog.csdn.net" style="display:none">http://blog.csdn.net</a>
+                        <ul class="similar_list fl">                          
+                        </ul>
+
+                        <ul class="similar_list fr">                           
+                        </ul>
+                    </div>
+                </div>
+            </div>    
+    <script  type="text/javascript">
+        $(function () {
+            GetCategoryArticles('513635', 'yuyueliuliu','foot','8911752');
+        });
+    </script>
+      
+</div>
+<div id="suggest"></div>
+         <script  language="javascript" type='text/javascript'>     
+             $(function(){
+                 $.get("/yuyueliuliu/svc/GetSuggestContent/8911752",function(data){
+                     $("#suggest").html(data);
+                 });     
+             });             
+         </script>  
+
+
+<style>
+.blog-ass-articl dd {
+color: #369;
+width: 99%; /*修改行*/
+float: left;
+overflow: hidden;
+font: normal normal 12px/23px "SimSun";
+height: 23px;
+margin: 0;
+padding: 0 0 0 10px;
+margin-right: 30px;
+background: url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px;
+}
+</style>
+
+ <link rel="stylesheet" href="http://static.blog.csdn.net/css/replace.css"/>
+<div id="relate" data-mod="popu_218"  class="tracking-ad">
+        <div class="relate_t">
+            <h3><span>参考知识库</span></h3>
+        </div>
+        <div class="relate_c">
+        </div>
+</div>
+ 
+
+<dl class="blog-ass-articl" id="res-relatived" > 
+    <div class="embody embody_b" id="libkeyparent"  style="display:none">
+            <span class="embody_t">更多资料请参考：</span>
+            <div class="embody_c" id="libkey"></div>
+    </div>
+
+
+     <dt><span>猜你在找</span></dt>    
+
+
+   
+
+
+    <div id="adCollege" style="width: 42%;float: left;"> 
+        <script src="http://csdnimg.cn/jobreco/job_reco.js" type="text/javascript"></script> 
+        <script type="text/javascript">
+            csdn.position.showEdu({
+                sourceType: "blog",
+                searchType: "detail",
+                searchKey: "8911752",
+                username: "",
+                recordcount: "5",
+                containerId: "adCollege" //容器DIV的id。 
+            });
+        </script> 
+    </div>  
+
+    
+     <div id="res"  data-mod="popu_36"  class="tracking-ad" style="width: 42%;float: left;margin-right: 30px;"></div>
+   
+</dl>
+
+
+<script type="text/javascript">
+    $(function () {
+        setTimeout(function () {
+            var searchtitletags = '让svn在使用checkout命令时不含根目录' + ',' + $("#tags").html();
+            searchService({
+                index: 'blog',
+                query: searchtitletags,
+                from: 5,
+                size: 5,
+                appendTo: '#res',
+                url: 'recommend',
+                his: 2,
+                client: "blog_cf_enhance",
+                tmpl: '<dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px;"><a href="#{ url }" title="#{ title }" strategy="#{ strategy }">#{ title }</a></dd>'
+            });
+        }, 500);
+    });    
+
+ </script>  
+
+    <div id="ad_cen">        
+<!-- 广告位开始 -->
+<ins data-revive-zoneid="71" data-revive-id="8c38e720de1c90a6f6ff52f3f89c4d57"></ins>
+<!-- 广告位结束 -->    </div>  
+
+<div class="comment_class">
+    <div id="comment_title" class="panel_head">
+        <span class="see_comment">查看评论</span><a name="comments"></a></div>
+    <div id="comment_list">
+    </div>
+    <div id="comment_bar">
+    </div>
+    <div id="comment_form">
+    </div>
+    <div class="announce">
+        * 以上用户言论只代表其个人观点，不代表CSDN网站的观点或立场<a name="reply"></a><a name="quote"></a></div>
+</div>
+
+<script type="text/javascript">
+    var fileName = '8911752';
+    var commentscount = 1;
+    var islock = false
+</script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/comment.js"></script>
+    <div id="ad_bot">
+    </div>
+<div id="report_dialog">
+</div>
+
+<div id="d-top"  style="bottom:60px;">
+        <a id="quick-reply" class="btn btn-top q-reply" title="快速回复" style="display:none;">
+            <img src="http://static.blog.csdn.net/images/blog-icon-reply.png" alt="快速回复">
+        </a>    
+
+    <a id="d-top-a" class="btn btn-top backtop"  style="display: none;" title="返回顶部" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_huidaodingbu'])" style="">         
+         <img src="http://static.blog.csdn.net/images/top.png" alt="TOP">
+    </a>
+</div>
+<script type="text/javascript">
+    $(function ()
+    {
+        $("#ad_frm_0").height("90px");
+        
+        setTimeout(function(){
+            $("#ad_frm_2").height("200px");
+        },1000);    
+    });
+  
+</script>
+<style type="text/css">
+    .tag_list
+    {
+        background: none repeat scroll 0 0 #FFFFFF;
+        border: 1px solid #D7CBC1;
+        color: #000000;
+        font-size: 12px;
+        line-height: 20px;
+        list-style: none outside none;
+        margin: 10px 2% 0 1%;
+        padding: 1px;
+    }
+    .tag_list h5
+    {
+        background: none repeat scroll 0 0 #E0DBD3;
+        color: #47381C;
+        font-size: 12px;
+        height: 24px;
+        line-height: 24px;
+        padding: 0 5px;
+        margin: 0;
+    }
+    .tag_list h5 a
+    {
+        color: #47381C;
+    }
+    .classify
+    {
+        margin: 10px 0;
+        padding: 4px 12px 8px;
+    }
+    .classify a
+    {
+        margin-right: 20px;
+        white-space: nowrap;
+    }
+</style>
+
+
+<div class="tag_list" style="display:none"></div>
+  <script  language="javascript" type='text/javascript'>     
+      $(function(){
+              setTimeout(function(){
+                  $.get("/yuyueliuliu/svc/GetTagContent",function(data){
+                      $(".tag_list").html(data).show();
+                  });     
+              });
+          },500);                       
+ </script> 
+
+
+<div id="pop_win" style="display:none ;position: absolute; z-index: 10000; border: 1px solid rgb(220, 220, 220); top: 222.5px; left: 630px; opacity: 1; background: none 0px 0px repeat scroll rgb(255, 255, 255);">
+    
+</div>
+<div id="popup_mask"></div>
+<style>
+    #popup_mask
+    {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        z-index: 9999;
+        left: 0px;
+        top: 0px;
+        opacity: 0.3;
+        filter: alpha(opacity=30);
+        display: none;
+    }
+
+</style>
+
+
+
+
+<script type="text/javascript">
+    $(function(){
+        setTimeout(function(){
+            $(".comment_body:contains('回复')").each(function(index,item){
+                var u=$(this).text().split('：')[0].toString().replace("回复","")
+                var thisComment=$(this);
+                if(u)
+                {
+                    $.getJSON("https://passport.csdn.net/get/nick?callback=?", {users: u}, function(a) {
+                        if(a!=null&&a.data!=null&&a.data.length>0)
+                        {
+                            nick=a.data[0].n; 
+                            if(u!=nick)
+                            {
+                                thisComment.text(thisComment.text().replace(u,nick));  
+                            }
+                        }       
+                    });  
+                }
+            });         
+
+        },200);  
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },5000);
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },10000);
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },15000);
+        
+        setTimeout(function(){
+            $("a img[src='http://js.tongji.linezing.com/stats.gif']").parent().css({"position":"absolute","left":"50%"});
+        },300);
+    });
+
+    function loginbox(){
+        var $logpop=$("#pop_win");
+        $logpop.html('<iframe src="https://passport.csdn.net/account/loginbox?service=http://static.blog.csdn.net/callback.htm" frameborder="0" height="600" width="400" scrolling="no"></iframe>');
+
+        $('#popup_mask').css({
+            opacity: 0.5,
+            width: $( document ).width() + 'px',
+            height:  $( document ).height() + 'px'
+        });
+        $('#popup_mask').css("display","block");
+ 
+        $logpop.css( {
+            top: ($( window ).height() - $logpop.height())/ 2  + $( window 
+       ).scrollTop() + 'px',
+            left:($( window ).width() - $logpop.width())/ 2
+        } );
+ 
+        setTimeout( function () {
+            $logpop.show();
+            $logpop.css( {
+                opacity: 1
+            } );
+        }, 200 );
+ 
+        $('#popup_mask').unbind("click");
+        $('#popup_mask').bind("click", function(){
+            $('#popup_mask').hide();
+            var $clopop = $("#pop_win");
+            $("#common_ask_div_sc").css("display","none");
+            $clopop.css( {
+                opacity: 0
+            } );
+            setTimeout( function () {
+                $clopop.hide();
+            }, 350 );
+            return false;
+        });
+    }   
+
+</script>
+ <script language="javascript" type="text/javascript" src="http://ads.csdn.net/js/async_new.js"></script>      
+
+
+                        <div class="clear">
+                        </div>
+                    </div>                   
+                
+            </div>
+                   
+           <div id="side">
+    <div class="side">
+<div id="panel_Profile" class="panel">
+<ul class="panel_head"><span>个人资料</span></ul>
+<ul class="panel_body profile">
+<div id="blog_userface">
+    <a href="http://my.csdn.net/yuyueliuliu" target="_blank">
+    <img src="http://avatar.csdn.net/1/9/E/1_yuyueliuliu.jpg" title="访问我的空间" style="max-width:90%"/>
+    </a>
+    <br />
+    <span><a href="http://my.csdn.net/yuyueliuliu" class="user_name" target="_blank">yuyueliuliu</a></span>
+</div>
+<div class="interact">
+
+    <a href="javascript:void(0);" class="attent" id="span_add_follow" title="[加关注]"></a>
+
+ <a href="javascript:void(0);" class="letter"  title="[发私信]" onclick="window.open('http://msg.csdn.net/letters/model?receiver=yuyueliuliu','_blank','height=350,width=700');_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_sixin'])"></a>  
+</div>
+<div id="blog_medal">
+                <div id="bms_box">
+               </div>
+</div>
+<ul id="blog_rank">
+    <li>访问：<span>70858次</span></li>
+    <li>积分：<span>1013</span> </li>    
+    <li >等级： <span style="position:relative;display:inline-block;z-index:1" >
+            <img src="http://c.csdnimg.cn/jifen/images/xunzhang/jianzhang/blog4.png" alt="" style="vertical-align: middle;" id="leveImg">
+            <div id="smallTittle" style=" position: absolute;  left: -24px;  top: 25px;  text-align: center;  width: 101px;  height: 32px;  background-color: #fff;  line-height: 32px;  border: 2px #DDDDDD solid;  box-shadow: 0px 2px 2px rgba (0,0,0,0.1);  display: none;   z-index: 999;">
+            <div style="left: 42%;  top: -8px;  position: absolute;  width: 0;  height: 0;  border-left: 10px solid transparent;  border-right: 10px solid transparent;  border-bottom: 8px solid #EAEAEA;"></div>
+            积分：1013 </div>
+        </span>  </li>
+    <li>排名：<span>千里之外</span></li>
+</ul>
+<ul id="blog_statistics">
+    <li>原创：<span>24篇</span></li>
+    <li>转载：<span>14篇</span></li>
+    <li>译文：<span>2篇</span></li>
+    <li>评论：<span>24条</span></li>
+</ul>
+</ul>
+</div>
+
+
+<div class="panel" id="panel_Search">
+    <ul class="panel_head"><span>文章搜索</span></ul>
+    <ul class="panel_body">
+        <form id="frmSearch" action="http://so.csdn.net/search" class="form_search" target="_blank">
+        <span><input id="inputSearch" type="text" class="blogsearch" title="请输入关键字" /></span>
+        <input id="btnSubmit" type="button" value="搜索" title="search in blog" />
+        <input type="hidden" name="q" id="inputQ" />
+        <input type="hidden" name="t" value="blog" />
+        <a id="btnSearchBlog" target="_blank"></a>
+        </form>
+    </ul>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $("#btnSubmit").click(function () {           
+            search();
+        });
+
+        $("#frmSearch").submit(function () {
+            search();
+            return false;
+        });
+
+        function search()
+        {
+            var url = "http://so.csdn.net/so/search/s.do?q=" + encodeURIComponent($("#inputSearch").val()) + "&u=" + username + "&t=blog";
+            window.location.href = url;
+        }   
+    });
+</script><div id="panel_Category" class="panel">
+<ul class="panel_head"><span>文章分类</span></ul>
+<ul class="panel_body">    
+                 <li>
+                    <a href="/yuyueliuliu/article/category/2339083" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">1 ----基础知识----</a><span>(0)</span>
+                </li>
+                 <li>
+                    <a href="/yuyueliuliu/article/category/2339099" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">1.1 C/C++</a><span>(0)</span>
+                </li>
+                 <li>
+                    <a href="/yuyueliuliu/article/category/2248697" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">1.2 python</a><span>(0)</span>
+                </li>
+                 <li>
+                    <a href="/yuyueliuliu/article/category/2339117" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">1.3 数据结构与算法</a><span>(0)</span>
+                </li>
+                 <li>
+                    <a href="/yuyueliuliu/article/category/513634" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">1.4 其他</a><span>(3)</span>
+                </li>
+                 <li>
+                    <a href="/yuyueliuliu/article/category/2339109" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">2 ----框架平台----</a><span>(0)</span>
+                </li>
+                 <li>
+                    <a href="/yuyueliuliu/article/category/565755" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">2.1 Qt / Qtopia</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/yuyueliuliu/article/category/513630" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">2.2 BREW</a><span>(17)</span>
+                </li>
+                 <li>
+                    <a href="/yuyueliuliu/article/category/1491643" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">2.3 cocos2d-x</a><span>(11)</span>
+                </li>
+                 <li>
+                    <a href="/yuyueliuliu/article/category/1759699" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">2.4 unity3d</a><span>(2)</span>
+                </li>
+                 <li>
+                    <a href="/yuyueliuliu/article/category/2248699" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">2.5 android</a><span>(2)</span>
+                </li>
+                 <li>
+                    <a href="/yuyueliuliu/article/category/1117516" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">2.6 windows phone</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/yuyueliuliu/article/category/2248693" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">2.7 微信</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/yuyueliuliu/article/category/2339121" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">3 ----杂项仓库----</a><span>(0)</span>
+                </li>
+                 <li>
+                    <a href="/yuyueliuliu/article/category/2339003" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">3.1 网站资源</a><span>(0)</span>
+                </li>
+                 <li>
+                    <a href="/yuyueliuliu/article/category/513635" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">3.2 其他</a><span>(4)</span>
+                </li>
+</ul>
+</div><div id="panel_Archive" class="panel">
+<ul class="panel_head"><span>文章存档</span></ul>
+<ul class="panel_body">
+<div id="archive_list">
+<!--归档统计-->
+<li><a href="/yuyueliuliu/article/month/2015/02">2015年02月</a><span>(2)</span></li><li><a href="/yuyueliuliu/article/month/2014/07">2014年07月</a><span>(1)</span></li><li><a href="/yuyueliuliu/article/month/2014/06">2014年06月</a><span>(2)</span></li><li><a href="/yuyueliuliu/article/month/2014/05">2014年05月</a><span>(1)</span></li><li><a href="/yuyueliuliu/article/month/2014/04">2014年04月</a><span>(1)</span></li><li><a href="/yuyueliuliu/article/month/2013/12">2013年12月</a><span>(8)</span></li><li><a href="/yuyueliuliu/article/month/2013/11">2013年11月</a><span>(1)</span></li><li><a href="/yuyueliuliu/article/month/2013/07">2013年07月</a><span>(1)</span></li><li><a href="/yuyueliuliu/article/month/2013/05">2013年05月</a><span>(1)</span></li><li><a href="/yuyueliuliu/article/month/2012/11">2012年11月</a><span>(1)</span></li><li><a href="/yuyueliuliu/article/month/2012/04">2012年04月</a><span>(3)</span></li><li><a href="/yuyueliuliu/article/month/2010/11">2010年11月</a><span>(1)</span></li><li><a href="/yuyueliuliu/article/month/2010/04">2010年04月</a><span>(1)</span></li><li><a href="/yuyueliuliu/article/month/2009/10">2009年10月</a><span>(1)</span></li><li><a href="/yuyueliuliu/article/month/2009/09">2009年09月</a><span>(4)</span></li><li><a href="/yuyueliuliu/article/month/2009/08">2009年08月</a><span>(2)</span></li><li><a href="/yuyueliuliu/article/month/2009/07">2009年07月</a><span>(9)</span></li><li><a href="/yuyueliuliu/article/month/2009/05">2009年05月</a><span>(1)</span></li><li><a href="/yuyueliuliu/article/month/2009/04">2009年04月</a><span>(1)</span></li>
+</div>
+</ul>
+</div>
+<div id="hotarticls" class="panel">
+<ul class="panel_head">
+    <span>       
+阅读排行    </span>
+</ul>
+
+<ul class="panel_body itemlist">
+<li>
+<a href="/yuyueliuliu/article/details/17078773" title="getVisibleSize 和 getContentSize 和 getWinSize">getVisibleSize 和 getContentSize 和 getWinSize</a><span>(7134)</span>
+</li>
+<li>
+<a href="/yuyueliuliu/article/details/31748931" title="android打包时***is not translated in zh错误">android打包时***is not translated in zh错误</a><span>(6653)</span>
+</li>
+<li>
+<a href="/yuyueliuliu/article/details/4348143" title="BREW学习笔记 - IDIB 接口(一)">BREW学习笔记 - IDIB 接口(一)</a><span>(6473)</span>
+</li>
+<li>
+<a href="/yuyueliuliu/article/details/8911752" title="让svn在使用checkout命令时不含根目录">让svn在使用checkout命令时不含根目录</a><span>(4855)</span>
+</li>
+<li>
+<a href="/yuyueliuliu/article/details/9271605" title="cocos2d-x使用extension扩展包的方法">cocos2d-x使用extension扩展包的方法</a><span>(3588)</span>
+</li>
+<li>
+<a href="/yuyueliuliu/article/details/25423599" title="微信公众号的类型和功能">微信公众号的类型和功能</a><span>(2857)</span>
+</li>
+<li>
+<a href="/yuyueliuliu/article/details/17118767" title="cocos2d-x的CCArray用法">cocos2d-x的CCArray用法</a><span>(2759)</span>
+</li>
+<li>
+<a href="/yuyueliuliu/article/details/17122145" title="cocos2d-x中CCNode的init和onEnter">cocos2d-x中CCNode的init和onEnter</a><span>(2381)</span>
+</li>
+<li>
+<a href="/yuyueliuliu/article/details/4342152" title="Unicode文件头的标识 - 使用IHtmlViewer 接口时遇到的一个问题">Unicode文件头的标识 - 使用IHtmlViewer 接口时遇到的一个问题</a><span>(2370)</span>
+</li>
+<li>
+<a href="/yuyueliuliu/article/details/7454695" title="photoshopCS3 不能即时刷新操作的解决方法">photoshopCS3 不能即时刷新操作的解决方法</a><span>(2064)</span>
+</li>
+</ul>
+</div>
+<div id="hotarticls2" class="panel">
+<ul class="panel_head"><span>评论排行</span></ul>
+<ul class="panel_body itemlist">
+<li>
+<a href="/yuyueliuliu/article/details/37905709" title="quick-cocos2d-x -2 打不开&quot;player.app&quot;">quick-cocos2d-x -2 打不开&quot;player.app&quot;</a><span>(4)</span>
+</li>
+<li>
+<a href="/yuyueliuliu/article/details/4683167" title="Qt Creator的Help QT助手失踪问题-windows OS下">Qt Creator的Help QT助手失踪问题-windows OS下</a><span>(3)</span>
+</li>
+<li>
+<a href="/yuyueliuliu/article/details/31748931" title="android打包时***is not translated in zh错误">android打包时***is not translated in zh错误</a><span>(3)</span>
+</li>
+<li>
+<a href="/yuyueliuliu/article/details/4435914" title="BREW学习笔记 -  初识Brew">BREW学习笔记 -  初识Brew</a><span>(2)</span>
+</li>
+<li>
+<a href="/yuyueliuliu/article/details/4584154" title="BREW内存调试输出信息 ">BREW内存调试输出信息 </a><span>(2)</span>
+</li>
+<li>
+<a href="/yuyueliuliu/article/details/4590078" title="“五险一金”的深入解析，上班打工族的一定要看 ">“五险一金”的深入解析，上班打工族的一定要看 </a><span>(2)</span>
+</li>
+<li>
+<a href="/yuyueliuliu/article/details/8911752" title="让svn在使用checkout命令时不含根目录">让svn在使用checkout命令时不含根目录</a><span>(1)</span>
+</li>
+<li>
+<a href="/yuyueliuliu/article/details/4346362" title="聚沙成塔小知识-VC中定义模拟器的路径">聚沙成塔小知识-VC中定义模拟器的路径</a><span>(1)</span>
+</li>
+<li>
+<a href="/yuyueliuliu/article/details/4342152" title="Unicode文件头的标识 - 使用IHtmlViewer 接口时遇到的一个问题">Unicode文件头的标识 - 使用IHtmlViewer 接口时遇到的一个问题</a><span>(1)</span>
+</li>
+<li>
+<a href="/yuyueliuliu/article/details/6027607" title="Google code 获取密码页打不开的解决办法">Google code 获取密码页打不开的解决办法</a><span>(1)</span>
+</li>
+</ul>
+</div>
+<div id="homepageArticles" class="panel tracking-ad" data-mod="popu_4">
+<ul class="panel_head"><span>推荐文章</span></ul>
+<ul class="panel_body" id="ad_commend">
+<ul>
+<li><a href="http://blog.csdn.net/phodal/article/details/52145386" target="_blank">* 致JavaScript也将征服的物联网世界</a></li>
+<li><a href="http://blog.csdn.net/ioio_jy/article/details/52124726" 
+target="_blank">* 从苏宁电器到卡巴斯基：难忘的三年硕士时光</a></li>
+<li><a href="http://blog.csdn.net/u013970991/article/details/52120005" 
+target="_blank">* 作为一名基层管理者如何利用情商管理自己和团队（一）</a></li>
+<li><a href="http://blog.csdn.net/zhangphil/article/details/52130212" target="_blank">* Android CircleImageView圆形ImageView</a></li>
+<li><a href="http://blog.csdn.net/poem_qianmo/article/details/52144086" 
+target="_blank">* 高质量代码的命名法则</a></li>
+
+
+</ul></ul>
+</div>
+
+
+<div id="newcomments" class="panel">
+<ul class="panel_head"><span>最新评论</span></ul>
+<ul class="panel_body itemlist">
+    <li>
+   
+         <a href="/yuyueliuliu/article/details/31748931#comments">android打包时***is not translated in zh错误</a>
+    <p style="margin:0px;"><a href="/sunrise2075" class="user_name">sunrise2075</a>:
+哥已经解决了，谢谢关心
+    </p>
+    </li>
+    <li>
+   
+         <a href="/yuyueliuliu/article/details/9271605#comments">cocos2d-x使用extension扩展包的方法</a>
+    <p style="margin:0px;"><a href="/gaoshu1992" class="user_name">gaoshu1992</a>:
+cocos3.6里面找不到扩展包怎么办呢
+    </p>
+    </li>
+    <li>
+   
+         <a href="/yuyueliuliu/article/details/9271605#comments">android打包时***is not translated in zh错误</a>
+    <p style="margin:0px;"><a href="/qq_28493939" class="user_name">qq_28493939</a>:
+@sunrise2075:问题解决了吗
+    </p>
+    </li>
+    <li>
+   
+         <a href="/yuyueliuliu/article/details/9271605#comments">android打包时***is not translated in zh错误</a>
+    <p style="margin:0px;"><a href="/sunrise2075" class="user_name">sunrise2075</a>:
+为何没用？
+    </p>
+    </li>
+    <li>
+   
+         <a href="/yuyueliuliu/article/details/17098823#comments">cocos2d-x创建精灵动画方式汇总</a>
+    <p style="margin:0px;"><a href="/u014496890" class="user_name">u014496890</a>:
+CCAnimation *animation=CCAnimation::createWithSpri...
+    </p>
+    </li>
+    <li>
+   
+         <a href="/yuyueliuliu/article/details/37905709#comments">quick-cocos2d-x -2 打不开&quot;player.app&quot;</a>
+    <p style="margin:0px;"><a href="/assyer" class="user_name">assyer</a>:
+很有用，只是不知道这样删除后会有什么负面作用
+    </p>
+    </li>
+    <li>
+   
+         <a href="/yuyueliuliu/article/details/37905709#comments">quick-cocos2d-x -2 打不开&quot;player.app&quot;</a>
+    <p style="margin:0px;"><a href="/lijiacumt" class="user_name">lijiacumt</a>:
+纠结了我好久，感激楼主啊
+    </p>
+    </li>
+    <li>
+   
+         <a href="/yuyueliuliu/article/details/37905709#comments">quick-cocos2d-x -2 打不开&quot;player.app&quot;</a>
+    <p style="margin:0px;"><a href="/yuyueliuliu" class="user_name">yuyueliuliu</a>:
+@super2099:CodeSignature 这些文件包含了被签名后的信息，会被用来验证软件发行...
+    </p>
+    </li>
+    <li>
+   
+         <a href="/yuyueliuliu/article/details/37905709#comments">quick-cocos2d-x -2 打不开&quot;player.app&quot;</a>
+    <p style="margin:0px;"><a href="/super2099" class="user_name">super2099</a>:
+正解啊，，可是大神能说下为什么吗？为什么把那个文件删了就可以了
+    </p>
+    </li>
+    <li>
+   
+         <a href="/yuyueliuliu/article/details/4683167#comments">Qt Creator的Help QT助手失踪问题-windows OS下</a>
+    <p style="margin:0px;"><a href="/yuyueliuliu" class="user_name">yuyueliuliu</a>:
+@jianxiangyi:谢谢分享
+    </p>
+    </li>
+</ul>
+</div>
+    </div>
+    <div class="clear">
+    </div>
+ </div>   
+            <div class="clear">
+            </div>
+        </div>
+
+        
+
+<script type="text/javascript" src="http://c.csdnimg.cn/rabbit/cnick/cnick.js"></script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/newblog.min.js"></script>
+
+
+<script type="text/javascript" src="http://medal.blog.csdn.net/showblogmedal.ashx?blogid=245254"></script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/JavaScript1.js"></script>
+
+    <script type="text/javascript" src="http://passport.csdn.net/content/loginbox/login.js"></script>
+<script type="text/javascript">document.write("<img src=http://counter.csdn.net/pv.aspx?id=24 border=0 width=0 height=0>");</script>
+<script type="text/javascript" src="http://www.csdn.net/ui/scripts/Csdn/counter.js"></script>
+<script type="text/javascript" src="http://ad.csdn.net/scripts/ad-blog.js"></script>
+<script type="text/javascript">
+    $(function () {
+        function __get_code_toolbar(snippet_id) {
+            return $("<span class='tracking-ad' data-mod='popu_167'><a href='https://code.csdn.net/snippets/"
+                    + snippet_id
+                    + "' target='_blank' title='在CODE上查看代码片'  style='text-indent:0;'><img src='https://code.csdn.net/assets/CODE_ico.png' width=12 height=12 alt='在CODE上查看代码片' style='position:relative;top:1px;left:2px;'/></a></span>"
+                    + "<span class='tracking-ad' data-mod='popu_170'><a href='https://code.csdn.net/snippets/"
+                    + snippet_id
+                    + "/fork' target='_blank' title='派生到我的代码片' style='text-indent:0;'><img src='https://code.csdn.net/assets/ico_fork.svg' width=12 height=12 alt='派生到我的代码片' style='position:relative;top:2px;left:2px;'/></a></span>");
+        }
+        
+        $("[code_snippet_id]").each(function () {
+            __s_id = $(this).attr("code_snippet_id");
+            if (__s_id != null && __s_id != "" && __s_id != 0 && parseInt(__s_id) > 70020) {
+                __code_tool = __get_code_toolbar(__s_id);
+                $(this).prev().find(".tools").append(__code_tool);
+            }
+        });
+
+        $(".bar").show();
+    });
+</script>
+
+
+
+
+    </div>
+      <!--new top-->
+    
+    <script id="csdn-toolbar-id" btnId="header_notice_num" wrapId="note1" count="5" subCount="5" type="text/javascript" src="http://c.csdnimg.cn/public/common/toolbar/js/toolbar.js"></script>     <!--new top-->
+   
+    <link href="http://c.csdnimg.cn/comm_ask/css/ask_float_block.css" type="text/css" rel="stylesheet" />
+    <script language='JavaScript' type='text/javascript' src='http://c.csdnimg.cn/comm_ask/js/libs/wmd.js'></script>
+    <script language='JavaScript' type='text/javascript' src='http://c.csdnimg.cn/comm_ask/js/libs/showdown.js'></script>
+    <script language='JavaScript' type='text/javascript' src='http://c.csdnimg.cn/comm_ask/js/libs/prettify.js'></script>
+    <script language='JavaScript' type='text/javascript' src='http://c.csdnimg.cn/comm_ask/js/apps/ask_float_block.js'></script>
+   
+
+  <div id="a52b5334d" style="width: 1px; height: 1px; display: none;">
+                    <script id="adJs52b5334"></script>
+                    <script>document.getElementById("adJs52b5334").src = "http://ads.csdn.net/js/opt/52b5334.js?t=" + Math.random();</script>
+   </div>
+
+    <link rel="stylesheet" href="http://static.blog.csdn.net/css/blog_code.css" />
+    <script type="text/javascript" src="http://static.blog.csdn.net/scripts/saveToCode.js"></script>
+      <script type="text/javascript" src="//csdnimg.cn/rabbit/tracking-ad/main.js?75eacd8"></script>
+</body>
+</html>   
+ 

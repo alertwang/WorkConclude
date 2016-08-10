@@ -1,0 +1,27 @@
+1.Legato使用的*.adef中定义的
+bindings:
+{
+    *.le_info -> modemService.le_info
+    *.le_mrc -> modemService.le_mrc          //ocj20160602 add it for TCU
+    *.le_sim -> modemService.le_sim          //ocj20160602 add it for TCU
+    *.le_mdmDefs -> le_mdmDefs.api           //ocj20160602 add it for TCU
+    //*.le_mdc -> modemService.le_mdc          //ocj20160602 add it for TCU
+}
+bindings的使用详细请见:
+		http://legato.io/legato-docs/latest/basicAppsIPC.html
+		http://legato.io/legato-docs/latest/defFilesAdef.html
+
+2.编译App的命令
+mkapp -t ar7 helloWorld.adef 
+
+3.IPC
+	(1)在*.api文件中定义:
+			FUNCTION Print //api-function-name
+			(
+			    string message[100] IN ///< message to be printed into the log.
+			);
+
+	(2)在服务器端实现函数: <interface-name> '_' <api-function-name> 
+			如: printer_Print
+	(3)在客户端调用函数: <interface-name> '_' <api-function-name> 
+			如: printer_Print("Hello, world!");
