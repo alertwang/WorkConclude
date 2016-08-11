@@ -1,0 +1,2 @@
+1.编译的时候如何连接静态库
+gcc uart_test.c mcu_protocol_message.pb-c.c -o uart_test -lpthread -static -lprotobuf-c
