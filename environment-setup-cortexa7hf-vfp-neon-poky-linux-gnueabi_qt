@@ -1,0 +1,5 @@
+export SDKTARGETSYSROOT=/opt/poky/weston/sysroots/cortexa7hf-vfp-neon-poky-linux-gnueabi
+export PATH=/opt/poky/weston/sysroots/x86_64-pokysdk-linux/usr/bin:/opt/poky/weston/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi:$PATH
+export PKG_CONFIG_SYSROOT_DIR=$SDKTARGETSYSROOT
+export PKG_CONFIG_PATH=$SDKTARGETSYSROOT/usr/lib/pkgconfig
+export ARCH=arm

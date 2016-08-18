@@ -1,0 +1,41 @@
+所需软件：
+1.       Qt551: qt-everywhere-opensource-src-5.5.1.tar.xz
+2.       R-Car E2 ALT board Linux Wayland Cross-compile Toolchain
+3.       R-Car E2 ALT board Linux Wayland SDK system files
+可以通过bitbake core-image-weston-sdk 编译出SDK版的系统，里面包含比较全的库。
+编译步骤：
+1.       将附件environment-setup-cortexa7hf-vfp-neon-poky-linux-gnueabi_qt复制到Cross-compile Toolchain安装目录，同原environment-setup-cortexa7hf-vfp-neon-poky-linux-gnueabi放同一目录下。并执行以下命令设置环境变量：
+source environment-setup-cortexa7hf-vfp-neon-poky-linux-gnueabi_qt
+2.       解压qt-everywhere-opensource-src-5.5.1.tar.xz，将附件Qt551.patch复制到qt-everywhere-opensource-src-5.5.1目录下，并执行Patch。
+3.       根据工具链安装位置，以及期望的Qt安装位置修改qt-everywhere-opensource-src-5.5.1目录下Config.sh和 /qtbase/mkspecs/linux-arm-rcar-g++/qmake.conf文件。
+4.       在qt-everywhere-opensource-src-5.5.1目录下执行以下命令进行配置及编译：
+./Config.sh
+make
+sudo make install
+
+查看你编译的Qt库中缺少qtwayland库文件。在编译完Qt库后，qtwayland库可以另外编译。
+         在qt源码包中，进入qtwayland文件夹，运行../qtbase/bin/qmake，可能会提示报错说缺少库文件。
+         你可以打开qtwayland文件夹中的README看到需要xkbcommon和wayland库。
+         Xkbcommon大概可以通过sudo apt-get install libxkbcommon安装。
+         缺少wayland-scanner的话，可以注释掉qtwayland.pro中的！config_wayland_scanner那段。
+         然后qmake没提示错误的可以执行，make编译和make install安装，之后就有qtwayland的库。
+
+5.       编译完后可以调用/qtbase/bin/qmake编译一些示例。
+6.       将编译生成的Qt 库文件等复制到SDK版的BSP中，余下步骤同之前Qt demo中的运行步骤。
+以下为之前Qt demo中的运行步骤：
+1. Decompress "./Bin files/libs_for_koelsch/qt5.4.0_arm_libs.tar.gz" and copy "Qt540" to "/" on ARM.
+ 
+2. Copy "./Bin files/libs_for_koelsch/libgstlibav.so" to "/usr/lib/gstreamer-1.0/" on R-car M2 Evaluation Board.
+   Copy "./Bin files/libs_for_koelsch/libgstapetag.so" to "/usr/lib/gstreamer-1.0/" on R-car M2 Evaluation Board.
+ 
+3. Copy "./Bin files/libs_for_koelsch/preloadable_libiconv.so" to "/usr/lib/" on R-car M2 Evaluation Board.
+ 
+4. Copy "./Bin files/libs_for_koelsch/weston/weston.ini" to "/etc/xdg/weston" on R-car M2 Evaluation Board. It may override original "weston.ini", please make backup. BSP160 does not have "/etc/xdg/weston/" directory, please create it manually at first.
+   Copy "./Bin files/libs_for_koelsch/weston/heart.png" to "/usr/share/weston" on R-car M2 Evaluation Board.
+ 
+5. Copy "./Bin files/libs_for_koelsch/profile" to "/etc/" on R-car M2 Evaluation Board.
+ 
+6. Copy "./Bin files/DEMO" directory to "/home/root/" on R-car M2 Evaluation Board.
+ 
+7. Restart the system.
+7.       在Wayland界面的Terminal中可以运行编译的Qt 示例程序。
