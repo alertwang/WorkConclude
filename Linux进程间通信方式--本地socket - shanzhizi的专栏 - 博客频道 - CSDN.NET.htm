@@ -1,0 +1,1355 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+     
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    
+<head>   
+   
+
+    <script type="text/javascript" src="http://c.csdnimg.cn/pubfooter/js/tracking.js" charset="utf-8"></script>  
+
+    <script type="text/javascript">
+        var protocol = window.location.protocol;
+        document.write('<script type="text/javascript" src="' + protocol + '//csdnimg.cn/pubfooter/js/repoAddr2.js?v=' + Math.random() + '"></' + 'script>');
+    </script>
+
+  
+ <meta http-equiv="Cache-Control" content="no-siteapp" /><link rel="alternate" media="handheld" href="#" />
+
+    <title>Linux进程间通信方式--本地socket - shanzhizi的专栏
+        - 博客频道 - CSDN.NET</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="哈夫曼算法原理Wikipedia上面说的很清楚了，这里我就不再赘述，直接贴过来了。1952年, David A. Huffman提出了一个不同的算法，这个算法可以为任何的可能性提供出一个理想的树。香农-范诺编码（Shanno-Fano）是从树的根节点到叶子节点所进行的的编码，哈夫曼编码算法却是从相反的方向，暨从叶子节点到根节点的方向编码的。为每个符号建立一个叶子节点" />
+    <script src="http://static.blog.csdn.net/scripts/jquery.js" type="text/javascript"></script>
+      <script type="text/javascript" src="http://static.blog.csdn.net/scripts/jquery-version.js"></script>
+    <script type="text/javascript" src="http://static.blog.csdn.net/scripts/ad.js?v=1.1"></script>
+        <!--new top-->
+               <link rel="stylesheet" href="http://c.csdnimg.cn/public/common/toolbar/css/index.css">        <!--new top-->
+    
+      <!-- ad begin -->
+         <script language="javascript" type="text/javascript" src="http://ads.csdn.net/js/tracking.js"></script>
+    <!-- ad end-->
+
+    <link rel="Stylesheet" type="text/css" href="http://static.blog.csdn.net/skin/skin-yellow/css/style.css?v=1.1" />
+    <link id="RSSLink" title="RSS" type="application/rss+xml" rel="alternate" href="/shanzhizi/rss/list" />
+    <link rel="shortcut icon" href="http://c.csdnimg.cn/public/favicon.ico" />
+    <link type="text/css" rel="stylesheet" href="http://static.blog.csdn.net/scripts/SyntaxHighlighter/styles/default.css" />
+ 
+
+
+</head>
+<body>
+    <!-- 广告位开始 -->
+        <ins data-revive-zoneid="149" data-revive-id="8c38e720de1c90a6f6ff52f3f89c4d57"></ins>
+    <!-- 广告位结束 -->
+
+    
+   
+      <!--new top-->
+    <script id="toolbar-tpl-scriptId" fixed="true" prod="blog" skin="black" src="http://c.csdnimg.cn/public/common/toolbar/js/html.js" type="text/javascript"></script>
+     <!--new top-->
+    <div id="container">
+        <div id="header">
+    <div class="header">
+        <div id="blog_title">
+            <h2>
+                <a href="http://blog.csdn.net/shanzhizi">shanzhizi的专栏</a></h2>
+            <h3>http://blog.csdn.net/shanzhizi</h3>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+        
+     
+    </div>
+</div>
+<div id="navigator">
+    <div class="navigator_bg">
+    </div>
+    <div class="navigator">
+        <ul>
+            
+                <li id="btnContents"><a href="http://blog.csdn.net/shanzhizi?viewmode=contents"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_mulu'])">
+                    <img src="http://static.blog.csdn.net/images/ico_list.gif">目录视图</span></a></li>
+                <li id="btnView"><a href="http://blog.csdn.net/shanzhizi?viewmode=list"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_zhaiyao'])">
+                    <img src="http://static.blog.csdn.net/images/ico_summary.gif">摘要视图</span></a></li>
+                <li id="btnRss"><a href="http://blog.csdn.net/shanzhizi/rss/list"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_RSS'])">
+                    <img src="http://static.blog.csdn.net/images/ico_rss.gif">订阅</span></a></li>                
+            
+
+            </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    var username = "shanzhizi";
+    var _blogger = username;
+    var blog_address = "http://blog.csdn.net/shanzhizi";
+    var static_host = "http://static.blog.csdn.net";
+    var currentUserName = "xiaowang0907";  
+</script>
+
+        <div id="body">
+            <div id="main">
+                <div class="main">
+                        <div class="ad_class">
+<div class="notice tracking-ad" data-mod='popu_3' > 
+
+
+<a href="http://blog.csdn.net/blogdevteam/article/details/51919935">
+<font color=blue>【公告】博客系统优化升级</font></a>
+&nbsp;&nbsp;&nbsp;
+<a href="http://lib.csdn.net/base/unity3d/structure">
+<font color=red>Unity3D学习，离VR开发还有一步
+</font></a>
+&nbsp;&nbsp;&nbsp;
+<a href="http://blog.csdn.net/blogdevteam/article/details/51984275">
+<font color=blue>博乐招募开始啦
+</font></a>
+&nbsp;&nbsp;&nbsp;
+
+<a href="http://lib.csdn.net/base/vr">
+<font color=red>虚拟现实，一探究竟
+</font></a>
+&nbsp;&nbsp;&nbsp;
+
+</font></a>
+</div>                        </div>
+                        
+
+
+
+<!-- 广告位开始 -->
+<ins data-revive-zoneid="72" data-revive-id="8c38e720de1c90a6f6ff52f3f89c4d57"></ins>
+<!-- 广告位结束 -->
+
+  
+<link href="http://static.blog.csdn.net/css/comment1.css" type="text/css" rel="stylesheet" />
+<link href="http://static.blog.csdn.net/css/style1.css" type="text/css" rel="stylesheet" />
+<script language='JavaScript' type='text/javascript' src='http://download.csdn.net/js/jquery.cookie.js'></script>
+<script type="text/javascript" src="http://c.csdnimg.cn/rabbit/search-service/main.js"></script>
+<link rel="stylesheet" href="http://static.blog.csdn.net/public/res-min/markdown_views.css?v=1.0" />
+<link rel="stylesheet" href="http://static.blog.csdn.net/css/category.css?v=1.0" />
+<script type="text/javascript" src="http://static.blog.csdn.net/public/res/bower-libs/MathJax/MathJax.js?config=TeX-AMS_HTML"></script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/web-storage-cache.min.js"></script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/replace.min.js"></script>
+
+
+
+
+  <script type="text/ecmascript">
+      window.quickReplyflag = true;
+           
+            var isBole = false;
+            
+          
+    </script>
+<div id="article_details" class="details">
+    <div class="article_title">   
+         <span class="ico ico_type_Original"></span>
+
+
+    <h1>
+        <span class="link_title"><a href="/shanzhizi/article/details/16882087">
+        <font color="red">[置顶]</font>
+        Linux进程间通信方式--本地socket            
+        </a></span>
+    </h1>
+</div>
+
+   
+
+        <div class="article_manage clearfix">
+        <div class="article_l">
+            <span class="link_categories">
+            标签：
+              <a href='http://www.csdn.net/tag/socket' target=_blank onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_tag']);">socket</a>
+            </span>
+        </div>
+        <div class="article_r">
+            <span class="link_postdate">2013-11-22 12:30</span>
+            <span class="link_view" title="阅读次数">19813人阅读</span>
+            <span class="link_comments" title="评论次数"> <a href="#comments" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_pinglun'])">评论</a>(1)</span>
+            <span class="link_collect tracking-ad" data-mod="popu_171"> <a href="javascript:void(0);" onclick="javascript:collectArticle('Linux进程间通信方式--本地socket','16882087');return false;" title="收藏">收藏</a></span>
+             <span class="link_report"> <a href="#report" onclick="javascript:report(16882087,2);return false;" title="举报">举报</a></span>
+
+        </div>
+    </div>
+    <div class="embody"  style="display:none" id="embody">
+        <span class="embody_t">本文章已收录于：</span>
+        <div class="embody_c" id="lib" value="{&quot;err&quot;:0,&quot;msg&quot;:&quot;ok&quot;,&quot;data&quot;:[]}"></div>
+    </div>
+    <style type="text/css">        
+            .embody{
+                padding:10px 10px 10px;
+                margin:0 -20px;
+                border-bottom:solid 1px #ededed;                
+            }
+            .embody_b{
+                margin:0 ;
+                padding:10px 0;
+            }
+            .embody .embody_t,.embody .embody_c{
+                display: inline-block;
+                margin-right:10px;
+            }
+            .embody_t{
+                font-size: 12px;
+                color:#999;
+            }
+            .embody_c{
+                font-size: 12px;
+            }
+            .embody_c img,.embody_c em{
+                display: inline-block;
+                vertical-align: middle;               
+            }
+             .embody_c img{               
+                width:30px;
+                height:30px;
+            }
+            .embody_c em{
+                margin: 0 20px 0 10px;
+                color:#333;
+                font-style: normal;
+            }
+    </style>
+    <script  type="text/javascript">
+        $(function () {
+            try
+            {
+                var lib = eval("("+$("#lib").attr("value")+")");
+                var html = "";
+                if (lib.err == 0) {
+                    $.each(lib.data, function (i) {
+                        var obj = lib.data[i];
+                        //html += '<img src="' + obj.logo + '"/>' + obj.name + "&nbsp;&nbsp;";
+                        html += ' <a href="' + obj.url + '" target="_blank">';
+                        html += ' <img src="' + obj.logo + '">';
+                        html += ' <em><b>' + obj.name + '</b></em>';
+                        html += ' </a>';
+                    });
+                    if (html != "") {
+                        setTimeout(function () {
+                            $("#lib").html(html);                      
+                            $("#embody").show();
+                        }, 100);
+                    }
+                }      
+            } catch (err)
+            { }
+            
+        });
+    </script>
+      <div class="category clearfix">
+        <div class="category_l">
+           <img src="http://static.blog.csdn.net/images/category_icon.jpg">
+            <span>分类：</span>
+        </div>
+        <div class="category_r">
+                    <label  onclick="GetCategoryArticles('781010','shanzhizi','top','16882087');">
+                        <span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_fenlei']);">Linux<em>（190）</em></span>
+                      <img class="arrow-down" src="http://static.blog.csdn.net/images/arrow_triangle _down.jpg" style="display:inline;">
+                      <img class="arrow-up" src="http://static.blog.csdn.net/images/arrow_triangle_up.jpg" style="display:none;">
+                        <div class="subItem">
+                            <div class="subItem_t"><a  href="http://blog.csdn.net/shanzhizi/article/category/781010"  target="_blank">作者同类文章</a><i class="J_close">X</i></div>
+                            <ul class="subItem_l" id="top_781010">                            
+                            </ul>
+                        </div>
+                    </label>                    
+        </div>
+    </div>
+    <script   type="text/javascript" src="http://static.blog.csdn.net/scripts/category.js"></script>  
+        <div   class="bog_copyright">         
+            <p  class="copyright_p" >版权声明：本文为博主原创文章，未经博主允许不得转载。</p>
+        </div>
+
+  
+
+  
+  
+     
+
+<div id="article_content" class="article_content">
+
+<p>先上一个代码</p>
+<p>服务端：</p>
+<p></p>
+<pre code_snippet_id="77221" snippet_file_name="blog_20131122_1_9541575"  code_snippet_id="77221" snippet_file_name="blog_20131122_1_9541575" name="code" class="cpp">//s_unix.c
+#include &lt;stdio.h&gt;
+#include &lt;sys/types.h&gt;
+#include &lt;sys/socket.h&gt;
+#include &lt;sys/un.h&gt; 
+#define UNIX_DOMAIN &quot;/tmp/UNIX.domain&quot;
+int main(void)
+{
+    socklen_t clt_addr_len;
+    int listen_fd;
+    int com_fd;
+    int ret;
+    int i;
+    static char recv_buf[1024]; 
+    int len;
+    struct sockaddr_un clt_addr;
+    struct sockaddr_un srv_addr;
+    listen_fd=socket(PF_UNIX,SOCK_STREAM,0);
+    if(listen_fd&lt;0)
+    {
+        perror(&quot;cannot create communication socket&quot;);
+        return 1;
+    }  
+    
+    //set server addr_param
+    srv_addr.sun_family=AF_UNIX;
+    strncpy(srv_addr.sun_path,UNIX_DOMAIN,sizeof(srv_addr.sun_path)-1);
+    unlink(UNIX_DOMAIN);
+    //bind sockfd &amp; addr
+    ret=bind(listen_fd,(struct sockaddr*)&amp;srv_addr,sizeof(srv_addr));
+    if(ret==-1)
+    {
+        perror(&quot;cannot bind server socket&quot;);
+        close(listen_fd);
+        unlink(UNIX_DOMAIN);
+        return 1;
+    }
+    //listen sockfd 
+    ret=listen(listen_fd,1);
+    if(ret==-1)
+    {
+        perror(&quot;cannot listen the client connect request&quot;);
+        close(listen_fd);
+        unlink(UNIX_DOMAIN);
+        return 1;
+    }
+    //have connect request use accept
+    len=sizeof(clt_addr);
+    com_fd=accept(listen_fd,(struct sockaddr*)&amp;clt_addr,&amp;len);
+    if(com_fd&lt;0)
+    {
+        perror(&quot;cannot accept client connect request&quot;);
+        close(listen_fd);
+        unlink(UNIX_DOMAIN);
+        return 1;
+    }
+    //read and printf sent client info
+    printf(&quot;/n=====info=====/n&quot;);
+    for(i=0;i&lt;4;i++)
+    {
+        memset(recv_buf,0,1024);
+        int num=read(com_fd,recv_buf,sizeof(recv_buf));
+        printf(&quot;Message from client (%d)) :%s/n&quot;,num,recv_buf);  
+    }
+    close(com_fd);
+    close(listen_fd);
+    unlink(UNIX_DOMAIN);
+    return 0;
+}
+</pre><br>
+客户端：
+<p></p>
+<p></p>
+<pre code_snippet_id="77221" snippet_file_name="blog_20131122_2_9127654"  code_snippet_id="77221" snippet_file_name="blog_20131122_2_9127654" name="code" class="cpp">//c_unix.c
+#include &lt;stdio.h&gt;
+#include &lt;sys/types.h&gt;
+#include &lt;sys/socket.h&gt;
+#include &lt;sys/un.h&gt;
+#define UNIX_DOMAIN &quot;/tmp/UNIX.domain&quot;
+int main(void)
+{
+    int connect_fd;
+    int ret;
+    char snd_buf[1024];
+    int i;
+    static struct sockaddr_un srv_addr;
+//creat unix socket
+    connect_fd=socket(PF_UNIX,SOCK_STREAM,0);
+    if(connect_fd&lt;0)
+    {
+        perror(&quot;cannot create communication socket&quot;);
+        return 1;
+    }   
+    srv_addr.sun_family=AF_UNIX;
+    strcpy(srv_addr.sun_path,UNIX_DOMAIN);
+//connect server
+    ret=connect(connect_fd,(struct sockaddr*)&amp;srv_addr,sizeof(srv_addr));
+    if(ret==-1)
+    {
+        perror(&quot;cannot connect to the server&quot;);
+        close(connect_fd);
+        return 1;
+    }
+    memset(snd_buf,0,1024);
+    strcpy(snd_buf,&quot;message from client&quot;);
+//send info server
+    for(i=0;i&lt;4;i++)
+        write(connect_fd,snd_buf,sizeof(snd_buf));
+    close(connect_fd);
+    return 0;
+}
+</pre>
+<p><br>
+</p>
+<p>使用套接字除了可以实现网络间不同主机间的通信外，还可以实现同一主机的不同进程间的通信，且建立的通信是双向的通信。<strong>socket</strong>进程通信与网络通信使用的是统一套接口，只是地址结构与某些参数不同。</p>
+<p>一、创建<strong><a target="_blank" target="_blank" href="http://blog.csdn.net/shanzhizi">socket</a></strong>流程</p>
+<p>（1）创建socket，类型为AF_LOCAL或AF_UNIX，表示用于进程通信：<br>
+</p>
+<p>创建套接字需要使用 socket 系统调用，其原型如下：</p>
+<p><br>
+int socket(int domain, int type, int protocol);</p>
+<p><br>
+其中，domain 参数指定协议族，对于本地套接字来说，其&#20540;须被置为 AF_UNIX 枚举&#20540;；type 参数指定套接字类型，protocol 参数指定具体协议；type 参数可被设置为 SOCK_STREAM（流式套接字）或 SOCK_DGRAM（数据报式套接字），protocol 字段应被设置为 0；其返回&#20540;为生成的套接字描述符。</p>
+<p><br>
+对于本地套接字来说，流式套接字（SOCK_STREAM）是一个有顺序的、可靠的双向字节流，相当于在本地进程之间建立起一条数据通道；数据报式套接字（SOCK_DGRAM）相当于单纯的发送消息，在进程通信过程中，理论上可能会有信息丢失、复制或者不按先后次序到达的情况，但由于其在本地通信，不通过外界网络，这些情况出现的概率很小。<br>
+</p>
+<p><br>
+</p>
+<p>二、命名<strong>socket</strong>。</p>
+<p>SOCK_STREAM 式本地套接字的通信双方均需要具有本地地址，其中服务器端的本地地址需要明确指定，指定方法是使用 struct sockaddr_un 类型的变量。</p>
+<p>struct sockaddr_un {<br>
+&nbsp; &nbsp; sa_family_t &nbsp; &nbsp; sun_family; &nbsp; &nbsp; /* AF_UNIX */<br>
+&nbsp; &nbsp; char &nbsp; &nbsp;sun_path[UNIX_PATH_MAX]; &nbsp; &nbsp; &nbsp; &nbsp;/* 路径名 */<br>
+};<br>
+</p>
+<p>这里面有一个很关键的东西，socket进程通信命名方式有两种。一是普通的命名，socket会根据此命名创建一个同名的socket文件，客户端连接的时候通过读取该socket文件连接到socket服务端。这种方式的弊端是服务端必须对socket文件的路径具备写权限，客户端必须知道socket文件路径，且必须对该路径有读权限。</p>
+<p>另外一种命名方式是抽象命名空间，这种方式不需要创建socket文件，只需要命名一个全局名字，即可让客户端根据此名字进行连接。后者的实现过程与前者的差别是，后者在对地址结构成员sun_path数组赋&#20540;的时候，必须把第一个字节置0，即sun_path[0] = 0，下面用代码说明：<br>
+</p>
+<p><br>
+</p>
+<p>第一种方式：</p>
+<pre code_snippet_id="77221" snippet_file_name="blog_20131122_3_1422736"  name="code" class="cpp">//name the server socket 
+	server_addr.sun_family = AF_UNIX;
+	strcpy(server_addr.sun_path,&quot;/tmp/UNIX.domain&quot;);
+	server_len = sizeof(struct sockaddr_un);
+	client_len = server_len;</pre><br>
+<br>
+<br>
+第二种方式：
+<p></p>
+<p></p>
+<pre code_snippet_id="77221" snippet_file_name="blog_20131122_4_1382414"  code_snippet_id="77221" snippet_file_name="blog_20131122_4_1382414" name="code" class="cpp">#define SERVER_NAME @socket_server</pre><br>
+<pre code_snippet_id="77221" snippet_file_name="blog_20131122_5_9572270"  code_snippet_id="77221" snippet_file_name="blog_20131122_5_9572270" name="code" class="cpp"> //name the socket
+    server_addr.sun_family = AF_UNIX;
+    strcpy(server_addr.sun_path, SERVER_NAME);
+    server_addr.sun_path[0]=0;
+    //server_len = sizeof(server_addr);
+    server_len = strlen(SERVER_NAME)  + offsetof(struct sockaddr_un, sun_path);</pre><br>
+<br>
+<br>
+其中，offsetof函数在#include &lt;stddef.h&gt;头文件中定义。因第二种方式的首字节置0，我们可以在命名字符串SERVER_NAME前添加一个占位字符串，例如:<br>
+<pre code_snippet_id="77221" snippet_file_name="blog_20131122_6_2222230"  code_snippet_id="77221" snippet_file_name="blog_20131122_6_2222230" name="code" class="cpp">#define SERVER_NAME @socket_server  </pre><br>
+前面的@符号就表示占位符，不算为实际名称。
+<p></p>
+<p><strong>提示：</strong>客户端连接服务器的时候，必须与服务端的命名方式相同，即如果服务端是普通命名方式，客户端的地址也必须是普通命名方式；如果服务端是抽象命名方式，客户端的地址也必须是抽象命名方式。<br>
+</p>
+<p><br>
+</p>
+<p>三、绑定</p>
+<p>SOCK_STREAM 式本地套接字的通信双方均需要具有本地地址，其中服务器端的本地地址需要明确指定，指定方法是使用 struct sockaddr_un 类型的变量，将相应字段赋&#20540;，再将其绑定在创建的服务器套接字上，绑定要使用 bind 系统调用，其原形如下：</p>
+<p><br>
+int bind(int socket, const struct sockaddr *address, size_t address_len);</p>
+<p><br>
+其中<strong><a target="_blank" target="_blank" href="http://blog.csdn.net/shanzhizi"> socket</a></strong>表示服务器端的套接字描述符，address 表示需要绑定的本地地址，是一个 struct sockaddr_un 类型的变量，address_len 表示该本地地址的字节长度。实现服务器端地址指定功能的代码如下（假设服务器端已经通过上文所述的 socket 系统调用创建了套接字，server_sockfd
+ 为其套接字描述符）：<br>
+struct sockaddr_un server_address;<br>
+server_address.sun_family = AF_UNIX;<br>
+strcpy(server_address.sun_path, &quot;Server Socket&quot;);<br>
+bind(server_sockfd, (struct sockaddr*)&amp;server_address, sizeof(server_address));</p>
+<p><br>
+客户端的本地地址不用显式指定，只需能连接到服务器端即可，因此，客户端的 struct sockaddr_un 类型变量需要根据服务器的设置情况来设置，代码如下（假设客户端已经通过上文所述的 socket 系统调用创建了套接字，client_sockfd 为其套接字描述符）：<br>
+struct sockaddr_un client_address;<br>
+client_address.sun_family = AF_UNIX;<br>
+strcpy(client_address.sun_path, &quot;Server Socket&quot;);</p>
+<p>四、监听<br>
+服务器端套接字创建完毕并赋予本地地址&#20540;（名称，本例中为Server Socket）后，需要进行监听，等待客户端连接并处理请求，监听使用 listen 系统调用，接受客户端连接使用accept系统调用，它们的原形如下：<br>
+int listen(int socket, int backlog);<br>
+int accept(int socket, struct sockaddr *address, size_t *address_len);<br>
+其中 socket 表示服务器端的套接字描述符；backlog 表示排队连接队列的长度（若有多个客户端同时连接，则需要进行排队）；address 表示当前连接客户端的本地地址，该参数为输出参数，是客户端传递过来的关于自身的信息；address_len 表示当前连接客户端本地地址的字节长度，这个参数既是输入参数，又是输出参数。实现监听、接受和处理的代码如下：<br>
+#define MAX_CONNECTION_NUMBER 10<br>
+int server_client_length, server_client_sockfd;<br>
+struct sockaddr_un server_client_address;<br>
+listen(server_sockfd, MAX_CONNECTION_NUMBER);<br>
+while(1)<br>
+{<br>
+&nbsp; &nbsp; // ...... (some process code)<br>
+&nbsp; &nbsp; server_client_length　＝　sizeof(server_client_address);<br>
+&nbsp; &nbsp; server_client_sockfd = accept(server_sockfd, (struct sockaddr*)＆server_client_address, &amp;server_client_length);<br>
+&nbsp; &nbsp; // ...... (some process code)<br>
+}<br>
+这里使用死循环的原因是服务器是一个不断提供服务的实体，它需要不间断的进行监听、接受并处理连接，本例中，每个连接只能进行串行处理，即一个连接处理完后，才能进行后续连接的处理。如果想要多个连接并发处理，则需要创建线程，将每个连接交给相应的线程并发处理。<br>
+客户端套接字创建完毕并赋予本地地址&#20540;后，需要连接到服务器端进行通信，让服务器端为其提供处理服务。对于 SOCK_STREAM 类型的流式套接字，需要客户端与服务器之间进行连接方可使用。连接要使用 connect 系统调用，其原形为</p>
+<p><br>
+int connect(int socket, const struct sockaddr *address, size_t address_len);</p>
+<p><br>
+其中socket为客户端的套接字描述符，address表示当前客户端的本地地址，是一个 struct sockaddr_un 类型的变量，address_len 表示本地地址的字节长度。实现连接的代码如下：<br>
+connect(client_sockfd, (struct sockaddr*)&amp;client_address, sizeof(client_address));<br>
+无论客户端还是服务器，都要和对方进行数据上的交互，这种交互也正是我们进程通信的主题。一个进程扮演客户端的角色，另外一个进程扮演服务器的角色，两个进程之间相互发送接收数据，这就是基于本地套接字的进程通信。发送和接收数据要使用 write 和 read 系统调用，它们的原形为：<br>
+int read(int socket, char *buffer, size_t len);<br>
+int write(int socket, char *buffer, size_t len);<br>
+其中 socket 为套接字描述符；len 为需要发送或需要接收的数据长度；对于 read 系统调用，buffer 是用来存放接收数据的缓冲区，即接收来的数据存入其中，是一个输出参数；对于 write 系统调用，buffer 用来存放需要发送出去的数据，即 buffer 内的数据被发送出去，是一个输入参数；返回&#20540;为已经发送或接收的数据长度。例如客户端要发送一个 &quot;Hello&quot; 字符串给服务器，则代码如下：<br>
+char buffer[10] = &quot;Hello&quot;;<br>
+write(client_sockfd, buffer, strlen(buffer));<br>
+交互完成后，需要将连接断开以节省资源，使用close系统调用，其原形为：<br>
+int close(int socket);<br>
+不多说了，直接使用，大家一定都会，呵呵！<br>
+上面所述的每个系统调用都有 -1 返回&#20540;，在调用不成功时，它们均会返回 -1，这个特性可以使得我们用 if - else 或异常处理语句来处理错误，为我们提供了很大的方便。<br>
+SOCK_DGRAM 数据报式本地套接字的应用场合很少，因为流式套接字在本地的连接时间可以忽略，所以效率并没有提高，而且发送接收都需要携带对方的本地地址，因此很少甚至几乎不使用。<br>
+与本地套接字相对应的是网络套接字，可以用于在网络上传送数据，换言之，可实现不同机器上的进程通信过程。在 TCP/IP 协议中，IP 地址的首字节为 127 即代表本地，因此本地套接字通信可以使用 IP 地址为 127.x.x.x 的网络套接字来实现。<br>
+</p>
+<p></p>
+<p><br>
+</p>
+<p><br>
+</p>
+   
+</div>
+
+
+
+
+<!-- Baidu Button BEGIN -->
+
+
+
+
+<div class="bdsharebuttonbox tracking-ad" style="float: right;" data-mod="popu_172">
+<a href="#" class="bds_more" data-cmd="more" style="background-position:0 0 !important; background-image: url(http://bdimg.share.baidu.com/static/api/img/share/icons_0_16.png?v=d754dcc0.png) !important"></a>
+<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"  style="background-position:0 -52px !important"></a>
+<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"style="background-position:0 -104px !important"></a>
+<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"style="background-position:0 -260px !important"></a>
+<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"style="background-position:0 -208px !important"></a>
+<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"style="background-position:0 -1612px !important" ></a>
+</div>
+<script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "1", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
+<!-- Baidu Button END -->
+
+   <link rel="stylesheet" href="http://static.blog.csdn.net/css/blog_detail.css" />
+
+    
+<!--172.16.140.13-->
+
+<!-- Baidu Button BEGIN -->
+<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=1536434" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+    document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script>
+<!-- Baidu Button END -->
+
+ 
+
+        <div id="digg" ArticleId="16882087" >
+            <dl id="btnDigg" class="digg digg_enable"  onclick="btndigga();">
+               
+                 <dt>顶</dt>
+                <dd>3</dd>
+            </dl>
+           
+              
+            <dl id="btnBury" class="digg digg_enable"  onclick="btnburya();">
+              
+                  <dt>踩</dt>
+                <dd>0</dd>               
+            </dl>
+            
+        </div>
+     <div class="tracking-ad" data-mod="popu_222"><a href="javascript:void(0);" >&nbsp;</a>   </div>
+    <div class="tracking-ad" data-mod="popu_223"> <a href="javascript:void(0);" >&nbsp;</a></div>
+    <script type="text/javascript">
+                function btndigga() {
+                    $(".tracking-ad[data-mod='popu_222'] a").click();
+                }
+                function btnburya() {
+                    $(".tracking-ad[data-mod='popu_223'] a").click();
+                }
+            </script>
+
+   <ul class="article_next_prev">
+                <li class="prev_article"><span  onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_shangyipian']);location.href='/shanzhizi/article/details/16863573';">上一篇</span><a href="/shanzhizi/article/details/16863573" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_shangyipian'])">那些书对程序员最有影响</a></li>
+                <li class="next_article"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_xiayipian']);location.href='/shanzhizi/article/details/16883601';">下一篇</span><a href="/shanzhizi/article/details/16883601" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_xiayipian'])">本地socket--SOCK_DGRAM方式</a></li>
+    </ul>
+
+    <div style="clear:both; height:10px;"></div>
+
+
+        <div class="similar_article"  style="display:none">
+                <h4>我的同类文章</h4>
+                <div class="similar_c"style="margin:20px 0px 0px 0px">
+                    <div class="similar_c_t">
+                                <label class="similar_cur">
+                                    <span  style="cursor:pointer"  onclick="GetCategoryArticles('781010','shanzhizi','foot','16882087');">Linux<em>（190）</em></span>
+                                </label>
+                    </div>
+                   
+                    <div class="similar_wrap tracking-ad" data-mod="popu_141"  style="max-height:195px;">
+                        <a href="http://blog.csdn.net" style="display:none">http://blog.csdn.net</a>
+                        <ul class="similar_list fl">                          
+                        </ul>
+
+                        <ul class="similar_list fr">                           
+                        </ul>
+                    </div>
+                </div>
+            </div>    
+    <script  type="text/javascript">
+        $(function () {
+            GetCategoryArticles('781010', 'shanzhizi','foot','16882087');
+        });
+    </script>
+      
+</div>
+<div id="suggest"></div>
+         <script  language="javascript" type='text/javascript'>     
+             $(function(){
+                 $.get("/shanzhizi/svc/GetSuggestContent/16882087",function(data){
+                     $("#suggest").html(data);
+                 });     
+             });             
+         </script>  
+
+
+<style>
+.blog-ass-articl dd {
+color: #369;
+width: 99%; /*修改行*/
+float: left;
+overflow: hidden;
+font: normal normal 12px/23px "SimSun";
+height: 23px;
+margin: 0;
+padding: 0 0 0 10px;
+margin-right: 30px;
+background: url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px;
+}
+</style>
+
+ <link rel="stylesheet" href="http://static.blog.csdn.net/css/replace.css"/>
+<div id="relate" data-mod="popu_218"  class="tracking-ad">
+        <div class="relate_t">
+            <h3><span>参考知识库</span></h3>
+        </div>
+        <div class="relate_c">
+        </div>
+</div>
+ 
+
+<dl class="blog-ass-articl" id="res-relatived" > 
+    <div class="embody embody_b" id="libkeyparent"  style="display:none">
+            <span class="embody_t">更多资料请参考：</span>
+            <div class="embody_c" id="libkey"></div>
+    </div>
+
+
+     <dt><span>猜你在找</span></dt>    
+
+
+   
+
+
+    <div id="adCollege" style="width: 42%;float: left;"> 
+        <script src="http://csdnimg.cn/jobreco/job_reco.js" type="text/javascript"></script> 
+        <script type="text/javascript">
+            csdn.position.showEdu({
+                sourceType: "blog",
+                searchType: "detail",
+                searchKey: "16882087",
+                username: "xiaowang0907",
+                recordcount: "5",
+                containerId: "adCollege" //容器DIV的id。 
+            });
+        </script> 
+    </div>  
+
+    
+     <div id="res"  data-mod="popu_36"  class="tracking-ad" style="width: 42%;float: left;margin-right: 30px;"></div>
+   
+</dl>
+
+
+<script type="text/javascript">
+    $(function () {
+        setTimeout(function () {
+            var searchtitletags = 'Linux进程间通信方式--本地socket' + ',' + $("#tags").html();
+            searchService({
+                index: 'blog',
+                query: searchtitletags,
+                from: 5,
+                size: 5,
+                appendTo: '#res',
+                url: 'recommend',
+                his: 2,
+                client: "blog_cf_enhance",
+                tmpl: '<dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px;"><a href="#{ url }" title="#{ title }" strategy="#{ strategy }">#{ title }</a></dd>'
+            });
+        }, 500);
+    });    
+
+ </script>  
+
+    <div id="ad_cen">        
+<!-- 广告位开始 -->
+<ins data-revive-zoneid="71" data-revive-id="8c38e720de1c90a6f6ff52f3f89c4d57"></ins>
+<!-- 广告位结束 -->    </div>  
+
+<div class="comment_class">
+    <div id="comment_title" class="panel_head">
+        <span class="see_comment">查看评论</span><a name="comments"></a></div>
+    <div id="comment_list">
+    </div>
+    <div id="comment_bar">
+    </div>
+    <div id="comment_form">
+    </div>
+    <div class="announce">
+        * 以上用户言论只代表其个人观点，不代表CSDN网站的观点或立场<a name="reply"></a><a name="quote"></a></div>
+</div>
+
+<script type="text/javascript">
+    var fileName = '16882087';
+    var commentscount = 1;
+    var islock = false
+</script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/comment.js"></script>
+    <div id="ad_bot">
+    </div>
+<div id="report_dialog">
+</div>
+
+<div id="d-top"  style="bottom:60px;">
+        <a id="quick-reply" class="btn btn-top q-reply" title="快速回复" style="display:none;">
+            <img src="http://static.blog.csdn.net/images/blog-icon-reply.png" alt="快速回复">
+        </a>    
+
+    <a id="d-top-a" class="btn btn-top backtop"  style="display: none;" title="返回顶部" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_huidaodingbu'])" style="">         
+         <img src="http://static.blog.csdn.net/images/top.png" alt="TOP">
+    </a>
+</div>
+<script type="text/javascript">
+    $(function ()
+    {
+        $("#ad_frm_0").height("90px");
+        
+        setTimeout(function(){
+            $("#ad_frm_2").height("200px");
+        },1000);    
+    });
+  
+</script>
+<style type="text/css">
+    .tag_list
+    {
+        background: none repeat scroll 0 0 #FFFFFF;
+        border: 1px solid #D7CBC1;
+        color: #000000;
+        font-size: 12px;
+        line-height: 20px;
+        list-style: none outside none;
+        margin: 10px 2% 0 1%;
+        padding: 1px;
+    }
+    .tag_list h5
+    {
+        background: none repeat scroll 0 0 #E0DBD3;
+        color: #47381C;
+        font-size: 12px;
+        height: 24px;
+        line-height: 24px;
+        padding: 0 5px;
+        margin: 0;
+    }
+    .tag_list h5 a
+    {
+        color: #47381C;
+    }
+    .classify
+    {
+        margin: 10px 0;
+        padding: 4px 12px 8px;
+    }
+    .classify a
+    {
+        margin-right: 20px;
+        white-space: nowrap;
+    }
+</style>
+
+
+<div class="tag_list" style="display:none"></div>
+  <script  language="javascript" type='text/javascript'>     
+      $(function(){
+              setTimeout(function(){
+                  $.get("/shanzhizi/svc/GetTagContent",function(data){
+                      $(".tag_list").html(data).show();
+                  });     
+              });
+          },500);                       
+ </script> 
+
+
+<div id="pop_win" style="display:none ;position: absolute; z-index: 10000; border: 1px solid rgb(220, 220, 220); top: 222.5px; left: 630px; opacity: 1; background: none 0px 0px repeat scroll rgb(255, 255, 255);">
+    
+</div>
+<div id="popup_mask"></div>
+<style>
+    #popup_mask
+    {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        z-index: 9999;
+        left: 0px;
+        top: 0px;
+        opacity: 0.3;
+        filter: alpha(opacity=30);
+        display: none;
+    }
+
+</style>
+
+
+
+
+<script type="text/javascript">
+    $(function(){
+        setTimeout(function(){
+            $(".comment_body:contains('回复')").each(function(index,item){
+                var u=$(this).text().split('：')[0].toString().replace("回复","")
+                var thisComment=$(this);
+                if(u)
+                {
+                    $.getJSON("https://passport.csdn.net/get/nick?callback=?", {users: u}, function(a) {
+                        if(a!=null&&a.data!=null&&a.data.length>0)
+                        {
+                            nick=a.data[0].n; 
+                            if(u!=nick)
+                            {
+                                thisComment.text(thisComment.text().replace(u,nick));  
+                            }
+                        }       
+                    });  
+                }
+            });         
+
+        },200);  
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },5000);
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },10000);
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },15000);
+        
+        setTimeout(function(){
+            $("a img[src='http://js.tongji.linezing.com/stats.gif']").parent().css({"position":"absolute","left":"50%"});
+        },300);
+    });
+
+    function loginbox(){
+        var $logpop=$("#pop_win");
+        $logpop.html('<iframe src="https://passport.csdn.net/account/loginbox?service=http://static.blog.csdn.net/callback.htm" frameborder="0" height="600" width="400" scrolling="no"></iframe>');
+
+        $('#popup_mask').css({
+            opacity: 0.5,
+            width: $( document ).width() + 'px',
+            height:  $( document ).height() + 'px'
+        });
+        $('#popup_mask').css("display","block");
+ 
+        $logpop.css( {
+            top: ($( window ).height() - $logpop.height())/ 2  + $( window 
+       ).scrollTop() + 'px',
+            left:($( window ).width() - $logpop.width())/ 2
+        } );
+ 
+        setTimeout( function () {
+            $logpop.show();
+            $logpop.css( {
+                opacity: 1
+            } );
+        }, 200 );
+ 
+        $('#popup_mask').unbind("click");
+        $('#popup_mask').bind("click", function(){
+            $('#popup_mask').hide();
+            var $clopop = $("#pop_win");
+            $("#common_ask_div_sc").css("display","none");
+            $clopop.css( {
+                opacity: 0
+            } );
+            setTimeout( function () {
+                $clopop.hide();
+            }, 350 );
+            return false;
+        });
+    }   
+
+</script>
+ <script language="javascript" type="text/javascript" src="http://ads.csdn.net/js/async_new.js"></script>      
+
+
+                        <div class="clear">
+                        </div>
+                    </div>                   
+                
+            </div>
+                   
+           <div id="side">
+               
+    <div class="side">
+<div id="panel_Profile" class="panel">
+<ul class="panel_head"><span>个人资料</span></ul>
+<ul class="panel_body profile">
+<div id="blog_userface">
+    <a href="http://my.csdn.net/shanzhizi" target="_blank">
+    <img src="http://avatar.csdn.net/A/D/6/1_shanzhizi.jpg" title="访问我的空间" style="max-width:90%"/>
+    </a>
+    <br />
+    <span><a href="http://my.csdn.net/shanzhizi" class="user_name" target="_blank">shanzhizi</a></span>
+</div>
+<div class="interact">
+
+    <a href="javascript:void(0);" class="attent" id="span_add_follow" title="[加关注]"></a>
+
+ <a href="javascript:void(0);" class="letter"  title="[发私信]" onclick="window.open('http://msg.csdn.net/letters/model?receiver=shanzhizi','_blank','height=350,width=700');_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_sixin'])"></a>  
+</div>
+<div id="blog_medal">
+                <div id="bms_box">
+               </div>
+</div>
+<ul id="blog_rank">
+    <li>访问：<span>885466次</span></li>
+    <li>积分：<span>10794</span> </li>    
+    <li >等级： <span style="position:relative;display:inline-block;z-index:1" >
+            <img src="http://c.csdnimg.cn/jifen/images/xunzhang/jianzhang/blog7.png" alt="" style="vertical-align: middle;" id="leveImg">
+            <div id="smallTittle" style=" position: absolute;  left: -24px;  top: 25px;  text-align: center;  width: 101px;  height: 32px;  background-color: #fff;  line-height: 32px;  border: 2px #DDDDDD solid;  box-shadow: 0px 2px 2px rgba (0,0,0,0.1);  display: none;   z-index: 999;">
+            <div style="left: 42%;  top: -8px;  position: absolute;  width: 0;  height: 0;  border-left: 10px solid transparent;  border-right: 10px solid transparent;  border-bottom: 8px solid #EAEAEA;"></div>
+            积分：10794 </div>
+        </span>  </li>
+    <li>排名：<span>第963名</span></li>
+</ul>
+<ul id="blog_statistics">
+    <li>原创：<span>241篇</span></li>
+    <li>转载：<span>304篇</span></li>
+    <li>译文：<span>0篇</span></li>
+    <li>评论：<span>97条</span></li>
+</ul>
+</ul>
+</div>
+
+
+
+
+<div id="custom_column_21805809" class="panel">
+<ul class="panel_head"><span>联系我</span></ul>
+<ul class="panel_body">
+
+QQ:724856026 Emai:724856026@qq.com
+
+</ul>
+</div><div class="panel" id="panel_Search">
+    <ul class="panel_head"><span>文章搜索</span></ul>
+    <ul class="panel_body">
+        <form id="frmSearch" action="http://so.csdn.net/search" class="form_search" target="_blank">
+        <span><input id="inputSearch" type="text" class="blogsearch" title="请输入关键字" /></span>
+        <input id="btnSubmit" type="button" value="搜索" title="search in blog" />
+        <input type="hidden" name="q" id="inputQ" />
+        <input type="hidden" name="t" value="blog" />
+        <a id="btnSearchBlog" target="_blank"></a>
+        </form>
+    </ul>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $("#btnSubmit").click(function () {           
+            search();
+        });
+
+        $("#frmSearch").submit(function () {
+            search();
+            return false;
+        });
+
+        function search()
+        {
+            var url = "http://so.csdn.net/so/search/s.do?q=" + encodeURIComponent($("#inputSearch").val()) + "&u=" + username + "&t=blog";
+            window.location.href = url;
+        }   
+    });
+</script><div id="panel_Category" class="panel">
+<ul class="panel_head"><span>文章分类</span></ul>
+<ul class="panel_body">    
+                 <li>
+                    <a href="/shanzhizi/article/category/781012" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">C</a><span>(77)</span>
+                </li>
+                 <li>
+                    <a href="/shanzhizi/article/category/781011" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">C#</a><span>(11)</span>
+                </li>
+                 <li>
+                    <a href="/shanzhizi/article/category/781013" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">C++</a><span>(80)</span>
+                </li>
+                 <li>
+                    <a href="/shanzhizi/article/category/781010" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">Linux</a><span>(191)</span>
+                </li>
+                 <li>
+                    <a href="/shanzhizi/article/category/781009" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">数据库</a><span>(31)</span>
+                </li>
+                 <li>
+                    <a href="/shanzhizi/article/category/1139261" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">VC</a><span>(49)</span>
+                </li>
+                 <li>
+                    <a href="/shanzhizi/article/category/1150427" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">JavaScript</a><span>(31)</span>
+                </li>
+                 <li>
+                    <a href="/shanzhizi/article/category/1157892" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">网络通信协议</a><span>(59)</span>
+                </li>
+                 <li>
+                    <a href="/shanzhizi/article/category/1173806" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">数据结构与算法</a><span>(17)</span>
+                </li>
+                 <li>
+                    <a href="/shanzhizi/article/category/1185201" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">dbus</a><span>(15)</span>
+                </li>
+                 <li>
+                    <a href="/shanzhizi/article/category/1185203" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">xml</a><span>(14)</span>
+                </li>
+                 <li>
+                    <a href="/shanzhizi/article/category/1185205" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">goahead</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/shanzhizi/article/category/1211997" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">opengl</a><span>(3)</span>
+                </li>
+                 <li>
+                    <a href="/shanzhizi/article/category/1243678" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">IT学习经典书籍推荐</a><span>(23)</span>
+                </li>
+                 <li>
+                    <a href="/shanzhizi/article/category/1277259" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">嵌入式</a><span>(38)</span>
+                </li>
+                 <li>
+                    <a href="/shanzhizi/article/category/1295768" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">社会生活</a><span>(7)</span>
+                </li>
+                 <li>
+                    <a href="/shanzhizi/article/category/1428731" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">java</a><span>(16)</span>
+                </li>
+                 <li>
+                    <a href="/shanzhizi/article/category/1434438" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">u-boot</a><span>(7)</span>
+                </li>
+                 <li>
+                    <a href="/shanzhizi/article/category/1535503" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">Makefile</a><span>(13)</span>
+                </li>
+                 <li>
+                    <a href="/shanzhizi/article/category/1856697" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">开源项目</a><span>(12)</span>
+                </li>
+                 <li>
+                    <a href="/shanzhizi/article/category/3075757" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">python</a><span>(47)</span>
+                </li>
+                 <li>
+                    <a href="/shanzhizi/article/category/3133567" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">OpenErp</a><span>(74)</span>
+                </li>
+                 <li>
+                    <a href="/shanzhizi/article/category/5934411" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">正则表达式-regular expressions</a><span>(2)</span>
+                </li>
+                 <li>
+                    <a href="/shanzhizi/article/category/6090334" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">Pyramid</a><span>(0)</span>
+                </li>
+</ul>
+</div><div id="panel_Archive" class="panel">
+<ul class="panel_head"><span>文章存档</span></ul>
+<ul class="panel_body">
+<div id="archive_list">
+<!--归档统计-->
+<li><a href="/shanzhizi/article/month/2016/07">2016年07月</a><span>(4)</span></li><li><a href="/shanzhizi/article/month/2016/06">2016年06月</a><span>(4)</span></li><li><a href="/shanzhizi/article/month/2016/05">2016年05月</a><span>(7)</span></li><li><a href="/shanzhizi/article/month/2016/04">2016年04月</a><span>(10)</span></li><li><a href="/shanzhizi/article/month/2016/03">2016年03月</a><span>(25)</span></li><li><a href="/shanzhizi/article/month/2016/02">2016年02月</a><span>(9)</span></li><li><a href="/shanzhizi/article/month/2016/01">2016年01月</a><span>(4)</span></li><li><a href="/shanzhizi/article/month/2015/12">2015年12月</a><span>(17)</span></li><li><a href="/shanzhizi/article/month/2015/11">2015年11月</a><span>(20)</span></li><li><a href="/shanzhizi/article/month/2015/10">2015年10月</a><span>(7)</span></li><li><a href="/shanzhizi/article/month/2015/09">2015年09月</a><span>(5)</span></li><li><a href="/shanzhizi/article/month/2015/08">2015年08月</a><span>(17)</span></li><li><a href="/shanzhizi/article/month/2015/07">2015年07月</a><span>(8)</span></li><li><a href="/shanzhizi/article/month/2015/06">2015年06月</a><span>(24)</span></li><li><a href="/shanzhizi/article/month/2015/05">2015年05月</a><span>(3)</span></li><li><a href="/shanzhizi/article/month/2015/04">2015年04月</a><span>(6)</span></li><li><a href="/shanzhizi/article/month/2015/03">2015年03月</a><span>(3)</span></li><li><a href="/shanzhizi/article/month/2015/02">2015年02月</a><span>(1)</span></li><li><a href="/shanzhizi/article/month/2014/12">2014年12月</a><span>(2)</span></li><li><a href="/shanzhizi/article/month/2014/11">2014年11月</a><span>(6)</span></li><li><a href="/shanzhizi/article/month/2014/10">2014年10月</a><span>(6)</span></li><li><a href="/shanzhizi/article/month/2014/09">2014年09月</a><span>(3)</span></li><li><a href="/shanzhizi/article/month/2014/08">2014年08月</a><span>(9)</span></li><li><a href="/shanzhizi/article/month/2014/07">2014年07月</a><span>(4)</span></li><li><a href="/shanzhizi/article/month/2014/06">2014年06月</a><span>(11)</span></li><li><a href="/shanzhizi/article/month/2014/05">2014年05月</a><span>(12)</span></li><li><a href="/shanzhizi/article/month/2014/04">2014年04月</a><span>(13)</span></li><li><a href="/shanzhizi/article/month/2014/03">2014年03月</a><span>(4)</span></li><li><a href="/shanzhizi/article/month/2014/01">2014年01月</a><span>(16)</span></li><li><a href="/shanzhizi/article/month/2013/12">2013年12月</a><span>(6)</span></li><li><a href="/shanzhizi/article/month/2013/11">2013年11月</a><span>(12)</span></li><li><a href="/shanzhizi/article/month/2013/10">2013年10月</a><span>(10)</span></li><li><a href="/shanzhizi/article/month/2013/09">2013年09月</a><span>(19)</span></li><li><a href="/shanzhizi/article/month/2013/08">2013年08月</a><span>(10)</span></li><li><a href="/shanzhizi/article/month/2013/07">2013年07月</a><span>(8)</span></li><li><a href="/shanzhizi/article/month/2013/06">2013年06月</a><span>(12)</span></li><li><a href="/shanzhizi/article/month/2013/05">2013年05月</a><span>(13)</span></li><li><a href="/shanzhizi/article/month/2013/04">2013年04月</a><span>(8)</span></li><li><a href="/shanzhizi/article/month/2013/03">2013年03月</a><span>(12)</span></li><li><a href="/shanzhizi/article/month/2013/02">2013年02月</a><span>(14)</span></li><li><a href="/shanzhizi/article/month/2013/01">2013年01月</a><span>(5)</span></li><li><a href="/shanzhizi/article/month/2012/12">2012年12月</a><span>(12)</span></li><li><a href="/shanzhizi/article/month/2012/11">2012年11月</a><span>(9)</span></li><li><a href="/shanzhizi/article/month/2012/10">2012年10月</a><span>(6)</span></li><li><a href="/shanzhizi/article/month/2012/09">2012年09月</a><span>(13)</span></li><li><a href="/shanzhizi/article/month/2012/08">2012年08月</a><span>(14)</span></li><li><a href="/shanzhizi/article/month/2012/07">2012年07月</a><span>(51)</span></li><li><a href="/shanzhizi/article/month/2012/06">2012年06月</a><span>(26)</span></li><li><a href="/shanzhizi/article/month/2012/05">2012年05月</a><span>(15)</span></li><li><a href="/shanzhizi/article/month/2012/04">2012年04月</a><span>(3)</span></li><li><a href="/shanzhizi/article/month/2012/01">2012年01月</a><span>(1)</span></li><li><a href="/shanzhizi/article/month/2011/12">2011年12月</a><span>(3)</span></li><li><a href="/shanzhizi/article/month/2011/01">2011年01月</a><span>(3)</span></li>
+</div>
+</ul>
+</div>
+<div id="hotarticls" class="panel">
+<ul class="panel_head">
+    <span>       
+阅读排行    </span>
+</ul>
+
+<ul class="panel_body itemlist">
+<li>
+<a href="/shanzhizi/article/details/11606767" title="SNMP协议详解">SNMP协议详解</a><span>(63992)</span>
+</li>
+<li>
+<a href="/shanzhizi/article/details/8293638" title="优化VMware提高虚拟机运行速度的技巧">优化VMware提高虚拟机运行速度的技巧</a><span>(31842)</span>
+</li>
+<li>
+<a href="/shanzhizi/article/details/8906317" title="控制HTML Input只能输入数字和小数点">控制HTML Input只能输入数字和小数点</a><span>(21712)</span>
+</li>
+<li>
+<a href="/shanzhizi/article/details/16882087" title="Linux进程间通信方式--本地socket">Linux进程间通信方式--本地socket</a><span>(19813)</span>
+</li>
+<li>
+<a href="/shanzhizi/article/details/7731344" title="30本关于asp.net相关的经典书籍推荐">30本关于asp.net相关的经典书籍推荐</a><span>(19745)</span>
+</li>
+<li>
+<a href="/shanzhizi/article/details/7726679" title="在Linux是使用libxml2---从安装到使用">在Linux是使用libxml2---从安装到使用</a><span>(16741)</span>
+</li>
+<li>
+<a href="/shanzhizi/article/details/7835752" title="C++数组的动态分配(new)、初始化(memset)和撤销(delete)">C++数组的动态分配(new)、初始化(memset)和撤销(delete)</a><span>(16664)</span>
+</li>
+<li>
+<a href="/shanzhizi/article/details/17189267" title="C++的字符串分割函数">C++的字符串分割函数</a><span>(15489)</span>
+</li>
+<li>
+<a href="/shanzhizi/article/details/13022749" title="java多叉树的生成和遍历">java多叉树的生成和遍历</a><span>(13685)</span>
+</li>
+<li>
+<a href="/shanzhizi/article/details/8289396" title="VMware中Ubuntu安装VMware Tools步骤及问题解决方法">VMware中Ubuntu安装VMware Tools步骤及问题解决方法</a><span>(13038)</span>
+</li>
+</ul>
+</div>
+<div id="newcomments" class="panel">
+<ul class="panel_head"><span>最新评论</span></ul>
+<ul class="panel_body itemlist">
+    <li>
+   
+         <a href="/shanzhizi/article/details/7711802#comments">dbus的hello world</a>
+    <p style="margin:0px;"><a href="/xzx_kag" class="user_name">xzx_kag</a>:
+好文，感谢！
+    </p>
+    </li>
+    <li>
+   
+         <a href="/shanzhizi/article/details/7710692#comments">DBus如何使用原始DBus库传送和接收数据</a>
+    <p style="margin:0px;"><a href="/u012318605" class="user_name">u012318605</a>:
+博主，您好，看了你的文章，收益很多，但是有一个小问题，就是结构体在DBUS中的收发，能不能给一个完整...
+    </p>
+    </li>
+    <li>
+   
+         <a href="/shanzhizi/article/details/16883601#comments">本地socket--SOCK_DGRAM方式</a>
+    <p style="margin:0px;"><a href="/lzr325" class="user_name">lzr325</a>:
+您好！我在尝试本地socket进程间通信时发现，socket(AF_UNIX,SOCK_DGRAM,...
+    </p>
+    </li>
+    <li>
+   
+         <a href="/shanzhizi/article/details/7659108#comments">socket编程中send recv阻塞和非阻塞详解</a>
+    <p style="margin:0px;"><a href="/chukuiyong9327" class="user_name">chukuiyong9327</a>:
+recv是阻塞类型的，如果三次握手成功之后，服务器主动给客户端发信息怎么办？？如果服务器没有接收到客...
+    </p>
+    </li>
+    <li>
+   
+         <a href="/shanzhizi/article/details/7712729#comments">一篇dbus移植的点点滴滴</a>
+    <p style="margin:0px;"><a href="/jifengszf" class="user_name">jifengszf</a>:
+我添加了.conf文件后，仍提示&quot;:1.83&quot; is not allowed to own the ...
+    </p>
+    </li>
+    <li>
+   
+         <a href="/shanzhizi/article/details/47616645#comments">postgresql 日志配置</a>
+    <p style="margin:0px;"><a href="/leizi191110211" class="user_name">leizi191110211</a>:
+为什么我配置完看不到的操作的sql语句呢
+    </p>
+    </li>
+    <li>
+   
+         <a href="/shanzhizi/article/details/8293638#comments">优化VMware提高虚拟机运行速度的技巧</a>
+    <p style="margin:0px;"><a href="/u012527010" class="user_name">u012527010</a>:
+真的快了，谢谢楼主
+    </p>
+    </li>
+    <li>
+   
+         <a href="/shanzhizi/article/details/13022439#comments">java多叉树的实现类，完成树的初始化和遍历</a>
+    <p style="margin:0px;"><a href="/tree_sunzh" class="user_name">tree_sunzh</a>:
+哪位大侠能给个使用上面的多叉树的例子吗？
+    </p>
+    </li>
+    <li>
+   
+         <a href="/shanzhizi/article/details/38387421#comments">汇编运行地址，链接地址，加载地址，存储地址 位置无关码、位置有关码</a>
+    <p style="margin:0px;"><a href="/lilong85362952" class="user_name">lilong85362952</a>:
+@kl1125290220:明白了，谢谢了！你这篇文章我看了很多次了！
+    </p>
+    </li>
+    <li>
+   
+         <a href="/shanzhizi/article/details/49702301#comments">糗事百科爬虫改进</a>
+    <p style="margin:0px;"><a href="/qq_23214785" class="user_name">qq_23214785</a>:
+分享一个我实现的糗事百科的爬虫源码：https://github.com/ShenJianShou/...
+    </p>
+    </li>
+</ul>
+</div>
+<div id="hotarticls2" class="panel">
+<ul class="panel_head"><span>评论排行</span></ul>
+<ul class="panel_body itemlist">
+<li>
+<a href="/shanzhizi/article/details/7835752" title="C++数组的动态分配(new)、初始化(memset)和撤销(delete)">C++数组的动态分配(new)、初始化(memset)和撤销(delete)</a><span>(6)</span>
+</li>
+<li>
+<a href="/shanzhizi/article/details/12849819" title="SNMP的Private Enterprise（OID）申请注册方法">SNMP的Private Enterprise（OID）申请注册方法</a><span>(6)</span>
+</li>
+<li>
+<a href="/shanzhizi/article/details/8293638" title="优化VMware提高虚拟机运行速度的技巧">优化VMware提高虚拟机运行速度的技巧</a><span>(5)</span>
+</li>
+<li>
+<a href="/shanzhizi/article/details/11606767" title="SNMP协议详解">SNMP协议详解</a><span>(5)</span>
+</li>
+<li>
+<a href="/shanzhizi/article/details/11769491" title="基于net-snmp的代理agent开发详解">基于net-snmp的代理agent开发详解</a><span>(4)</span>
+</li>
+<li>
+<a href="/shanzhizi/article/details/7736526" title="暴雪公司关于字符串匹配的hash算法">暴雪公司关于字符串匹配的hash算法</a><span>(4)</span>
+</li>
+<li>
+<a href="/shanzhizi/article/details/7712729" title="一篇dbus移植的点点滴滴">一篇dbus移植的点点滴滴</a><span>(3)</span>
+</li>
+<li>
+<a href="/shanzhizi/article/details/7645330" title="IGMPv3协议报文格式参考">IGMPv3协议报文格式参考</a><span>(3)</span>
+</li>
+<li>
+<a href="/shanzhizi/article/details/7673033" title="linux C高手成长过程---书籍推荐">linux C高手成长过程---书籍推荐</a><span>(3)</span>
+</li>
+<li>
+<a href="/shanzhizi/article/details/12971747" title="DSOframer 的简单介绍和资源整理">DSOframer 的简单介绍和资源整理</a><span>(3)</span>
+</li>
+</ul>
+</div>
+
+
+<div id="custom_column_21288819" class="panel">
+<ul class="panel_head"><span>友情链接--技术类博客</span></ul>
+<ul class="panel_body">
+
+<a href="http://drops.wooyun.org/" target="_blank">知识库</a><br>
+<a href="http://www.matrix67.com/blog/" target="_blank">Matrix67-算法</a><br>
+<a href="http://www.slyar.com/blog/" target="_blank">Slyar</a> <br>
+<a href="http://www.hackest.cn/" target="_blank">hackest‘s blog</a> <br>
+<a href="http://duartes.org/gustavo/blog/" target="_blank">国外大神的内核博客</a> <br>
+<a href="http://www.crifan.com/" target="_blank">crifan</a> <br>
+<a href="http://www.xfocus.net/index.html" target="_blank">hacker文献</a> <br>
+<a href="http://www.ruanyifeng.com/blog/" target="_blank">阮一峰博客</a><br>
+<a href="http://www.tenouk.com/" target="_blank">C/C&#43;&#43;网络编程辅导</a><br>
+<a href="http://coolshell.cn/" target="_blank">酷壳</a><br>
+<a href="http://blog.s135.com/index.php" target="_blank">张宴</a><br>
+<a href="http://blog.csdn.net/v_july_v?viewmode=contents" target="_blank">程序员编程艺术系列</a><br>
+<a href="http://www.williamlong.info/" target="_blank">月光博客</a><br>
+<a href="http://cviorel.easyblog.ro/" target="_blank">国外提供ubuntu技巧的博客</a><br>
+<a href="http://www.ha97.com/" target="_blank">服务器运维</a><br>
+<a href="https://github.com/laiweiwei/SolidBase" target="_blank">web开源框架--EWeb4J</a><br>
+<a href="http://j-ui.com/" target="_blank">web开源框架--DWZ</a><br>
+<a href="https://github.com/laiweiwei/eweb4j-framework" target="_blank">web开源框架--keta-custom</a><br>
+<a href="https://www.pediy.com" target="_blank">看雪学院</a><br>
+<a href="http://www.programlife.net/" target="_blank">程序人生博客</a><br>
+<a href="http://taosay.net/" target="_blank">道哥</a><br>
+<a href="http://www.freebuf.com/" target="_blank">黑客与极客</a><br>
+<a href="http://amuseum.cdstm.cn/AMuseum/ic/index_01.html" target="_blank">集成电路</a><br>
+<a href="http://linuxtools-rst.readthedocs.org/zh_CN/latest/base/index.html" target="_blank">Linux命令参考站</a><br>
+
+</ul>
+</div>
+
+<div id="custom_column_26003407" class="panel">
+<ul class="panel_head"><span>英文站</span></ul>
+<ul class="panel_body">
+
+<a href="http://www.stallman.org/" target="_blank">Eichard Stallman开源第一人</a><br>
+<a href="http://www.linuxfromscratch.org/" target="_blank">Linux From scratch</a><br>
+<a href="http://www.computerworld.com/" target="_blank">computerworld</a><br>
+<a href="http://www.reddit.com/" target="_blank">reddit</a><br>
+<a href="http://digg.com/" target="_blank">digg</a><br>
+<a href="https://news.ycombinator.com/" target="_blank">Hacker News</a><br>
+<a href="http://wwsean08.com/" target="_blank">wwsean08</a><br>
+<a href="http://www.businessinsider.com/">businessinsider知名技术博客</a><br>
+<a href="http://groups.google.com/group/comp.lang.c/">C语言新闻组的google链接(comp.lang.c)</a><br>
+<a href="http://codepad.org/">在线编译器</a><br>
+<a href="http://www.webmasterworld.com/">站长世界</a><br>
+<a href="http://searchenginewatch.com/">搜索引擎观察</a><br>
+<a href="http://stackoverflow.com/">著名的技术问答站stackoverflow</a><br>
+<a href="www.coursera.org" target="_blank">在线课程</a><br>
+<a href="https://www.khanacademy.org/" target="_blank">一小时编程</a><br>
+<a href="http://www.mezzoblue.com" target="_blank">CSS秘密花园</a><br>
+<a href="http://mininet.org/" target="_blank">mininet</a><br>
+<a href="http://devzum.com/" target="_blank">devzum</a><br>
+<a href="https://www.khanacademy.org/welcome" target="_blank">可汗学院</a><br>
+<a href="http://kukuruku.co/" target="_blank">kukuruku博客</a><br>
+<a href="https://www.hackerrank.com/" target="_blank">hacker rank</a><br>
+<a href="http://www.pythonchallenge.com/" target="_blank">pythonchallenge</a><br>
+
+</ul>
+</div>    </div>
+    <div class="clear">
+    </div>
+
+
+                 <!-- 广告位开始 --> 
+                    <ins data-revive-zoneid="189" data-revive-id="8c38e720de1c90a6f6ff52f3f89c4d57"></ins> 
+                <!-- 广告位结束 -->
+
+           </div>   
+
+            <div class="clear">
+            </div>
+        </div>
+
+        
+
+<script type="text/javascript" src="http://c.csdnimg.cn/rabbit/cnick/cnick.js"></script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/newblog.min.js"></script>
+
+
+<script type="text/javascript" src="http://medal.blog.csdn.net/showblogmedal.ashx?blogid=1006481"></script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/JavaScript1.js"></script>
+
+<script type="text/javascript">document.write("<img src=http://counter.csdn.net/pv.aspx?id=24 border=0 width=0 height=0>");</script>
+<script type="text/javascript" src="http://www.csdn.net/ui/scripts/Csdn/counter.js"></script>
+<script type="text/javascript" src="http://ad.csdn.net/scripts/ad-blog.js"></script>
+<script type="text/javascript">
+    $(function () {
+        function __get_code_toolbar(snippet_id) {
+            return $("<span class='tracking-ad' data-mod='popu_167'><a href='https://code.csdn.net/snippets/"
+                    + snippet_id
+                    + "' target='_blank' title='在CODE上查看代码片'  style='text-indent:0;'><img src='https://code.csdn.net/assets/CODE_ico.png' width=12 height=12 alt='在CODE上查看代码片' style='position:relative;top:1px;left:2px;'/></a></span>"
+                    + "<span class='tracking-ad' data-mod='popu_170'><a href='https://code.csdn.net/snippets/"
+                    + snippet_id
+                    + "/fork' target='_blank' title='派生到我的代码片' style='text-indent:0;'><img src='https://code.csdn.net/assets/ico_fork.svg' width=12 height=12 alt='派生到我的代码片' style='position:relative;top:2px;left:2px;'/></a></span>");
+        }
+        
+        $("[code_snippet_id]").each(function () {
+            __s_id = $(this).attr("code_snippet_id");
+            if (__s_id != null && __s_id != "" && __s_id != 0 && parseInt(__s_id) > 70020) {
+                __code_tool = __get_code_toolbar(__s_id);
+                $(this).prev().find(".tools").append(__code_tool);
+            }
+        });
+
+        $(".bar").show();
+    });
+</script>
+
+
+
+
+    </div>
+      <!--new top-->
+    
+    <script id="csdn-toolbar-id" btnId="header_notice_num" wrapId="note1" count="5" subCount="5" type="text/javascript" src="http://c.csdnimg.cn/public/common/toolbar/js/toolbar.js"></script>     <!--new top-->
+   
+    <link href="http://c.csdnimg.cn/comm_ask/css/ask_float_block.css" type="text/css" rel="stylesheet" />
+    <script language='JavaScript' type='text/javascript' src='http://c.csdnimg.cn/comm_ask/js/libs/wmd.js'></script>
+    <script language='JavaScript' type='text/javascript' src='http://c.csdnimg.cn/comm_ask/js/libs/showdown.js'></script>
+    <script language='JavaScript' type='text/javascript' src='http://c.csdnimg.cn/comm_ask/js/libs/prettify.js'></script>
+    <script language='JavaScript' type='text/javascript' src='http://c.csdnimg.cn/comm_ask/js/apps/ask_float_block.js'></script>
+   
+
+  <div id="a52b5334d" style="width: 1px; height: 1px; display: none;">
+                    <script id="adJs52b5334"></script>
+                    <script>document.getElementById("adJs52b5334").src = "http://ads.csdn.net/js/opt/52b5334.js?t=" + Math.random();</script>
+   </div>
+
+    <link rel="stylesheet" href="http://static.blog.csdn.net/css/blog_code.css" />
+    <script type="text/javascript" src="http://static.blog.csdn.net/scripts/saveToCode.js"></script>
+      <script type="text/javascript" src="//csdnimg.cn/rabbit/tracking-ad/main.js?75eacd8"></script>
+</body>
+</html>   
+ 
