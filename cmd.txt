@@ -1,0 +1,9 @@
+set bootcmd 'fatload mmc 1:1 0x40007fc0 uImage-alt.bin;fatload mmc 1:1 0x40f00000 uImage-r8a7794-alt.dtb;bootm 0x40007fc0 - 0x40f00000'
+set bootcmd 'fatload mmc 0:1 0x40007fc0 uImage-alt.bin;fatload mmc 0:1 0x40f00000 uImage-r8a7794-alt.dtb;bootm 0x40007fc0 - 0x40f00000'
+set bootcmd 'tftp 0x40007fc0 uImage-alt.bin;tftp 0x40f00000 uImage-r8a7794-alt.dtb;bootm 0x40007fc0 - 0x40f00000'
+mount /dev/mmcblk0p3 /mnt/
+cp /mnt/uImage-* .
+umount -f /mnt
+mount /dev/mmcblk1p1 /mnt/
+cp ./uImage-* /mnt/
+umount -f /mnt
