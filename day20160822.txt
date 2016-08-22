@@ -1,0 +1,34 @@
+1.命令行输入cm --help执行的代码过程:
+//任何App最先开始执行的程序
+COMPONENT_INIT
+	//1.得到参数
+	const char* service = le_arg_GetArg(0); = --help
+	const char* command = le_arg_GetArg(1); = NULL
+		//1.1如果是帮助
+		PrintAllHelp();
+			//1.1.1遍历这个数组
+			const cm_Service_t Services[] = {
+		    /* SMS */
+		    {
+		        .serviceNamePtr = "sms",
+		        .defaultCommandPtr = "help",
+		        .helpHandler = cm_sms_PrintSmsHelp,
+		        .commandHandler = cm_sms_ProcessSmsCommand,
+		    },
+		    ……
+	    }
+	    //1.1.2具体的帮助打印信息的输出
+	    helpHandler();
+
+		//1.2如果非帮助,如 cm radio on等
+		ExecuteCommand(service, command, le_arg_NumArgs());	
+			//1.2.1通过service在Services数组中比较名字,如果找到
+			if(command = NULL)
+				commandHandler(servicePtr->defaultCommandPtr = "help", numArgs); //当然这个默认值是上面的数组设置的
+			else
+				commandHandler(command, numArgs);	
+						//1.2.1.1如果 command=info
+						cm_info_ProcessInfoCommand(command, args)
+							//1.2.1.1.1判断如果 command 是 help
+							cm_info_PrintInfoHelp
+					
