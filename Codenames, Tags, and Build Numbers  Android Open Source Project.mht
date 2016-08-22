@@ -1,0 +1,5516 @@
+From: =?gb2312?B?0tHTySBJbnRlcm5ldCBFeHBsb3JlciAxMSCxo7Tm?=
+Subject: Codenames, Tags, and Build Numbers | Android Open Source Project
+Date: Mon, 9 May 2016 22:19:09 +0800
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----=_NextPart_000_0000_01D1AA40.CF01B700"
+X-MimeOLE: Produced By Microsoft MimeOLE V10.0.10011.16384
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_0000_01D1AA40.CF01B700
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://source.android.com/source/build-numbers.html
+
+=EF=BB=BF<!DOCTYPE HTML>
+<!DOCTYPE html PUBLIC "" ""><HTML><HEAD><META content=3D"IE=3D11.0000"=20
+http-equiv=3D"X-UA-Compatible">
+=20
+<META http-equiv=3D"Content-Type" content=3D"text/html; =
+charset=3Dutf-8">=20
+<META name=3D"Description" content=3D"At a high level, Android =
+development happens around families of releases, which use code names =
+ordered alphabetically after tasty treats. The code names match the =
+following version numbers, along with API levels and NDK releases =
+provided for convenience=E2=80=A6">=20
+<LINK href=3D"/favicon.ico" rel=3D"shortcut icon" type=3D"image/x-icon"> =
+
+<TITLE>Codenames, Tags, and Build Numbers | Android Open Source =
+Project</TITLE> <!-- STYLESHEETS -->=20
+<LINK title=3D"roboto" =
+href=3D"http://fonts.googleapis.com/css?family=3DRoboto:regular,medium,th=
+in,italic,mediumitalic,bold"=20
+rel=3D"stylesheet"> <LINK =
+href=3D"http://source.android.com/assets/css/default.css"=20
+rel=3D"stylesheet" type=3D"text/css"> <!-- JAVASCRIPT -->=20
+<SCRIPT src=3D"//www.google.com/jsapi" =
+type=3D"text/javascript"></SCRIPT>
+=20
+<SCRIPT src=3D"/assets/js/android_3p-bundle.js" =
+type=3D"text/javascript"></SCRIPT>
+=20
+<SCRIPT type=3D"text/javascript">=0A=
+  var toRoot =3D "/";=0A=
+  =0A=
+  var devsite =3D false;=0A=
+  =0A=
+</SCRIPT>
+=20
+<SCRIPT src=3D"/assets/js/docs.js" type=3D"text/javascript"></SCRIPT>
+=20
+<SCRIPT src=3D"/navtree_data.js" type=3D"text/javascript" =
+async=3D""></SCRIPT>
+=20
+<SCRIPT src=3D"//www.gstatic.com/feedback/api.js" =
+type=3D"text/javascript"></SCRIPT>
+=20
+<SCRIPT type=3D"text/javascript">=0A=
+  var _gaq =3D _gaq || [];=0A=
+  _gaq.push(['_setAccount', 'UA-45455297-1']);=0A=
+  _gaq.push(['_trackPageview']);=0A=
+=0A=
+  (function() {=0A=
+    var ga =3D document.createElement('script'); ga.type =3D =
+'text/javascript'; ga.async =3D true;=0A=
+    ga.src =3D ('https:' =3D=3D document.location.protocol ? =
+'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';=0A=
+    var s =3D document.getElementsByTagName('script')[0]; =
+s.parentNode.insertBefore(ga, s);=0A=
+  })();=0A=
+</SCRIPT>
+=20
+<META name=3D"GENERATOR" content=3D"MSHTML 11.00.10240.16485"></HEAD>=20
+<BODY class=3D"gc-documentation &#10;  develop" =
+itemtype=3D"http://schema.org/Article"=20
+itemscope=3D""><A name=3D"top"></A>       <!-- Header -->    =20
+<DIV id=3D"header">
+<DIV class=3D"wrap" id=3D"header-wrap">
+<DIV class=3D"col-3 saclogo"><A =
+href=3D"http://source.android.com/index.html"><IMG=20
+width=3D"123" height=3D"25" alt=3D"Android Open Source Project" =
+src=3D"http://source.android.com/assets/images/sac_logo.png"=20
+srcset=3D"/assets/images/sac_logo@2x.png 2x">           </A>           =
+</DIV>     =20
+      =20
+<UL class=3D"nav-x col-9">
+  <LI class=3D"source"><A class=3D"selected" =
+href=3D"http://source.android.com/source/index.html">Source</A></LI>
+  <LI class=3D"devices"><A=20
+  href=3D"http://source.android.com/devices/index.html">Devices</A></LI>
+  <LI class=3D"security"><A=20
+  =
+href=3D"http://source.android.com/security/index.html">Security</A></LI>
+  <LI class=3D"compatibility last"><A =
+href=3D"http://source.android.com/compatibility/index.html">Compatibility=
+</A></LI></UL>=20
+            <!-- New Search -->            =20
+<DIV class=3D"menu-container">
+<DIV class=3D"moremenu">
+<DIV id=3D"more-btn"></DIV></DIV>
+<DIV class=3D"morehover" id=3D"moremenu">
+<DIV class=3D"top"></DIV>
+<DIV class=3D"mid">
+<DIV class=3D"header">Android Sites</DIV>
+<UL>
+  <LI class=3D"active"><A>Android Open Source Project</A></LI>
+  <LI><A href=3D"http://www.android.com/">Android.com</A></LI>
+  <LI><A href=3D"http://developer.android.com/">Android =
+Developers</A></LI></UL><!-- <div class=3D"header">Support</div>=0A=
+      <ul>=0A=
+        <li><a href=3D"/support.html">Developer Support</a></li>=0A=
+      </ul> -->=20
+      <BR class=3D"clearfix"></DIV>
+<DIV class=3D"bottom"></DIV></DIV>
+<DIV class=3D"search" id=3D"search-container">
+<DIV class=3D"search-inner">
+<DIV id=3D"search-btn"></DIV>
+<DIV class=3D"left"></DIV>
+<FORM=20
+onsubmit=3D"return submit_search()"><INPUT name=3D"q" =
+id=3D"search_autocomplete" onkeydown=3D"return search_changed(event, =
+true, '/')" onkeyup=3D"return search_changed(event, false, '/')" =
+onfocus=3D"search_focus_changed(this, true)" =
+onblur=3D"search_focus_changed(this, false)" type=3D"text" =
+autocomplete=3D"off">=20
+      </FORM>
+<DIV class=3D"right"></DIV><A class=3D"close hide">close</A>        =20
+<DIV class=3D"left"></DIV>
+<DIV class=3D"right"></DIV></DIV></DIV>
+<DIV id=3D"search_filtered_wrapper">
+<DIV class=3D"no-display" id=3D"search_filtered_div">
+<UL id=3D"search_filtered"></UL></DIV></DIV></DIV><!-- /New Search> -->  =
+      =20
+</DIV></DIV><!-- /Header -->  =20
+<DIV class=3D"wrap" id=3D"searchResults" style=3D"display: none;">
+<H2 id=3D"searchTitle">Results</H2>
+<DIV class=3D"search-control" =
+id=3D"leftSearchControl">Loading...</DIV></DIV>
+<DIV class=3D"wrap clearfix" id=3D"body-content">
+<DIV class=3D"col-4" id=3D"side-nav" =
+itemtype=3D"http://schema.org/SiteNavigationElement"=20
+itemscope=3D"">
+<DIV class=3D"scroll-pane" id=3D"devdoc-nav"><A class=3D"totop" =
+href=3D"http://source.android.com/source/build-numbers.html#top"=20
+data-g-event=3D"left-nav-top">to top</A> <!--=0A=
+    Copyright 2015 The Android Open Source Project=0A=
+=0A=
+    Licensed under the Apache License, Version 2.0 (the "License");=0A=
+    you may not use this file except in compliance with the License.=0A=
+    You may obtain a copy of the License at=0A=
+=0A=
+        http://www.apache.org/licenses/LICENSE-2.0=0A=
+=0A=
+    Unless required by applicable law or agreed to in writing, software=0A=
+    distributed under the License is distributed on an "AS IS" BASIS,=0A=
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or =
+implied.=0A=
+    See the License for the specific language governing permissions and=0A=
+    limitations under the License.=0A=
+-->=20
+<UL id=3D"nav">
+  <LI class=3D"nav-section">
+  <DIV class=3D"nav-section-header"><A =
+href=3D"http://source.android.com/source/index.html"><SPAN=20
+  class=3D"en">Overview</SPAN>       </A></DIV>
+  <UL>
+    <LI><A =
+href=3D"http://source.android.com/source/code-lines.html">Codelines,=20
+    Branches, and Releases</A></LI>
+    <LI><A =
+href=3D"http://source.android.com/source/build-numbers.html">Codenames,=20
+    Tags, and Build Numbers</A></LI>
+    <LI><A href=3D"http://source.android.com/source/roles.html">Project=20
+    Roles</A></LI>
+    <LI><A href=3D"http://source.android.com/source/brands.html">Brand=20
+    Guidelines</A></LI>
+    <LI><A=20
+    =
+href=3D"http://source.android.com/source/licenses.html">Licenses</A></LI>=
+
+    <LI><A=20
+href=3D"http://source.android.com/source/faqs.html">FAQ</A></LI></UL></LI=
+>
+  <LI class=3D"nav-section">
+  <DIV class=3D"nav-section-header"><A =
+href=3D"http://source.android.com/source/requirements.html"><SPAN=20
+  class=3D"en">Downloading and Building</SPAN>         </A></DIV>
+  <UL>
+    <LI><A=20
+    =
+href=3D"http://source.android.com/source/initializing.html">Establishing =
+a=20
+    Build Environment</A></LI>
+    <LI><A =
+href=3D"http://source.android.com/source/downloading.html">Downloading=20
+    the Source</A></LI>
+    <LI><A =
+href=3D"http://source.android.com/source/building.html">Building the=20
+    System</A></LI>
+    <LI><A href=3D"http://source.android.com/source/jack.html">Compiling =
+with=20
+    Jack</A></LI>
+    <LI><A =
+href=3D"http://source.android.com/source/devices.html">Selecting=20
+    Devices</A></LI>
+    <LI><A =
+href=3D"http://source.android.com/source/running.html">Running=20
+    Builds</A></LI>
+    <LI><A=20
+    =
+href=3D"http://source.android.com/source/building-kernels.html">Building =
+
+    Kernels</A></LI>
+    <LI><A =
+href=3D"http://source.android.com/source/known-issues.html">Known=20
+    Issues</A></LI></UL></LI>
+  <LI class=3D"nav-section">
+  <DIV class=3D"nav-section-header"><A =
+href=3D"http://source.android.com/source/developing.html"><SPAN=20
+  class=3D"en">Developing</SPAN>             </A></DIV>
+  <UL>
+    <LI><A =
+href=3D"http://source.android.com/source/using-repo.html">Using=20
+    Repo</A></LI>
+    <LI><A =
+href=3D"http://source.android.com/source/git-resources.html">Learning=20
+    Git</A></LI>
+    <LI><A =
+href=3D"http://source.android.com/source/add-device.html">Adding a New=20
+    Device</A></LI>
+    <LI><A=20
+    =
+href=3D"http://source.android.com/source/64-bit-builds.html">Understandin=
+g=20
+    64-bit Builds</A></LI></UL></LI>
+  <LI class=3D"nav-section">
+  <DIV class=3D"nav-section-header"><A =
+href=3D"http://source.android.com/source/contributing.html"><SPAN=20
+  class=3D"en">Contributing</SPAN>       </A></DIV>
+  <UL>
+    <LI><A =
+href=3D"http://source.android.com/source/life-of-a-patch.html">Life of=20
+    a Patch</A>
+    <LI><A=20
+    =
+href=3D"http://source.android.com/source/submit-patches.html">Submitting =
+
+    Patches</A></LI>
+    <LI><A href=3D"http://android-review.googlesource.com/">View =
+Patches</A></LI>
+    <LI><A =
+href=3D"http://source.android.com/source/life-of-a-bug.html">Life of a=20
+    Bug</A></LI>
+    <LI><A =
+href=3D"http://source.android.com/source/report-bugs.html">Reporting=20
+    Bugs</A></LI>
+    <LI><A =
+href=3D"http://source.android.com/source/read-bug-reports.html">Reading=20
+    Bug Reports</A></LI>
+    <LI><A =
+href=3D"http://source.android.com/source/code-style.html">Code Style=20
+    Rules</A></LI></UL></LI>
+  <LI class=3D"nav-section">
+  <DIV class=3D"nav-section-header empty"><A =
+href=3D"http://source.android.com/source/community.html"><SPAN=20
+  class=3D"en">Community</SPAN>       </A></DIV></LI></UL></DIV></DIV> =
+<!-- end side-nav -->=20
+   =20
+<SCRIPT>=0A=
+      $(document).ready(function() {=0A=
+        scrollIntoView("devdoc-nav");=0A=
+        });=0A=
+    </SCRIPT>
+  =20
+<DIV class=3D"col-12" id=3D"doc-col">
+<H1 itemprop=3D"name">Codenames, Tags, and Build Numbers</H1>
+<DIV id=3D"jd-content">
+<DIV class=3D"jd-descr" itemprop=3D"articleBody"><!--=0A=
+    Copyright 2014 The Android Open Source Project=0A=
+=0A=
+    Licensed under the Apache License, Version 2.0 (the "License");=0A=
+    you may not use this file except in compliance with the License.=0A=
+    You may obtain a copy of the License at=0A=
+=0A=
+        http://www.apache.org/licenses/LICENSE-2.0=0A=
+=0A=
+    Unless required by applicable law or agreed to in writing, software=0A=
+    distributed under the License is distributed on an "AS IS" BASIS,=0A=
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or =
+implied.=0A=
+    See the License for the specific language governing permissions and=0A=
+    limitations under the License.=0A=
+-->=20
+<DIV id=3D"qv-wrapper">
+<DIV id=3D"qv">
+<H2>In this document</H2>
+<OL id=3D"auto-toc"></OL></DIV></DIV>
+<P>At a high level, Android development happens around families of =
+releases,=20
+which use code names ordered alphabetically after tasty treats.</P>
+<H2 =
+id=3D"platform-code-names-versions-api-levels-and-ndk-releases">Platform =
+
+Codenames, Versions, API Levels, and NDK Releases</H2>
+<P>The code names match the following version numbers, along with API =
+levels and=20
+NDK releases provided for convenience:</P>
+<TABLE>
+  <THEAD>
+  <TR>
+    <TH>Code name</TH>
+    <TH>Version</TH>
+    <TH>API level</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD>Marshmallow</TD>
+    <TD>6.0</TD>
+    <TD>API level 23</TD></TR>
+  <TR>
+    <TD>Lollipop</TD>
+    <TD>5.1</TD>
+    <TD>API level 22</TD></TR>
+  <TR>
+    <TD>Lollipop</TD>
+    <TD>5.0</TD>
+    <TD>API level 21</TD></TR>
+  <TR>
+    <TD>KitKat</TD>
+    <TD>4.4 - 4.4.4</TD>
+    <TD>API level 19</TD></TR>
+  <TR>
+    <TD>Jelly Bean</TD>
+    <TD>4.3.x</TD>
+    <TD>API level 18</TD></TR>
+  <TR>
+    <TD>Jelly Bean</TD>
+    <TD>4.2.x</TD>
+    <TD>API level 17</TD></TR>
+  <TR>
+    <TD>Jelly Bean</TD>
+    <TD>4.1.x</TD>
+    <TD>API level 16</TD></TR>
+  <TR>
+    <TD>Ice Cream Sandwich</TD>
+    <TD>4.0.3 - 4.0.4</TD>
+    <TD>API level 15, NDK 8</TD></TR>
+  <TR>
+    <TD>Ice Cream Sandwich</TD>
+    <TD>4.0.1 - 4.0.2</TD>
+    <TD>API level 14, NDK 7</TD></TR>
+  <TR>
+    <TD>Honeycomb</TD>
+    <TD>3.2.x</TD>
+    <TD>API level 13</TD></TR>
+  <TR>
+    <TD>Honeycomb</TD>
+    <TD>3.1</TD>
+    <TD>API level 12, NDK 6</TD></TR>
+  <TR>
+    <TD>Honeycomb</TD>
+    <TD>3.0</TD>
+    <TD>API level 11</TD></TR>
+  <TR>
+    <TD>Gingerbread</TD>
+    <TD>2.3.3 - 2.3.7</TD>
+    <TD>API level 10</TD></TR>
+  <TR>
+    <TD>Gingerbread</TD>
+    <TD>2.3 - 2.3.2</TD>
+    <TD>API level 9, NDK 5</TD></TR>
+  <TR>
+    <TD>Froyo</TD>
+    <TD>2.2.x</TD>
+    <TD>API level 8, NDK 4</TD></TR>
+  <TR>
+    <TD>Eclair</TD>
+    <TD>2.1</TD>
+    <TD>API level 7, NDK 3</TD></TR>
+  <TR>
+    <TD>Eclair</TD>
+    <TD>2.0.1</TD>
+    <TD>API level 6</TD></TR>
+  <TR>
+    <TD>Eclair</TD>
+    <TD>2.0</TD>
+    <TD>API level 5</TD></TR>
+  <TR>
+    <TD>Donut</TD>
+    <TD>1.6</TD>
+    <TD>API level 4, NDK 2</TD></TR>
+  <TR>
+    <TD>Cupcake</TD>
+    <TD>1.5</TD>
+    <TD>API level 3, NDK 1</TD></TR>
+  <TR>
+    <TD>(no code name)</TD>
+    <TD>1.1</TD>
+    <TD>API level 2</TD></TR>
+  <TR>
+    <TD>(no code name)</TD>
+    <TD>1.0</TD>
+    <TD>API level 1</TD></TR></TBODY></TABLE>
+<P>Starting with Cupcake, individual builds are identified with a short =
+build=20
+code, e.g. FRF85B.</P>
+<P>The first letter is the code name of the release family, e.g. F is =
+Froyo.</P>
+<P>The second letter is a branch code that allows Google to identify the =
+exact=20
+code branch that the build was made from, and R is by convention the =
+primary=20
+release branch.</P>
+<P>The next letter and two digits are a date code. The letter counts =
+quarters,=20
+with A being Q1 2009. Therefore, F is Q2 2010. The two digits count days =
+within=20
+the quarter, so F85 is June 24 2010.</P>
+<P>Finally, the last letter identifies individual versions related to =
+the same=20
+date code, sequentially starting with A; A is actually implicit and =
+usually=20
+omitted for brevity.</P>
+<P>The date code is not guaranteed to be the exact date at which a build =
+was=20
+made, and it is common that minor variations added to an existing build =
+re-use=20
+the same date code as that existing build.</P>
+<H2 id=3D"source-code-tags-and-builds">Source Code Tags and Builds</H2>
+<P>Starting with Donut, the exact list of tags and builds is in the =
+following=20
+table. Factory images and binaries for Nexus devices can be downloaded =
+from:</P>
+<P><A=20
+href=3D"https://developers.google.com/android/nexus/images">https://devel=
+opers.google.com/android/nexus/images</A></P>
+<P><A=20
+href=3D"https://developers.google.com/android/nexus/drivers">https://deve=
+lopers.google.com/android/nexus/drivers</A></P>
+<TABLE>
+  <THEAD>
+  <TR>
+    <TH>Build</TH>
+    <TH>Branch</TH>
+    <TH>Version</TH>
+    <TH>Supported devices</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD>MOB30J</TD>
+    <TD>android-6.0.1_r43</TD>
+    <TD>Marshmallow</TD>
+    <TD>Nexus 7 (flo/deb)</TD></TR>
+  <TR>
+    <TD>MOB30I</TD>
+    <TD>android-6.0.1_r42</TD>
+    <TD>Marshmallow</TD>
+    <TD>Nexus 6</TD></TR>
+  <TR>
+    <TD>MOB30H</TD>
+    <TD>android-6.0.1_r41</TD>
+    <TD>Marshmallow</TD>
+    <TD>Nexus 5</TD></TR>
+  <TR>
+    <TD>MOB30G</TD>
+    <TD>android-6.0.1_r40</TD>
+    <TD>Marshmallow</TD>
+    <TD>Nexus 9 (volantis/volantisg), Nexus Player</TD></TR>
+  <TR>
+    <TD>MTC19T</TD>
+    <TD>android-6.0.1_r25</TD>
+    <TD>Marshmallow</TD>
+    <TD>Nexus 5X, Nexus 6P</TD></TR>
+  <TR>
+    <TD>MXC89F</TD>
+    <TD>android-6.0.1_r32</TD>
+    <TD>Marshmallow</TD>
+    <TD>Pixel C</TD></TR>
+  <TR>
+    <TD>M5C14J</TD>
+    <TD>android-6.0.1_r31</TD>
+    <TD>Marshmallow</TD>
+    <TD>Pixel C</TD></TR>
+  <TR>
+    <TD>MOB30D</TD>
+    <TD>android-6.0.1_r30</TD>
+    <TD>Marshmallow</TD>
+    <TD>Nexus 5, Nexus 6, Nexus 7 (flo/deb), Nexus 9 =
+(volantis/volantisg),=20
+      Nexus Player</TD></TR>
+  <TR>
+    <TD>MHC19Q</TD>
+    <TD>android-6.0.1_r24</TD>
+    <TD>Marshmallow</TD>
+    <TD>Nexus 5X, Nexus 6P</TD></TR>
+  <TR>
+    <TD>MHC19J</TD>
+    <TD>android-6.0.1_r22</TD>
+    <TD>Marshmallow</TD>
+    <TD>Nexus 5X</TD></TR>
+  <TR>
+    <TD>MHC19I</TD>
+    <TD>android-6.0.1_r21</TD>
+    <TD>Marshmallow</TD>
+    <TD>Nexus 6P</TD></TR>
+  <TR>
+    <TD>MMB29X</TD>
+    <TD>android-6.0.1_r20</TD>
+    <TD>Marshmallow</TD>
+    <TD>Nexus 5, Nexus 6, Nexus 7 (deb), Nexus 9 (volantisg)</TD></TR>
+  <TR>
+    <TD>MXC14G</TD>
+    <TD>android-6.0.1_r18</TD>
+    <TD>Marshmallow</TD>
+    <TD>Pixel C</TD></TR>
+  <TR>
+    <TD>MMB29V</TD>
+    <TD>android-6.0.1_r17</TD>
+    <TD>Marshmallow</TD>
+    <TD>Nexus 5, Nexus 5X, Nexus 6, Nexus 6P, Nexus 7 (flo/deb), Nexus 9 =
+
+      (volantis/volantisg)</TD></TR>
+  <TR>
+    <TD>MXB48T</TD>
+    <TD>android-6.0.1_r16</TD>
+    <TD>Marshmallow</TD>
+    <TD>Pixel C</TD></TR>
+  <TR>
+    <TD>MMB29U</TD>
+    <TD>android-6.0.1_r13</TD>
+    <TD>Marshmallow</TD>
+    <TD>Nexus Player</TD></TR>
+  <TR>
+    <TD>MMB29R</TD>
+    <TD>android-6.0.1_r12</TD>
+    <TD>Marshmallow</TD>
+    <TD>Nexus 9 (volantis/volantisg)</TD></TR>
+  <TR>
+    <TD>MMB29Q</TD>
+    <TD>android-6.0.1_r11</TD>
+    <TD>Marshmallow</TD>
+    <TD>Nexus 5, Nexus 5X, Nexus 6, Nexus 6P, Nexus 7 =
+(flo/deb)</TD></TR>
+  <TR>
+    <TD>MMB29T</TD>
+    <TD>android-6.0.1_r10</TD>
+    <TD>Marshmallow</TD>
+    <TD>Nexus Player</TD></TR>
+  <TR>
+    <TD>MMB29S</TD>
+    <TD>android-6.0.1_r9</TD>
+    <TD>Marshmallow</TD>
+    <TD>Nexus 5, Nexus 6, Nexus 9 (volantis/volantisg)</TD></TR>
+  <TR>
+    <TD>MMB29P</TD>
+    <TD>android-6.0.1_r8</TD>
+    <TD>Marshmallow</TD>
+    <TD>Nexus 5X, Nexus 6P</TD></TR>
+  <TR>
+    <TD>MMB29O</TD>
+    <TD>android-6.0.1_r7</TD>
+    <TD>Marshmallow</TD>
+    <TD>Nexus 7 (flo/deb)</TD></TR>
+  <TR>
+    <TD>MXB48K</TD>
+    <TD>android-6.0.1_r5</TD>
+    <TD>Marshmallow</TD>
+    <TD>Pixel C</TD></TR>
+  <TR>
+    <TD>MXB48J</TD>
+    <TD>android-6.0.1_r4</TD>
+    <TD>Marshmallow</TD>
+    <TD>Pixel C</TD></TR>
+  <TR>
+    <TD>MMB29M</TD>
+    <TD>android-6.0.1_r3</TD>
+    <TD>Marshmallow</TD>
+    <TD>Nexus 6P, Nexus Player</TD></TR>
+  <TR>
+    <TD>MMB29K</TD>
+    <TD>android-6.0.1_r1</TD>
+    <TD>Marshmallow</TD>
+    <TD>Nexus 5, Nexus 5X, Nexus 6, Nexus 7 (flo/deb), Nexus 9=20
+      (volantis/volantisg)</TD></TR>
+  <TR>
+    <TD>MMB29N</TD>
+    <TD>android-6.0.0_r41</TD>
+    <TD>Marshmallow</TD>
+    <TD>Nexus 6P</TD></TR>
+  <TR>
+    <TD>MDB08M</TD>
+    <TD>android-6.0.0_r26</TD>
+    <TD>Marshmallow</TD>
+    <TD>Nexus 5X, Nexus 6P</TD></TR>
+  <TR>
+    <TD>MDB08L</TD>
+    <TD>android-6.0.0_r25</TD>
+    <TD>Marshmallow</TD>
+    <TD>Nexus 5X, Nexus 6P</TD></TR>
+  <TR>
+    <TD>MDB08K</TD>
+    <TD>android-6.0.0_r24</TD>
+    <TD>Marshmallow</TD>
+    <TD>Nexus 6P</TD></TR>
+  <TR>
+    <TD>MDB08I</TD>
+    <TD>android-6.0.0_r23</TD>
+    <TD>Marshmallow</TD>
+    <TD>Nexus 5X</TD></TR>
+  <TR>
+    <TD>MDA89E</TD>
+    <TD>android-6.0.0_r12</TD>
+    <TD>Marshmallow</TD>
+    <TD>Nexus 5X</TD></TR>
+  <TR>
+    <TD>MDA89D</TD>
+    <TD>android-6.0.0_r11</TD>
+    <TD>Marshmallow</TD>
+    <TD>Nexus 6P</TD></TR>
+  <TR>
+    <TD>MRA59B</TD>
+    <TD>android-6.0.0_r7</TD>
+    <TD>Marshmallow</TD>
+    <TD>Nexus 7 (deb)</TD></TR>
+  <TR>
+    <TD>MRA58X</TD>
+    <TD>android-6.0.0_r6</TD>
+    <TD>Marshmallow</TD>
+    <TD>Nexus 6</TD></TR>
+  <TR>
+    <TD>MRA58V</TD>
+    <TD>android-6.0.0_r5</TD>
+    <TD>Marshmallow</TD>
+    <TD>Nexus 7 (flo/deb)</TD></TR>
+  <TR>
+    <TD>MRA58U</TD>
+    <TD>android-6.0.0_r4</TD>
+    <TD>Marshmallow</TD>
+    <TD>Nexus 7 (flo)</TD></TR>
+  <TR>
+    <TD>MRA58N</TD>
+    <TD>android-6.0.0_r2</TD>
+    <TD>Marshmallow</TD>
+    <TD>Nexus 5, Nexus 6, Nexus 7 (flo/deb), Nexus 9 =
+(volantis/volantisg),=20
+      Nexus Player</TD></TR>
+  <TR>
+    <TD>MRA58K</TD>
+    <TD>android-6.0.0_r1</TD>
+    <TD>Marshmallow</TD>
+    <TD>Nexus 5, Nexus 6, Nexus 7 (flo/deb), Nexus 9 =
+(volantis/volantisg),=20
+      Nexus Player</TD></TR>
+  <TR>
+    <TD>LMY49J</TD>
+    <TD>android-5.1.1_r37</TD>
+    <TD>Lollipop</TD>
+    <TD>Nexus 10</TD></TR>
+  <TR>
+    <TD>LMY49I</TD>
+    <TD>android-5.1.1_r36</TD>
+    <TD>Lollipop</TD>
+    <TD>Nexus 10</TD></TR>
+  <TR>
+    <TD>LMY49H</TD>
+    <TD>android-5.1.1_r35</TD>
+    <TD>Lollipop</TD>
+    <TD>Nexus 10</TD></TR>
+  <TR>
+    <TD>LMY49G</TD>
+    <TD>android-5.1.1_r34</TD>
+    <TD>Lollipop</TD>
+    <TD>Nexus 10</TD></TR>
+  <TR>
+    <TD>LMY49F</TD>
+    <TD>android-5.1.1_r33</TD>
+    <TD>Lollipop</TD>
+    <TD>Nexus 9 (volantisg), Nexus 10</TD></TR>
+  <TR>
+    <TD>LMY48Z</TD>
+    <TD>android-5.1.1_r30</TD>
+    <TD>Lollipop</TD>
+    <TD>Nexus 6, Nexus 7 (deb), Nexus 9 (volantisg), Nexus 10</TD></TR>
+  <TR>
+    <TD>LYZ28N</TD>
+    <TD>android-5.1.1_r28</TD>
+    <TD>Lollipop</TD>
+    <TD>Nexus 6 (For T-Mobile ONLY)</TD></TR>
+  <TR>
+    <TD>LMY48Y</TD>
+    <TD>android-5.1.1_r26</TD>
+    <TD>Lollipop</TD>
+    <TD>Nexus 6</TD></TR>
+  <TR>
+    <TD>LMY48X</TD>
+    <TD>android-5.1.1_r25</TD>
+    <TD>Lollipop</TD>
+    <TD>Nexus 6, Nexus 7 (deb), Nexus 9 (volantisg), Nexus 10</TD></TR>
+  <TR>
+    <TD>LMY48W</TD>
+    <TD>android-5.1.1_r24</TD>
+    <TD>Lollipop</TD>
+    <TD>Nexus 6</TD></TR>
+  <TR>
+    <TD>LVY48H</TD>
+    <TD>android-5.1.1_r23</TD>
+    <TD>Lollipop</TD>
+    <TD>Nexus 6 (For Project Fi ONLY)</TD></TR>
+  <TR>
+    <TD>LYZ28M</TD>
+    <TD>android-5.1.1_r22</TD>
+    <TD>Lollipop</TD>
+    <TD>Nexus 6 (For T-Mobile ONLY)</TD></TR>
+  <TR>
+    <TD>LMY48U</TD>
+    <TD>android-5.1.1_r20</TD>
+    <TD>Lollipop</TD>
+    <TD>Nexus 7 (deb)</TD></TR>
+  <TR>
+    <TD>LMY48T</TD>
+    <TD>android-5.1.1_r19</TD>
+    <TD>Lollipop</TD>
+    <TD>Nexus 4, Nexus 6, Nexus 9 (volantis/volantisg), Nexus =
+10</TD></TR>
+  <TR>
+    <TD>LVY48F</TD>
+    <TD>android-5.1.1_r18</TD>
+    <TD>Lollipop</TD>
+    <TD>Nexus 6 (For Project Fi ONLY)</TD></TR>
+  <TR>
+    <TD>LYZ28K</TD>
+    <TD>android-5.1.1_r17</TD>
+    <TD>Lollipop</TD>
+    <TD>Nexus 6 (For T-Mobile ONLY)</TD></TR>
+  <TR>
+    <TD>LMY48P</TD>
+    <TD>android-5.1.1_r16</TD>
+    <TD>Lollipop</TD>
+    <TD>Nexus 7 (deb)</TD></TR>
+  <TR>
+    <TD>LMY48N</TD>
+    <TD>android-5.1.1_r15</TD>
+    <TD>Lollipop</TD>
+    <TD>Nexus Player</TD></TR>
+  <TR>
+    <TD>LMY48M</TD>
+    <TD>android-5.1.1_r14</TD>
+    <TD>Lollipop</TD>
+    <TD>Nexus 4, Nexus 5, Nexus 6, Nexus 7 (flo), Nexus 9=20
+      (volantis/volantisg), Nexus 10</TD></TR>
+  <TR>
+    <TD>LVY48E</TD>
+    <TD>android-5.1.1_r13</TD>
+    <TD>Lollipop</TD>
+    <TD>Nexus 6 (For Project Fi ONLY)</TD></TR>
+  <TR>
+    <TD>LYZ28J</TD>
+    <TD>android-5.1.1_r12</TD>
+    <TD>Lollipop</TD>
+    <TD>Nexus 6 (For T-Mobile ONLY)</TD></TR>
+  <TR>
+    <TD>LMY48J</TD>
+    <TD>android-5.1.1_r10</TD>
+    <TD>Lollipop</TD>
+    <TD>Nexus Player</TD></TR>
+  <TR>
+    <TD>LMY48I</TD>
+    <TD>android-5.1.1_r9</TD>
+    <TD>Lollipop</TD>
+    <TD>Nexus 4, Nexus 5, Nexus 6, Nexus 7 (flo), Nexus 9=20
+      (volantis/volantisg), Nexus 10</TD></TR>
+  <TR>
+    <TD>LVY48C</TD>
+    <TD>android-5.1.1_r8</TD>
+    <TD>Lollipop</TD>
+    <TD>Nexus 6 (For Project Fi ONLY)</TD></TR>
+  <TR>
+    <TD>LMY48G</TD>
+    <TD>android-5.1.1_r6</TD>
+    <TD>Lollipop</TD>
+    <TD>Nexus 7 (flo)</TD></TR>
+  <TR>
+    <TD>LYZ28E</TD>
+    <TD>android-5.1.1_r5</TD>
+    <TD>Lollipop</TD>
+    <TD>Nexus 6 (For T-Mobile ONLY)</TD></TR>
+  <TR>
+    <TD>LMY47Z</TD>
+    <TD>android-5.1.1_r4</TD>
+    <TD>Lollipop</TD>
+    <TD>Nexus 6 (All carriers except T-Mobile US)</TD></TR>
+  <TR>
+    <TD>LMY48B</TD>
+    <TD>android-5.1.1_r3</TD>
+    <TD>Lollipop</TD>
+    <TD>Nexus 5</TD></TR>
+  <TR>
+    <TD>LMY47X</TD>
+    <TD>android-5.1.1_r2</TD>
+    <TD>Lollipop</TD>
+    <TD>Nexus 9 (volantis)</TD></TR>
+  <TR>
+    <TD>LMY47V</TD>
+    <TD>android-5.1.1_r1</TD>
+    <TD>Lollipop</TD>
+    <TD>Nexus 7 (flo/grouper), Nexus 10, Nexus Player</TD></TR>
+  <TR>
+    <TD>LMY47O</TD>
+    <TD>android-5.1.0_r5</TD>
+    <TD>Lollipop</TD>
+    <TD>Nexus 4, Nexus 7 (flo/deb)</TD></TR>
+  <TR>
+    <TD>LMY47M</TD>
+    <TD>android-5.1.0_r4</TD>
+    <TD>Lollipop</TD>
+    <TD>Nexus 6 (For T-Mobile ONLY)</TD></TR>
+  <TR>
+    <TD>LMY47I</TD>
+    <TD>android-5.1.0_r3</TD>
+    <TD>Lollipop</TD>
+    <TD>Nexus 5, Nexus 6</TD></TR>
+  <TR>
+    <TD>LMY47E</TD>
+    <TD>android-5.1.0_r2</TD>
+    <TD>Lollipop</TD>
+    <TD>Nexus 6</TD></TR>
+  <TR>
+    <TD>LMY47D</TD>
+    <TD>android-5.1.0_r1</TD>
+    <TD>Lollipop</TD>
+    <TD>Nexus 5, Nexus 6, Nexus 7 (grouper/tilapia), Nexus 10, Nexus=20
+  Player</TD></TR>
+  <TR>
+    <TD>LRX22L</TD>
+    <TD>android-5.0.2_r3</TD>
+    <TD>Lollipop</TD>
+    <TD>Nexus 9 (volantis/volantisg)</TD></TR>
+  <TR>
+    <TD>LRX22G</TD>
+    <TD>android-5.0.2_r1</TD>
+    <TD>Lollipop</TD>
+    <TD>Nexus 7 (flo/deb/grouper/tilapia), Nexus 10</TD></TR>
+  <TR>
+    <TD>LRX22C</TD>
+    <TD>android-5.0.1_r1</TD>
+    <TD>Lollipop</TD>
+    <TD>Nexus 4, Nexus 5, Nexus 6 (shamu), Nexus 7 (flo), Nexus 9=20
+      (volantis/volantisg), Nexus 10</TD></TR>
+  <TR>
+    <TD>LRX21V</TD>
+    <TD>android-5.0.0_r7.0.1</TD>
+    <TD>Lollipop</TD>
+    <TD>Nexus Player (fugu)</TD></TR>
+  <TR>
+    <TD>LRX21T</TD>
+    <TD>android-5.0.0_r6.0.1</TD>
+    <TD>Lollipop</TD>
+    <TD>Nexus 4</TD></TR>
+  <TR>
+    <TD>LRX21R</TD>
+    <TD>android-5.0.0_r5.1.0.1</TD>
+    <TD>Lollipop</TD>
+    <TD>Nexus 9 (volantis)</TD></TR>
+  <TR>
+    <TD>LRX21Q</TD>
+    <TD>android-5.0.0_r5.0.1</TD>
+    <TD>Lollipop</TD>
+    <TD>Nexus 9 (volantis)</TD></TR>
+  <TR>
+    <TD>LRX21P</TD>
+    <TD>android-5.0.0_r4.0.1</TD>
+    <TD>Lollipop</TD>
+    <TD>Nexus 7 (flo/grouper), Nexus 10</TD></TR>
+  <TR>
+    <TD>LRX21O</TD>
+    <TD>android-5.0.0_r3.0.1</TD>
+    <TD>Lollipop</TD>
+    <TD>Nexus 5 (hammerhead), Nexus 6 (shamu)</TD></TR>
+  <TR>
+    <TD>LRX21M</TD>
+    <TD>android-5.0.0_r2.0.1</TD>
+    <TD>Lollipop</TD>
+    <TD>Nexus Player (fugu)</TD></TR>
+  <TR>
+    <TD>LRX21L</TD>
+    <TD>android-5.0.0_r1.0.1</TD>
+    <TD>Lollipop</TD>
+    <TD>Nexus 9 (volantis)</TD></TR>
+  <TR>
+    <TD>KTU84Q</TD>
+    <TD>android-4.4.4_r2</TD>
+    <TD>KitKat</TD>
+    <TD>Nexus 5 (hammerhead) (For 2Degrees/NZ, Telstra/AUS and India=20
+  ONLY)</TD></TR>
+  <TR>
+    <TD>KTU84P</TD>
+    <TD>android-4.4.4_r1</TD>
+    <TD>KitKat</TD>
+    <TD>Nexus 5, Nexus 7 (flo/deb/grouper/tilapia), Nexus 4, Nexus =
+10</TD></TR>
+  <TR>
+    <TD>KTU84M</TD>
+    <TD>android-4.4.3_r1.1</TD>
+    <TD>KitKat</TD>
+    <TD>Nexus 5 (hammerhead)</TD></TR>
+  <TR>
+    <TD>KTU84L</TD>
+    <TD>android-4.4.3_r1</TD>
+    <TD>KitKat</TD>
+    <TD>Nexus 7 (flo/deb/grouper/tilapia), Nexus 4, Nexus 10</TD></TR>
+  <TR>
+    <TD>KVT49L</TD>
+    <TD>android-4.4.2_r2</TD>
+    <TD>KitKat</TD>
+    <TD>Nexus 7 (deb Verizon)</TD></TR>
+  <TR>
+    <TD>KOT49H</TD>
+    <TD>android-4.4.2_r1</TD>
+    <TD>KitKat</TD>
+    <TD> Nexus 5, Nexus 7 (flo/deb/grouper/tilapia), Nexus 4, Nexus =
+10</TD></TR>
+  <TR>
+    <TD>KOT49E</TD>
+    <TD>android-4.4.1_r1</TD>
+    <TD>KitKat</TD>
+    <TD>Nexus 5, Nexus 7 (flo/deb/grouper/tilapia), Nexus 4, Nexus =
+10</TD></TR>
+  <TR>
+    <TD>KRT16S</TD>
+    <TD>android-4.4_r1.2</TD>
+    <TD>KitKat</TD>
+    <TD>Nexus 7 (flo/deb/grouper/tilapia), Nexus 4, Nexus 10</TD></TR>
+  <TR>
+    <TD>KRT16M</TD>
+    <TD>android-4.4_r1</TD>
+    <TD>KitKat</TD>
+    <TD>Nexus 5 (hammerhead)</TD></TR>
+  <TR>
+    <TD>JLS36I</TD>
+    <TD>android-4.3.1_r1</TD>
+    <TD>Jelly Bean</TD>
+    <TD>Nexus 7 (deb)</TD></TR>
+  <TR>
+    <TD>JLS36C</TD>
+    <TD>android-4.3_r3</TD>
+    <TD>Jelly Bean</TD>
+    <TD> Nexus 7 (deb)</TD></TR>
+  <TR>
+    <TD>JSS15R</TD>
+    <TD>android-4.3_r2.3</TD>
+    <TD>Jelly Bean</TD>
+    <TD>Nexus 7 (flo)</TD></TR>
+  <TR>
+    <TD>JSS15Q</TD>
+    <TD>android-4.3_r2.2</TD>
+    <TD>Jelly Bean</TD>
+    <TD>Nexus 7 (flo)</TD></TR>
+  <TR>
+    <TD>JSS15J</TD>
+    <TD>android-4.3_r2.1</TD>
+    <TD>Jelly Bean</TD>
+    <TD>Nexus 7 (flo/deb)</TD></TR>
+  <TR>
+    <TD>JSR78D</TD>
+    <TD>android-4.3_r2</TD>
+    <TD>Jelly Bean</TD>
+    <TD>Nexus 7 (deb)</TD></TR>
+  <TR>
+    <TD>JWR66Y</TD>
+    <TD>android-4.3_r1.1</TD>
+    <TD>Jelly Bean</TD>
+    <TD>Galaxy Nexus, Nexus 7 (grouper/tilapia), Nexus 4, Nexus =
+10</TD></TR>
+  <TR>
+    <TD>JWR66V</TD>
+    <TD>android-4.3_r1</TD>
+    <TD>Jelly Bean</TD>
+    <TD>Galaxy Nexus, Nexus 7 (grouper/tilapia), Nexus 4, Nexus =
+10</TD></TR>
+  <TR>
+    <TD>JWR66N</TD>
+    <TD>android-4.3_r0.9.1</TD>
+    <TD>Jelly Bean</TD>
+    <TD>Galaxy Nexus, Nexus 7 (grouper/tilapia/flo), Nexus 4, Nexus =
+10</TD></TR>
+  <TR>
+    <TD>JWR66L</TD>
+    <TD>android-4.3_r0.9</TD>
+    <TD>Jelly Bean</TD>
+    <TD>Nexus 7</TD></TR>
+  <TR>
+    <TD>JDQ39E</TD>
+    <TD>android-4.2.2_r1.2</TD>
+    <TD>Jelly Bean</TD>
+    <TD>Nexus 4</TD></TR>
+  <TR>
+    <TD>JDQ39B</TD>
+    <TD>android-4.2.2_r1.1</TD>
+    <TD>Jelly Bean</TD>
+    <TD>Nexus 7</TD></TR>
+  <TR>
+    <TD>JDQ39</TD>
+    <TD>android-4.2.2_r1</TD>
+    <TD>Jelly Bean</TD>
+    <TD>Galaxy Nexus, Nexus 7, Nexus 4, Nexus 10</TD></TR>
+  <TR>
+    <TD>JOP40G</TD>
+    <TD>android-4.2.1_r1.2</TD>
+    <TD>Jelly Bean</TD>
+    <TD>Nexus 4</TD></TR>
+  <TR>
+    <TD>JOP40F</TD>
+    <TD>android-4.2.1_r1.1</TD>
+    <TD>Jelly Bean</TD>
+    <TD>Nexus 10</TD></TR>
+  <TR>
+    <TD>JOP40D</TD>
+    <TD>android-4.2.1_r1</TD>
+    <TD>Jelly Bean</TD>
+    <TD>Galaxy Nexus, Nexus 7, Nexus 4, Nexus 10</TD></TR>
+  <TR>
+    <TD>JOP40C</TD>
+    <TD>android-4.2_r1</TD>
+    <TD>Jelly Bean</TD>
+    <TD>Galaxy Nexus, Nexus 7, Nexus 4, Nexus 10</TD></TR>
+  <TR>
+    <TD>JZO54M</TD>
+    <TD>android-4.1.2_r2.1</TD>
+    <TD>Jelly Bean</TD>
+    <TD></TD></TR>
+  <TR>
+    <TD>JZO54L</TD>
+    <TD>android-4.1.2_r2</TD>
+    <TD>Jelly Bean</TD>
+    <TD></TD></TR>
+  <TR>
+    <TD>JZO54K</TD>
+    <TD>android-4.1.2_r1</TD>
+    <TD>Jelly Bean</TD>
+    <TD>Nexus S, Galaxy Nexus, Nexus 7</TD></TR>
+  <TR>
+    <TD>JRO03S</TD>
+    <TD>android-4.1.1_r6.1</TD>
+    <TD>Jelly Bean</TD>
+    <TD>Nexus 7</TD></TR>
+  <TR>
+    <TD>JRO03R</TD>
+    <TD>android-4.1.1_r6</TD>
+    <TD>Jelly Bean</TD>
+    <TD>Nexus S 4G</TD></TR>
+  <TR>
+    <TD>JRO03O</TD>
+    <TD>android-4.1.1_r5</TD>
+    <TD>Jelly Bean</TD>
+    <TD>Galaxy Nexus</TD></TR>
+  <TR>
+    <TD>JRO03L</TD>
+    <TD>android-4.1.1_r4</TD>
+    <TD>Jelly Bean</TD>
+    <TD>Nexus S</TD></TR>
+  <TR>
+    <TD>JRO03H</TD>
+    <TD>android-4.1.1_r3</TD>
+    <TD>Jelly Bean</TD>
+    <TD></TD></TR>
+  <TR>
+    <TD>JRO03E</TD>
+    <TD>android-4.1.1_r2</TD>
+    <TD>Jelly Bean</TD>
+    <TD>Nexus S</TD></TR>
+  <TR>
+    <TD>JRO03D</TD>
+    <TD>android-4.1.1_r1.1</TD>
+    <TD>Jelly Bean</TD>
+    <TD>Nexus 7</TD></TR>
+  <TR>
+    <TD>JRO03C</TD>
+    <TD>android-4.1.1_r1</TD>
+    <TD>Jelly Bean</TD>
+    <TD>Galaxy Nexus</TD></TR>
+  <TR>
+    <TD>IMM76L</TD>
+    <TD>android-4.0.4_r2.1</TD>
+    <TD>Ice Cream Sandwich</TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD>IMM76K</TD>
+    <TD>android-4.0.4_r2</TD>
+    <TD>Ice Cream Sandwich</TD>
+    <TD>Galaxy Nexus</TD></TR>
+  <TR>
+    <TD>IMM76I</TD>
+    <TD>android-4.0.4_r1.2</TD>
+    <TD>Ice Cream Sandwich</TD>
+    <TD>Galaxy Nexus</TD></TR>
+  <TR>
+    <TD>IMM76D</TD>
+    <TD>android-4.0.4_r1.1</TD>
+    <TD>Ice Cream Sandwich</TD>
+    <TD>Nexus S, Nexus S 4G, Galaxy Nexus</TD></TR>
+  <TR>
+    <TD>IMM76</TD>
+    <TD>android-4.0.4_r1</TD>
+    <TD>Ice Cream Sandwich</TD>
+    <TD></TD></TR>
+  <TR>
+    <TD>IML77</TD>
+    <TD>android-4.0.3_r1.1</TD>
+    <TD>Ice Cream Sandwich</TD>
+    <TD></TD></TR>
+  <TR>
+    <TD>IML74K</TD>
+    <TD>android-4.0.3_r1</TD>
+    <TD>Ice Cream Sandwich</TD>
+    <TD>Nexus S</TD></TR>
+  <TR>
+    <TD>ICL53F</TD>
+    <TD>android-4.0.2_r1</TD>
+    <TD>Ice Cream Sandwich</TD>
+    <TD>Galaxy Nexus</TD></TR>
+  <TR>
+    <TD>ITL41F</TD>
+    <TD>android-4.0.1_r1.2</TD>
+    <TD>Ice Cream Sandwich</TD>
+    <TD>Galaxy Nexus</TD></TR>
+  <TR>
+    <TD>ITL41D</TD>
+    <TD>android-4.0.1_r1.1</TD>
+    <TD>Ice Cream Sandwich</TD>
+    <TD>Galaxy Nexus</TD></TR>
+  <TR>
+    <TD>ITL41D</TD>
+    <TD>android-4.0.1_r1</TD>
+    <TD>Ice Cream Sandwich</TD>
+    <TD>Galaxy Nexus</TD></TR>
+  <TR>
+    <TD>GWK74</TD>
+    <TD>android-2.3.7_r1</TD>
+    <TD>Gingerbread</TD>
+    <TD>Nexus S 4G</TD></TR>
+  <TR>
+    <TD>GRK39F</TD>
+    <TD>android-2.3.6_r1</TD>
+    <TD>Gingerbread</TD>
+    <TD>Nexus One, Nexus S</TD></TR>
+  <TR>
+    <TD>GRK39C</TD>
+    <TD>android-2.3.6_r0.9</TD>
+    <TD>Gingerbread</TD>
+    <TD>Nexus S</TD></TR>
+  <TR>
+    <TD>GRJ90</TD>
+    <TD>android-2.3.5_r1</TD>
+    <TD>Gingerbread</TD>
+    <TD>Nexus S 4G</TD></TR>
+  <TR>
+    <TD>GRJ22</TD>
+    <TD>android-2.3.4_r1</TD>
+    <TD>Gingerbread</TD>
+    <TD>Nexus One, Nexus S, Nexus S 4G</TD></TR>
+  <TR>
+    <TD>GRJ06D</TD>
+    <TD>android-2.3.4_r0.9</TD>
+    <TD>Gingerbread</TD>
+    <TD>Nexus S 4G</TD></TR>
+  <TR>
+    <TD>GRI54</TD>
+    <TD>android-2.3.3_r1.1</TD>
+    <TD>Gingerbread</TD>
+    <TD>Nexus S</TD></TR>
+  <TR>
+    <TD>GRI40</TD>
+    <TD>android-2.3.3_r1</TD>
+    <TD>Gingerbread</TD>
+    <TD>Nexus One, Nexus S</TD></TR>
+  <TR>
+    <TD>GRH78C</TD>
+    <TD>android-2.3.2_r1</TD>
+    <TD>Gingerbread</TD>
+    <TD>Nexus S</TD></TR>
+  <TR>
+    <TD>GRH78</TD>
+    <TD>android-2.3.1_r1</TD>
+    <TD>Gingerbread</TD>
+    <TD>Nexus S</TD></TR>
+  <TR>
+    <TD>GRH55</TD>
+    <TD>android-2.3_r1</TD>
+    <TD>Gingerbread</TD>
+    <TD>earliest Gingerbread version, Nexus S</TD></TR>
+  <TR>
+    <TD>FRK76C</TD>
+    <TD>android-2.2.3_r2</TD>
+    <TD>Froyo</TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD>FRK76</TD>
+    <TD>android-2.2.3_r1</TD>
+    <TD>Froyo</TD>
+    <TD></TD></TR>
+  <TR>
+    <TD>FRG83G</TD>
+    <TD>android-2.2.2_r1</TD>
+    <TD>Froyo</TD>
+    <TD>Nexus One</TD></TR>
+  <TR>
+    <TD>FRG83D</TD>
+    <TD>android-2.2.1_r2</TD>
+    <TD>Froyo</TD>
+    <TD>Nexus One</TD></TR>
+  <TR>
+    <TD>FRG83</TD>
+    <TD>android-2.2.1_r1</TD>
+    <TD>Froyo</TD>
+    <TD>Nexus One</TD></TR>
+  <TR>
+    <TD>FRG22D</TD>
+    <TD>android-2.2_r1.3</TD>
+    <TD>Froyo</TD>
+    <TD></TD></TR>
+  <TR>
+    <TD>FRG01B</TD>
+    <TD>android-2.2_r1.2</TD>
+    <TD>Froyo</TD>
+    <TD></TD></TR>
+  <TR>
+    <TD>FRF91</TD>
+    <TD>android-2.2_r1.1</TD>
+    <TD>Froyo</TD>
+    <TD>Nexus One</TD></TR>
+  <TR>
+    <TD>FRF85B</TD>
+    <TD>android-2.2_r1</TD>
+    <TD>Froyo</TD>
+    <TD>Nexus One</TD></TR>
+  <TR>
+    <TD>EPF21B</TD>
+    <TD>android-2.1_r2.1p2</TD>
+    <TD>Eclair</TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD>ESE81</TD>
+    <TD>android-2.1_r2.1s</TD>
+    <TD>Eclair</TD>
+    <TD></TD></TR>
+  <TR>
+    <TD>EPE54B</TD>
+    <TD>android-2.1_r2.1p</TD>
+    <TD>Eclair</TD>
+    <TD>Nexus One</TD></TR>
+  <TR>
+    <TD>ERE27</TD>
+    <TD>android-2.1_r2</TD>
+    <TD>Eclair</TD>
+    <TD>Nexus One</TD></TR>
+  <TR>
+    <TD>ERD79</TD>
+    <TD>android-2.1_r1</TD>
+    <TD>Eclair</TD>
+    <TD>Nexus One</TD></TR>
+  <TR>
+    <TD>ESD56</TD>
+    <TD>android-2.0.1_r1</TD>
+    <TD>Eclair</TD>
+    <TD></TD></TR>
+  <TR>
+    <TD>ESD20</TD>
+    <TD>android-2.0_r1</TD>
+    <TD>Eclair</TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD>DMD64</TD>
+    <TD>android-1.6_r1.5</TD>
+    <TD>Donut</TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD>DRD20</TD>
+    <TD>android-1.6_r1.4</TD>
+    <TD></TD>
+    <TD></TD></TR>
+  <TR>
+    <TD>DRD08</TD>
+    <TD>android-1.6_r1.3</TD>
+    <TD></TD>
+    <TD></TD></TR>
+  <TR>
+    <TD>DRC92</TD>
+    <TD>android-1.6_r1.2</TD>
+    <TD></TD>
+    <TD></TD></TR></TBODY></TABLE>
+<P>The branches froyo, gingerbread, ics-mr0, ics-mr1, jb-dev, =
+jb-mr1-dev,=20
+jb-mr1.1-dev, jb-mr2-dev, kitkat-dev represent development branches that =
+do not=20
+exactly match configurations that were tested by Google. They might =
+contain a=20
+variety of changes in addition to the official tagged releases, and =
+those=20
+haven't been as thoroughly tested.</P>
+<P>To differentiate between releases, you may obtain a list of changes
+ associated with each project by issuing the following command and =
+passing it
+ the two branch tags:</P>
+<PRE><CODE>$ repo forall -pc 'git log --no-merges --oneline =
+branch-1..branch-2'</CODE></PRE>
+<P>For example:</P>
+<PRE><CODE>$ repo forall -pc 'git log --no-merges --oneline =
+android-4.4.2_r2..android-4.4.2_r1'</CODE></PRE>
+<P>And to output to a text file:</P>
+<PRE><CODE>repo forall -pc 'git log --no-merges --oneline =
+android-4.4.2_r2..android-4.4.2_r1' &gt; =
+/tmp/android-4.4.2_r2-android-4.4.2_r1-diff.txt</CODE></PRE>
+<H2 id=3D"honeycomb-gpl-modules">Honeycomb GPL Modules</H2>
+<P>For Honeycomb, the entire platform source code isn't available. =
+However, the=20
+parts of Honeycomb licensed under the GPL and LGPL are available under =
+the=20
+following tags:</P>
+<TABLE>
+  <THEAD>
+  <TR>
+    <TH>Build</TH>
+    <TH>Tag</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD>HRI39</TD>
+    <TD>android-3.0_r1</TD>
+    <TD>earliest Honeycomb version</TD></TR>
+  <TR>
+    <TD>HRI66</TD>
+    <TD>android-3.0_r1.1</TD>
+    <TD></TD></TR>
+  <TR>
+    <TD>HWI69</TD>
+    <TD>android-3.0_r1.2</TD>
+    <TD></TD></TR>
+  <TR>
+    <TD>HRI83</TD>
+    <TD>android-3.0_r1.3</TD>
+    <TD></TD></TR>
+  <TR>
+    <TD>HMJ37</TD>
+    <TD>android-3.1_r1</TD>
+    <TD></TD></TR>
+  <TR>
+    <TD>HTJ85B</TD>
+    <TD>android-3.2_r1</TD>
+    <TD></TD></TR>
+  <TR>
+    <TD>HTK55D</TD>
+    <TD>android-3.2.1_r1</TD>
+    <TD></TD></TR>
+  <TR>
+    <TD>HTK75D</TD>
+    <TD>android-3.2.1_r2</TD>
+    <TD></TD></TR>
+  <TR>
+    <TD>HLK75C</TD>
+    <TD>android-3.2.2_r1</TD>
+    <TD></TD></TR>
+  <TR>
+    <TD>HLK75D</TD>
+    <TD>android-3.2.2_r2</TD>
+    <TD></TD></TR>
+  <TR>
+    <TD>HLK75F</TD>
+    <TD>android-3.2.4_r1</TD>
+    <TD></TD></TR>
+  <TR>
+    <TD>HLK75H</TD>
+    <TD>android-3.2.6_r1</TD>
+    <TD>latest Honeycomb version</TD></TR></TBODY></TABLE>
+<P>There is no manifest that contains exactly those. However, there are=20
+manifests that allow building those components. The following commands =
+work for=20
+3.0_r1.1, and using other versions can be done by switching the git =
+checkout=20
+paramater, and if necessary the -m parameter in repo init. The git =
+checkout=20
+command outputs an error for the non-GPL projects, where it can't find =
+the tag=20
+in question.</P>
+<PRE><CODE>$ repo init -b master -m base-for-3.0-gpl.xml=0A=
+$ repo sync=0A=
+$ repo forall -c git checkout android-3.0_r1.1=0A=
+</CODE></PRE></DIV>
+<DIV class=3D"content-footer-sac" =
+itemtype=3D"http://schema.org/SiteNavigationElement"=20
+itemscope=3D"">
+<DIV class=3D"layout-content-col col-9" style=3D"padding-top: =
+4px;"></DIV>          =20
+     =20
+<DIV class=3D"paging-links layout-content-col col-4"></DIV>              =
+=20
+</DIV></DIV><!-- end jd-content -->  =20
+<DIV class=3D"wrap" id=3D"footer">
+<STYLE>.feedback { float: right !Important }</STYLE>
+  =20
+<DIV class=3D"feedback"><A class=3D"button" onclick=3D" try {&#10;      =
+userfeedback.api.startFeedback({'productId':'715571','authuser':'1'});ret=
+urn false;}catch(e){}"=20
+href=3D"http://source.android.com/source/build-numbers.html#">Site =
+Feedback</A>  =20
+</DIV>
+<DIV id=3D"copyright">      Except as noted, this content is   licensed =
+under <A=20
+href=3D"http://creativecommons.org/licenses/by/2.5/">  Creative Commons=20
+Attribution 2.5</A>. For details and   restrictions, see the <A =
+href=3D"http://source.android.com/license.html">Content=20
+  License</A>.   </DIV>
+<DIV id=3D"footerlinks">
+<P><A href=3D"http://source.android.com/source/index.html">About=20
+Android</A>&nbsp;&nbsp;|&nbsp;     <A =
+href=3D"http://source.android.com/source/community.html">Community</A>&nb=
+sp;&nbsp;|&nbsp;=20
+    <A =
+href=3D"http://source.android.com/legal.html">Legal</A>&nbsp;&nbsp;|&nbsp=
+; =20
+ </P></DIV></DIV><!-- end doc-content --> </DIV> <!-- end body-content =
+-->=20
+</DIV></BODY></HTML>
+
+------=_NextPart_000_0000_01D1AA40.CF01B700
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: http://source.android.com/assets/images/sac_logo.png
+
+iVBORw0KGgoAAAANSUhEUgAAAHsAAAAZCAYAAAAR+1EuAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A
+/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB94HCwAcMq9hgDMAAAh6SURBVGje
+7Zp/sJZFFcc/7+XyS+AiliAxxO8fRhqkiFBjyQ4KQWtRkQYaWuMgjrojkDSlljlJhLZoNFqjkhiW
+NkjrWJcfGzMWRIUoiaE4AhEQKSUagaRw++M9jx4e3ud9n/e9F2RGd+bO3Xef3XPOnu/Zs2fPboF3
+WfHRng5cDBwGVjoTVp8gcn0XOAjscCbc24J0pwHdAOp595UPATdJ/XVg9Qki19fl/1rg3hakOw34
+CEAd75UTrbQ+VoTr39PtCVPGAIeAV48Vg7oyvl7Xu/loB/pou6a/636lflfYT07z0fb20bapZXyG
+rO18tH19tH18tK2aQzfFo7ePtm2Ofh/00fb30Tbk5e2jxZmw0pmwypmwPk//lA4H+Wi7VeJXn8EY
+YLKP9irgYyUYrQLuBJY6E/DR3gVcAHRyJnygzITw0X4ZuBoYnvq+F/gZcDPwr7wgi6x9fLTfAL4I
+dEz1eQl4EPgOsLcauj7a2cBXgX7yaRjwdKpvPTAbmKr6Jd/eBJYAc4EnlbxHFOG1C/gPsMGZMKnC
+fKf4aKcDI0tgsxpYADyUZ2UPUwoalaGPTwKP+mi3+Gh7AKcBA4HuZXTY30f7D2AhcHaJ7yeLEezx
+0d5UaUUoQBYBW4Ar0kBL6QpcD7zio70ZOJAD73N9tAeB21IANqW82nTgDTGkfhmL6QvAOh9tBNqW
+mVN30WHPMnJ91Ef7MrAIODejzyhgsY92p4+2ZyLzUSvbRztZQG6SvwLwMrAM2Al0AEaoVdkb2AFs
+rrBSRkiUqelukLZ9QH/ASnsT8G0f7XBnwqdLrQZRWHsf7YvKwAryPwJ/kf2vLzABaCN0vwXsqSDr
++cBvtZJk/s8Cu5WRLQUuUvMBeAJ4SqL8XsB4oJP0OV88ywAf7Y5SK7yCXJcCD5TAplGw6STYnK2M
+Zzvw76PA9tFeqIAuSMdLnAlrSjDuANwNTJH+A8vsLacqoAvAOuAiZ8KuEv1nAPOk7wQf7Vxnwtcy
+VvQL4lESujc6E27NkONLwP0S6b6/jKwdFdAF2VYucyYcLuFNNNB3Atc7Ew6VoDseWCxgtAVeBLr4
+aPfnBVyweUDx2ybYrC3RtwG4R3IJTcApb7lxHy0+2nZiIQmxRmdCL2BNBv//OhMuBSap1VhyLwKC
+ovsrZ8JwYFdG/9uBsxTNWRJspfe3nwA9pOkQMDALaBmzGGiQFVBO1ruUrD9yJkyR5IvmbZWRF4DR
+zoTrRI5S5XFnQmfgeXW0WpkHaMGmbQqbx50JfWQBlSqvORMuASYrj1MEW5j+QLVtciaMywomlGJw
+JjwCzEoTVYIOVnvLHmfCZ8rRFZrrgRkK8DlJf6HZTYKmxHUPB17IsUAOigc6nAW4BFkFYJ8z4eoM
+WRcqxX/FmbBK6yQj+AI4HdgvzSN9tJ+oFHWXwGajM2FCTmwWq0TNEQHaNKW8T1UCJEV8nt4XUkyn
+KrqzyyklNfYOAaUgAY6mOUsr3pnwdE6aOBMOKENKG+cw9fPutKxiaGOALtL0nDPhvpw6SqpXKCO+
+IaeOr1I6HF8lNnOA17QbP099X+dM2FZt8AD8PSuqVfVfVknzMX3GVe2fVfXbajg/Z8naX9WPOuuK
+TiaqVT23Gt5ibA+r8eNyuPGPq59rnQnba8Bmi17ZQ9WHX7dw0qarmmy1maG/qfqpqt43OQY5EzbX
+MPlCRrtOmOzNoDtUjV9RA+/ktJCA2b1CX+1tflMjBgUN9ilqD9vRwmC3akk6PloNVEvLmscg3qfq
+O2ukvSODXqnSotjUSZIhmVzn5qYVj2VxJujAqtM7IML+FuDfoE81Ofgl2DQ0F5s6YJPKDo2s0TUd
+z/JKknHz0bavYXxTM3g/p8aPqFH5o5Txbs3Br8WwqZPsUOK6JkrUWS2d9scR7Eal8OlVZqEATqqF
+qYxtVNH0ldUoX/Q6RCWCNuQYtlxhM6lSCjmjnKTP2QdT6cF7qsjs4KMdmpVBa+kiE12gFP49H219
+HgWoI8s3a1ndMnahUv7nfbT98ipfxt+vkzY5xhyUgC7JyS+oEpuzgAFHZNCAa9TecKXkyCteRACd
+gd830zVWe3xZrVZFHbBeJS7KAu2jvQ8YVCYAywPYrcq1/pHylxv60mQeb98pvOpM+HFO475WyTvd
+R3txznEnA7/T2NSJAv8KzFeTeNBH+32duSpRRgO7xU0UOE5FZBmreJ7ho91K8VImfdebVFv7aBuB
+y1vA4G6keG+QRMsvJUekUrzFyH4uyZxkVY/J4xEysHnIRzunxBzT2PwTaKexqVeW73y0g0SRADN9
+tNcAPwRW+Gh3SAQ6XNKVZyrh3+Q4vXoRA9wtCYfEq/QCtvpol4synqF49dhXctmXp4KzQjONbYgc
+hRpEJ+t9tGuAn/pon5Iouo+PdpyKKxJdXeZM+HM1/ASbwcCF0nyDj/Y6wWalwuYcweYMxe8N5KlT
+nbI+nAnjgNuVcG3FIhuBjcAfKN7waGIzgV+8A8ew1cCHKV6RJuCNkX1xnbj6RymmbBOQNwHntYCx
+7aP4YnOdih9GUrxt+pPo6rFUAFkALnAmLKqWn2AzFrhDYdNOdK+xmS86SbBxwMM6Gk8TnSn72rIy
+R5YCxdusnnJT1SVD1g7N0Gvb1KmhVHnWmdBA8XXLgYwVW6B4yzbVmTAkdbZto+r1eZNBAvhBZ8I5
+wOcoXsSU8xbzgdbOhBXVRM8lsJkBDFZRehY2S4EezoT5Gpv6EpMA2Cw3X60oPjcaQvGudx/wDLDc
+mdCk9ouJGW58ALW/YL1WvApkvC5RNzy3ALf4aM+keIGfHG+2A084E7apYRt4+0XL/1T7IuARqb+e
+c4UDLHEmLJH3eaMlndua4iOJJ5M75xx7dCLToQr8nncmjBVsxlK8TetI8UnTRmBZKmB9C5v/Azq8
+soPMXM4wAAAAAElFTkSuQmCC
+
+------=_NextPart_000_0000_01D1AA40.CF01B700
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://fonts.googleapis.com/css?family=Roboto:regular,medium,thin,italic,mediumitalic,bold
+
+@font-face {
+	font-family: Roboto;
+	src: local("Roboto Thin"), local("Roboto-Thin"), =
+url(http://fonts.gstatic.com/s/roboto/v15/vzIUHo9z-oJ4WgkpPOtg1_esZW2xOQ-=
+xsNqO47m55DA.woff) format("woff");
+	font-weight: 100;
+	font-style: normal;
+}
+@font-face {
+	font-family: Roboto;
+	src: local("Roboto"), local("Roboto-Regular"), =
+url(http://fonts.gstatic.com/s/roboto/v15/2UX7WLTfW3W8TclTUvlFyQ.woff) =
+format("woff");
+	font-weight: 400;
+	font-style: normal;
+}
+@font-face {
+	font-family: Roboto;
+	src: local("Roboto Medium"), local("Roboto-Medium"), =
+url(http://fonts.gstatic.com/s/roboto/v15/RxZJdnzeo3R5zSexge8UUT8E0i7KZn-=
+EPnyo3HZu7kw.woff) format("woff");
+	font-weight: 500;
+	font-style: normal;
+}
+@font-face {
+	font-family: Roboto;
+	src: local("Roboto Bold"), local("Roboto-Bold"), =
+url(http://fonts.gstatic.com/s/roboto/v15/d-6IYplOFocCacKzxwXSOD8E0i7KZn-=
+EPnyo3HZu7kw.woff) format("woff");
+	font-weight: 700;
+	font-style: normal;
+}
+@font-face {
+	font-family: Roboto;
+	src: local("Roboto Italic"), local("Roboto-Italic"), =
+url(http://fonts.gstatic.com/s/roboto/v15/1pO9eUAp8pSF8VnRTP3xnvesZW2xOQ-=
+xsNqO47m55DA.woff) format("woff");
+	font-weight: 400;
+	font-style: italic;
+}
+@font-face {
+	font-family: Roboto;
+	src: local("Roboto Medium Italic"), local("Roboto-MediumItalic"), =
+url(http://fonts.gstatic.com/s/roboto/v15/OLffGBTaF0XFOW1gnuHF0YbN6UDyHWB=
+l620a-IRfuBk.woff) format("woff");
+	font-weight: 500;
+	font-style: italic;
+}
+
+------=_NextPart_000_0000_01D1AA40.CF01B700
+Content-Type: text/css;
+	charset="gb2312"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://source.android.com/assets/css/default.css
+
+::selection {
+	color: rgb(255, 255, 255); background-color: rgb(0, 153, 204);
+}
+html {
+	margin: 0px; padding: 0px; height: 100%; background-color: rgb(249, =
+249, 249); -webkit-font-smoothing: antialiased;
+}
+body {
+	margin: 0px; padding: 0px; height: 100%; background-color: rgb(249, =
+249, 249); -webkit-font-smoothing: antialiased;
+}
+body {
+	font: 400 14px/19px Roboto, sans-serif; padding: 0px 10px; color: =
+rgb(34, 34, 34); font-size-adjust: none; font-stretch: normal;
+}
+#page-container {
+	margin: 0px 40px; width: 940px;
+}
+#page-header {
+	height: 80px; line-height: 48px; padding-left: 10px; font-size: 48px; =
+font-weight: 100; margin-bottom: 20px;
+}
+#page-header a {
+	top: 20px; color: rgb(85, 85, 85) !important; text-decoration: none; =
+display: block; position: relative;
+}
+#main-row {
+	display: inline-block;
+}
+#main-row::after {
+	height: 0px; clear: both; display: block; visibility: hidden; content: =
+".";
+}
+* html #main-row {
+	height: 1px;
+}
+#page-footer {
+	color: rgb(153, 153, 153); line-height: 15px; padding-bottom: 40px; =
+font-size: 12px; margin-top: 80px; margin-left: 190px;
+}
+#page-footer a {
+	color: rgb(119, 119, 119);
+}
+#page-footer #copyright {
+	margin-bottom: 10px;
+}
+#nav-container {
+	width: 160px; margin-right: 20px; float: left; min-height: 10px;
+}
+#nav {
+	margin: 0px; padding: 0px 0px 30px;
+}
+#side-nav {
+	margin-bottom: 1px; min-height: 5px;
+}
+#devdoc-nav {
+	margin: 20px 0px 0px; width: auto;
+}
+#devdoc-nav h2 {
+	border: 0px currentColor; border-image: none;
+}
+.fixed#devdoc-nav {
+	margin: 0px; top: 20px; position: fixed;
+}
+#devdoc-nav span.small {
+	font-size: 12px; font-weight: normal;
+}
+#content {
+	width: 760px; float: left;
+}
+a:hover {
+	color: rgb(122, 161, 176) !important;
+}
+acronym:hover {
+	color: rgb(122, 161, 176) !important;
+}
+a:focus {
+	color: rgb(51, 181, 229) !important;
+}
+a:active {
+	color: rgb(51, 181, 229) !important;
+}
+a.external-link {
+	background: url("../images/styles/open_new_page.png") no-repeat 100% =
+50%; padding-right: 16px;
+}
+img {
+	border: currentColor; border-image: none;
+}
+#jd-content img {
+	margin-bottom: 15px;
+}
+ul {
+	margin: 0px; padding: 0px;
+}
+strong {
+	font-weight: 500;
+}
+em {
+	font-style: italic;
+}
+acronym {
+	border-bottom-color: rgb(85, 85, 85); border-bottom-width: 1px; =
+border-bottom-style: dotted; cursor: help;
+}
+.tooltip-link {
+	border-bottom-color: rgb(85, 85, 85); border-bottom-width: 1px; =
+border-bottom-style: dotted; cursor: help;
+}
+acronym:hover {
+	color: rgb(122, 161, 176); border-bottom-color: rgb(122, 161, 176);
+}
+.tooltip-link:hover {
+	color: rgb(122, 161, 176); border-bottom-color: rgb(122, 161, 176);
+}
+img.with-shadow {
+	box-shadow: 0px 2px 4px rgba(0,0,0,0.25);
+}
+video.with-shadow {
+	box-shadow: 0px 2px 4px rgba(0,0,0,0.25);
+}
+.layout-content-row {
+	margin-bottom: 10px; display: inline-block;
+}
+.layout-content-row::after {
+	height: 0px; clear: both; display: block; visibility: hidden; content: =
+".";
+}
+* html .layout-content-row {
+	height: 1px;
+}
+.layout-content-col {
+	margin-left: 20px; float: left;
+}
+:first-child.layout-content-col {
+	margin-left: 0px;
+}
+.layout-content-col h3 {
+	margin-top: 0px;
+}
+.layout-content-col h4 {
+	margin-top: 0px;
+}
+.layout-content-col.span-1 {
+	width: 40px;
+}
+.layout-content-col.span-2 {
+	width: 100px;
+}
+.layout-content-col.span-3 {
+	width: 160px;
+}
+.layout-content-col.span-4 {
+	width: 220px;
+}
+.layout-content-col.span-5 {
+	width: 280px;
+}
+.layout-content-col.span-6 {
+	width: 340px;
+}
+.layout-content-col.span-7 {
+	width: 400px;
+}
+.layout-content-col.span-8 {
+	width: 460px;
+}
+.layout-content-col.span-9 {
+	width: 520px;
+}
+.layout-content-col.span-10 {
+	width: 580px;
+}
+.layout-content-col.span-11 {
+	width: 640px;
+}
+.layout-content-col.span-12 {
+	width: 700px;
+}
+.layout-content-col.span-13 {
+	width: 760px;
+}
+.vspace.size-1 {
+	height: 10px;
+}
+.vspace.size-2 {
+	height: 20px;
+}
+.vspace.size-3 {
+	height: 30px;
+}
+.vspace.size-4 {
+	height: 40px;
+}
+.vspace.size-5 {
+	height: 50px;
+}
+.vspace.size-6 {
+	height: 60px;
+}
+.vspace.size-7 {
+	height: 70px;
+}
+.vspace.size-8 {
+	height: 80px;
+}
+.vspace.size-9 {
+	height: 90px;
+}
+.vspace.size-10 {
+	height: 100px;
+}
+.vspace.size-11 {
+	height: 110px;
+}
+.vspace.size-12 {
+	height: 120px;
+}
+.vspace.size-13 {
+	height: 130px;
+}
+.vspace.size-14 {
+	height: 140px;
+}
+.vspace.size-15 {
+	height: 150px;
+}
+.vspace.size-16 {
+	height: 160px;
+}
+#nav {
+=09
+}
+#nav li {
+	margin: 0px; padding: 0px; line-height: 15px; font-size: 14px; =
+list-style-type: none;
+}
+#nav a {
+	color: rgb(85, 85, 85); text-decoration: none; -ms-word-wrap: =
+break-word;
+}
+#nav .nav-section-header {
+	padding: 0px 30px 0px 0px; margin-bottom: 1px; position: relative;
+}
+#nav li.selected a {
+	color: rgb(0, 153, 204);
+}
+#nav li.selected > .nav-section-header > a {
+	color: rgb(0, 153, 204);
+}
+#nav li.selected ul li a {
+	color: rgb(85, 85, 85);
+}
+#nav .nav-section .nav-section .nav-section-header {
+	margin-bottom: 0px;
+}
+#nav > li > div > a {
+	padding: 10px 0px 10px 10px; color: rgb(51, 51, 51); font-weight: 500; =
+display: block;
+}
+#nav .nav-section-header::after {
+	background: url("../images/styles/disclosure_down.png") no-repeat 50% =
+50%; top: 0px; width: 34px; height: 34px; right: 0px; display: block; =
+position: absolute; content: "";
+}
+#nav .nav-section-header.empty::after {
+	display: none;
+}
+#nav .nav-section .nav-section {
+	margin: 0px; padding: 0px; position: relative;
+}
+#nav .nav-section li a {
+	padding: 7px 5px 7px 10px; text-transform: none; font-weight: normal; =
+display: block;
+}
+#nav .nav-section li li a {
+	padding: 5px 5px 5px 10px;
+}
+#nav li.expanded .nav-section-header {
+	background: rgba(0, 0, 0, 0.05);
+}
+#nav li.expanded li .nav-section-header {
+	background: none;
+}
+#nav li.expanded li ul {
+	padding: 0px 0px 0px 10px;
+}
+#nav li.expanded > .nav-section-header::after {
+	background: url("../images/styles/disclosure_up.png") no-repeat 50% =
+50%; width: 34px; height: 34px; content: "";
+}
+#nav li.expanded li ul.tree-list-children {
+	padding: 0px;
+}
+#nav li.expanded li ul.tree-list-children .tree-list-children {
+	padding: 0px 0px 0px 10px;
+}
+#nav li span.tree-list-subtitle {
+	padding: 5px 0px 0px 10px; color: rgb(85, 85, 85); text-transform: =
+uppercase; font-size: 12px; display: inline-block;
+}
+#nav li span.tree-list-subtitle::before {
+	content: "=A1=AA";
+}
+#nav li span.tree-list-subtitle::after {
+	content: "=A1=AA";
+}
+#nav li ul {
+	margin: 0px; overflow: hidden; display: none;
+}
+#nav li ul.animate-height-in {
+	transition:height 0.25s ease-in; -webkit-transition: height 0.25s =
+ease-in; -moz-transition: height 0.25s ease-in;
+}
+#nav li ul.animate-height-out {
+	transition:height 0.25s ease-out; -webkit-transition: height 0.25s =
+ease-out; -moz-transition: height 0.25s ease-out;
+}
+#nav li ul li {
+	padding: 0px;
+}
+#nav li li li {
+	padding: 0px;
+}
+#nav li.expanded ul {
+=09
+}
+#nav li ul > li {
+	padding: 0px;
+}
+#nav li ul > li:last-child {
+	padding-bottom: 5px;
+}
+#nav li ul.tree-list-children > li:last-child {
+	padding-bottom: 0px;
+}
+#nav li.expanded ul > li {
+	background: rgba(0, 0, 0, 0.03);
+}
+#nav li.expanded ul > li li {
+	background: inherit;
+}
+#nav li ul.tree-list-children ul {
+	display: block;
+}
+.new {
+	color: rgb(255, 61, 61); font-size: 0.78em; font-weight: bold; =
+vertical-align: top; white-space: nowrap;
+}
+.new-child {
+	color: rgb(255, 61, 61); font-size: 0.78em; font-weight: bold; =
+vertical-align: top; white-space: nowrap;
+}
+.content-header {
+	margin: 20px 0px 25px; padding: 0px 0px 10px; height: 30px;
+}
+.content-header.just-links {
+	padding-bottom: 0px; margin-bottom: 0px;
+}
+.content-header h1 {
+	margin: 0px; padding: 0px; color: rgb(0, 0, 0); border-bottom-color: =
+currentColor; border-bottom-width: 0px; border-bottom-style: none;
+}
+.content-footer {
+	height: 30px; padding-top: 10px; margin-top: 10px; border-top-color: =
+rgb(204, 204, 204); border-top-width: 1px; border-top-style: solid;
+}
+.content-footer-sac {
+	border-top-color: rgb(204, 204, 204); border-top-width: 1px; =
+border-top-style: solid;
+}
+.content-footer .col-9 {
+	margin-left: 0px;
+}
+.content-footer .col-4 {
+	margin-right: 0px;
+}
+.content-footer.wrap {
+	width: 940px;
+}
+.paging-links {
+	position: relative;
+}
+.paging-links a {
+	position: absolute;
+}
+.paging-links a {
+	color: rgb(85, 85, 85); text-transform: uppercase; line-height: 30px; =
+font-size: 14px; text-decoration: none;
+}
+.training-nav-top a {
+	color: rgb(85, 85, 85); text-transform: uppercase; line-height: 30px; =
+font-size: 14px; text-decoration: none;
+}
+.paging-links .prev-page-link::before {
+	background: url("../images/styles/disclosure_left.png") no-repeat 50% =
+50%; width: 10px; height: 10px; margin-right: 5px; display: =
+inline-block; content: "";
+}
+.training-nav-top .prev-page-link::before {
+	background: url("../images/styles/disclosure_left.png") no-repeat 50% =
+50%; width: 10px; height: 10px; margin-right: 5px; display: =
+inline-block; content: "";
+}
+.training-nav-top .next-page-link {
+	right: 10px;
+}
+.training-nav-top .start-class-link {
+	right: 10px;
+}
+.training-nav-top .start-course-link {
+	right: 10px;
+}
+.paging-links .prev-page-link {
+	left: -15px;
+}
+.paging-links .next-page-link {
+	right: 0px;
+}
+.next-page-link::after {
+	background: url("../images/styles/disclosure_right.png") no-repeat 50% =
+50%; width: 10px; height: 10px; margin-left: 5px; display: inline-block; =
+content: "";
+}
+.start-class-link::after {
+	background: url("../images/styles/disclosure_right.png") no-repeat 50% =
+50%; width: 10px; height: 10px; margin-left: 5px; display: inline-block; =
+content: "";
+}
+.start-course-link::after {
+	background: url("../images/styles/disclosure_right.png") no-repeat 50% =
+50%; width: 10px; height: 10px; margin-left: 5px; display: inline-block; =
+content: "";
+}
+.next-class-link::after {
+	background: url("../images/styles/disclosure_right.png") no-repeat 50% =
+50%; width: 10px; height: 10px; margin-left: 5px; display: inline-block; =
+content: "";
+}
+.training-nav-top a {
+	border-width: 1px 1px 0px; border-style: solid solid none; =
+border-color: rgb(218, 218, 218) rgb(218, 218, 218) currentColor; =
+padding: 8px; border-image: none; width: 122px; height: 28px; =
+text-align: center; line-height: 28px; float: left; display: block;
+}
+.training-nav-top a.next-page-link {
+	width: 123px; border-left-color: currentColor; border-left-width: 0px; =
+border-left-style: none;
+}
+.paging-links a.disabled {
+	color: rgb(187, 187, 187);
+}
+.training-nav-top a.disabled {
+	color: rgb(187, 187, 187);
+}
+.content-footer a.disabled {
+	color: rgb(187, 187, 187);
+}
+.paging-links a.disabled:hover {
+	color: rgb(187, 187, 187) !important; cursor: default;
+}
+.training-nav-top a.disabled:hover {
+	color: rgb(187, 187, 187) !important; cursor: default;
+}
+.content-footer a.disabled:hover {
+	color: rgb(187, 187, 187) !important; cursor: default;
+}
+.training-nav-top a.start-class-link {
+	width: 262px;
+}
+.training-nav-top a.start-course-link {
+	width: 262px;
+}
+ol.class-list {
+	list-style: none; margin-left: 0px;
+}
+ol.class-list > li {
+	margin: 0px 0px 15px; padding: 5px 0px 0px; overflow: hidden; =
+border-top-color: rgb(204, 204, 204); border-top-width: 1px; =
+border-top-style: solid;
+}
+ol.class-list li a.title {
+	margin: 0px; padding: 0px 4px; height: 32px; clear: left; font-size: =
+16px; display: block;
+}
+ol.class-list li a.title h2 {
+	margin: 0px 0px 10px; width: 675px; color: inherit; float: left; =
+display: block;
+}
+ol.class-list li a.title span {
+	background: url("../images/styles/disclosure_right.png") no-repeat 50% =
+50%; width: 10px; height: 32px; font-size: 18px; font-weight: bold; =
+float: left; display: none;
+}
+ol.class-list li a.title:hover {
+	background: rgb(221, 221, 221); color: rgb(37, 138, 175) !important;
+}
+ol.class-list li a.title:hover span {
+	display: block;
+}
+#jd-content ol.class-list li img {
+	margin: 0px 20px 0px 0px; width: 64px; clear: left; float: left;
+}
+ol.class-list li p.description {
+	margin: 0px; width: 250px; float: left; display: block;
+}
+ol.class-list li p.description.article {
+	width: 550px;
+}
+ol.class-list ol {
+	list-style: none; margin: 0px 0px 0px 20px; width: 320px; float: left;
+}
+ol.class-list div.lessons li {
+	margin: 0px 0px 6px; line-height: 16px;
+}
+.hide {
+	display: none !important;
+}
+.content-footer.next-class {
+	border: 0px currentColor; border-image: none; padding-top: 0px; =
+margin-top: 0px; display: block;
+}
+.content-footer.next-class a.next-class-link {
+	text-transform: uppercase; float: right; display: block;
+}
+div#title-tabs-wrapper {
+	margin: 20px 0px 30px; border-bottom-color: rgb(204, 204, 204); =
+border-bottom-width: 1px; border-bottom-style: solid;
+}
+h1.with-title-tabs {
+	margin: 0px 0px -1px; padding: 0px 60px 0px 0px; border-bottom-color: =
+rgb(249, 249, 249); border-bottom-width: 1px; border-bottom-style: =
+solid; display: inline-block;
+}
+ul#title-tabs {
+	list-style: none; margin: 0px; padding: 0px; height: 29px; line-height: =
+26px; font-size: 16px; vertical-align: bottom; display: inline-block;
+}
+ul#title-tabs li {
+	margin-right: 40px; border-bottom-color: transparent; =
+border-bottom-width: 3px; border-bottom-style: solid; float: left; =
+display: block;
+}
+ul#title-tabs li.selected {
+	border-bottom-color: rgb(153, 51, 204); border-bottom-width: 3px; =
+border-bottom-style: solid;
+}
+ul#title-tabs li a {
+	color: rgb(51, 51, 51);
+}
+ul#title-tabs li a:hover {
+	color: rgb(153, 51, 204) !important;
+}
+ul#title-tabs li a:active {
+	color: rgb(153, 51, 204) !important;
+}
+h2:target {
+	animation-name: glowheader; animation-duration: 0.7s; =
+animation-timing-function: ease-out; -webkit-animation-name: glowheader; =
+-moz-animation-name: glowheader; -webkit-animation-duration: 0.7s; =
+-moz-animation-duration: 0.7s; -webkit-animation-timing-function: =
+ease-out; -moz-animation-timing-function: ease-out;
+}
+h3:target {
+	animation-name: glowheader; animation-duration: 0.7s; =
+animation-timing-function: ease-out; -webkit-animation-name: glowheader; =
+-moz-animation-name: glowheader; -webkit-animation-duration: 0.7s; =
+-moz-animation-duration: 0.7s; -webkit-animation-timing-function: =
+ease-out; -moz-animation-timing-function: ease-out;
+}
+.design ol h4 {
+	margin-bottom: 0px;
+}
+.design ol {
+	counter-reset: item;
+}
+.design ol > li {
+	line-height: 20px; font-size: 14px; list-style-type: none; position: =
+relative;
+}
+.design ol > li::before {
+	left: -20px; top: 0px; position: absolute; content: counter(item) ". "; =
+counter-increment: item;
+}
+.design ol li.value-1::before {
+	content: "1. ";
+}
+.design ol li.value-2::before {
+	content: "2. ";
+}
+.design ol li.value-3::before {
+	content: "3. ";
+}
+.design ol li.value-4::before {
+	content: "4. ";
+}
+.design ol li.value-5::before {
+	content: "5. ";
+}
+.design ol li.value-6::before {
+	content: "6. ";
+}
+.design ol li.value-7::before {
+	content: "7. ";
+}
+.design ol li.value-8::before {
+	content: "8. ";
+}
+.design ol li.value-9::before {
+	content: "9. ";
+}
+.design ol li.value-10::before {
+	content: "10. ";
+}
+.design .with-callouts ol > li {
+	margin-left: 0px; list-style-position: inside;
+}
+.design .with-callouts ol > li::before {
+	left: -20px; width: 17px; color: rgb(51, 181, 229); font-weight: 500; =
+float: left; display: inline;
+}
+.design .with-callouts ul > li {
+	list-style-position: outside;
+}
+li.no-bullet {
+	list-style-type: none !important;
+}
+li.no-bullet * {
+	margin: 0px;
+}
+.design li.with-icon {
+	margin-left: 20px; position: relative; min-height: 30px;
+}
+.design li.with-icon p {
+	margin-left: 0px !important;
+}
+.design li.with-icon::before {
+	left: -40px; top: 0px; width: 30px; height: 30px; position: absolute; =
+content: "";
+}
+.design li.with-icon.tablet::before {
+	background-image: url("../images/styles/ico_phone_tablet.png");
+}
+.design li.with-icon.web::before {
+	background-image: url("../images/styles/ico_web.png");
+}
+.design li.with-icon.action::before {
+	background-image: url("../images/styles/ico_action.png");
+}
+.design li.with-icon.use::before {
+	background-image: url("../images/styles/ico_use.png");
+}
+.figure {
+	position: relative;
+}
+.figure.pad-below {
+	margin-bottom: 20px;
+}
+.figure .figure-callout {
+	background: url("../images/styles/callout.png") no-repeat 50% 50%; =
+width: 30px; height: 29px; text-align: center; color: rgb(255, 255, =
+255); line-height: 23px; padding-right: 2px; font-size: 16px; =
+font-weight: 500; position: absolute; z-index: 1000;
+}
+.figure .figure-callout.top {
+	top: -9px;
+}
+.figure .figure-callout.right {
+	right: -5px;
+}
+.figure-caption {
+	margin: 0px 10px 20px 0px; line-height: 20px; font-size: 14px; =
+font-style: italic;
+}
+.figure-row {
+	line-height: 0; font-size: 0px;
+}
+.figure-row .figure {
+	vertical-align: top; display: inline-block;
+}
+.figure-row .figure + .figure {
+	margin-left: 10px;
+}
+.framed-galaxynexus-land-span-13 {
+	background: =
+url("../images/styles/device_galaxynexus_blank_land_span13.png") =
+no-repeat left top; padding: 42px 122px 62px 126px; overflow: hidden;
+}
+.framed-galaxynexus-land-span-13 {
+	width: 512px; height: 286px;
+}
+.framed-galaxynexus-land-span-13 video {
+	width: 512px; height: 286px;
+}
+.framed-galaxynexus-land-span-13 img {
+	width: 512px; height: 286px;
+}
+.framed-galaxynexus-land-span-8 {
+	background: =
+url("../images/styles/device_galaxynexus_blank_land_span8.png") =
+no-repeat left top; padding: 26px 68px 38px 72px; overflow: hidden;
+}
+.framed-galaxynexus-land-span-8 {
+	width: 320px; height: 180px;
+}
+.framed-galaxynexus-land-span-8 video {
+	width: 320px; height: 180px;
+}
+.framed-galaxynexus-land-span-8 img {
+	width: 320px; height: 180px;
+}
+.framed-galaxynexus-port-span-9 {
+	background: =
+url("../images/styles/device_galaxynexus_blank_port_span9.png") =
+no-repeat left top; padding: 95px 122px 107px 124px; overflow: hidden;
+}
+.framed-galaxynexus-port-span-9 {
+	width: 274px; height: 488px;
+}
+.framed-galaxynexus-port-span-9 video {
+	width: 274px; height: 488px;
+}
+.framed-galaxynexus-port-span-9 img {
+	width: 274px; height: 488px;
+}
+.framed-galaxynexus-port-span-5 {
+	background: =
+url("../images/styles/device_galaxynexus_blank_port_span5.png") =
+no-repeat left top; padding: 75px 31px 76px 33px; overflow: hidden;
+}
+.framed-galaxynexus-port-span-5 {
+	width: 216px; height: 384px;
+}
+.framed-galaxynexus-port-span-5 video {
+	width: 216px; height: 384px;
+}
+.framed-galaxynexus-port-span-5 img {
+	width: 216px; height: 384px;
+}
+.landing-page-link {
+	color: rgb(51, 51, 51); font-weight: 500; text-decoration: none;
+}
+.landing-page-link::after {
+	background: url("../images/styles/disclosure_right.png") no-repeat 50% =
+50%; width: 10px; height: 10px; margin-left: 5px; display: inline-block; =
+content: "";
+}
+.tooltip-box {
+	padding: 6px 10px; border-radius: 2px; color: rgb(255, 255, 255); =
+line-height: 20px; font-size: 14px; position: absolute; z-index: 10000; =
+max-width: 250px; background-color: rgba(0, 0, 0, 0.9);
+}
+.tooltip-box.below::after {
+	border-width: 5px; border-style: solid; border-color: transparent =
+transparent rgba(0, 0, 0, 0.9); border-image: none; left: 5px; top: =
+-10px; line-height: 0; display: block; position: absolute; content: "";
+}
+.video-instructions {
+	margin-top: 10px; margin-bottom: 10px;
+}
+.video-instructions::before {
+	background: url("../images/styles/ico_movie_inline.png") no-repeat left =
+top; width: 12px; height: 12px; margin-right: 8px; display: =
+inline-block; content: "";
+}
+.video-instructions::after {
+	content: "Click device screen to replay movie.";
+}
+.download-button {
+	padding: 6px 12px; border-radius: 2px; color: rgb(255, 255, 255) =
+!important; font-weight: 500; text-decoration: none; margin-bottom: 5px; =
+display: block; box-shadow: 0px 1px 1px rgba(0,0,0,0.12); =
+background-color: rgb(51, 181, 229);
+}
+.download-button:hover {
+	color: rgb(255, 255, 255) !important; background-color: rgb(0, 153, =
+204);
+}
+.download-button:focus {
+	color: rgb(255, 255, 255) !important; background-color: rgb(0, 153, =
+204);
+}
+.download-button:active {
+	background-color: rgb(0, 102, 153);
+}
+.ui-table {
+	border-radius: 2px; width: 100%; color: rgb(255, 255, 255); =
+border-collapse: separate; box-shadow: 0px 2px 4px rgba(0,0,0,0.25); =
+background-color: rgb(40, 40, 40);
+}
+.ui-table th {
+	padding: 5px 10px; border: 0px currentColor; border-image: none; =
+background-color: inherit;
+}
+.ui-table td {
+	padding: 5px 10px; border: 0px currentColor; border-image: none; =
+background-color: inherit;
+}
+.ui-table thead th {
+	font-weight: bold;
+}
+.ui-table tfoot td {
+	text-align: center; border-top-color: rgb(73, 73, 73); =
+border-right-color: rgb(73, 73, 73); border-top-width: 1px; =
+border-right-width: 1px; border-top-style: solid; border-right-style: =
+solid;
+}
+.ui-table tfoot td:last-child {
+	border-right-color: currentColor; border-right-width: 0px; =
+border-right-style: none;
+}
+.layout-with-list-item-margins {
+	margin-left: 30px !important;
+}
+.emulate-content-left-padding {
+	margin-left: 10px;
+}
+.do-dont-label {
+	background: no-repeat 0px 3px; padding-left: 20px; margin-bottom: 10px;
+}
+.do-dont-label.bad {
+	background-image: url("../images/styles/ico_wrong.png");
+}
+.do-dont-label.good {
+	background-image: url("../images/styles/ico_good.png");
+}
+@media screen, projection, print
+{
+[dir=3D'rtl'] {
+	direction: rtl;
+}
+html {
+	line-height: 20px;
+}
+pre {
+	font-size: 1em;
+}
+table {
+	font-size: 1em;
+}
+input {
+	font-size: 1em;
+}
+textarea {
+	font-size: 1em;
+}
+code {
+	font-size: 1em;
+}
+address {
+	font-style: normal;
+}
+abbr {
+	font-style: normal;
+}
+cite {
+	font-style: normal;
+}
+[dir=3D'rtl'] th {
+	text-align: right;
+}
+html[lang^=3Dja] blockquote {
+	font-style: normal;
+}
+html[lang^=3Dja] q {
+	font-style: normal;
+}
+html[lang^=3Dko] blockquote {
+	font-style: normal;
+}
+html[lang^=3Dko] q {
+	font-style: normal;
+}
+html[lang^=3Dzh] blockquote {
+	font-style: normal;
+}
+html[lang^=3Dzh] q {
+	font-style: normal;
+}
+q {
+	font-style: italic;
+}
+fieldset {
+	border: 0px currentColor; border-image: none;
+}
+iframe {
+	border: 0px currentColor; border-image: none;
+}
+img {
+	border: 0px currentColor; border-image: none;
+}
+img {
+	vertical-align: middle; -ms-interpolation-mode: bicubic; max-width: =
+100%;
+}
+q {
+	quotes: none;
+}
+sup {
+	line-height: 0; font-size: 11px;
+}
+sub {
+	line-height: 0; font-size: 11px;
+}
+}
+@media screen, projection
+{
+table {
+	margin: 0px;
+}
+fieldset {
+	margin: 0px;
+}
+h1 {
+	margin: 36px 0px 27px; padding: 0px 0px 10px; color: rgb(51, 51, 51); =
+font-size: 34px; font-weight: 300;
+}
+h1 {
+	line-height: 30px;
+}
+h2 {
+	line-height: 30px;
+}
+h1.short {
+	margin-right: 320px;
+}
+h1.short {
+	margin-right: 320px;
+}
+h1.super {
+	font-size: 37px;
+}
+h2 {
+	margin: 32px 0px 20px; padding: 0px; color: rgb(51, 51, 51); font-size: =
+26px; font-weight: 300;
+}
+h3 {
+	margin: 21px 0px 14px; color: rgb(51, 51, 51); font-size: 21px; =
+font-weight: 400;
+}
+h3 {
+	line-height: 21px;
+}
+h4 {
+	line-height: 21px;
+}
+h4 {
+	margin: 12px 0px; font-size: 18px; font-weight: 500;
+}
+h5 {
+	font-size: 14px;
+}
+h5 {
+	margin: 5px 0px;
+}
+h6 {
+	margin: 5px 0px;
+}
+h6 {
+	font-size: 12px;
+}
+hr {
+	background: rgb(204, 204, 204); margin: 5px 0px 20px; border: 0px =
+currentColor; border-image: none; height: 1px;
+}
+p {
+	margin: 0px 0px 15px;
+}
+pre {
+	margin: 0px 0px 15px;
+}
+table {
+	margin: 0px 0px 15px;
+}
+form {
+	margin: 0px 0px 15px;
+}
+small {
+	color: rgb(0, 0, 0); font-size: 11.5px;
+}
+ul {
+	margin: 0px 0px 15px 18px; padding: 0px;
+}
+ol {
+	margin: 0px 0px 15px 18px; padding: 0px;
+}
+[dir=3D'rtl'] ul {
+	margin: 10px 30px 10px 10px;
+}
+[dir=3D'rtl'] ol {
+	margin: 10px 30px 10px 10px;
+}
+ul ul {
+	margin-top: 0px; margin-bottom: 0px;
+}
+ul ol {
+	margin-top: 0px; margin-bottom: 0px;
+}
+ol ul {
+	margin-top: 0px; margin-bottom: 0px;
+}
+ol ol {
+	margin-top: 0px; margin-bottom: 0px;
+}
+li {
+	margin: 0px 0px 5px;
+}
+dt {
+	font-weight: bold;
+}
+dd {
+	margin: 0px 0px 10px 30px; padding: 5px;
+}
+dd p {
+	margin: 10px 0px 0px;
+}
+dd pre {
+	margin: 10px 0px 0px;
+}
+dd ul {
+	margin: 10px 0px 0px;
+}
+dd ol {
+	margin: 10px 0px 0px;
+}
+dd dl {
+	margin: 10px 0px 0px;
+}
+li p {
+	margin-top: 5px; margin-bottom: 5px;
+}
+li pre {
+	margin-top: 5px; margin-bottom: 5px;
+}
+li ul {
+	margin-top: 5px; margin-bottom: 5px;
+}
+li ol {
+	margin-top: 5px; margin-bottom: 5px;
+}
+li dl {
+	margin-top: 5px; margin-bottom: 5px;
+}
+pre strong {
+	color: inherit;
+}
+pre b {
+	color: inherit;
+}
+a strong {
+	color: inherit;
+}
+a b {
+	color: inherit;
+}
+a code {
+	color: inherit;
+}
+pre {
+	font: 13px/1.5 monospace; color: rgb(0, 102, 0); font-size-adjust: =
+none; font-stretch: normal;
+}
+code {
+	font: 13px/1.5 monospace; color: rgb(0, 102, 0); font-size-adjust: =
+none; font-stretch: normal;
+}
+code {
+	font: 13px/14px monospace; font-size-adjust: none; font-stretch: =
+normal;
+}
+legend {
+	display: none;
+}
+a:link {
+	color: rgb(37, 138, 175); text-decoration: none;
+}
+a:visited {
+	color: rgb(37, 138, 175); text-decoration: none;
+}
+a:focus {
+	color: rgb(51, 181, 229); text-decoration: none;
+}
+a:hover {
+	color: rgb(51, 181, 229); text-decoration: none;
+}
+a:active {
+	color: rgb(51, 181, 229); text-decoration: none;
+}
+strong {
+	color: rgb(34, 34, 34); font-weight: bold;
+}
+b {
+	color: rgb(34, 34, 34); font-weight: bold;
+}
+table {
+	margin: 0.5em 1em 1em 0px; border: 0px currentColor; border-image: =
+none; width: 100%; border-collapse: collapse; border-spacing: 0; =
+background-color: rgb(247, 247, 247);
+}
+th {
+	padding: 4px 12px; text-align: left; vertical-align: top;
+}
+td {
+	padding: 4px 12px; text-align: left; vertical-align: top;
+}
+td {
+	border: 1px solid rgb(221, 221, 221); border-image: none; =
+background-color: inherit;
+}
+td *:last-child {
+	margin-bottom: 0px;
+}
+th {
+	border: 1px solid rgb(221, 221, 221); border-image: none; color: =
+rgb(255, 255, 255); font-weight: normal; background-color: rgb(153, 153, =
+153);
+}
+tr:first-of-type th:first-of-type:empty {
+	visibility: hidden;
+}
+table.instruc td:first-child {
+	width: 12%;
+}
+table.instruc td:first-child + td {
+	width: 23%;
+}
+table.instruc td:first-child + td + td {
+	width: 28%;
+}
+table.instruc td:first-child + td + td + td {
+	width: 37%;
+}
+table.supplement td:first-child {
+	width: 20%;
+}
+table.supplement td:first-child + td {
+	width: 20%;
+}
+table.supplement td:first-child + td + td {
+	width: 60%;
+}
+table.math td:first-child {
+	width: 10%;
+}
+table.math td:first-child + td {
+	width: 30%;
+}
+table.math td:first-child + td + td {
+	width: 60%;
+}
+.line {
+	background: -ms-linear-gradient(rgb(172, 188, 0) 0px, rgb(172, 188, 0) =
+50%, rgb(189, 222, 0) 50%, rgb(189, 222, 0) 100%); height: 2px; clear: =
+both; margin-top: 150px; position: relative; z-index: 11;
+}
+#footer {
+	padding: 15px 0px; width: auto; color: rgb(153, 153, 153); clear: both; =
+font-size: 11px; margin-top: 10px;
+}
+#footer-local ul {
+	list-style: none; margin: 5px 0px 30px;
+}
+#footer-local li {
+	display: inline;
+}
+#footer-local li + li::before {
+	padding: 0px 3px; color: rgb(229, 229, 229); content: "|";
+}
+#footer-global {
+	background: rgb(245, 245, 245); padding: 10px 15px;
+}
+#footer-global {
+	list-style: none; line-height: 1.8; font-size: 11.5px; =
+border-top-color: rgb(235, 235, 235); border-top-width: 1px; =
+border-top-style: solid;
+}
+#footer-global ul {
+	margin: 0px;
+}
+#footer-global li {
+	font-weight: bold; display: inline;
+}
+#footer-global li + li::before {
+	padding: 0px 3px; content: "??";
+}
+* html #footer-global li {
+	margin: 0px 13px 0px 0px;
+}
+* [dir=3D'rtl'] #footer-global li {
+	margin: 0px 0px 0px 13px;
+}
+* + html #footer-global li {
+	margin: 0px 13px 0px 0px;
+}
+* + [dir=3D'rtl'] #footer-global li {
+	margin: 0px 0px 0px 13px;
+}
+#footer-global li a {
+	font-weight: normal;
+}
+.locales {
+	margin: 10px 0px 0px;
+}
+[dir=3D'rtl'] .locales {
+	background-position: right; padding: 0px 24px 0px 0px; float: left;
+}
+.locales form {
+	margin: 0px;
+}
+.locales select {
+	background: url("../images/arrows-up-down.png") no-repeat right white; =
+margin: 0px; padding: 5px; border: 1px solid rgb(235, 235, 235); =
+border-image: none; width: 230px; height: 30px; color: rgb(34, 34, 34); =
+line-height: normal; -webkit-appearance: none;
+}
+.sites select {
+	background: url("../images/arrows-up-down.png") no-repeat right white; =
+margin: 0px; padding: 5px; border: 1px solid rgb(235, 235, 235); =
+border-image: none; width: 230px; height: 30px; color: rgb(34, 34, 34); =
+line-height: normal; -webkit-appearance: none;
+}
+}
+@media print
+{
+html {
+	margin: 0px !important; padding: 0px !important; width: auto =
+!important;
+}
+body {
+	margin: 0px !important; padding: 0px !important; width: auto =
+!important;
+}
+.wrap {
+	margin: 0px !important; padding: 0px !important; width: auto =
+!important;
+}
+body {
+	padding-left: 20px !important;
+}
+#doc-col {
+	margin-left: 0px;
+}
+#header {
+	display: none !important;
+}
+#footer {
+	display: none !important;
+}
+#nav-x {
+	display: none !important;
+}
+#side-nav {
+	display: none !important;
+}
+.training-nav-top {
+	display: none !important;
+}
+.training-nav-bottom {
+	display: none !important;
+}
+#doc-col .content-footer {
+	display: none !important;
+}
+.nav-x {
+	display: none !important;
+}
+.nav-y {
+	display: none !important;
+}
+.paging-links {
+	display: none !important;
+}
+a.totop {
+	display: none !important;
+}
+#doc-col .content-header {
+	margin-top: 0px;
+}
+h2 {
+	margin-top: 40px !important;
+}
+p a::after {
+	font-size: 80%; content: " (" attr(href) ")";
+}
+p a {
+	-ms-word-wrap: break-word;
+}
+a {
+	color: inherit;
+}
+.str {
+	color: rgb(0, 102, 0);
+}
+.kwd {
+	color: rgb(0, 0, 102); font-weight: bold;
+}
+.com {
+	color: rgb(102, 0, 0); font-style: italic;
+}
+.typ {
+	color: rgb(68, 0, 68); font-weight: bold;
+}
+.lit {
+	color: rgb(0, 68, 68);
+}
+.pun {
+	color: rgb(68, 68, 0);
+}
+.pln {
+	color: rgb(0, 0, 0);
+}
+.tag {
+	color: rgb(0, 0, 102); font-weight: bold;
+}
+.atn {
+	color: rgb(68, 0, 68);
+}
+.atv {
+	color: rgb(0, 102, 0);
+}
+}
+@media screen, projection, print
+{
+.full {
+	background: rgb(247, 247, 247); padding: 2.5em 0px; border-top-color: =
+rgb(221, 221, 221); border-bottom-color: rgb(221, 221, 221); =
+border-top-width: 1px; border-bottom-width: 1px; border-top-style: =
+solid; border-bottom-style: solid;
+}
+.wrap {
+	margin: 0px auto; width: 940px; clear: both;
+}
+.cols {
+	margin: 0px -1.53%; width: 103.06%; height: 1%;
+}
+* + html .cols {
+	margin-bottom: 20px;
+}
+.cols::after {
+	height: 0px; clear: both; display: block; visibility: hidden; content: =
+" ";
+}
+.col-1 {
+	margin-right: 10px; margin-left: 10px; float: left; display: inline;
+}
+.col-2 {
+	margin-right: 10px; margin-left: 10px; float: left; display: inline;
+}
+.col-3 {
+	margin-right: 10px; margin-left: 10px; float: left; display: inline;
+}
+.col-4 {
+	margin-right: 10px; margin-left: 10px; float: left; display: inline;
+}
+.col-5 {
+	margin-right: 10px; margin-left: 10px; float: left; display: inline;
+}
+.col-6 {
+	margin-right: 10px; margin-left: 10px; float: left; display: inline;
+}
+.col-7 {
+	margin-right: 10px; margin-left: 10px; float: left; display: inline;
+}
+.col-8 {
+	margin-right: 10px; margin-left: 10px; float: left; display: inline;
+}
+.col-9 {
+	margin-right: 10px; margin-left: 10px; float: left; display: inline;
+}
+.col-10 {
+	margin-right: 10px; margin-left: 10px; float: left; display: inline;
+}
+.col-11 {
+	margin-right: 10px; margin-left: 10px; float: left; display: inline;
+}
+.col-12 {
+	margin-right: 10px; margin-left: 10px; float: left; display: inline;
+}
+.col-13 {
+	margin-right: 10px; margin-left: 10px; float: left; display: inline;
+}
+.col-14 {
+	margin-right: 10px; margin-left: 10px; float: left; display: inline;
+}
+.col-15 {
+	margin-right: 10px; margin-left: 10px; float: left; display: inline;
+}
+.col-16 {
+	margin-right: 10px; margin-left: 10px; float: left; display: inline;
+}
+.col-1 {
+	width: 40px;
+}
+.col-2 {
+	width: 100px;
+}
+.col-3 {
+	width: 160px;
+}
+.col-4 {
+	width: 220px;
+}
+.col-5 {
+	width: 280px;
+}
+.col-6 {
+	width: 340px;
+}
+.col-7 {
+	width: 400px;
+}
+.col-8 {
+	width: 460px;
+}
+.col-9 {
+	width: 520px;
+}
+.col-10 {
+	width: 580px;
+}
+.col-11 {
+	width: 640px;
+}
+.col-12 {
+	width: 700px;
+}
+.col-13 {
+	width: 760px;
+}
+.col-14 {
+	width: 820px;
+}
+.col-15 {
+	width: 880px;
+}
+.col-16 {
+	width: 940px;
+}
+}
+.col-right {
+	margin-right: 0px;
+}
+@media screen and (max-width:772px)
+{
+.col-5 {
+	width: 97.02%; clear: both;
+}
+.col-6 {
+	width: 97.02%; clear: both;
+}
+.col-7 {
+	width: 97.02%; clear: both;
+}
+}
+@media screen, projection, print
+{
+#header {
+	padding: 2.2em 0px 0.2em;
+}
+#header::before {
+	clear: both; display: table; content: "";
+}
+#header::after {
+	clear: both; display: table; content: "";
+}
+.logo {
+	float: left;
+}
+.nav-x {
+	float: left;
+}
+.nav-x {
+	margin-top: -2px; list-style-type: none;
+}
+.nav-x a {
+	color: rgb(51, 51, 51); font-size: 16px;
+}
+.design a.selected {
+	color: rgb(51, 181, 229);
+}
+.develop a.selected {
+	color: rgb(255, 136, 0);
+}
+.distribute a.selected {
+	color: rgb(153, 204, 0);
+}
+.source a.selected {
+	color: rgb(51, 181, 229);
+}
+.devices a.selected {
+	color: rgb(255, 136, 0);
+}
+.security a.selected {
+	color: rgb(153, 204, 0);
+}
+.compatibility a.selected {
+	color: rgb(153, 51, 204);
+}
+.nav-x li {
+	margin-right: 45px; display: inline;
+}
+.search {
+	width: 220px; float: right; position: relative;
+}
+.search .bottom {
+	position: absolute; background-color: rgb(163, 163, 163);
+}
+.search .left {
+	position: absolute; background-color: rgb(163, 163, 163);
+}
+.search .right {
+	position: absolute; background-color: rgb(163, 163, 163);
+}
+.search .bottom {
+	left: 0px; top: 24px; width: 220px; height: 1px;
+}
+.search .left {
+	width: 1px; height: 5px;
+}
+.search .right {
+	width: 1px; height: 5px;
+}
+.search .left {
+	left: 0px; top: 19px;
+}
+.search .right {
+	top: 19px; right: 0px;
+}
+.search form {
+	width: inherit; margin-top: 2px; float: left;
+}
+.search .close {
+	background: url("../images/close.png") no-repeat 0px 0px; margin: 0px; =
+width: 16px; height: 16px; right: 8px; bottom: 4px; text-indent: =
+-1000em; position: absolute; z-index: 9999;
+}
+#player-frame .close {
+	background: url("../images/close.png") no-repeat 0px 0px; margin: 0px; =
+width: 16px; height: 16px; right: 8px; bottom: 4px; text-indent: =
+-1000em; position: absolute; z-index: 9999;
+}
+.search .close:hover {
+	background-position: -16px 0px; cursor: pointer;
+}
+.search .close:focus {
+	background-position: -16px 0px; cursor: pointer;
+}
+#player-frame .close:hover {
+	background-position: -16px 0px; cursor: pointer;
+}
+#player-frame .close:focus {
+	background-position: -16px 0px; cursor: pointer;
+}
+#player-frame .close {
+	top: 6px;
+}
+.search form input {
+	margin: 0px; padding: 0px 0px 0px 6px; border: currentColor; =
+border-image: none; width: inherit; color: rgb(153, 153, 153); =
+font-size: 1em; z-index: 1500; background-color: transparent;
+}
+.search:hover .bottom {
+	background-color: rgb(51, 181, 229);
+}
+.search:hover .left {
+	background-color: rgb(51, 181, 229);
+}
+.search:hover .right {
+	background-color: rgb(51, 181, 229);
+}
+.search:hover .icon {
+	background-position: -8px 0px;
+}
+.search form input:focus {
+	outline: 0px; color: rgb(34, 34, 34); font-weight: bold;
+}
+.search-dropdown {
+	background: rgb(255, 255, 255); padding: 15px; border: 1px solid =
+rgb(197, 197, 197); border-image: none; left: 0px; top: 35px; width: =
+192px; position: absolute; box-shadow: 0px 0px 10px rgba(0,0,0,0.2); =
+-moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); -webkit-box-shadow: 0 0 =
+10px rgba(0, 0, 0, 0.2);
+}
+.search-dropdown ul {
+	margin: 0px; padding: 0px; list-style-type: none;
+}
+.search-dropdown ul li {
+	margin: 0px; padding: 0px; list-style-type: none;
+}
+.search-dropdown ul li {
+	clear: both;
+}
+.search-dropdown img {
+	margin: 0px 10px 10px 0px; float: left;
+}
+.search-dropdown h6 {
+	margin: 0px; color: rgb(34, 34, 34); line-height: normal;
+}
+.search-dropdown .desc {
+	margin: 0px; color: rgb(153, 153, 153); line-height: normal; font-size: =
+11.5px;
+}
+.search-dropdown li a:hover h6 {
+	color: rgb(51, 181, 229);
+}
+.search-dropdown li a:hover .desc {
+	color: rgb(51, 181, 229);
+}
+.button {
+	border-radius: 2px; cursor: pointer; -webkit-border-radius: 2px; =
+-moz-border-radius: 2px;
+}
+a.button {
+	border-radius: 2px; cursor: pointer; -webkit-border-radius: 2px; =
+-moz-border-radius: 2px;
+}
+.button-secondary {
+	border-radius: 2px; cursor: pointer; -webkit-border-radius: 2px; =
+-moz-border-radius: 2px;
+}
+a.button-secondary {
+	border-radius: 2px; cursor: pointer; -webkit-border-radius: 2px; =
+-moz-border-radius: 2px;
+}
+.button {
+	border: 1px solid rgb(57, 144, 171); border-image: none; color: =
+rgb(255, 255, 255); display: inline-block; background-image: =
+-ms-linear-gradient(rgb(47, 173, 219), rgb(0, 153, 204)); =
+background-color: rgb(0, 153, 204);
+}
+a.button {
+	border: 1px solid rgb(57, 144, 171); border-image: none; color: =
+rgb(255, 255, 255); display: inline-block; background-image: =
+-ms-linear-gradient(rgb(47, 173, 219), rgb(0, 153, 204)); =
+background-color: rgb(0, 153, 204);
+}
+.button-secondary {
+	border: 1px solid rgb(220, 220, 220); border-image: none; color: =
+rgb(68, 68, 68); background-color: rgb(243, 243, 243);
+}
+a.button-secondary {
+	border: 1px solid rgb(220, 220, 220); border-image: none; color: =
+rgb(68, 68, 68); background-color: rgb(243, 243, 243);
+}
+a.button {
+	padding: 8px 15px; outline: 0px; text-align: center; font-weight: 400; =
+margin-right: 16px; min-width: 54px;
+}
+a.button:visited {
+	padding: 8px 15px; outline: 0px; text-align: center; font-weight: 400; =
+margin-right: 16px; min-width: 54px;
+}
+a.button-secondary {
+	padding: 8px 15px; outline: 0px; text-align: center; font-weight: 400; =
+margin-right: 16px; min-width: 54px;
+}
+a.button-secondary:visited {
+	padding: 8px 15px; outline: 0px; text-align: center; font-weight: 400; =
+margin-right: 16px; min-width: 54px;
+}
+.button {
+	padding: 0px 15px; outline: 0px; text-align: center; font-weight: 400; =
+margin-right: 16px; min-width: 54px;
+}
+.button-secondary {
+	padding: 0px 15px; outline: 0px; text-align: center; font-weight: 400; =
+margin-right: 16px; min-width: 54px;
+}
+.button:hover {
+	border-color: rgb(0, 153, 204); color: rgb(255, 255, 255) !important; =
+background-image: -ms-linear-gradient(rgb(93, 188, 217), rgb(76, 173, =
+203)); background-color: rgb(76, 173, 203);
+}
+a.button:hover {
+	border-color: rgb(0, 153, 204); color: rgb(255, 255, 255) !important; =
+background-image: -ms-linear-gradient(rgb(93, 188, 217), rgb(76, 173, =
+203)); background-color: rgb(76, 173, 203);
+}
+.button:active {
+	border-color: rgb(48, 183, 230); background-image: none; =
+background-color: rgb(30, 121, 154);
+}
+a.button:active {
+	border-color: rgb(48, 183, 230); background-image: none; =
+background-color: rgb(30, 121, 154);
+}
+a.button.big.subtitle {
+	line-height: 18px;
+}
+.button-secondary:hover {
+	border-color: rgb(219, 219, 219); color: rgb(51, 181, 229) !important; =
+background-image: -ms-linear-gradient(rgb(249, 249, 249), rgb(236, 236, =
+236)); background-color: rgb(243, 243, 243);
+}
+a.button-secondary:hover {
+	border-color: rgb(219, 219, 219); color: rgb(51, 181, 229) !important; =
+background-image: -ms-linear-gradient(rgb(249, 249, 249), rgb(236, 236, =
+236)); background-color: rgb(243, 243, 243);
+}
+.button-secondary:active {
+	background: -ms-linear-gradient(rgb(235, 235, 235) 0%, rgb(249, 249, =
+249) 5%, rgb(250, 250, 250) 50%, rgb(249, 249, 249) 90%, rgb(255, 255, =
+255) 100%); border-color: rgb(218, 218, 218); color: rgb(37, 138, 175) =
+!important; box-shadow: inset 0px 0px 5px 2px rgba(0,0,0,0.05); =
+-moz-box-shadow: inset 0px 0px 5px 2px rgba(0, 0, 0, .05); =
+-webkit-box-shadow: inset 0px 0px 5px 2px rgba(0, 0, 0, .05);
+}
+a.button-secondary:active {
+	background: -ms-linear-gradient(rgb(235, 235, 235) 0%, rgb(249, 249, =
+249) 5%, rgb(250, 250, 250) 50%, rgb(249, 249, 249) 90%, rgb(255, 255, =
+255) 100%); border-color: rgb(218, 218, 218); color: rgb(37, 138, 175) =
+!important; box-shadow: inset 0px 0px 5px 2px rgba(0,0,0,0.05); =
+-moz-box-shadow: inset 0px 0px 5px 2px rgba(0, 0, 0, .05); =
+-webkit-box-shadow: inset 0px 0px 5px 2px rgba(0, 0, 0, .05);
+}
+.button.big {
+	font-size: 20px; display: inline-block;
+}
+.button.big span.small {
+	font-size: 14px;
+}
+.button-caption {
+	font-size: 12px; font-style: italic; margin-top: 10px;
+}
+.button.disabled {
+	background: rgb(235, 235, 235); border-color: rgb(153, 153, 153); =
+color: rgb(153, 153, 153) !important; cursor: default;
+}
+.button.disabled:hover {
+	background: rgb(235, 235, 235); border-color: rgb(153, 153, 153); =
+color: rgb(153, 153, 153) !important; cursor: default;
+}
+.button.disabled:active {
+	background: rgb(235, 235, 235); border-color: rgb(153, 153, 153); =
+color: rgb(153, 153, 153) !important; cursor: default;
+}
+.training-nav-top a.button-secondary {
+	margin: 0px; width: 130px; color: rgb(51, 181, 229); text-transform: =
+uppercase; font-weight: bold; float: left; display: block; =
+background-image: -ms-linear-gradient(rgb(249, 249, 249), rgb(236, 236, =
+236)); background-color: rgb(243, 243, 243);
+}
+.training-nav-bottom a.button-secondary {
+	margin: 0px; width: 130px; color: rgb(51, 181, 229); text-transform: =
+uppercase; font-weight: bold; float: left; display: block; =
+background-image: -ms-linear-gradient(rgb(249, 249, 249), rgb(236, 236, =
+236)); background-color: rgb(243, 243, 243);
+}
+.training-nav-top a.button-secondary:hover {
+	border: 1px solid rgb(57, 144, 171); border-image: none; color: =
+rgb(255, 255, 255) !important; background-image: =
+-ms-linear-gradient(rgb(47, 173, 219), rgb(0, 153, 204)); =
+background-color: rgb(0, 153, 204);
+}
+.training-nav-bottom a.button-secondary:hover {
+	border: 1px solid rgb(57, 144, 171); border-image: none; color: =
+rgb(255, 255, 255) !important; background-image: =
+-ms-linear-gradient(rgb(47, 173, 219), rgb(0, 153, 204)); =
+background-color: rgb(0, 153, 204);
+}
+.training-nav-top a.button-secondary.last {
+	border-left-color: currentColor; border-left-width: 0px; =
+border-left-style: none;
+}
+.training-nav-bottom a.button-secondary.last {
+	border-left-color: currentColor; border-left-width: 0px; =
+border-left-style: none;
+}
+.training-nav-top a.button-secondary.double-size {
+	width: 291px;
+}
+.training-nav-bottom a.button-secondary.double-size {
+	width: 291px;
+}
+.training-nav-top {
+	margin: 0px 0px 0px 20px; float: right;
+}
+.training-nav-bottom {
+	margin: 0px 0px 0px 20px; float: right;
+}
+.training-nav-bottom {
+	padding: 0px 0px 20px;
+}
+#tb-wrapper {
+	margin: -27px 0px 0px 20px; padding: 0px 0px 20px; clear: right; float: =
+right;
+}
+#qv-wrapper {
+	margin: -27px 0px 0px 20px; padding: 0px 0px 20px; clear: right; float: =
+right;
+}
+#tb {
+	border: 1px solid rgb(204, 204, 204); border-image: none; width: 238px; =
+line-height: 18px; font-size: 13px; float: right;
+}
+#qv {
+	border: 1px solid rgb(204, 204, 204); border-image: none; width: 238px; =
+line-height: 18px; font-size: 13px; float: right;
+}
+#tb {
+	width: 278px;
+}
+#tb h2 {
+	margin: 10px 15px; padding: 0px; text-transform: uppercase; =
+border-bottom-color: gainsboro; border-bottom-width: 1px; =
+border-bottom-style: solid;
+}
+#qv h2 {
+	margin: 10px 15px; padding: 0px; text-transform: uppercase; =
+border-bottom-color: gainsboro; border-bottom-width: 1px; =
+border-bottom-style: solid;
+}
+#tb * {
+	font-size: inherit;
+}
+#qv * {
+	font-size: inherit;
+}
+#tb .download-box {
+	padding: 0px 0px 0px 15px;
+}
+#tb .download-box .filename {
+	margin: 4px 4px 10px; color: rgb(102, 102, 102); font-size: 11px;
+}
+.sidebox-wrapper {
+	margin: 0px 0px 0px 20px; padding: 0px 0px 20px; clear: right; float: =
+right;
+}
+.sidebox {
+	margin: 0px 0px 1em 20px; padding: 0px 0px 0px 10px; width: 226px; =
+line-height: 18px; font-size: 13px; border-left-color: rgb(153, 204, 0); =
+border-left-width: 4px; border-left-style: solid; float: right;
+}
+.sidebox h2 {
+	margin: 0px 0px 10px; font-weight: bold;
+}
+.sidebox h3 {
+	margin: 0px 0px 10px; font-weight: bold;
+}
+.sidebox h4 {
+	margin: 0px 0px 10px; font-weight: bold;
+}
+.sidebox h5 {
+	margin: 0px 0px 10px; font-weight: bold;
+}
+.sidebox * {
+	font-size: inherit;
+}
+#tb ol {
+	margin: 0px 15px 10px 35px;
+}
+#tb ul {
+	margin: 0px 15px 10px 35px;
+}
+#qv ul {
+	margin: 0px 15px 10px 35px;
+}
+#qv ol {
+	list-style: none; margin: 0px 15px 15px; line-height: inherit; =
+font-size: inherit;
+}
+#tb ol ol {
+	margin-bottom: 0px;
+}
+#tb ul ul {
+	margin-bottom: 0px;
+}
+#qv ol ol {
+	margin-bottom: 0px;
+}
+#qv ul ul {
+	margin-bottom: 0px;
+}
+.sidebox ol ol {
+	margin-bottom: 0px;
+}
+.sidebox ul ul {
+	margin-bottom: 0px;
+}
+#qv ol ol {
+	margin: 3px 0px 3px 15px;
+}
+.sidebox p {
+	margin: 0px 0px 10px;
+}
+#qv p {
+	margin: 0px 0px 10px;
+}
+#tb p {
+	margin: 0px 0px 10px;
+}
+.article form {
+	margin: 0px 0px 20px;
+}
+.article form .form-required {
+	color: rgb(221, 75, 57);
+}
+.article form fieldset {
+	margin: 0px 0px 20px; padding: 0px;
+}
+.article form legend {
+	margin: 0px; padding: 0px; line-height: 1.5; display: block;
+}
+.article form label {
+	margin: 0px 0px 5px; padding: 0px; display: block;
+}
+.article form input[type=3D'text'] {
+	margin-bottom: 15px;
+}
+.article form select {
+	margin-bottom: 15px;
+}
+.article form textarea {
+	margin-bottom: 15px;
+}
+.article form .checkbox-group {
+	margin-bottom: 15px;
+}
+.article form .radio-group {
+	margin-bottom: 15px;
+}
+.checkbox-group input {
+	background: rgb(255, 255, 255); border: 1px solid rgb(198, 198, 198); =
+border-image: none; width: 13px; height: 13px; float: left;
+}
+.article form .checkbox-group {
+	display: block;
+}
+.article form .radio-group {
+	display: block;
+}
+.article form select {
+	background: url("../images/arrows-up-down.png") no-repeat right =
+rgb(243, 243, 243); border-width: 1px; border-style: solid; =
+border-color: rgb(221, 221, 221) rgb(235, 235, 235) rgb(235, 235, 235); =
+padding: 5px; border-image: none; width: 130px; height: 30px; color: =
+rgb(34, 34, 34); line-height: normal; -webkit-appearance: none;
+}
+.article form .browse .browse-msg {
+	font-size: 11.5px;
+}
+.article form .browse .button-secondary {
+	margin: 0px 10px 15px 0px; padding: 0px 8px; height: auto; line-height: =
+25px; font-size: 11px;
+}
+.article form input[type=3D'text'] {
+	border-width: 1px; border-style: solid; border-color: rgb(220, 220, =
+220) rgb(235, 235, 235) rgb(235, 235, 235); padding: 6px 10px; =
+border-image: none; width: 300px; color: rgb(34, 34, 34); line-height: =
+normal;
+}
+.article form textarea {
+	border-width: 1px; border-style: solid; border-color: rgb(220, 220, =
+220) rgb(235, 235, 235) rgb(235, 235, 235); padding: 6px 10px; =
+border-image: none; width: 300px; color: rgb(34, 34, 34); line-height: =
+normal;
+}
+.article form textarea {
+	height: 150px;
+}
+.article form input[type=3D'text']:focus {
+	border-color: rgb(51, 181, 229); outline: 0px; box-shadow: inset 0px =
+1px 2px rgba(0,0,0,0.2); -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, =
+.2); -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .2); =
+-o-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .2);
+}
+.article form textarea:focus {
+	border-color: rgb(51, 181, 229); outline: 0px; box-shadow: inset 0px =
+1px 2px rgba(0,0,0,0.2); -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, =
+.2); -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .2); =
+-o-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .2);
+}
+.article form input[disabled] {
+	color: rgb(153, 153, 153);
+}
+.article form textarea[disabled] {
+	color: rgb(153, 153, 153);
+}
+.article form label.form-disabled {
+	color: rgb(153, 153, 153);
+}
+.article form input[type=3D'text'][disabled] {
+	background-color: rgb(235, 235, 235);
+}
+.article form textarea[disabled] {
+	background-color: rgb(235, 235, 235);
+}
+form .form-error input[type=3D'text'] {
+	border-color: rgb(221, 75, 57); margin-right: 20px;
+}
+form .form-error textarea {
+	border-color: rgb(221, 75, 57); margin-right: 20px;
+}
+.aside {
+	background: rgb(249, 249, 249); margin: 10px 0px; padding: 20px; =
+border-radius: 2px; color: rgb(102, 102, 102); position: relative; =
+-webkit-border-radius: 2px; -moz-border-radius: 2px;
+}
+div.sdk-terms {
+	background: none; margin: 0px 0px 10px; padding: 10px; border: 1px =
+solid rgb(68, 68, 68); border-image: none; width: 738px; height: 370px; =
+overflow: auto; font-family: inherit; font-size: inherit; white-space: =
+pre-wrap; -ms-word-wrap: break-word;
+}
+div.sdk-terms.fullsize {
+	padding: 0px; border: currentColor; border-image: none; width: auto; =
+height: auto;
+}
+div.sdk-terms h3 {
+	margin: 0px;
+}
+div.sdk-terms h2 {
+	margin: 0px;
+}
+div#sdk-terms-form {
+	padding: 0px 0px 0px 10px;
+}
+div#sdk-terms-form input {
+	margin: 4px 4px 4px 0px; display: inline;
+}
+pre {
+	background: rgb(247, 247, 247); margin: 0px 0px 1em; padding: 1em; =
+border: 1px solid rgb(221, 221, 221); border-image: none; overflow: =
+auto;
+}
+.str {
+	color: rgb(0, 136, 0);
+}
+.kwd {
+	color: rgb(0, 0, 136);
+}
+.com {
+	color: rgb(136, 0, 0);
+}
+.typ {
+	color: rgb(102, 0, 102);
+}
+.lit {
+	color: rgb(0, 102, 102);
+}
+.pun {
+	color: rgb(102, 102, 0);
+}
+.pln {
+	color: rgb(0, 0, 0);
+}
+.tag {
+	color: rgb(0, 0, 136);
+}
+.atn {
+	color: rgb(136, 34, 136);
+}
+.atv {
+	color: rgb(0, 136, 0);
+}
+.dec {
+	color: rgb(102, 0, 102);
+}
+.three-pane {
+	border-top-color: rgb(235, 235, 235); border-top-width: 1px; =
+border-top-style: solid; position: relative;
+}
+#packages-nav .js-pane {
+	overflow: visible;
+}
+#classes-nav .js-pane {
+	overflow: visible;
+}
+#packages-nav {
+	height: 270px; overflow: hidden; position: relative; max-height: =
+inherit;
+}
+#classes-nav {
+	overflow: hidden; position: relative;
+}
+#packages-nav ul {
+	margin: 10px 0px 20px; padding: 0px; list-style-type: none;
+}
+#classes-nav ul {
+	margin: 10px 0px 20px; padding: 0px; list-style-type: none;
+}
+#classes-nav li {
+	margin: 5px 0px; font-weight: bold;
+}
+#packages-nav li {
+	margin: 0px;
+}
+#classes-nav li li {
+	margin: 0px;
+}
+#packages-nav li a {
+	padding: 0px 0px 0px 4px;
+}
+#packages-nav li a:active {
+	padding: 0px 0px 0px 4px;
+}
+#packages-nav li a:visited {
+	padding: 0px 0px 0px 4px;
+}
+#classes-nav li a {
+	padding: 0px 0px 0px 4px;
+}
+#classes-nav li a:active {
+	padding: 0px 0px 0px 4px;
+}
+#classes-nav li a:visited {
+	padding: 0px 0px 0px 4px;
+}
+#packages-nav li a {
+	color: rgb(34, 34, 34); font-weight: normal;
+}
+#packages-nav li a:active {
+	color: rgb(34, 34, 34); font-weight: normal;
+}
+#packages-nav li a:visited {
+	color: rgb(34, 34, 34); font-weight: normal;
+}
+#classes-nav li li a {
+	color: rgb(34, 34, 34); font-weight: normal;
+}
+#classes-nav li li a:active {
+	color: rgb(34, 34, 34); font-weight: normal;
+}
+#classes-nav li li a:visited {
+	color: rgb(34, 34, 34); font-weight: normal;
+}
+#nav-tree li a {
+	color: rgb(34, 34, 34); font-weight: normal;
+}
+#nav-tree li a:active {
+	color: rgb(34, 34, 34); font-weight: normal;
+}
+#nav-tree li a:visited {
+	color: rgb(34, 34, 34); font-weight: normal;
+}
+#packages-nav li a {
+	display: block;
+}
+#packages-nav li a:active {
+	display: block;
+}
+#packages-nav li a:visited {
+	display: block;
+}
+#classes-nav li li a {
+	display: block;
+}
+#classes-nav li li a:active {
+	display: block;
+}
+#classes-nav li li a:visited {
+	display: block;
+}
+#packages-nav li.selected a {
+	color: rgb(0, 153, 204); font-weight: 500; background-color: rgb(255, =
+255, 255);
+}
+#packages-nav li.selected a:active {
+	color: rgb(0, 153, 204); font-weight: 500; background-color: rgb(255, =
+255, 255);
+}
+#packages-nav li.selected a:visited {
+	color: rgb(0, 153, 204); font-weight: 500; background-color: rgb(255, =
+255, 255);
+}
+#classes-nav li li.selected a {
+	color: rgb(0, 153, 204); font-weight: 500; background-color: rgb(255, =
+255, 255);
+}
+#classes-nav li li.selected a:active {
+	color: rgb(0, 153, 204); font-weight: 500; background-color: rgb(255, =
+255, 255);
+}
+#classes-nav li li.selected a:visited {
+	color: rgb(0, 153, 204); font-weight: 500; background-color: rgb(255, =
+255, 255);
+}
+#nav-tree li div.selected {
+	color: rgb(0, 153, 204); font-weight: 500; background-color: rgb(255, =
+255, 255);
+}
+#packages-nav li.selected ul li a {
+	color: rgb(85, 85, 85);
+}
+#classes-nav li.selected ul li a {
+	color: rgb(85, 85, 85);
+}
+#nav-tree li div.selected a {
+	color: rgb(0, 153, 204); font-weight: 500;
+}
+#nav-swap {
+	height: 30px; border-top-color: rgb(204, 204, 204); border-top-width: =
+1px; border-top-style: solid; display: none;
+}
+#nav-swap a {
+	padding: 5px 0px 5px 5px; height: 100%; color: rgb(34, 34, 34); =
+font-size: 12px; display: inline-block;
+}
+#nav-swap .fullscreen {
+	background: url("../images/fullscreen.png") no-repeat -24px 0px; =
+margin: 3px 5px 0px; padding: 0px; width: 24px; height: 24px; =
+text-indent: -1000em; float: right;
+}
+#nav-swap .fullscreen.disabled {
+	background-position: 0px 0px;
+}
+#nav-swap .fullscreen:hover {
+	cursor: pointer;
+}
+#nav-swap .fullscreen:focus {
+	cursor: pointer;
+}
+#side-nav {
+	overflow: hidden; margin-left: 0px;
+}
+#devdoc-nav {
+	overflow: hidden; margin-left: 0px;
+}
+#swapper {
+	overflow: hidden; margin-left: 0px;
+}
+#nav-tree {
+	overflow: hidden; margin-left: 0px;
+}
+#tree-list {
+	overflow: hidden; margin-left: 0px;
+}
+#nav-tree {
+	display: none;
+}
+#swapper {
+	display: none;
+}
+#nav-tree ul {
+	list-style: none; margin: 10px 0px; padding: 0px;
+}
+#nav-tree ul li div {
+	padding: 0px 0px 0px 4px;
+}
+#side-nav #nav-tree ul li a {
+	margin: 0px; padding: 0px;
+}
+#side-nav #nav-tree ul li span.no-children {
+	margin: 0px; padding: 0px;
+}
+#nav-tree .plus {
+	margin: 0px 3px 0px 0px;
+}
+#nav-tree ul ul {
+	list-style: none; margin: 0px; padding: 0px;
+}
+#nav-tree ul li {
+	margin: 0px; padding: 0px; white-space: nowrap;
+}
+#nav-tree .children_ul {
+	margin: 0px; padding: 0px;
+}
+#nav-tree .children_ul li div {
+	padding: 0px 0px 0px 10px;
+}
+#nav-tree .children_ul .children_ul li div {
+	padding: 0px 0px 0px 20px;
+}
+#nav-tree a.nolink {
+	color: rgb(34, 34, 34); text-decoration: none;
+}
+#nav-tree span.label {
+	width: 100%;
+}
+#nav-tree {
+	outline: 0px; -ms-overflow-x: auto; -ms-overflow-y: scroll;
+}
+#doc-col {
+	margin-right: 0px;
+}
+#doc-content-container {
+	margin-left: 291px;
+}
+#doc-header {
+	padding: 1em 2em;
+}
+#doc-content {
+	padding: 1em 2em;
+}
+#doc-header {
+	background: rgb(247, 247, 247);
+}
+#doc-header h1 {
+	line-height: 0; margin-bottom: 15px;
+}
+#api-info-block {
+	font-weight: bold; float: right;
+}
+#api-info-block a {
+	color: rgb(34, 34, 34);
+}
+#api-info-block a:active {
+	color: rgb(34, 34, 34);
+}
+#api-info-block a:visited {
+	color: rgb(34, 34, 34);
+}
+#api-info-block a:hover {
+	color: rgb(51, 181, 229);
+}
+#api-info-block a:focus {
+	color: rgb(51, 181, 229);
+}
+#api-nav-header {
+	background: rgba(0, 0, 0, 0.05); margin: 0px; padding: 8px 0px; height: =
+19px; font-size: 14px; border-bottom-color: rgb(204, 204, 204); =
+border-bottom-width: 1px; border-bottom-style: solid; display: none;
+}
+#api-nav-title {
+	padding: 0px 5px; display: none; white-space: nowrap;
+}
+#api-level-toggle {
+	padding: 0px 5px; float: right;
+}
+#api-level-toggle label {
+	margin: 0px; height: 19px; line-height: 19px; font-size: 13px; =
+vertical-align: top;
+}
+#api-level-toggle .select-wrapper {
+	width: 35px; overflow: hidden; display: inline-block;
+}
+#api-level-toggle select {
+	background: url("../images/arrows-up-down.png") no-repeat 23px 5px; =
+margin: 1px 0px 0px; padding: 0px; outline: 0px; border: 0px =
+currentColor; border-image: none; width: 150%; height: 19px; color: =
+rgb(34, 34, 34); line-height: 19px; font-size: 13px; vertical-align: =
+top; -webkit-appearance: none; appearance: none; -moz-appearance: none;
+}
+div.toggle-content.closed .toggle-content-toggleme {
+	display: none;
+}
+#jd-content img.toggle-content-img {
+	margin: 0px 5px 5px 0px;
+}
+div.toggle-content p {
+	margin: 10px 0px 0px;
+}
+div.toggle-content-toggleme {
+	padding: 0px 0px 0px 15px;
+}
+.absent {
+	color: rgb(187, 187, 187) !important; text-decoration: none !important; =
+cursor: default !important;
+}
+.absent a:link {
+	color: rgb(187, 187, 187) !important; text-decoration: none !important; =
+cursor: default !important;
+}
+.absent a:visited {
+	color: rgb(187, 187, 187) !important; text-decoration: none !important; =
+cursor: default !important;
+}
+.absent a:hover {
+	color: rgb(187, 187, 187) !important; text-decoration: none !important; =
+cursor: default !important;
+}
+.absent * {
+	color: rgb(187, 187, 187) !important; text-decoration: none !important; =
+cursor: default !important;
+}
+#devdoc-nav li.absent.selected {
+	background-color: rgb(234, 234, 234) !important;
+}
+#devdoc-nav li.absent.selected * {
+	background-color: rgb(234, 234, 234) !important;
+}
+#devdoc-nav div.label.absent.selected {
+	background-color: rgb(234, 234, 234) !important;
+}
+#devdoc-nav div.label.absent.selected * {
+	background-color: rgb(234, 234, 234) !important;
+}
+.absent h4.jd-details-title {
+	background-color: rgb(246, 246, 246) !important;
+}
+.absent h4.jd-details-title * {
+	background-color: rgb(246, 246, 246) !important;
+}
+.absent img {
+	opacity: 0.3;
+}
+.ui-resizable {
+	position: relative;
+}
+.ui-resizable-handle {
+	font-size: 0.1px; display: none; position: absolute; z-index: 1;
+}
+.ui-resizable .ui-resizable-handle {
+	border-bottom-color: rgb(228, 228, 228); border-bottom-width: 1px; =
+border-bottom-style: solid; display: block;
+}
+.ui-resizable-s {
+	background: url("../images/resizable-s2.png") no-repeat center rgb(247, =
+247, 247); left: 0px; width: 100% !important; height: 10px; bottom: =
+-11px; border-bottom-color: rgb(237, 237, 237); border-bottom-width: =
+1px; border-bottom-style: solid; cursor: s-resize;
+}
+.lightbox {
+	background: rgb(255, 255, 255); margin: 0px auto; padding: 1.5em; =
+border: 1px solid rgb(220, 220, 220); border-image: none; width: 769px; =
+box-shadow: 1px 1px 5px rgba(0,0,0,0.1); -moz-box-shadow: 1px 1px 5px =
+rgba(0, 0, 0, 0.1); -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+}
+.lightbox .header {
+	margin: -10px 20px 10px 0px; width: 720px; float: left;
+}
+.lightbox .close {
+	background: url("../images/close.png") no-repeat 0px 0px; margin: -10px =
+-10px 10px 0px; width: 10px; height: 10px; text-indent: -1000em; float: =
+right;
+}
+.lightbox .close:hover {
+	background-position: -10px 0px;
+}
+.lightbox .close:focus {
+	background-position: -10px 0px;
+}
+#butterbar-wrapper {
+	left: 0px; top: 0px; width: 100%; position: absolute;
+}
+#butterbar {
+	margin: 0px auto; width: 940px;
+}
+#butterbar-message {
+	padding: 0px 10px; border-radius: 0px 0px 5px 5px; font-size: 12px; =
+font-weight: bold; float: right; background-color: rgb(255, 136, 0);
+}
+#butterbar-message a {
+	color: rgb(255, 255, 255) !important;
+}
+#butterbar-message a:hover {
+	text-decoration: underline;
+}
+.clearfix::before {
+	display: table; content: "";
+}
+.clearfix::after {
+	display: table; content: "";
+}
+.clearfix::after {
+	clear: both;
+}
+.clearfix {
+=09
+}
+table.blank th {
+	background: none; border: 0px currentColor; border-image: none;
+}
+table.blank td {
+	background: none; border: 0px currentColor; border-image: none;
+}
+.caption {
+	margin: 0.5em 0px 2em; color: rgb(0, 0, 0); font-size: 11.5px;
+}
+.nolist {
+	list-style: none; margin-left: 0px;
+}
+#tb .nolist {
+	margin-left: 15px;
+}
+pre.classic {
+	padding: 0px; border: currentColor; border-image: none; =
+background-color: transparent;
+}
+p.img-caption {
+	margin: -10px 0px 20px; color: rgb(102, 102, 102); font-size: 13px;
+}
+div.figure {
+	margin: 10px 0px 0px; padding: 0px 0px 0px 20px; clear: right; float: =
+right;
+}
+div.figure-right {
+	margin: 10px 0px 0px; padding: 0px 0px 0px 20px; clear: right; float: =
+right;
+}
+div.figure-left {
+	margin: 10px 0px 0px; padding: 0px 20px 0px 0px; clear: left; float: =
+left;
+}
+img.frame {
+	padding: 4px; border: 1px solid rgb(221, 221, 221); border-image: none;
+}
+p.table-caption {
+	margin: 0px 0px 4px; color: rgb(102, 102, 102); font-size: 13px;
+}
+p.code-caption {
+	font: 12px/1.5 monospace; margin: 0px 0px 4px; color: rgb(102, 102, =
+102); font-size-adjust: none; font-stretch: normal;
+}
+div.note {
+	margin: 0px 0px 15px;
+}
+div.caution {
+	margin: 0px 0px 15px;
+}
+div.warning {
+	margin: 0px 0px 15px;
+}
+p.note {
+	padding: 0px 0px 0px 10px; border-left-color: currentColor; =
+border-left-width: 4px; border-left-style: solid;
+}
+div.note {
+	padding: 0px 0px 0px 10px; border-left-color: currentColor; =
+border-left-width: 4px; border-left-style: solid;
+}
+p.caution {
+	padding: 0px 0px 0px 10px; border-left-color: currentColor; =
+border-left-width: 4px; border-left-style: solid;
+}
+div.caution {
+	padding: 0px 0px 0px 10px; border-left-color: currentColor; =
+border-left-width: 4px; border-left-style: solid;
+}
+p.warning {
+	padding: 0px 0px 0px 10px; border-left-color: currentColor; =
+border-left-width: 4px; border-left-style: solid;
+}
+div.warning {
+	padding: 0px 0px 0px 10px; border-left-color: currentColor; =
+border-left-width: 4px; border-left-style: solid;
+}
+p.note {
+	border-color: rgb(37, 138, 175);
+}
+div.note {
+	border-color: rgb(37, 138, 175);
+}
+p.caution {
+	border-color: rgb(255, 136, 0);
+}
+div.caution {
+	border-color: rgb(255, 136, 0);
+}
+p.warning {
+	border-color: rgb(255, 68, 67);
+}
+div.warning {
+	border-color: rgb(255, 68, 67);
+}
+div.note.design {
+	border-left-color: rgb(51, 181, 229); border-left-width: 4px; =
+border-left-style: solid;
+}
+div.note.develop {
+	border-left-color: rgb(255, 136, 0); border-left-width: 4px; =
+border-left-style: solid;
+}
+div.note.distribute {
+	border-left-color: rgb(153, 204, 0); border-left-width: 4px; =
+border-left-style: solid;
+}
+.note p {
+	margin: 0px 0px 5px;
+}
+.caution p {
+	margin: 0px 0px 5px;
+}
+.warning p {
+	margin: 0px 0px 5px;
+}
+.note p:last-child {
+	margin-bottom: 0px;
+}
+.caution p:last-child {
+	margin-bottom: 0px;
+}
+.warning p:last-child {
+	margin-bottom: 0px;
+}
+body.about blockquote {
+	margin: 0px 0px 20px 30px; width: 280px; color: rgb(51, 181, 229); =
+line-height: 24px; font-size: 20px; font-style: italic; float: right; =
+display: block;
+}
+div.design-announce p {
+	margin: 0px 0px 10px;
+}
+#devdoc-nav a.totop {
+	background: url("../images/styles/gototop.png") no-repeat 50% 50%; top: =
+0px; width: inherit; text-indent: -9999em; display: block;
+}
+#devdoc-nav a.totop {
+	display: none; position: fixed;
+}
+#devdoc-nav a.totop:hover {
+	background-color: rgb(51, 181, 229);
+}
+.content-footer a.totop {
+	text-transform: uppercase; line-height: 30px;
+}
+.expandable {
+	height: 34px; padding-left: 20px; position: relative;
+}
+.expandable::before {
+	background-position: -12px -9px; left: 0px; top: 0px; width: 20px; =
+height: 20px; display: inline-block; position: absolute; content: ""; =
+background-image: url("../images/styles/disclosure_down.png"); =
+background-repeat: no-repeat;
+}
+}
+.expandable.expanded::before {
+	background-image: url("../images/styles/disclosure_up.png");
+}
+div.dialog {
+	margin: 0px auto; height: 0px;
+}
+div.dialog > div {
+	background: rgb(247, 247, 247); margin: 70px 0px; width: 391px; height: =
+200px; position: fixed; z-index: 99; box-shadow: 0px 0px 15px =
+rgba(0,0,0,0.5); -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); =
+-webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+* html div.dialog div {
+	position: absolute;
+}
+div#deprecatedSticker {
+	background: rgb(255, 255, 255); margin: 0px; padding: 1em; border: 1px =
+solid rgb(221, 221, 0); border-image: none; top: 114px; right: 15px; =
+display: none; position: fixed; z-index: 99; box-shadow: -5px 5px 10px =
+#ccc; -moz-box-shadow: -5px 5px 10px #ccc; -webkit-box-shadow: -5px 5px =
+10px #ccc;
+}
+div#naMessage {
+	margin: 0px auto; width: 555px; height: 0px; display: none;
+}
+div#naMessage div {
+	background: rgb(255, 255, 255); margin: 50px 0px; padding: 4em 4em 3em; =
+border: 1px solid rgb(153, 153, 153); border-image: none; width: 450px; =
+position: fixed; z-index: 99; box-shadow: -10px 10px 40px #888; =
+-moz-box-shadow: -10px 10px 40px #888; -webkit-box-shadow: -10px 10px =
+40px #888;
+}
+* html div#naMessage div {
+	position: absolute;
+}
+div#naMessage strong {
+	font-size: 1.1em;
+}
+.slideshow-next {
+	width: 20px; height: 36px; text-indent: -1000em;
+}
+.slideshow-prev {
+	width: 20px; height: 36px; text-indent: -1000em;
+}
+.slideshow-container {
+	margin: 2em 0px;
+}
+.slideshow-container::before {
+	clear: both; display: table; content: "";
+}
+.slideshow-container::after {
+	clear: both; display: table; content: "";
+}
+a.slideshow-next {
+	background: url("../images/arrow-right.png") no-repeat 0px 0px; float: =
+right;
+}
+a.slideshow-next:visited {
+	background: url("../images/arrow-right.png") no-repeat 0px 0px; float: =
+right;
+}
+a.slideshow-prev {
+	background: url("../images/arrow-left.png") no-repeat 0px 0px; float: =
+left;
+}
+a.slideshow-prev:visited {
+	background: url("../images/arrow-left.png") no-repeat 0px 0px; float: =
+left;
+}
+.slideshow-next:hover {
+	background-position: 0px -36px;
+}
+.slideshow-prev:hover {
+	background-position: 0px -36px;
+}
+.slideshow-next:focus {
+	background-position: 0px -36px;
+}
+.slideshow-prev:focus {
+	background-position: 0px -36px;
+}
+.slideshow-next:active {
+	background-position: 0px -72px;
+}
+.slideshow-prev:active {
+	background-position: 0px -72px;
+}
+.slideshow-nav {
+	margin: 0px auto; width: 74px;
+}
+.slideshow-nav a {
+	background: rgb(204, 204, 204); margin: 0px 2px 20px; border-radius: =
+50%; width: 12px; height: 12px; display: inline-block; =
+-webkit-border-radius: 50%; -moz-border-radius: 50%;
+}
+.slideshow-nav a:visited {
+	background: rgb(204, 204, 204); margin: 0px 2px 20px; border-radius: =
+50%; width: 12px; height: 12px; display: inline-block; =
+-webkit-border-radius: 50%; -moz-border-radius: 50%;
+}
+.slideshow-nav a:hover {
+	background: rgb(51, 181, 229);
+}
+.slideshow-nav a:focus {
+	background: rgb(51, 181, 229);
+}
+.slideshow-nav a:active {
+	background: rgb(235, 235, 235); box-shadow: inset 0px 0px 5px 2px =
+rgba(0,0,0,0.05); -moz-box-shadow: inset 0px 0px 5px 2px rgba(0, 0, 0, =
+.05); -webkit-box-shadow: inset 0px 0px 5px 2px rgba(0, 0, 0, .05);
+}
+.slideshow-nav a.active {
+	background: rgb(51, 181, 229);
+}
+.slideshow-nav a.active:active {
+	background: rgb(51, 181, 229);
+}
+.slideshow-nav a.active:visited {
+	background: rgb(51, 181, 229);
+}
+ul.tabs {
+	margin: 2em 0px 0px; padding: 0px;
+}
+ul.tabs::before {
+	clear: both; display: table; content: "";
+}
+ul.tabs::after {
+	clear: both; display: table; content: "";
+}
+ul.tabs li {
+	float: left; list-style-type: none;
+}
+ul.tabs li a {
+	padding: 0px 15px; height: 36px; color: rgb(34, 34, 34); line-height: =
+36px; margin-right: 2px; border-top-color: rgb(235, 235, 235); =
+border-right-color: rgb(235, 235, 235); border-left-color: rgb(235, 235, =
+235); border-top-width: 1px; border-right-width: 1px; border-left-width: =
+1px; border-top-style: solid; border-right-style: solid; =
+border-left-style: solid; display: block; background-image: =
+-ms-linear-gradient(rgb(255, 255, 255), rgb(250, 250, 250)); =
+background-color: rgb(255, 255, 255); -webkit-border-radius: 2px 2px px =
+px; -moz-border-radius-topleft: 2px; -moz-border-radius-topright: 2px; =
+-moz-border-radius-bottomright: px; -moz-border-radius-bottomleft: px;
+}
+ul.tabs li a:active {
+	padding: 0px 15px; height: 36px; color: rgb(34, 34, 34); line-height: =
+36px; margin-right: 2px; border-top-color: rgb(235, 235, 235); =
+border-right-color: rgb(235, 235, 235); border-left-color: rgb(235, 235, =
+235); border-top-width: 1px; border-right-width: 1px; border-left-width: =
+1px; border-top-style: solid; border-right-style: solid; =
+border-left-style: solid; display: block; background-image: =
+-ms-linear-gradient(rgb(255, 255, 255), rgb(250, 250, 250)); =
+background-color: rgb(255, 255, 255); -webkit-border-radius: 2px 2px px =
+px; -moz-border-radius-topleft: 2px; -moz-border-radius-topright: 2px; =
+-moz-border-radius-bottomright: px; -moz-border-radius-bottomleft: px;
+}
+ul.tabs li a:visited {
+	padding: 0px 15px; height: 36px; color: rgb(34, 34, 34); line-height: =
+36px; margin-right: 2px; border-top-color: rgb(235, 235, 235); =
+border-right-color: rgb(235, 235, 235); border-left-color: rgb(235, 235, =
+235); border-top-width: 1px; border-right-width: 1px; border-left-width: =
+1px; border-top-style: solid; border-right-style: solid; =
+border-left-style: solid; display: block; background-image: =
+-ms-linear-gradient(rgb(255, 255, 255), rgb(250, 250, 250)); =
+background-color: rgb(255, 255, 255); -webkit-border-radius: 2px 2px px =
+px; -moz-border-radius-topleft: 2px; -moz-border-radius-topright: 2px; =
+-moz-border-radius-bottomright: px; -moz-border-radius-bottomleft: px;
+}
+ul.tabs li a:hover {
+	color: rgb(51, 181, 229);
+}
+ul.tabs li a.selected {
+	border-color: rgb(221, 221, 221); height: 37px; color: rgb(51, 181, =
+229); background-image: none; background-color: rgb(247, 247, 247);
+}
+.tab-content {
+	background: rgb(247, 247, 247); margin: -1px 0px 2em; padding: 1.2em; =
+border-radius: 2px; border: 1px solid rgb(221, 221, 221); border-image: =
+none; -webkit-border-radius: 2px; -moz-border-radius: 2px;
+}
+.feature-box {
+	background: rgb(247, 247, 247); width: 291px; height: 200px; position: =
+relative;
+}
+.box-border .top {
+	position: absolute; z-index: 100; background-color: rgb(170, 170, 170);
+}
+.box-border .bottom {
+	position: absolute; z-index: 100; background-color: rgb(170, 170, 170);
+}
+.box-border .left {
+	position: absolute; z-index: 100; background-color: rgb(170, 170, 170);
+}
+.box-border .right {
+	position: absolute; z-index: 100; background-color: rgb(170, 170, 170);
+}
+.box-border .top {
+	width: 291px; height: 1px;
+}
+.box-border .bottom {
+	width: 291px; height: 1px;
+}
+.dialog .box-border .top {
+	width: 391px;
+}
+.dialog .box-border .bottom {
+	width: 391px;
+}
+.box-border .left {
+	width: 1px; height: 8px;
+}
+.box-border .right {
+	width: 1px; height: 8px;
+}
+.box-border .top {
+	left: 0px; top: 0px;
+}
+.box-border .top .left {
+	left: 0px; top: 1px;
+}
+.box-border .top .right {
+	top: 1px; right: 0px;
+}
+.box-border .bottom .left {
+	left: 0px; top: -8px;
+}
+.box-border .bottom {
+	left: 0px; top: 200px;
+}
+.box-border .bottom .right {
+	top: -8px; right: 0px;
+}
+.feature-box h4 {
+	margin: 15px 18px 10px; padding: 0px;
+}
+.dialog h4 {
+	margin: 15px 18px 10px; padding: 0px;
+}
+.feature-box p {
+	margin: 10px 18px; padding: 0px;
+}
+.dialog p {
+	margin: 10px 18px; padding: 0px;
+}
+.feature-box .link {
+	width: inherit; bottom: 0px; border-top-color: rgb(222, 222, 222); =
+border-top-width: 1px; border-top-style: solid; position: absolute;
+}
+.dialog .link {
+	width: inherit; bottom: 0px; border-top-color: rgb(222, 222, 222); =
+border-top-width: 1px; border-top-style: solid; position: absolute;
+}
+.feature-box a {
+	transition:color 0.4s; -webkit-transition: color .4s ease; =
+-moz-transition: color .4s ease; -o-transition: color .4s ease;
+}
+.feature-box h4 {
+	transition:color 0.4s; -webkit-transition: color .4s ease; =
+-moz-transition: color .4s ease; -o-transition: color .4s ease;
+}
+.dialog a {
+	transition:color 0.4s; -webkit-transition: color .4s ease; =
+-moz-transition: color .4s ease; -o-transition: color .4s ease;
+}
+.dialog h4 {
+	transition:color 0.4s; -webkit-transition: color .4s ease; =
+-moz-transition: color .4s ease; -o-transition: color .4s ease;
+}
+.feature-box:hover {
+	cursor: pointer;
+}
+.feature-box:hover .box-border .top {
+	background-color: rgb(51, 181, 229);
+}
+.feature-box:hover .box-border .bottom {
+	background-color: rgb(51, 181, 229);
+}
+.feature-box:hover .left {
+	background-color: rgb(51, 181, 229);
+}
+.feature-box:hover .right {
+	background-color: rgb(51, 181, 229);
+}
+.feature-box:hover h4 {
+	color: rgb(51, 181, 229);
+}
+.feature-box:hover a {
+	color: rgb(51, 181, 229);
+}
+.colors {
+	margin: 40px 0px 20px; width: 92px; float: left; position: relative;
+}
+.colors div {
+	border-radius: 50%; border: 5px solid rgb(255, 255, 255); border-image: =
+none; width: 82px; height: 82px; text-align: center; color: rgb(255, =
+255, 255); line-height: 82px; font-size: 11.5px; margin-top: -30px; =
+-webkit-border-radius: 50%; -moz-border-radius: 50%;
+}
+#packages-nav h2 {
+	margin: 0px; padding: 0px 0px 0px 4px; font-size: 18px;
+}
+#classes-nav h2 {
+	margin: 0px; padding: 0px 0px 0px 4px; font-size: 18px;
+}
+#jd-header {
+	margin: 20px 0px 10px; padding: 0px 0px 5px; font-size: 13px; =
+border-bottom-color: rgb(204, 204, 204); border-bottom-width: 1px; =
+border-bottom-style: solid;
+}
+#jd-header h1 {
+	margin: 0px; padding: 0px;
+}
+#api-info-block {
+	margin: 20px 0px 0px; padding: 0px 10px 6px; text-align: right; color: =
+rgb(153, 153, 153); font-size: 13px; font-weight: normal; float: right; =
+max-width: 70%;
+}
+#api-info-block div.api-level {
+	margin: 0px; padding: 0px; color: rgb(34, 34, 34); font-size: inherit; =
+font-weight: bold; float: none;
+}
+.jd-inheritance-table {
+	margin: 0px; padding: 0px; font-size: 13px; border-spacing: 0; =
+background-color: transparent;
+}
+.jd-inheritance-table tr td {
+	margin: 0px; padding: 0px; border: currentColor; border-image: none; =
+background-color: transparent;
+}
+.jd-inheritance-table .jd-inheritance-space {
+	width: 1em; font-weight: bold;
+}
+.jd-inheritance-table .jd-inheritance-interface-cell {
+	padding-left: 17px;
+}
+.jd-sumtable a {
+	text-decoration: none;
+}
+.jd-sumtable a:hover {
+	text-decoration: underline;
+}
+.toggle-all {
+	font-size: 0.9em; font-weight: normal; float: right; display: block;
+}
+.jd-sumtable.jd-sumtable-subclasses {
+	margin: 1em 0px 0px; font-size: 13px; max-width: 968px; =
+background-color: transparent;
+}
+.sympad {
+	margin-right: 2px;
+}
+.jd-sumtable .jd-typecol {
+	text-align: right;
+}
+.jd-sumtable-expando {
+	margin: 0.5em 0px; padding: 0px;
+}
+.jd-descrdiv {
+	margin: 0px; padding: 3px 1em 0px; border: 0px currentColor; =
+border-image: none;
+}
+#jd-content img.jd-expando-trigger-img {
+	margin: 0px; padding: 0px 4px 4px 0px;
+}
+.jd-sumtable-subclasses div#subclasses-direct {
+	margin: 0px 0px 0px 13px;
+}
+.jd-sumtable-subclasses div#subclasses-indirect {
+	margin: 0px 0px 0px 13px;
+}
+.jd-details {
+	margin: 0px 0px 1em;
+}
+.jd-details-descr {
+	margin: 0.5em 0.25em; padding: 0px;
+}
+.jd-tagdata {
+	margin: 0.5em 1em;
+}
+.jd-tagdata p {
+	margin: 0px 0px 1em 1em;
+}
+.jd-tagdescr {
+	margin: 0.25em 0px 0.75em;
+}
+.jd-tagdescr ol {
+	margin: 0px 2.5em; padding: 0px;
+}
+.jd-tagdescr ul {
+	margin: 0px 2.5em; padding: 0px;
+}
+.jd-tagdescr table {
+	margin: 0.25em 1em;
+}
+.jd-tagdescr img {
+	margin: 0.25em 1em;
+}
+.jd-tagdescr li {
+	margin: 0px 0px 0.25em; padding: 0px;
+}
+h4.jd-details-title {
+	margin: 1.5em 0px 0.6em; padding: 3px 95px 3px 3px; font-size: 1.15em; =
+background-color: rgb(226, 226, 226);
+}
+body.google h4.jd-details-title {
+	padding-top: 5px; border-top-color: rgb(204, 204, 204); =
+border-top-width: 1px; border-top-style: solid; background-color: =
+rgb(255, 255, 255);
+}
+body.google table.jd-sumtable th {
+	color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);
+}
+h4.jd-tagtitle {
+	margin: 0px;
+}
+h4 .normal {
+	font-weight: normal;
+}
+h5.jd-tagtitle {
+	margin: 0px 0px 0.25em; font-size: 1em;
+}
+.jd-tagtable {
+	margin: 0px; width: auto; background-color: transparent;
+}
+.jd-tagtable td {
+	padding: 2px 10px; border: currentColor; border-image: none; =
+font-weight: normal; vertical-align: top; background-color: rgb(255, =
+255, 255);
+}
+.jd-tagtable th {
+	padding: 2px 10px; border: currentColor; border-image: none; =
+font-weight: normal; vertical-align: top; background-color: rgb(255, =
+255, 255);
+}
+.jd-tagtable th {
+	font-style: italic;
+}
+div.api-level {
+	padding: 0px 8px; color: rgb(153, 153, 153); font-size: 0.8em; =
+font-weight: normal; margin-top: -30px; float: right;
+}
+table.jd-tagtable td {
+	background-color: transparent;
+}
+table.jd-tagtable th {
+	background-color: transparent;
+}
+table.jd-tagtable th {
+	color: inherit;
+}
+#search_autocomplete {
+	font-weight: normal;
+}
+#search_filtered_wrapper {
+	width: 193px; float: right;
+}
+#search_filtered_div {
+	background: white; padding: 5px; border: 1px solid rgb(197, 197, 197); =
+border-image: none; top: 35px; position: absolute; z-index: 9999; =
+min-width: 171px; box-shadow: 0px 0px 10px rgba(0,0,0,0.2); =
+-moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); -webkit-box-shadow: 0 0 =
+10px rgba(0, 0, 0, 0.2);
+}
+ul#search_filtered {
+	list-style: none; margin: 0px; padding: 0px; min-width: 100%;
+}
+#search_filtered .jd-selected {
+	cursor: pointer; background-color: rgb(51, 181, 229);
+}
+#search_filtered .jd-selected {
+	color: rgb(247, 247, 247) !important;
+}
+#search_filtered .jd-selected a {
+	color: rgb(247, 247, 247) !important;
+}
+.no-display {
+	display: none;
+}
+#search_filtered li.jd-autocomplete {
+	margin: 0px 0px 2px; padding: 0px; border: currentColor; border-image: =
+none; line-height: 1.5em; font-size: 0.81em;
+}
+#search_filtered li a {
+	padding: 0px 5px; color: rgb(34, 34, 34) !important;
+}
+#search_filtered li.header {
+	margin: 8px 0px 2px; padding: 1px 5px; border: currentColor; =
+border-image: none; color: rgb(170, 170, 170); line-height: 1.5em; =
+font-size: 0.81em; font-weight: bold;
+}
+#search_filtered li:first-child.header {
+	margin: 0px 0px 2px;
+}
+.show-item {
+	display: table-row;
+}
+.hide-item {
+=09
+}
+#leftSearchControl .gsc-twiddle {
+	background-image: none;
+}
+#leftSearchControl td {
+	padding: 0px; border: 0px solid rgb(0, 0, 0); border-image: none;
+}
+#searchForm td {
+	padding: 0px; border: 0px solid rgb(0, 0, 0); border-image: none;
+}
+#leftSearchControl .gsc-resultsHeader .gsc-title {
+	color: rgb(0, 102, 153); padding-left: 0px; font-size: 13px; =
+font-weight: bold; display: none;
+}
+#leftSearchControl .gsc-resultsHeader div.gsc-results-selector {
+	display: none;
+}
+#leftSearchControl .gsc-resultsRoot {
+	padding-top: 6px;
+}
+#leftSearchControl div.gs-visibleUrl-long {
+	color: rgb(0, 102, 153); display: block;
+}
+#leftSearchControl .gsc-webResult {
+	padding: 0px 0px 20px;
+}
+.gsc-webResult div.gs-visibleUrl-short {
+	display: none;
+}
+table.gsc-branding {
+	display: none;
+}
+.gsc-clear-button {
+	display: none;
+}
+.gsc-cursor-box .gsc-cursor div.gsc-cursor-page {
+	color: rgb(0, 102, 153);
+}
+.gsc-cursor-box .gsc-trailing-more-results a.gsc-trailing-more-results {
+	color: rgb(0, 102, 153);
+}
+#leftSearchControl a {
+	color: rgb(0, 102, 153);
+}
+#leftSearchControl a b {
+	color: rgb(0, 102, 153);
+}
+.gsc-resultsHeader {
+	display: none;
+}
+.gsc-control form.gsc-search-box {
+	display: none;
+}
+table.gsc-search-box {
+	margin: 6px 0px 0px; border-collapse: collapse;
+}
+td.gsc-input {
+	padding: 0px 2px; width: 100%; vertical-align: middle;
+}
+input.gsc-input {
+	border: 1px solid rgb(188, 205, 240); border-image: none; width: 99%; =
+padding-left: 2px; font-size: 0.95em;
+}
+td.gsc-search-button {
+	padding: 0px; text-align: right; vertical-align: top;
+}
+#searchResults {
+	height: auto; overflow: hidden;
+}
+#searchResults .gsc-control {
+	padding: 0px 0px 10px; width: auto; position: relative;
+}
+#searchResults .gsc-tabsArea {
+	width: 200px; float: left; white-space: nowrap; position: relative;
+}
+#searchResults .gsc-above-wrapper-area {
+	display: none;
+}
+#searchResults .gsc-resultsbox-visible {
+	width: 720px; margin-left: 20px; float: left;
+}
+#searchResults .gsc-tabHeader {
+	padding: 3px 6px; width: auto; display: block; position: relative;
+}
+#searchResults h2#searchTitle {
+	margin: 5px 0px; padding: 0px; border: currentColor; border-image: =
+none;
+}
+#searchResults h2#searchTitle em {
+	color: rgb(51, 181, 229); font-style: normal;
+}
+#searchResults .gsc-table-result {
+	margin: 5px 0px 10px; background-color: transparent;
+}
+#searchResults .gs-web-image-box {
+	width: 120px;
+}
+.gs-promotion-image-box {
+	width: 120px;
+}
+#searchResults .gs-web-image-box img.gs-image {
+	max-width: 120px;
+}
+.gs-promotion-image-box img.gs-promotion-image {
+	max-width: 120px;
+}
+#searchResults .gsc-table-result .gsc-thumbnail {
+	padding: 0px 20px 0px 0px;
+}
+#searchResults td {
+	background-color: transparent;
+}
+#searchResults .gsc-expansionArea {
+	position: relative;
+}
+#searchResults .gsc-tabsArea .gsc-cursor-box {
+	padding: 20px 0px 0px 1px; width: 200px;
+}
+#searchResults .gsc-cursor-page {
+	margin: -1px 0px 0px -1px; padding: 0px; width: 27px; height: 27px; =
+text-align: center; line-height: 2; float: left; display: inline-block;
+}
+#searchResults .gsc-tabHeader.gsc-tabhInactive {
+	border: 1px solid rgb(218, 218, 218); border-image: none; color: =
+rgb(37, 138, 175); text-decoration: none;
+}
+#searchResults .gsc-cursor-page {
+	border: 1px solid rgb(218, 218, 218); border-image: none; color: =
+rgb(37, 138, 175); text-decoration: none;
+}
+#searchResults .gsc-tabHeader.gsc-tabhInactive:hover {
+	border-color: rgb(219, 219, 219); color: rgb(51, 181, 229); =
+background-image: -ms-linear-gradient(rgb(249, 249, 249), rgb(236, 236, =
+236)); background-color: rgb(243, 243, 243);
+}
+#searchResults .gsc-cursor-page:hover {
+	border-color: rgb(219, 219, 219); color: rgb(51, 181, 229); =
+background-image: -ms-linear-gradient(rgb(249, 249, 249), rgb(236, 236, =
+236)); background-color: rgb(243, 243, 243);
+}
+#searchResults .gsc-tabHeader.gsc-tabhActive {
+	border: 1px solid rgb(57, 144, 171); border-image: none; color: =
+rgb(255, 255, 255); z-index: 100; background-image: =
+-ms-linear-gradient(rgb(47, 173, 219), rgb(0, 153, 204)); =
+background-color: rgb(0, 153, 204);
+}
+#searchResults .gsc-tabHeader.gsc-tabhActive:hover {
+	border: 1px solid rgb(57, 144, 171); border-image: none; color: =
+rgb(255, 255, 255); z-index: 100; background-image: =
+-ms-linear-gradient(rgb(47, 173, 219), rgb(0, 153, 204)); =
+background-color: rgb(0, 153, 204);
+}
+#searchResults .gsc-cursor-page.gsc-cursor-current-page {
+	border: 1px solid rgb(57, 144, 171); border-image: none; color: =
+rgb(255, 255, 255); z-index: 100; background-image: =
+-ms-linear-gradient(rgb(47, 173, 219), rgb(0, 153, 204)); =
+background-color: rgb(0, 153, 204);
+}
+#searchResults .gsc-cursor-page.gsc-cursor-current-page:hover {
+	border: 1px solid rgb(57, 144, 171); border-image: none; color: =
+rgb(255, 255, 255); z-index: 100; background-image: =
+-ms-linear-gradient(rgb(47, 173, 219), rgb(0, 153, 204)); =
+background-color: rgb(0, 153, 204);
+}
+#header .wrap {
+	border-color: rgb(204, 204, 204); height: 41px; border-bottom-width: =
+1px; border-bottom-style: solid; position: relative; max-width: 940px;
+}
+.about #header .wrap {
+	border-color: rgb(153, 51, 204);
+}
+.design #header .wrap {
+	border-color: rgb(51, 181, 229);
+}
+.distribute #header .wrap {
+	border-color: rgb(153, 204, 0);
+}
+.logo a {
+	width: 123px; float: left;
+}
+#header .logo {
+	width: 160px; padding-right: 10px; margin-top: -6px; margin-bottom: =
+0px; margin-left: 0px;
+}
+#header .saclogo {
+	margin: -3px 30px 0px 0px; width: 140px; padding-right: 0px; =
+border-right-color: rgb(204, 204, 204); border-right-width: 1px; =
+border-right-style: solid;
+}
+.search {
+	height: 25px; margin-top: -3px; margin-bottom: 0px;
+}
+.btn-quicknav {
+	width: 20px; height: 28px; padding-right: 10px; margin-left: 6px; =
+border-right-color: rgb(204, 204, 204); border-right-width: 1px; =
+border-right-style: solid; float: left; position: relative; cursor: =
+pointer;
+}
+.btn-quicknav a {
+	background: url("../images/quicknav_arrow.png") no-repeat; left: 5px; =
+top: 13px; width: 10px; height: 5px; text-indent: -9999em; display: =
+block; position: absolute; -ms-zoom: 1;
+}
+.btn-quicknav a.arrow-active {
+	background-position: 0px -5px; display: none;
+}
+.quicknav#header-wrap a.arrow-inactive {
+	display: none;
+}
+.btn-quicknav.active a.arrow-active {
+	display: block;
+}
+.nav-x li {
+	transition:0.25s linear; margin-right: 45px; float: left; display: =
+block; -webkit-transition: all 0.25s linear; -moz-transition: all 0.25s =
+linear; -o-transition: all 0.25s linear;
+}
+.quicknav#header-wrap .nav-x li {
+	margin-right: 20px; min-width: 160px;
+}
+.quicknav#header-wrap li.last {
+	margin-right: 0px;
+}
+#quicknav {
+	overflow: hidden; clear: both; margin-top: -30px; margin-left: 180px; =
+float: none; display: none;
+}
+.quicknav#header-wrap #quicknav {
+=09
+}
+#quicknav ul {
+	margin: 10px 0px; padding: 0px;
+}
+#quicknav ul li.design {
+	border-top-color: rgb(51, 181, 229); border-top-width: 1px; =
+border-top-style: solid;
+}
+#quicknav ul li.develop {
+	border-top-color: rgb(255, 136, 0); border-top-width: 1px; =
+border-top-style: solid;
+}
+#quicknav ul li.distribute {
+	border-top-color: rgb(153, 204, 0); border-top-width: 1px; =
+border-top-style: solid;
+}
+#quicknav ul li {
+	margin: 0px 20px 0px 0px; float: left; display: block; min-width: =
+140px;
+}
+#quicknav ul li.last {
+	margin-right: 0px;
+}
+#quicknav ul li ul li {
+	float: none;
+}
+#quicknav ul li ul li a {
+	color: rgb(34, 34, 34);
+}
+#quicknav ul li li ul {
+	margin: 0px;
+}
+#quicknav ul li li ul li {
+	margin: 0px;
+}
+#quicknav ul li li ul li::before {
+	content: "\21B3";
+}
+#header-wrap {
+	transition:0.25s ease-out; -webkit-transition: all 0.25s ease-out; =
+-moz-transition: all 0.25s ease-out; -o-transition: all 0.25s ease-out;
+}
+.quicknav#header-wrap {
+	height: 196px;
+}
+.search {
+	transition:width 0.4s; width: 50px; height: 28px; right: 54px; =
+overflow: hidden; margin-top: -3px; margin-bottom: 7px; display: block; =
+position: absolute; z-index: 100; -webkit-transition: width 0.4s ease; =
+-moz-transition: width 0.4s ease; -o-transition: width 0.4s ease;
+}
+.search #search-btn {
+	background: url("../images/icon_search.png") no-repeat; width: 50px; =
+height: 28px; float: left;
+}
+.search-inner {
+	width: 245px;
+}
+.search:hover {
+	width: 245px;
+}
+.search.active {
+	width: 245px;
+}
+.search .bottom {
+	position: absolute; background-color: rgb(162, 162, 162);
+}
+.search .left {
+	position: absolute; background-color: rgb(162, 162, 162);
+}
+.search .right {
+	position: absolute; background-color: rgb(162, 162, 162);
+}
+.search .bottom {
+	left: 0px; top: 24px; width: 214px; height: 1px;
+}
+.search .left {
+	width: 1px; height: 5px;
+}
+.search .right {
+	width: 1px; height: 5px;
+}
+.search .left {
+	left: 56px; top: 22px; background-color: rgb(204, 204, 204);
+}
+.search .right {
+	left: 238px; top: 22px; background-color: rgb(204, 204, 204);
+}
+.search form {
+	width: 162px; margin-top: 2px; float: left;
+}
+.search form input {
+	border-width: medium medium 1px; border-style: none none solid; =
+border-color: currentColor currentColor rgb(204, 204, 204); padding: 0px =
+0px 0px 4px; border-image: none; width: 178px; height: 24px; color: =
+rgb(47, 47, 47); font-size: 0.95em; margin-left: 6px; position: =
+relative; z-index: 1500; background-color: transparent;
+}
+.search:hover form input {
+	border-bottom-color: rgb(51, 181, 229); border-bottom-width: 1px; =
+border-bottom-style: solid;
+}
+.search:hover .bottom {
+	background-color: rgb(51, 181, 229);
+}
+.search:hover .left {
+	background-color: rgb(51, 181, 229);
+}
+.search:hover .right {
+	background-color: rgb(51, 181, 229);
+}
+.search:hover #search-btn {
+	background-position: 0px -28px;
+}
+.search form input:focus {
+	color: rgb(34, 34, 34); font-weight: bold;
+}
+.moremenu {
+	transition:width 0.25s; width: 50px; height: 28px; overflow: hidden; =
+margin-top: -3px; margin-bottom: 7px; float: right; display: block; =
+position: relative; -webkit-transition: width 0.25s ease; =
+-moz-transition: width 0.25s ease; -o-transition: width 0.25s ease;
+}
+.moremenu #more-btn {
+	background: url("../images/icon_more.png") no-repeat; width: 40px; =
+height: 28px; border-left-color: rgb(204, 204, 204); border-left-width: =
+1px; border-left-style: solid; float: left; cursor: pointer;
+}
+.moremenu:hover #more-btn {
+	background-position: 0px -28px;
+}
+.morehover {
+	transform-origin: 100% 0%; top: -9px; width: 40px; height: 35px; right: =
+6px; overflow: hidden; position: absolute; z-index: 99; opacity: 0; =
+-webkit-opacity: 0; -moz-opacity: 0; -o-opacity: 0; =
+-webkit-transform-origin: 100% 0%; -moz-transform-origin: 100% 0%; =
+-o-transform-origin: 100% 0%; -webkit-transition-property: =
+-webkit-opacity; -webkit-transition-duration: .25s; =
+-webkit-transition-timing-function: ease; -moz-transition-property: =
+-webkit-opacity; -moz-transition-duration: .25s; =
+-moz-transition-timing-function: ease; -o-transition-property: =
+-webkit-opacity; -o-transition-duration: .25s; =
+-o-transition-timing-function: ease; -transition-property: =
+-webkit-opacity; -transition-duration: .25s; =
+-transition-timing-function: ease;
+}
+.morehover:hover {
+	width: 268px; height: 385px; opacity: 1; -webkit-transition-property: =
+height, -webkit-opacity;
+}
+.morehover.hover {
+	width: 268px; height: 385px; opacity: 1; -webkit-transition-property: =
+height, -webkit-opacity;
+}
+.morehover .top {
+	background: url("../images/more_top.png") no-repeat; width: 268px; =
+height: 39px;
+}
+.morehover .mid {
+	background: url("../images/more_mid.png") repeat-y; padding: 10px 20px =
+0px; width: 228px;
+}
+.morehover .mid .header {
+	font-weight: bold; border-bottom-color: rgb(204, 204, 204); =
+border-bottom-width: 1px; border-bottom-style: solid;
+}
+.morehover .bottom {
+	background: url("../images/more_bottom.png") no-repeat; width: 268px; =
+height: 6px;
+}
+.morehover ul {
+	margin: 10px 10px 20px 0px;
+}
+.morehover ul li {
+	list-style: none;
+}
+.morehover ul li.active a {
+	color: rgb(34, 34, 34) !important;
+}
+.morehover ul li.active a:hover {
+	color: rgb(34, 34, 34) !important;
+}
+.morehover ul li.active img {
+	margin-right: 4px;
+}
+.slideshow-container {
+	width: 100%; overflow: hidden; position: relative;
+}
+.slideshow-container .slideshow-prev {
+	left: 0px; top: 50%; margin-top: -36px; position: absolute; z-index: =
+99;
+}
+.slideshow-container .slideshow-next {
+	top: 50%; right: 0px; margin-top: -36px; position: absolute; z-index: =
+99;
+}
+.slideshow-container .pagination {
+	width: 100%; text-align: center; bottom: 20px; position: absolute; =
+z-index: 99;
+}
+.slideshow-container .pagination ul {
+	margin: 0px;
+}
+.slideshow-container .pagination ul li {
+	list-style: none; margin: 0px 2px; border-radius: 6px; transition:color =
+0.5s ease-in; width: 12px; height: 12px; text-indent: -8000px; display: =
+inline-block; cursor: pointer; background-color: rgb(204, 204, 204); =
+-webkit-transition: color .5s ease-in; -moz-transition: color .5s =
+ease-in; -o-transition: color .5s ease-in;
+}
+.slideshow-container .pagination ul li:hover {
+	background-color: rgb(153, 153, 153);
+}
+.slideshow-container .pagination ul li.active {
+	background-color: rgb(51, 181, 229);
+}
+.slideshow-container .pagination ul li.active:hover {
+	background-color: rgb(51, 181, 229);
+}
+.slideshow-container ul li {
+	list-style: none; display: inline;
+}
+a.download-sdk {
+	margin: -10px 0px; height: 30px; padding-top: 4px; padding-bottom: 0px; =
+float: right;
+}
+#nav-x {
+	padding-top: 14px;
+}
+#nav-x .wrap {
+	min-height: 34px;
+}
+#nav-x .wrap {
+	border-bottom-color: rgb(204, 204, 204); border-bottom-width: 1px; =
+border-bottom-style: solid; max-width: 940px;
+}
+.wrap#searchResults {
+	border-bottom-color: rgb(204, 204, 204); border-bottom-width: 1px; =
+border-bottom-style: solid; max-width: 940px;
+}
+.wrap#searchResults #leftSearchControl {
+	min-height: 700px;
+}
+.nav-x {
+	margin-bottom: 0px; margin-left: 0px;
+}
+.jspContainer {
+	overflow: hidden; position: relative;
+}
+.jspPane {
+	width: 100% !important; overflow: hidden; position: absolute;
+}
+.jspVerticalBar {
+	background: rgb(245, 245, 245); top: 0px; width: 4px; height: 100%; =
+right: 0px; position: absolute;
+}
+.jspHorizontalBar {
+	background: rgb(245, 245, 245); left: 0px; width: 100%; height: 4px; =
+bottom: 0px; position: absolute;
+}
+.jspVerticalBar * {
+	margin: 0px; padding: 0px;
+}
+.jspHorizontalBar * {
+	margin: 0px; padding: 0px;
+}
+.jspCap {
+	display: block;
+}
+.jspVerticalBar .jspCap {
+	height: 4px;
+}
+.jspHorizontalBar .jspCap {
+	width: 0px; height: 100%;
+}
+.jspHorizontalBar .jspCap {
+	float: left;
+}
+.jspTrack {
+	position: relative;
+}
+.jspDrag {
+	background: rgb(187, 187, 187); left: 0px; top: 0px; position: =
+relative; cursor: pointer;
+}
+.jspDrag:hover {
+	border-color: rgb(0, 153, 204); background-image: =
+-ms-linear-gradient(left, rgb(93, 188, 217), rgb(76, 173, 203)); =
+background-color: rgb(76, 173, 203);
+}
+.jspDrag:active {
+	border-color: rgb(0, 153, 204); background-image: =
+-ms-linear-gradient(left, rgb(93, 188, 217), rgb(76, 173, 203)); =
+background-color: rgb(76, 173, 203);
+}
+.jspHorizontalBar .jspTrack {
+	height: 100%; float: left;
+}
+.jspHorizontalBar .jspDrag {
+	height: 100%; float: left;
+}
+.jspArrow {
+	background: rgb(153, 153, 153); text-indent: -20000px; display: block; =
+cursor: pointer;
+}
+.jspArrow.jspDisabled {
+	background: rgb(204, 204, 204); cursor: default;
+}
+.jspVerticalBar .jspArrow {
+	height: 16px;
+}
+.jspHorizontalBar .jspArrow {
+	width: 16px; height: 100%; float: left;
+}
+.jspVerticalBar .jspArrow:focus {
+=09
+}
+.jspCorner {
+	height: 100%; float: left;
+}
+* html .jspCorner {
+	margin: 0px -3px 0px 0px;
+}
+.slideshow-develop {
+	width: 940px; height: 300px; overflow: hidden; position: relative;
+}
+.slideshow-develop .frame {
+	width: 940px; height: 300px;
+}
+.slideshow-develop img.play {
+	margin: 20px 0px 0px 90px; max-height: 240px; max-width: 350px; =
+box-shadow: -16px 20px 40px rgba(0,0,0,0.3); -moz-box-shadow: -16px 20px =
+40px rgba(0, 0, 0, 0.3); -webkit-box-shadow: -16px 20px 40px rgba(0, 0, =
+0, 0.3); -webkit-transform: perspective(800px ) rotateY( 35deg );
+}
+.slideshow-develop img.play.no-shadow {
+	box-shadow: none; -moz-box-shadow: none; -webkit-box-shadow: none;
+}
+.slideshow-develop img.play.no-transform {
+	-webkit-transform: none;
+}
+.slideshow-develop a.slideshow-next {
+	background: url("../images/arrow-right-develop.png");
+}
+.slideshow-develop a.slideshow-prev {
+	background: url("../images/arrow-left-develop.png");
+}
+.slideshow-develop .content-right {
+	float: left;
+}
+.slideshow-develop .content-right h2 {
+	padding: 0px; border: currentColor; border-image: none; margin-bottom: =
+10px;
+}
+.slideshow-develop .item {
+	width: 940px; height: 300px;
+}
+.slideshow-develop .pagination ul li.active {
+	background-color: rgb(255, 136, 0);
+}
+.slideshow-develop .pagination ul li.active:hover {
+	background-color: rgb(255, 136, 0);
+}
+.slideshow-develop .item hr {
+	margin: 5px 0px 10px;
+}
+.slideshow-develop .item p {
+	margin: 10px 0px;
+}
+.slideshow-develop .item p.title-intro {
+	margin: 0px; position: absolute;
+}
+.feed ul {
+	margin: 0px;
+}
+.feed .feed-nav {
+	height: 25px; border-bottom-color: rgb(204, 204, 204); =
+border-bottom-width: 1px; border-bottom-style: solid;
+}
+.feed .feed-nav li {
+	list-style: none; height: 21px; margin-right: 25px; float: left; =
+cursor: pointer;
+}
+.feed .feed-nav li.active {
+	color: rgb(0, 0, 0); border-bottom-color: rgb(255, 136, 0); =
+border-bottom-width: 4px; border-bottom-style: solid;
+}
+.feed .feed-container {
+	width: 460px; overflow: hidden;
+}
+.feed .feed-container .feed-frame {
+	width: 1000px;
+}
+.feed .feed-container .feed-frame ul {
+	width: 460px; float: left;
+}
+.feed .feed-container .feed-frame ul ul {
+	margin: 10px 0px 0px 30px; float: none;
+}
+.feed .feed-container .feed-frame li {
+	list-style: none; margin: 20px 0px; width: 460px; height: 93px;
+}
+.feed .feed-container .feed-frame li.playlist {
+	height: auto;
+}
+.feed .feed-container .feed-frame li.playlist a {
+	height: 93px; display: block;
+}
+.feed .feed-container .feed-frame li.more {
+	margin: 10px 0px 5px 5px; height: 20px;
+}
+.feed .feed-container .feed-frame li.more a {
+	height: inherit;
+}
+.feed .feed-container .feed-frame li.playlist-video {
+	list-style: none; margin: 0px; width: 460px; height: 55px; font-size: =
+12px;
+}
+.feed .feed-container .feed-frame li.playlist-video a {
+	padding: 5px; height: 45px;
+}
+.feed .feed-container .feed-frame li.playlist-video h5 {
+	margin: 0px; line-height: 13px; font-size: 12px;
+}
+.feed .feed-container .feed-frame li.playlist-video p {
+	margin: 5px 0px 0px; line-height: 15px;
+}
+.feed-container .feed-frame div.feed-image {
+	background: url("../images/blog-default.png") no-repeat 0px 0px / =
+180px; margin: 0px 20px 0px 0px; border: 1px solid rgb(153, 153, 153); =
+border-image: none; width: 122px; height: 92px; float: left;
+}
+#jd-content .feed .feed-container .feed-frame li img {
+	margin: 0px 20px 0px 0px; border: 1px solid rgb(153, 153, 153); =
+border-image: none; width: 122px; height: 92px; float: left;
+}
+#jd-content .feed .feed-container .feed-frame li.playlist-video img {
+	width: inherit; height: inherit;
+}
+.feed .feed-container .feed-frame li a {
+	color: rgb(85, 85, 85) !important;
+}
+.feed .feed-container .feed-frame li a:active {
+	color: rgb(85, 85, 85) !important;
+}
+.feed .feed-container .feed-frame li a:hover {
+	color: rgb(122, 161, 176) !important;
+}
+.feed .feed-container .feed-frame li a:hover * {
+	color: rgb(122, 161, 176) !important;
+}
+#player-wrapper {
+	margin: -1px auto 0px; width: 940px; height: 0px; display: none; =
+position: relative;
+}
+#player-frame {
+	background: rgb(239, 239, 239); padding: 0px 207px; border: 1px solid =
+rgb(204, 204, 204); border-image: none; width: 525px; height: 330px; =
+position: relative; z-index: 10;
+}
+.marquee {
+	width: 760px;
+}
+.marquee .main-img {
+	width: 490px; margin-top: 20px; float: left;
+}
+.marquee .copy {
+	width: 270px; margin-top: 30px; float: left;
+}
+.distribute-features {
+	margin: 0px;
+}
+.distribute-features ul {
+	margin: 0px;
+}
+.distribute-features ul li {
+	list-style: none; width: 220px; margin-right: 50px; border-top-color: =
+rgb(153, 204, 0); border-top-width: 1px; border-top-style: solid; float: =
+left;
+}
+.distribute-features ul li.last {
+	margin-right: 0px;
+}
+.landing-banner {
+	margin: 20px 0px 0px;
+}
+.landing-docs {
+	margin: 20px 0px 0px;
+}
+.landing-banner div:first-child {
+	margin-left: 0px; min-height: 280px;
+}
+.landing-docs div:first-child {
+	margin-left: 0px; min-height: 280px;
+}
+.landing-docs .col-12 {
+	margin-left: 0px; min-height: 280px;
+}
+.landing-banner div:last-child {
+	margin-right: 0px;
+}
+.landing-docs div:last-child {
+	margin-right: 0px;
+}
+.landing-docs .col-12 {
+	margin-right: 0px;
+}
+.landing-banner h1 {
+	margin-top: 0px;
+}
+.landing-docs {
+	overflow: hidden; clear: left;
+}
+.landing-docs h3 {
+	margin: 0px 0px 20px; color: rgb(85, 85, 85); text-transform: =
+uppercase; line-height: 21px; font-size: 14px; border-bottom-color: =
+rgb(204, 204, 204); border-bottom-width: 1px; border-bottom-style: =
+solid;
+}
+.landing-docs a {
+	color: rgb(51, 51, 51) !important;
+}
+.landing-docs a:hover {
+	color: rgb(122, 161, 176) !important;
+}
+.landing-docs a:hover * {
+	color: rgb(122, 161, 176) !important;
+}
+.landing-docs .normal-links a {
+	color: rgb(37, 138, 175) !important;
+}
+.plusone {
+	float: right;
+}
+.feedback {
+	margin: 0px 0px 0px 10px; font-size: 14px; float: right !important;
+}
+.slideshow-home {
+	margin: 0px; width: 940px; height: 500px; border-bottom-color: rgb(204, =
+204, 204); border-bottom-width: 1px; border-bottom-style: solid; =
+position: relative;
+}
+.slideshow-home .frame {
+	width: 940px; height: 500px;
+}
+.slideshow-home .content-left {
+	margin: 0px 0px 0px 35px; text-align: center; float: left;
+}
+.slideshow-home .content-right {
+	margin: 80px 0px 0px;
+}
+.slideshow-home .content-right p {
+	margin-bottom: 10px;
+}
+.slideshow-home .content-right p:last-child {
+	margin-top: 15px;
+}
+.slideshow-home .content-right h1 {
+	padding: 0px;
+}
+.slideshow-home .item {
+	width: 940px; height: 500px;
+}
+.home-sections {
+	margin: 20px 0px; padding: 30px 20px 20px;
+}
+.home-sections ul {
+	margin: 0px;
+}
+.home-sections ul li {
+	background: white; list-style: none; border-radius: 1px; border: 1px =
+solid rgb(204, 204, 204); border-image: none; width: 170px; height: =
+35px; margin-right: 10px; float: left; display: block; box-shadow: 1px =
+1px 5px #eee; -moz-box-shadow: 1px 1px 5px #EEE; -webkit-box-shadow: 1px =
+1px 5px #EEE; -webkit-border-radius: 1px; -moz-border-radius: 1px;
+}
+.home-sections ul li:hover {
+	background: rgb(249, 249, 249); border: 1px solid rgb(204, 204, 204); =
+border-image: none;
+}
+.home-sections ul li a {
+	width: 100%; text-align: center; color: rgb(0, 153, 204) !important; =
+line-height: 18px; font-weight: bold; margin-top: 8px; float: left;
+}
+.home-sections ul li a:hover {
+	width: 100%; text-align: center; color: rgb(0, 153, 204) !important; =
+line-height: 18px; font-weight: bold; margin-top: 8px; float: left;
+}
+.home-sections ul li a {
+	width: 100%; text-align: center; line-height: 18px; font-weight: bold; =
+margin-top: 8px; float: left;
+}
+.home-sections ul li img {
+	margin: -8px 0px 0px 10px; float: left;
+}
+.home-sections ul li.last {
+	margin-right: 0px;
+}
+.fullpage #footer {
+	margin-top: -40px;
+}
+.annotation-message {
+	display: block;
+}
+.dac-custom-search {
+	background: rgb(255, 255, 255); margin: 0px -10px; padding: 20px 10px; =
+z-index: 1;
+}
+.dac-custom-search .dac-fab {
+	top: -48px;
+}
+.dac-custom-search .dac-button-social {
+	top: -48px;
+}
+.dac-custom-search-section-title {
+	color: rgb(80, 80, 80);
+}
+.dac-custom-search-entry {
+	margin-top: 24px; margin-bottom: 36px; margin-left: 0em;
+}
+.dac-custom-search-image {
+	height: 112px; background-size: cover;
+}
+.dac-custom-search-title {
+	margin: 1em 0em; padding: 0px; color: rgb(51, 51, 51); line-height: =
+0px; font-size: 14px; font-weight: 700;
+}
+.dac-custom-search-title a {
+	color: inherit;
+}
+.dac-custom-search-section {
+	margin: -5px 0px 0px; color: rgb(153, 153, 153); font-size: 16px; =
+font-variant: small-caps; font-weight: 700;
+}
+.dac-custom-search-snippet {
+	margin: 0em 0em 0.25em; color: rgb(102, 102, 102);
+}
+.dac-custom-search-link {
+	width: 100%; font-weight: 500; -ms-word-wrap: break-word;
+}
+.dac-custom-search-load-more {
+	background: none; margin: 75px auto; padding: 10px; border: =
+currentColor; border-image: none; color: rgb(51, 51, 51); font-size: =
+14px; font-weight: 700; display: block; cursor: pointer;
+}
+.dac-custom-search-load-more:hover {
+	opacity: 0.7;
+}
+.dac-custom-search-no-results {
+	color: rgb(153, 153, 153);
+}
+
+------=_NextPart_000_0000_01D1AA40.CF01B700--
