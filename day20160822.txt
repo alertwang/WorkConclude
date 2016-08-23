@@ -31,4 +31,54 @@ COMPONENT_INIT
 						cm_info_ProcessInfoCommand(command, args)
 							//1.2.1.1.1判断如果 command 是 help
 							cm_info_PrintInfoHelp
-					
+2.4G数据处理的过程
+main
+	//注册三个数据分发的线程
+	create4GDataDispatcher
+		//注册后台数据分发函数
+		registDataDispatcher(dispatchDataBy4GNet, FROME_4G_NET);
+			dataDispatcher[FROME_4G_NET=2] = dispatchDataBy4GNet;	
+		//创建数据处理线程
+		createProtocolParseThread(cloudClient.net_recv_rbuf, FROME_4G_NET);
+		
+	createUartDataDispatcher
+		//多注册一个串口数据的业务处理过程
+		registBusinessHandler(handleBusinessData, FROME_UART);
+			businessHandler[FROME_UART=0] = handleBusinessData;	
+		//注册串口数据分发函数
+		registDataDispatcher(dispatchDataByUart, FROME_UART);
+			dataDispatcher[FROME_UART=0] = dispatchDataByUart;	
+		//创建数据处理线程
+		createProtocolParseThread(uart_server.recv_rbuf, FROME_UART);
+		
+	createUsbNetCardDataDispatcher	
+		//注册DA数据分发函数
+		registDataDispatcher(dispatchDataByUsbNetwork, FROME_USB_NET);
+			dataDispatcher[FROME_USB_NET=1] = dispatchDataByUsbNetwork;	
+		//创建数据处理线程
+		parseThreadID = createProtocolParseThread(socketServer.net_recv_rbuf, FROME_USB_NET);
+													pProtocolParser->rbuf = rbuf;
+													pProtocolParser->from_port = from_port;
+													pthread_create(&threadID, NULL, protocolParseThread, pProtocolParser)
+															//协议数据包的处理过程
+															protocolParseThread
+																	ProtocolParser *pProtocolParser = (ProtocolParser *)arg;
+																	//mcu、4G、
+																	parse_data(pProtocolParser->rbuf, pProtocolParser->from_port);
+																			//判断帧长后面两个字节 packet_protocol_type
+																			if(packet_protocol_type[1]==0x05)
+																			{
+																					//表示与后台的通讯
+																					dispatchDataBy4GNet(buf, len);
+																			}
+																			else if(packet_protocol_type[1]==0x06)
+																			{
+																					//表示与DA的通讯
+																					dispatchDataByUsbNetwork(buf, len);
+																			}
+																			else if(packet_protocol_type[1]==0x07)
+																			{
+																					//表示与4G模块的通讯,直接进入业务处理,businessID为packet_protocol_type之后的两个字节
+																					handleBusinessData(businessID, user_data,user_data_len);
+																			}
+

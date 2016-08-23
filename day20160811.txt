@@ -1,4 +1,4 @@
 1.编译的时候如何连接静态库
 gcc uart_test.c mcu_protocol_message.pb-c.c -o uart_test -lpthread -static -lprotobuf-c
 2.yocoto项目需要安装的工具
-sudo apt-get install cvs libsdl1.2-dev libgl1-mesa-dev libglu1-mesa-dev mercurial autoconf automake groff bc xterm bison build-essential chrpath cifs-utils cmake coreutils curl desktop-file-utils diffstat docbook-utils doxygen fakeroot flex g++ gawk gcc git-core gitk graphviz help2man libgmp3-dev libmpfrdev libreadline6-dev libsdl-dev libtool libxml2-dev libxml-libxml-perl make m4 ninja-build python-pip python-jinja2 python-pysqlite2 quilt samba scons sed subversion texi2html texinfo unzip wget
+sudo apt-get install cvs libsdl1.2-dev libgl1-mesa-dev libglu1-mesa-dev mercurial autoconf automake groff bc xterm bison build-essential chrpath cifs-utils cmake coreutils curl desktop-file-utils diffstat docbook-utils doxygen fakeroot flex g++ gawk gcc git-core gitk graphviz help2man libgmp3-dev libmpfr-dev libreadline6-dev libsdl.2-dev libtool libxml2-dev libxml-libxml-perl make m4 ninja-build python-pip python-jinja2 python-pysqlite2 quilt samba scons sed subversion texi2html texinfo unzip wget
