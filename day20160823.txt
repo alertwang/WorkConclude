@@ -1,0 +1,11 @@
+1.编译的内核的源码位置
+//$(ROOT)/build_bin/tmp/sysroots/swi-mdm9x28/usr/src/kernel
+
+$(ROOT)/build_bin/tmp/work/swi_mdm9x28-poky-linux-gnueabi/linux-quic/3.18.20+gitc0e174f7625aec8caf4771aad6f4359354aad272-r1/build
+
+
+KERNEL_OUT := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ
+KERNEL_CONFIG := $(KERNEL_OUT)/.config
+
+2.WIFI驱动移植的文档路径：
+svn://127.0.0.1/TCU/doc/legato系统相关资料/sierra_legato/Legato - WiFi Hotspot using Atheros AR6003 SDIO/Legato - WiFi Hotspot using Atheros AR6003 SDIO.pdf
