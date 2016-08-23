@@ -1,0 +1,350 @@
+Index: configure.h
+===================================================================
+--- configure.h	(版本 584)
++++ configure.h	(工作副本)
+@@ -2,7 +2,7 @@
+ #define __CONFIGURE_H__
+ 
+ #define UART_DEVICE_NAME	"/dev/ttyHS0"
+-#define UART_BAUD_RATE		115200
++#define UART_BAUD_RATE		9600
+ 
+ #define CLOUD_SERVER_IP_ADDR	"14.23.175.46"
+ #define CLOUD_SERVER_PORT 		6001
+Index: dataDispatchServer.adef
+===================================================================
+--- dataDispatchServer.adef	(版本 584)
++++ dataDispatchServer.adef	(工作副本)
+@@ -45,6 +45,7 @@
+     *.le_sim -> modemService.le_sim         
+     *.le_sms -> modemService.le_sms         
+     *.le_data -> dataConnectionService.le_data     
+-    *.le_mdc -> modemService.le_mdc   
++    *.le_mdc -> modemService.le_mdc  
++    *.le_ulpm -> powerMgr.le_ulpm
+     *.system -> systemService.system
+ }
+Index: legatoApiHelper.c
+===================================================================
+--- legatoApiHelper.c	(版本 584)
++++ legatoApiHelper.c	(工作副本)
+@@ -22,6 +22,7 @@
+ 	le_mdc_ConnectService();
+ 	le_data_ConnectService();
+ 	system_ConnectService();
++    le_ulpm_ConnectService();
+ }
+ 
+ void disconnectThreadFromApiService() {
+@@ -32,6 +33,7 @@
+ 	le_mdc_DisconnectService();
+ 	system_DisconnectService();
+ 	le_data_DisconnectService();
++    le_ulpm_DisconnectService();
+ }
+ 
+ void changeThreadToLegatoThread(const char * name) {
+@@ -720,13 +722,18 @@
+ }
+ 
+ static le_result_t startTimer(TimerClass *thiz) {
++LOGD(TAG, "------[%s, %d]\n", __FUNCTION__, __LINE__);
+ 	if(!thiz) {
++	LOGD(TAG, "------[%s, %d]\n", __FUNCTION__, __LINE__);
+ 		return (!LE_OK);
+ 	}
++	LOGD(TAG, "------[%s, %d]\n", __FUNCTION__, __LINE__);
+ 	if(isTimerRunning(thiz)) {
++	LOGD(TAG, "------[%s, %d]\n", __FUNCTION__, __LINE__);
+ 		LOGD(TAG, "start timer error: timer is running.");
+ 		return (!LE_OK);
+ 	}
++	LOGD(TAG, "------[%s, %d]\n", __FUNCTION__, __LINE__);
+ 	return le_timer_Start(thiz->timerRef);
+ }
+ 
+@@ -815,4 +822,41 @@
+ 	}
+ 	LOGI(TAG, "delete timer %p success.", timer);
+ 	free(timer);
+-}
+\ No newline at end of file
++}
++
++bool enterSleep()
++{  
++    LOGI(TAG, "shutdown start.....\n");
++    // Boot after 1000 second of shutdown.
++    if(le_ulpm_BootOnTimer(1000) != LE_OK)
++    {
++        LOGI(TAG, "Can't set timer as boot source");
++        return false;
++    }
++ 
++    // Boot if GPIO36 voltage level is high.
++    if(le_ulpm_BootOnGpio(36, LE_ULPM_GPIO_HIGH) != LE_OK)
++    {
++        LOGI(TAG, "Can't set gpio36 as boot source");
++        return false;
++    }
++ 
++    // Boot if GPIO38 voltage level is low.
++    if(le_ulpm_BootOnGpio(38, LE_ULPM_GPIO_LOW) != LE_OK)
++    {
++        LOGI(TAG, "Can't set gpio38 as boot source");
++        return false;
++    }    
++ 
++    // Initiate shutdown.
++    if(le_ulpm_ShutDown() != LE_OK)
++    {
++        LOGI(TAG, "Can't initiate shutdown");
++        return false;
++    }
++
++    LOGI(TAG, "shutdown end.....\n");
++
++    return true;
++
++}
+Index: legatoApiHelper.h
+===================================================================
+--- legatoApiHelper.h	(版本 584)
++++ legatoApiHelper.h	(工作副本)
+@@ -17,6 +17,7 @@
+ #include "le_sms_interface.h"
+ #include "le_mdc_interface.h"
+ #include "le_mdmDefs_interface.h"
++#include "le_ulpm_interface.h"
+ 
+ typedef struct {
+ 	char *manufacturer;
+Index: Makefile
+===================================================================
+--- Makefile	(版本 584)
++++ Makefile	(工作副本)
+@@ -56,12 +56,13 @@
+ 									_build/$(TARGET)/le_sms_client.o			\
+ 									_build/$(TARGET)/le_mdc_client.o			\
+ 									_build/$(TARGET)/le_data_client.o  			\
+-									_build/$(TARGET)/le_mdmDefs_client.o			
++									_build/$(TARGET)/le_mdmDefs_client.o			\
++									_build/$(TARGET)/le_ulpm_client.o
+ 	$(CC) -o _build/$(TARGET)/dataDispatchServer $^ \
+ 		  -L$(LEGATO_ROOT)/build/$(TARGET)/framework/lib $(LIB)  -llegato -lpthread -lrt
+ 
+ # Rule to build main.o.
+-_build/$(TARGET)/%.o: %.c le_info_interface.h le_mrc_interface.h le_sim_interface.h le_sms_interface.h le_mdc_interface.h le_mdmDefs_interface.h le_data_interface.h 
++_build/$(TARGET)/%.o: %.c le_info_interface.h le_mrc_interface.h le_sim_interface.h le_sms_interface.h le_mdc_interface.h le_mdmDefs_interface.h le_data_interface.h le_ulpm_interface.h
+ 	$(CC) $(CFLAGS) -o $@ $(INC) -c $<
+ 
+ # Rule to build the application bundle.
+@@ -127,8 +128,14 @@
+ 
+ le_data_interface.h le_data_client.c le_data_messages.h:
+ 	ifgen --gen-interface --gen-client --gen-local $(LEGATO_ROOT)/interfaces/le_data.api
++	
++_build/$(TARGET)/le_ulpm_client.o: le_ulpm_client.c le_ulpm_interface.h
++	$(CC) $(CFLAGS) -o $@ -c $<
+ 
++le_ulpm_client.c le_ulpm_interface.h:
++	ifgen --gen-interface --gen-client --gen-local $(LEGATO_ROOT)/interfaces/le_ulpm.api
+ 
++
+ .PHONY: clean
+ clean:
+ 	rm -rf _build*
+Index: systemService/Component.cdef
+===================================================================
+--- systemService/Component.cdef	(版本 584)
++++ systemService/Component.cdef	(工作副本)
+@@ -19,6 +19,6 @@
+ {
+     api:
+     {
+-        system = system.api
++        system = $LEGATO_ROOT/apps/4G/system.api
+     }
+ }
+Index: systemService/systemService.c
+===================================================================
+--- systemService/systemService.c	(版本 584)
++++ systemService/systemService.c	(工作副本)
+@@ -74,7 +74,7 @@
+ }
+ 
+ static inline int sendMessageViaLocalSocket(void const* data, int size) {
+-	return send(client_sockfd, data, size, MSG_NOSIGNAL);  
++	return send(client_sockfd, data, size, 0);  
+ }
+ 
+ static void* localSocketServerThread ( void* contextPtr ) {
+Index: uartDataDispatcher.c
+===================================================================
+--- uartDataDispatcher.c	(版本 585)
++++ uartDataDispatcher.c	(工作副本)
+@@ -25,6 +25,7 @@
+ 	struct list sendBuffer;		// 鐢ㄤ簬缂撳瓨鏈垚鍔熷彂閫佺殑娑堟伅
+     pthread_t thread_recv_id;
+ 	pthread_mutex_t mcuMutex;
++	pthread_mutex_t timerMutex;
+ 	pthread_cond_t mcuCondition;
+ }UART_SERVER;
+ 
+@@ -203,16 +204,19 @@
+ 	list_init(&pMsg->head);
+ 	pMsg->length = length;
+ 	pMsg->msg = p;
++	LOGI(TAG, "[%s, %d]lock mcuMutex....\n", __FUNCTION__, __LINE__);
+ 	pthread_mutex_lock(&uart_server.mcuMutex);
+ 	list_add_after(&uart_server.sendBuffer, &pMsg->head);
+ 	pthread_cond_signal(&uart_server.mcuCondition);	
+ 	pthread_mutex_unlock(&uart_server.mcuMutex);
++	LOGI(TAG, "[%s, %d]unlock mcuMutex....\n", __FUNCTION__, __LINE__);
+ }
+ 
+ static void *retransmitThread(void *arg) {
+-	MessageBuffer *buffer;
++	MessageBuffer *buffer, *freeBuf;
+ 
+ 	for(;;) {
++	    LOGI(TAG, "[%s, %d]lock mcuMutex....\n", __FUNCTION__, __LINE__);
+ 		pthread_mutex_lock(&uart_server.mcuMutex);
+ 		if(list_empty(&uart_server.sendBuffer)) {
+ 			LOGD(TAG, "the UART retransmission buffer becom empty !");
+@@ -223,26 +227,36 @@
+ 			LOGD(TAG, "wait until MCU become available!");
+ 			pthread_cond_wait(&uart_server.mcuCondition, &uart_server.mcuMutex);
+ 		} 
+-		LIST_FOR_EACH_ENTRY(buffer, &uart_server.sendBuffer, MessageBuffer, head) {
++		LIST_FOR_EACH_ENTRY_SAFE(buffer, freeBuf, &uart_server.sendBuffer, MessageBuffer, head) {
+ 			if(pMoudle4gStatusManager && pMoudle4gStatusManager->status.isMcuAvailable && uart_send_packet(buffer->msg, buffer->length) > 0) {
+ 				LOGD(TAG, "retransmission %d bytes Via UART: \n",  buffer->length);
+ 				printRawData(buffer->msg, buffer->length);
++				LOGD(TAG, "------[%s, %d]\n", __FUNCTION__, __LINE__);
+ 				list_remove(&buffer->head);
++				LOGD(TAG, "------[%s, %d]\n", __FUNCTION__, __LINE__);
+ 				free(buffer->msg);
++				LOGD(TAG, "------[%s, %d]\n", __FUNCTION__, __LINE__);
+ 				free(buffer);
++				LOGD(TAG, "------[%s, %d]\n", __FUNCTION__, __LINE__);
+ 				buffer = NULL;
++				LOGD(TAG, "------[%s, %d]\n", __FUNCTION__, __LINE__);
+ 			}
++			LOGD(TAG, "------[%s, %d]\n", __FUNCTION__, __LINE__);
+ 		}
++		LOGD(TAG, "------[%s, %d]\n", __FUNCTION__, __LINE__);
+ 		pthread_mutex_unlock(&uart_server.mcuMutex);
++		LOGI(TAG, "[%s, %d]unlock mcuMutex....\n", __FUNCTION__, __LINE__);
+ 	}
+ 
+ 	return NULL;
+ }
+ 
+ static void onMcuHeartBeatTimeout(le_timer_Ref_t timerRef) {
+-	pthread_mutex_lock(&uart_server.mcuMutex);	
++    LOGI(TAG, "[%s, %d]lock mcuMutex....\n", __FUNCTION__, __LINE__);
++	pthread_mutex_lock(&uart_server.timerMutex);	
+ 	uart_server.pMcuTimer->stop(uart_server.pMcuTimer);
+-	pthread_mutex_unlock(&uart_server.mcuMutex);
++	pthread_mutex_unlock(&uart_server.timerMutex);
++	LOGI(TAG, "[%s, %d]unlock mcuMutex....\n", __FUNCTION__, __LINE__);
+ 	if(pMoudle4gStatusManager) {
+ 		LOGE(TAG, "heart beat between MCU TIME OUT!");
+ 		pMoudle4gStatusManager->onMcuAvailableStateChanged(false);
+@@ -268,15 +282,19 @@
+ 
+ 			if(pMoudle4gStatusManager) {
+ 				LOGD(TAG, "MCU is avlailable now !");
+-				pMoudle4gStatusManager->onMcuAvailableStateChanged(true);
++				pMoudle4gStatusManager->onMcuAvailableStateChanged(true);//onMcuAvailableStateChanged
+ 			}
+-			pthread_mutex_lock(&uart_server.mcuMutex);	
++			
++			LOGI(TAG, "[%s, %d]lock timerMutex....\n", __FUNCTION__, __LINE__);
++			pthread_mutex_lock(&uart_server.timerMutex);	
+ 			if(uart_server.pMcuTimer) {
+-				uart_server.pMcuTimer->start(uart_server.pMcuTimer);
++			LOGD(TAG, "------[%s, %d]\n", __FUNCTION__, __LINE__);
++				uart_server.pMcuTimer->start(uart_server.pMcuTimer);//startTimer
++				LOGD(TAG, "------[%s, %d]\n", __FUNCTION__, __LINE__);
+ 			}
+-			pthread_cond_signal(&uart_server.mcuCondition);	
+-			pthread_mutex_unlock(&uart_server.mcuMutex);
+-			
++			pthread_mutex_unlock(&uart_server.timerMutex);
++			LOGI(TAG, "[%s, %d]unlock timerMutex....\n", __FUNCTION__, __LINE__);
++		    pthread_cond_signal(&uart_server.mcuCondition);		
+             //ConnectRsp start  //3.6.2 鎻℃墜鍝嶅簲  0x8101                
+             PC_INIT(mcu_protocol_ConnectRsp, mg_conRsp);
+             if (malloc_mg_crp_info(&mg_conRsp) < 0) 
+@@ -305,9 +323,11 @@
+         { 
+              //3.6.4 蹇冭烦鍝嶅簲 0x8102 4G--->MCU
+             ++ heartBeatID;
+-			pthread_mutex_lock(&uart_server.mcuMutex);	
++            LOGI(TAG, "[%s, %d]lock timerMutex....\n", __FUNCTION__, __LINE__);
++			pthread_mutex_lock(&uart_server.timerMutex);	
+ 			uart_server.pMcuTimer->restart(uart_server.pMcuTimer);
+-			pthread_mutex_unlock(&uart_server.mcuMutex); 
++			pthread_mutex_unlock(&uart_server.timerMutex); 
++			LOGI(TAG, "[%s, %d]unlock timerMutex....\n", __FUNCTION__, __LINE__);
+             LOGD(TAG, "#[%08d]__________________________Heart Beat___________________________#\n", heartBeatID);
+             packet = make_frame(MCU_FOURG_VERSION, MSG_HEARTBEAT_RSP, ENCRYPT_TYPE, NULL, 0);
+             if(packet)   
+@@ -399,20 +419,10 @@
+         case MSG_4GSLEEP_REQ:
+         {
+             // TO DO
+-            /*
+-            bool retVal = TRUE;
+-            PC_UNPACK(mcu_protocol_Set4GSleepReq, msg, user_data, data_len);
+-            int sleep = msg->fourgsleep;
+-            PC_UNPACK_FREE(mcu_protocol_Set4GSleepReq, msg);//free
++            bool retVal = enterSleep();
+ 
+-            if(sleep == 1)
+-            {
+-                retVal = radioPowerManager(RADIO_MODULE_POWER_DOWN);
+-            }
+-
+-            
+             PC_INIT(mcu_protocol_Set4GSleepRsp, mg_4GSleepRsp);
+-            set_mg_set4GsleepRsp_info(&mg_4GSleepRsp, retVal?mcu_protocol_RspCode_SUCCESS:mcu_protocol_RspCode_FAILED);
++            set_mg_protocolRsp_info(MSG_4GSLEEP_RSP, &mg_4GSleepRsp, (retVal ? mcu_protocol_RspCode_SUCCESS : mcu_protocol_RspCode_FAILED));
+             PC_PACK(mcu_protocol_Set4GSleepRsp, &mg_4GSleepRsp, buf, size);
+             
+             packet = make_frame(MCU_FOURG_VERSION, MSG_4GSLEEP_RSP, ENCRYPT_TYPE, buf, size);
+@@ -420,7 +430,6 @@
+             {
+                 uart_send_packet(packet, size+FIXED_PART_LEN);
+             }
+-            */
+             break;
+         }
+         
+@@ -601,6 +610,7 @@
+ 	
+ 	list_init(&uart_server.sendBuffer);
+ 	pthread_mutex_init(&uart_server.mcuMutex, NULL); 
++	pthread_mutex_init(&uart_server.timerMutex, NULL);
+ 	pthread_cond_init(&uart_server.mcuCondition, NULL);
+ 	uart_server.pMcuTimer = createTimer("MCU Timer", onMcuHeartBeatTimeout, INTERVAL_TIMER, MAX_HEARTBEAT_LOST * HEARTBEAT_INTERVAL);
+ 
+@@ -647,7 +657,7 @@
+     UCHAR *packet = NULL;
+ 
+     LOGD(TAG, "[%s, %d]4G Module Status Changed!!!\n", __FUNCTION__, __LINE__);
+-
++#if 1
+     PC_INIT(mcu_protocol_FourGStatusNotification, notification);
+ 
+     set_mg_fourgstatus_info(&notification, status); 
+@@ -660,6 +670,7 @@
+         dispatchDataByUart(packet, size + FIXED_PART_LEN);
+         free(packet);
+     }
++#endif
+ }
+ 
+ 
