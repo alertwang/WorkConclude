@@ -1,0 +1,1168 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+     
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    
+<head>   
+   
+
+    <script type="text/javascript" src="http://c.csdnimg.cn/pubfooter/js/tracking.js" charset="utf-8"></script>  
+
+    <script type="text/javascript">
+        var protocol = window.location.protocol;
+        document.write('<script type="text/javascript" src="' + protocol + '//csdnimg.cn/pubfooter/js/repoAddr2.js?v=' + Math.random() + '"></' + 'script>');
+    </script>
+
+  
+ <meta http-equiv="Cache-Control" content="no-siteapp" /><link rel="alternate" media="handheld" href="#" />
+
+    <title>readlink命令 - 武汉理工--张钊C/C++/Java 博客
+        - 博客频道 - CSDN.NET</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="在 acl_cpp 的非阻塞框架的设计中，充分利用了操作系统平台的高并发机制，同时简化了异步编程的过程。但是，并不是所有的操作都是非阻塞的，现实的程序应用中存在着大量的阻塞式行为，acl_cpp 的非阻塞框架中设计了一种通过 ipc 模式使阻塞式函数与 acl_cpp 的非阻塞过程相结合的机制。即是说，在 acl_cpp 的主线程是非阻塞的，而把阻塞过程放在单独的一个线程中运行，当阻塞线程运算完毕" />
+    <script src="http://static.blog.csdn.net/scripts/jquery.js" type="text/javascript"></script>
+      <script type="text/javascript" src="http://static.blog.csdn.net/scripts/jquery-version.js"></script>
+    <script type="text/javascript" src="http://static.blog.csdn.net/scripts/ad.js?v=1.1"></script>
+        <!--new top-->
+               <link rel="stylesheet" href="http://c.csdnimg.cn/public/common/toolbar/css/index.css">        <!--new top-->
+    
+      <!-- ad begin -->
+         <script language="javascript" type="text/javascript" src="http://ads.csdn.net/js/tracking.js"></script>
+    <!-- ad end-->
+
+    <link rel="Stylesheet" type="text/css" href="http://static.blog.csdn.net/skin/default/css/style.css?v=1.1" />
+    <link id="RSSLink" title="RSS" type="application/rss+xml" rel="alternate" href="/zz198808/rss/list" />
+    <link rel="shortcut icon" href="http://c.csdnimg.cn/public/favicon.ico" />
+    <link type="text/css" rel="stylesheet" href="http://static.blog.csdn.net/scripts/SyntaxHighlighter/styles/default.css" />
+ 
+
+
+</head>
+<body>
+    <!-- 广告位开始 -->
+        <ins data-revive-zoneid="149" data-revive-id="8c38e720de1c90a6f6ff52f3f89c4d57"></ins>
+    <!-- 广告位结束 -->
+
+    
+   
+      <!--new top-->
+    <script id="toolbar-tpl-scriptId" fixed="true" prod="blog" skin="black" src="http://c.csdnimg.cn/public/common/toolbar/js/html.js" type="text/javascript"></script>
+     <!--new top-->
+    <div id="container">
+        <div id="header">
+    <div class="header">
+        <div id="blog_title">
+            <h2>
+                <a href="http://blog.csdn.net/zz198808">武汉理工--张钊C/C++/Java 博客</a></h2>
+            <h3>本博客作为本人学习过程中的记录</h3>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+        
+     
+    </div>
+</div>
+<div id="navigator">
+    <div class="navigator_bg">
+    </div>
+    <div class="navigator">
+        <ul>
+            
+                <li id="btnContents"><a href="http://blog.csdn.net/zz198808?viewmode=contents"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_mulu'])">
+                    <img src="http://static.blog.csdn.net/images/ico_list.gif">目录视图</span></a></li>
+                <li id="btnView"><a href="http://blog.csdn.net/zz198808?viewmode=list"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_zhaiyao'])">
+                    <img src="http://static.blog.csdn.net/images/ico_summary.gif">摘要视图</span></a></li>
+                <li id="btnRss"><a href="http://blog.csdn.net/zz198808/rss/list"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_RSS'])">
+                    <img src="http://static.blog.csdn.net/images/ico_rss.gif">订阅</span></a></li>                
+            
+
+            </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    var username = "zz198808";
+    var _blogger = username;
+    var blog_address = "http://blog.csdn.net/zz198808";
+    var static_host = "http://static.blog.csdn.net";
+    var currentUserName = "";  
+</script>
+
+        <div id="body">
+            <div id="main">
+                <div class="main">
+                        <div class="ad_class">
+<div class="notice tracking-ad" data-mod='popu_3' > 
+
+
+<a href="http://blog.csdn.net/blogdevteam/article/details/51919935">
+<font color=blue>【公告】博客系统优化升级</font></a>
+&nbsp;&nbsp;&nbsp;
+<a href="http://geek.csdn.net/news/detail/96977">
+<font color=red>【知识库发布】国外敏捷转型案例-敏捷软件开发知识体系
+</font></a>
+&nbsp;&nbsp;&nbsp;
+<a href="http://blog.csdn.net/blogdevteam/article/details/51984275">
+<font color=blue>博乐招募开始啦
+</font></a>
+&nbsp;&nbsp;&nbsp;
+
+<a href="http://geek.csdn.net/news/detail/96883">
+<font color=red>不得不学的编程语言
+</font></a>
+&nbsp;&nbsp;&nbsp;
+
+</font></a>
+</div>                        </div>
+                        
+
+
+
+<!-- 广告位开始 -->
+<ins data-revive-zoneid="72" data-revive-id="8c38e720de1c90a6f6ff52f3f89c4d57"></ins>
+<!-- 广告位结束 -->
+
+  
+<link href="http://static.blog.csdn.net/css/comment1.css" type="text/css" rel="stylesheet" />
+<link href="http://static.blog.csdn.net/css/style1.css" type="text/css" rel="stylesheet" />
+<script language='JavaScript' type='text/javascript' src='http://download.csdn.net/js/jquery.cookie.js'></script>
+<script type="text/javascript" src="http://c.csdnimg.cn/rabbit/search-service/main.js"></script>
+<link rel="stylesheet" href="http://static.blog.csdn.net/public/res-min/markdown_views.css?v=1.0" />
+<link rel="stylesheet" href="http://static.blog.csdn.net/css/category.css?v=1.0" />
+<script type="text/javascript" src="http://static.blog.csdn.net/public/res/bower-libs/MathJax/MathJax.js?config=TeX-AMS_HTML"></script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/web-storage-cache.min.js"></script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/replace.min.js"></script>
+
+
+
+
+  <script type="text/ecmascript">
+      window.quickReplyflag = true;
+           
+            var isBole = false;
+            
+          
+    </script>
+<div id="article_details" class="details">
+    <div class="article_title">   
+         <span class="ico ico_type_Original"></span>
+
+
+    <h1>
+        <span class="link_title"><a href="/zz198808/article/details/9319479">
+        readlink命令            
+        </a></span>
+    </h1>
+</div>
+
+   
+
+        <div class="article_manage clearfix">
+        <div class="article_r">
+            <span class="link_postdate">2013-07-13 16:41</span>
+            <span class="link_view" title="阅读次数">11994人阅读</span>
+            <span class="link_comments" title="评论次数"> <a href="#comments" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_pinglun'])">评论</a>(0)</span>
+            <span class="link_collect tracking-ad" data-mod="popu_171"> <a href="javascript:void(0);" onclick="javascript:collectArticle('readlink命令','9319479');return false;" title="收藏">收藏</a></span>
+             <span class="link_report"> <a href="#report" onclick="javascript:report(9319479,2);return false;" title="举报">举报</a></span>
+
+        </div>
+    </div>
+    <div class="embody"  style="display:none" id="embody">
+        <span class="embody_t">本文章已收录于：</span>
+        <div class="embody_c" id="lib" value="{&quot;err&quot;:0,&quot;msg&quot;:&quot;ok&quot;,&quot;data&quot;:[]}"></div>
+    </div>
+    <style type="text/css">        
+            .embody{
+                padding:10px 10px 10px;
+                margin:0 -20px;
+                border-bottom:solid 1px #ededed;                
+            }
+            .embody_b{
+                margin:0 ;
+                padding:10px 0;
+            }
+            .embody .embody_t,.embody .embody_c{
+                display: inline-block;
+                margin-right:10px;
+            }
+            .embody_t{
+                font-size: 12px;
+                color:#999;
+            }
+            .embody_c{
+                font-size: 12px;
+            }
+            .embody_c img,.embody_c em{
+                display: inline-block;
+                vertical-align: middle;               
+            }
+             .embody_c img{               
+                width:30px;
+                height:30px;
+            }
+            .embody_c em{
+                margin: 0 20px 0 10px;
+                color:#333;
+                font-style: normal;
+            }
+    </style>
+    <script  type="text/javascript">
+        $(function () {
+            try
+            {
+                var lib = eval("("+$("#lib").attr("value")+")");
+                var html = "";
+                if (lib.err == 0) {
+                    $.each(lib.data, function (i) {
+                        var obj = lib.data[i];
+                        //html += '<img src="' + obj.logo + '"/>' + obj.name + "&nbsp;&nbsp;";
+                        html += ' <a href="' + obj.url + '" target="_blank">';
+                        html += ' <img src="' + obj.logo + '">';
+                        html += ' <em><b>' + obj.name + '</b></em>';
+                        html += ' </a>';
+                    });
+                    if (html != "") {
+                        setTimeout(function () {
+                            $("#lib").html(html);                      
+                            $("#embody").show();
+                        }, 100);
+                    }
+                }      
+            } catch (err)
+            { }
+            
+        });
+    </script>
+      <div class="category clearfix">
+        <div class="category_l">
+           <img src="http://static.blog.csdn.net/images/category_icon.jpg">
+            <span>分类：</span>
+        </div>
+        <div class="category_r">
+                    <label  onclick="GetCategoryArticles('1490945','zz198808','top','9319479');">
+                        <span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_fenlei']);">Shell<em>（12）</em></span>
+                      <img class="arrow-down" src="http://static.blog.csdn.net/images/arrow_triangle _down.jpg" style="display:inline;">
+                      <img class="arrow-up" src="http://static.blog.csdn.net/images/arrow_triangle_up.jpg" style="display:none;">
+                        <div class="subItem">
+                            <div class="subItem_t"><a  href="http://blog.csdn.net/zz198808/article/category/1490945"  target="_blank">作者同类文章</a><i class="J_close">X</i></div>
+                            <ul class="subItem_l" id="top_1490945">                            
+                            </ul>
+                        </div>
+                    </label>                    
+        </div>
+    </div>
+    <script   type="text/javascript" src="http://static.blog.csdn.net/scripts/category.js"></script>  
+        <div   class="bog_copyright">         
+            <p  class="copyright_p" >版权声明：本文为博主原创文章，未经博主允许不得转载。</p>
+        </div>
+
+  
+
+  
+  
+     
+
+<div id="article_content" class="article_content">
+
+<p style="color:rgb(51,51,51); font-family:Arial; font-size:14px; line-height:26px">
+readlink是linux系统中一个常用工具，主要用来找出符号链接所指向的位置。</p>
+<p style="color:rgb(51,51,51); font-family:Arial; font-size:14px; line-height:26px">
+在Ubuntu系统中执行以下命令：<br>
+</p>
+<p style="color:rgb(51,51,51); font-family:Arial; font-size:14px; line-height:26px">
+</p>
+<div class="dp-highlighter bg_plain" style="font-family:Consolas,'Courier New',Courier,mono,serif; background-color:rgb(231,229,220); width:687.0499877929688px; overflow:auto; padding-top:1px; margin:18px 0px!important; color:rgb(51,51,51); line-height:26px">
+<div class="bar" style="padding-left:45px">
+<div class="tools" style="padding:3px 8px 10px 10px; font-size:9px; line-height:normal; font-family:Verdana,Geneva,Arial,Helvetica,sans-serif; color:silver; background-color:rgb(248,248,248); border-left-width:3px; border-left-style:solid; border-left-color:rgb(108,226,108)">
+<strong>[plain]</strong>&nbsp;<a href="http://blog.csdn.net/diabloneo/article/details/7173438#" class="ViewSource" title="view plain" style="color:rgb(160,160,160); text-decoration:none; background-color:inherit; border:none; padding:1px; margin:0px 10px 0px 0px; font-size:9px; display:inline-block; width:16px; height:16px; text-indent:-2000px">view
+ plain</a><a href="http://blog.csdn.net/diabloneo/article/details/7173438#" class="CopyToClipboard" title="copy" style="color:rgb(160,160,160); text-decoration:none; background-color:inherit; border:none; padding:1px; margin:0px 10px 0px 0px; font-size:9px; display:inline-block; width:16px; height:16px; text-indent:-2000px">copy</a>
+<div style="position:absolute; left:536px; top:481px; width:18px; height:18px; z-index:99">
+</div>
+</div>
+</div>
+<ol start="1" style="margin:0px 0px 1px 45px!important; padding:0px; border:none; list-style-position:initial; background-color:rgb(255,255,255); color:rgb(92,92,92)">
+<li class="alt" style="margin:0px!important; padding:0px 3px 0px 10px!important; border-style:none none none solid; border-left-width:3px; border-left-color:rgb(108,226,108); list-style:decimal-leading-zero outside; color:inherit; line-height:18px">
+<span style="margin:0px; padding:0px; border:none; color:black; background-color:inherit"><span style="margin:0px; padding:0px; border:none; background-color:inherit">$&nbsp;readlink&nbsp;--help&nbsp;&nbsp;</span></span></li></ol>
+</div>
+<p style="color:rgb(51,51,51); font-family:Arial; font-size:14px; line-height:26px">
+可以查看readlink命令的帮助信息，或者执行</p>
+<p style="color:rgb(51,51,51); font-family:Arial; font-size:14px; line-height:26px">
+</p>
+<div class="dp-highlighter bg_plain" style="font-family:Consolas,'Courier New',Courier,mono,serif; background-color:rgb(231,229,220); width:687.0499877929688px; overflow:auto; padding-top:1px; margin:18px 0px!important; color:rgb(51,51,51); line-height:26px">
+<div class="bar" style="padding-left:45px">
+<div class="tools" style="padding:3px 8px 10px 10px; font-size:9px; line-height:normal; font-family:Verdana,Geneva,Arial,Helvetica,sans-serif; color:silver; background-color:rgb(248,248,248); border-left-width:3px; border-left-style:solid; border-left-color:rgb(108,226,108)">
+<strong>[plain]</strong>&nbsp;<a href="http://blog.csdn.net/diabloneo/article/details/7173438#" class="ViewSource" title="view plain" style="color:rgb(160,160,160); text-decoration:none; background-color:inherit; border:none; padding:1px; margin:0px 10px 0px 0px; font-size:9px; display:inline-block; width:16px; height:16px; text-indent:-2000px">view
+ plain</a><a href="http://blog.csdn.net/diabloneo/article/details/7173438#" class="CopyToClipboard" title="copy" style="color:rgb(160,160,160); text-decoration:none; background-color:inherit; border:none; padding:1px; margin:0px 10px 0px 0px; font-size:9px; display:inline-block; width:16px; height:16px; text-indent:-2000px">copy</a>
+<div style="position:absolute; left:536px; top:594px; width:18px; height:18px; z-index:99">
+</div>
+</div>
+</div>
+<ol start="1" style="margin:0px 0px 1px 45px!important; padding:0px; border:none; list-style-position:initial; background-color:rgb(255,255,255); color:rgb(92,92,92)">
+<li class="alt" style="margin:0px!important; padding:0px 3px 0px 10px!important; border-style:none none none solid; border-left-width:3px; border-left-color:rgb(108,226,108); list-style:decimal-leading-zero outside; color:inherit; line-height:18px">
+<span style="margin:0px; padding:0px; border:none; color:black; background-color:inherit"><span style="margin:0px; padding:0px; border:none; background-color:inherit">$&nbsp;man&nbsp;readlink&nbsp;&nbsp;</span></span></li></ol>
+</div>
+<span style="color:rgb(51,51,51); font-family:Arial; font-size:14px; line-height:26px">查看帮助手册。</span>
+<p style="color:rgb(51,51,51); font-family:Arial; font-size:14px; line-height:26px">
+</p>
+<p style="color:rgb(51,51,51); font-family:Arial; font-size:14px; line-height:26px">
+<br>
+</p>
+<p style="color:rgb(51,51,51); font-family:Arial; font-size:14px; line-height:26px">
+从帮助信息中可以得到readlink命令的用途描述：</p>
+<p style="color:rgb(51,51,51); font-family:Arial; font-size:14px; line-height:26px">
+<strong>输出符号链接&#20540;或者权威文件名</strong></p>
+<p style="color:rgb(51,51,51); font-family:Arial; font-size:14px; line-height:26px">
+英文为：</p>
+<p style="color:rgb(51,51,51); font-family:Arial; font-size:14px; line-height:26px">
+<strong>print value of a symbolic link or canonical file name</strong></p>
+<p style="color:rgb(51,51,51); font-family:Arial; font-size:14px; line-height:26px">
+<br>
+</p>
+<p style="color:rgb(51,51,51); font-family:Arial; font-size:14px; line-height:26px">
+举例：</p>
+<p style="color:rgb(51,51,51); font-family:Arial; font-size:14px; line-height:26px">
+系统中的awk命令到底是执行哪个可以执行文件呢？</p>
+<p style="color:rgb(51,51,51); font-family:Arial; font-size:14px; line-height:26px">
+</p>
+<div class="dp-highlighter bg_plain" style="font-family:Consolas,'Courier New',Courier,mono,serif; background-color:rgb(231,229,220); width:687.0499877929688px; overflow:auto; padding-top:1px; margin:18px 0px!important; color:rgb(51,51,51); line-height:26px">
+<div class="bar" style="padding-left:45px">
+<div class="tools" style="padding:3px 8px 10px 10px; font-size:9px; line-height:normal; font-family:Verdana,Geneva,Arial,Helvetica,sans-serif; color:silver; background-color:rgb(248,248,248); border-left-width:3px; border-left-style:solid; border-left-color:rgb(108,226,108)">
+<strong>[plain]</strong>&nbsp;<a href="http://blog.csdn.net/diabloneo/article/details/7173438#" class="ViewSource" title="view plain" style="color:rgb(160,160,160); text-decoration:none; background-color:inherit; border:none; padding:1px; margin:0px 10px 0px 0px; font-size:9px; display:inline-block; width:16px; height:16px; text-indent:-2000px">view
+ plain</a><a href="http://blog.csdn.net/diabloneo/article/details/7173438#" class="CopyToClipboard" title="copy" style="color:rgb(160,160,160); text-decoration:none; background-color:inherit; border:none; padding:1px; margin:0px 10px 0px 0px; font-size:9px; display:inline-block; width:16px; height:16px; text-indent:-2000px">copy</a>
+<div style="position:absolute; left:536px; top:1027px; width:18px; height:18px; z-index:99">
+</div>
+</div>
+</div>
+<ol start="1" style="margin:0px 0px 1px 45px!important; padding:0px; border:none; list-style-position:initial; background-color:rgb(255,255,255); color:rgb(92,92,92)">
+<li class="alt" style="margin:0px!important; padding:0px 3px 0px 10px!important; border-style:none none none solid; border-left-width:3px; border-left-color:rgb(108,226,108); list-style:decimal-leading-zero outside; color:inherit; line-height:18px">
+<span style="margin:0px; padding:0px; border:none; color:black; background-color:inherit"><span style="margin:0px; padding:0px; border:none; background-color:inherit">$&nbsp;readlink&nbsp;/usr/bin/awk&nbsp;&nbsp;</span></span></li><li style="margin:0px!important; padding:0px 3px 0px 10px!important; border-style:none none none solid; border-left-width:3px; border-left-color:rgb(108,226,108); list-style:decimal-leading-zero outside; background-color:rgb(248,248,248); line-height:18px">
+<span style="margin:0px; padding:0px; border:none; color:black; background-color:inherit">/etc/alternatives/awk&nbsp;&nbsp;----&gt;&nbsp;其实这个还是一个符号连接&nbsp;&nbsp;</span></li><li class="alt" style="margin:0px!important; padding:0px 3px 0px 10px!important; border-style:none none none solid; border-left-width:3px; border-left-color:rgb(108,226,108); list-style:decimal-leading-zero outside; color:inherit; line-height:18px">
+<span style="margin:0px; padding:0px; border:none; color:black; background-color:inherit">$&nbsp;readlink&nbsp;/etc/alternatives/awk&nbsp;&nbsp;</span></li><li style="margin:0px!important; padding:0px 3px 0px 10px!important; border-style:none none none solid; border-left-width:3px; border-left-color:rgb(108,226,108); list-style:decimal-leading-zero outside; background-color:rgb(248,248,248); line-height:18px">
+<span style="margin:0px; padding:0px; border:none; color:black; background-color:inherit">/usr/bin/gawk&nbsp;&nbsp;----&gt;&nbsp;这个才是真正的可执行文件&nbsp;&nbsp;</span></li></ol>
+</div>
+<p style="color:rgb(51,51,51); font-family:Arial; font-size:14px; line-height:26px">
+</p>
+<p style="color:rgb(51,51,51); font-family:Arial; font-size:14px; line-height:26px">
+<strong>-f&nbsp;</strong>选项：</p>
+<p style="color:rgb(51,51,51); font-family:Arial; font-size:14px; line-height:26px">
+-f 选项可以递归跟随给出文件名的所有符号链接以标准化，除最后一个外所有组件必须存在。</p>
+<p style="color:rgb(51,51,51); font-family:Arial; font-size:14px; line-height:26px">
+简单地说，就是一直跟随符号链接，直到直到非符号链接的文件位置，限制是最后必须存在一个非符号链接的文件。</p>
+<p style="color:rgb(51,51,51); font-family:Arial; font-size:14px; line-height:26px">
+</p>
+<div class="dp-highlighter bg_plain" style="font-family:Consolas,'Courier New',Courier,mono,serif; background-color:rgb(231,229,220); width:687.0499877929688px; overflow:auto; padding-top:1px; margin:18px 0px!important; color:rgb(51,51,51); line-height:26px">
+<div class="bar" style="padding-left:45px">
+<div class="tools" style="padding:3px 8px 10px 10px; font-size:9px; line-height:normal; font-family:Verdana,Geneva,Arial,Helvetica,sans-serif; color:silver; background-color:rgb(248,248,248); border-left-width:3px; border-left-style:solid; border-left-color:rgb(108,226,108)">
+<strong>[plain]</strong>&nbsp;<a href="http://blog.csdn.net/diabloneo/article/details/7173438#" class="ViewSource" title="view plain" style="color:rgb(160,160,160); text-decoration:none; background-color:inherit; border:none; padding:1px; margin:0px 10px 0px 0px; font-size:9px; display:inline-block; width:16px; height:16px; text-indent:-2000px">view
+ plain</a><a href="http://blog.csdn.net/diabloneo/article/details/7173438#" class="CopyToClipboard" title="copy" style="color:rgb(160,160,160); text-decoration:none; background-color:inherit; border:none; padding:1px; margin:0px 10px 0px 0px; font-size:9px; display:inline-block; width:16px; height:16px; text-indent:-2000px">copy</a>
+<div style="position:absolute; left:536px; top:1300px; width:18px; height:18px; z-index:99">
+</div>
+</div>
+</div>
+<ol start="1" style="margin:0px 0px 1px 45px!important; padding:0px; border:none; list-style-position:initial; background-color:rgb(255,255,255); color:rgb(92,92,92)">
+<li class="alt" style="margin:0px!important; padding:0px 3px 0px 10px!important; border-style:none none none solid; border-left-width:3px; border-left-color:rgb(108,226,108); list-style:decimal-leading-zero outside; color:inherit; line-height:18px">
+<span style="margin:0px; padding:0px; border:none; color:black; background-color:inherit"><span style="margin:0px; padding:0px; border:none; background-color:inherit">$&nbsp;readlink&nbsp;-f&nbsp;/usr/bin/awk&nbsp;&nbsp;</span></span></li><li style="margin:0px!important; padding:0px 3px 0px 10px!important; border-style:none none none solid; border-left-width:3px; border-left-color:rgb(108,226,108); list-style:decimal-leading-zero outside; background-color:rgb(248,248,248); line-height:18px">
+<span style="margin:0px; padding:0px; border:none; color:black; background-color:inherit">/usr/bin/gawk &nbsp;</span></li></ol>
+</div>
+   
+</div>
+
+
+
+
+<!-- Baidu Button BEGIN -->
+
+
+
+
+<div class="bdsharebuttonbox tracking-ad" style="float: right;" data-mod="popu_172">
+<a href="#" class="bds_more" data-cmd="more" style="background-position:0 0 !important; background-image: url(http://bdimg.share.baidu.com/static/api/img/share/icons_0_16.png?v=d754dcc0.png) !important"></a>
+<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"  style="background-position:0 -52px !important"></a>
+<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"style="background-position:0 -104px !important"></a>
+<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"style="background-position:0 -260px !important"></a>
+<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"style="background-position:0 -208px !important"></a>
+<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"style="background-position:0 -1612px !important" ></a>
+</div>
+<script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "1", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
+<!-- Baidu Button END -->
+
+   <link rel="stylesheet" href="http://static.blog.csdn.net/css/blog_detail.css" />
+
+    
+<!--172.16.140.13-->
+
+<!-- Baidu Button BEGIN -->
+<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=1536434" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+    document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script>
+<!-- Baidu Button END -->
+
+ 
+
+        <div id="digg" ArticleId="9319479" >
+            <dl id="btnDigg" class="digg digg_disable"  onclick="btndigga();">
+               
+                 <dt>顶</dt>
+                <dd>0</dd>
+            </dl>
+           
+              
+            <dl id="btnBury" class="digg digg_disable"  onclick="btnburya();">
+              
+                  <dt>踩</dt>
+                <dd>0</dd>               
+            </dl>
+            
+        </div>
+     <div class="tracking-ad" data-mod="popu_222"><a href="javascript:void(0);" >&nbsp;</a>   </div>
+    <div class="tracking-ad" data-mod="popu_223"> <a href="javascript:void(0);" >&nbsp;</a></div>
+    <script type="text/javascript">
+                function btndigga() {
+                    $(".tracking-ad[data-mod='popu_222'] a").click();
+                }
+                function btnburya() {
+                    $(".tracking-ad[data-mod='popu_223'] a").click();
+                }
+            </script>
+
+   <ul class="article_next_prev">
+                <li class="prev_article"><span  onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_shangyipian']);location.href='/zz198808/article/details/9319227';">上一篇</span><a href="/zz198808/article/details/9319227" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_shangyipian'])">代理服务器和反向代理</a></li>
+                <li class="next_article"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_xiayipian']);location.href='/zz198808/article/details/9319485';">下一篇</span><a href="/zz198808/article/details/9319485" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_xiayipian'])">Linux atime, ctime and mtime</a></li>
+    </ul>
+
+    <div style="clear:both; height:10px;"></div>
+
+
+        <div class="similar_article"  style="display:none">
+                <h4>我的同类文章</h4>
+                <div class="similar_c"style="margin:20px 0px 0px 0px">
+                    <div class="similar_c_t">
+                                <label class="similar_cur">
+                                    <span  style="cursor:pointer"  onclick="GetCategoryArticles('1490945','zz198808','foot','9319479');">Shell<em>（12）</em></span>
+                                </label>
+                    </div>
+                   
+                    <div class="similar_wrap tracking-ad" data-mod="popu_141"  style="max-height:195px;">
+                        <a href="http://blog.csdn.net" style="display:none">http://blog.csdn.net</a>
+                        <ul class="similar_list fl">                          
+                        </ul>
+
+                        <ul class="similar_list fr">                           
+                        </ul>
+                    </div>
+                </div>
+            </div>    
+    <script  type="text/javascript">
+        $(function () {
+            GetCategoryArticles('1490945', 'zz198808','foot','9319479');
+        });
+    </script>
+      
+</div>
+<div id="suggest"></div>
+         <script  language="javascript" type='text/javascript'>     
+             $(function(){
+                 $.get("/zz198808/svc/GetSuggestContent/9319479",function(data){
+                     $("#suggest").html(data);
+                 });     
+             });             
+         </script>  
+
+
+<style>
+.blog-ass-articl dd {
+color: #369;
+width: 99%; /*修改行*/
+float: left;
+overflow: hidden;
+font: normal normal 12px/23px "SimSun";
+height: 23px;
+margin: 0;
+padding: 0 0 0 10px;
+margin-right: 30px;
+background: url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px;
+}
+</style>
+
+ <link rel="stylesheet" href="http://static.blog.csdn.net/css/replace.css"/>
+<div id="relate" data-mod="popu_218"  class="tracking-ad">
+        <div class="relate_t">
+            <h3><span>参考知识库</span></h3>
+        </div>
+        <div class="relate_c">
+        </div>
+</div>
+ 
+
+<dl class="blog-ass-articl" id="res-relatived" > 
+    <div class="embody embody_b" id="libkeyparent"  style="display:none">
+            <span class="embody_t">更多资料请参考：</span>
+            <div class="embody_c" id="libkey"></div>
+    </div>
+
+
+     <dt><span>猜你在找</span></dt>    
+
+
+   
+
+
+    <div id="adCollege" style="width: 42%;float: left;"> 
+        <script src="http://csdnimg.cn/jobreco/job_reco.js" type="text/javascript"></script> 
+        <script type="text/javascript">
+            csdn.position.showEdu({
+                sourceType: "blog",
+                searchType: "detail",
+                searchKey: "9319479",
+                username: "",
+                recordcount: "5",
+                containerId: "adCollege" //容器DIV的id。 
+            });
+        </script> 
+    </div>  
+
+    
+     <div id="res"  data-mod="popu_36"  class="tracking-ad" style="width: 42%;float: left;margin-right: 30px;"></div>
+   
+</dl>
+
+
+<script type="text/javascript">
+    $(function () {
+        setTimeout(function () {
+            var searchtitletags = 'readlink命令' + ',' + $("#tags").html();
+            searchService({
+                index: 'blog',
+                query: searchtitletags,
+                from: 5,
+                size: 5,
+                appendTo: '#res',
+                url: 'recommend',
+                his: 2,
+                client: "blog_cf_enhance",
+                tmpl: '<dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px;"><a href="#{ url }" title="#{ title }" strategy="#{ strategy }">#{ title }</a></dd>'
+            });
+        }, 500);
+    });    
+
+ </script>  
+
+    <div id="ad_cen">        
+<!-- 广告位开始 -->
+<ins data-revive-zoneid="71" data-revive-id="8c38e720de1c90a6f6ff52f3f89c4d57"></ins>
+<!-- 广告位结束 -->    </div>  
+
+<div class="comment_class">
+    <div id="comment_title" class="panel_head">
+        <span class="see_comment">查看评论</span><a name="comments"></a></div>
+    <div id="comment_list">
+    </div>
+    <div id="comment_bar">
+    </div>
+    <div id="comment_form">
+    </div>
+    <div class="announce">
+        * 以上用户言论只代表其个人观点，不代表CSDN网站的观点或立场<a name="reply"></a><a name="quote"></a></div>
+</div>
+
+<script type="text/javascript">
+    var fileName = '9319479';
+    var commentscount = 0;
+    var islock = false
+</script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/comment.js"></script>
+    <div id="ad_bot">
+    </div>
+<div id="report_dialog">
+</div>
+
+<div id="d-top"  style="bottom:60px;">
+        <a id="quick-reply" class="btn btn-top q-reply" title="快速回复" style="display:none;">
+            <img src="http://static.blog.csdn.net/images/blog-icon-reply.png" alt="快速回复">
+        </a>    
+
+    <a id="d-top-a" class="btn btn-top backtop"  style="display: none;" title="返回顶部" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_huidaodingbu'])" style="">         
+         <img src="http://static.blog.csdn.net/images/top.png" alt="TOP">
+    </a>
+</div>
+<script type="text/javascript">
+    $(function ()
+    {
+        $("#ad_frm_0").height("90px");
+        
+        setTimeout(function(){
+            $("#ad_frm_2").height("200px");
+        },1000);    
+    });
+  
+</script>
+<style type="text/css">
+    .tag_list
+    {
+        background: none repeat scroll 0 0 #FFFFFF;
+        border: 1px solid #D7CBC1;
+        color: #000000;
+        font-size: 12px;
+        line-height: 20px;
+        list-style: none outside none;
+        margin: 10px 2% 0 1%;
+        padding: 1px;
+    }
+    .tag_list h5
+    {
+        background: none repeat scroll 0 0 #E0DBD3;
+        color: #47381C;
+        font-size: 12px;
+        height: 24px;
+        line-height: 24px;
+        padding: 0 5px;
+        margin: 0;
+    }
+    .tag_list h5 a
+    {
+        color: #47381C;
+    }
+    .classify
+    {
+        margin: 10px 0;
+        padding: 4px 12px 8px;
+    }
+    .classify a
+    {
+        margin-right: 20px;
+        white-space: nowrap;
+    }
+</style>
+
+
+<div class="tag_list" style="display:none"></div>
+  <script  language="javascript" type='text/javascript'>     
+      $(function(){
+              setTimeout(function(){
+                  $.get("/zz198808/svc/GetTagContent",function(data){
+                      $(".tag_list").html(data).show();
+                  });     
+              });
+          },500);                       
+ </script> 
+
+
+<div id="pop_win" style="display:none ;position: absolute; z-index: 10000; border: 1px solid rgb(220, 220, 220); top: 222.5px; left: 630px; opacity: 1; background: none 0px 0px repeat scroll rgb(255, 255, 255);">
+    
+</div>
+<div id="popup_mask"></div>
+<style>
+    #popup_mask
+    {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        z-index: 9999;
+        left: 0px;
+        top: 0px;
+        opacity: 0.3;
+        filter: alpha(opacity=30);
+        display: none;
+    }
+
+</style>
+
+
+
+
+<script type="text/javascript">
+    $(function(){
+        setTimeout(function(){
+            $(".comment_body:contains('回复')").each(function(index,item){
+                var u=$(this).text().split('：')[0].toString().replace("回复","")
+                var thisComment=$(this);
+                if(u)
+                {
+                    $.getJSON("https://passport.csdn.net/get/nick?callback=?", {users: u}, function(a) {
+                        if(a!=null&&a.data!=null&&a.data.length>0)
+                        {
+                            nick=a.data[0].n; 
+                            if(u!=nick)
+                            {
+                                thisComment.text(thisComment.text().replace(u,nick));  
+                            }
+                        }       
+                    });  
+                }
+            });         
+
+        },200);  
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },5000);
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },10000);
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },15000);
+        
+        setTimeout(function(){
+            $("a img[src='http://js.tongji.linezing.com/stats.gif']").parent().css({"position":"absolute","left":"50%"});
+        },300);
+    });
+
+    function loginbox(){
+        var $logpop=$("#pop_win");
+        $logpop.html('<iframe src="https://passport.csdn.net/account/loginbox?service=http://static.blog.csdn.net/callback.htm" frameborder="0" height="600" width="400" scrolling="no"></iframe>');
+
+        $('#popup_mask').css({
+            opacity: 0.5,
+            width: $( document ).width() + 'px',
+            height:  $( document ).height() + 'px'
+        });
+        $('#popup_mask').css("display","block");
+ 
+        $logpop.css( {
+            top: ($( window ).height() - $logpop.height())/ 2  + $( window 
+       ).scrollTop() + 'px',
+            left:($( window ).width() - $logpop.width())/ 2
+        } );
+ 
+        setTimeout( function () {
+            $logpop.show();
+            $logpop.css( {
+                opacity: 1
+            } );
+        }, 200 );
+ 
+        $('#popup_mask').unbind("click");
+        $('#popup_mask').bind("click", function(){
+            $('#popup_mask').hide();
+            var $clopop = $("#pop_win");
+            $("#common_ask_div_sc").css("display","none");
+            $clopop.css( {
+                opacity: 0
+            } );
+            setTimeout( function () {
+                $clopop.hide();
+            }, 350 );
+            return false;
+        });
+    }   
+
+</script>
+ <script language="javascript" type="text/javascript" src="http://ads.csdn.net/js/async_new.js"></script>      
+
+
+                        <div class="clear">
+                        </div>
+                    </div>                   
+                
+            </div>
+                   
+           <div id="side">
+               
+    <div class="side">
+<div id="panel_Profile" class="panel">
+<ul class="panel_head"><span>个人资料</span></ul>
+<ul class="panel_body profile">
+<div id="blog_userface">
+    <a href="http://my.csdn.net/zz198808" target="_blank">
+    <img src="http://avatar.csdn.net/3/F/9/1_zz198808.jpg" title="访问我的空间" style="max-width:90%"/>
+    </a>
+    <br />
+    <span><a href="http://my.csdn.net/zz198808" class="user_name" target="_blank">zz198808</a></span>
+</div>
+<div class="interact">
+
+    <a href="javascript:void(0);" class="attent" id="span_add_follow" title="[加关注]"></a>
+
+ <a href="javascript:void(0);" class="letter"  title="[发私信]" onclick="window.open('http://msg.csdn.net/letters/model?receiver=zz198808','_blank','height=350,width=700');_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_sixin'])"></a>  
+</div>
+<div id="blog_medal">
+                <div id="bms_box">
+               </div>
+</div>
+<ul id="blog_rank">
+    <li>访问：<span>569847次</span></li>
+    <li>积分：<span>9793</span> </li>    
+    <li >等级： <span style="position:relative;display:inline-block;z-index:1" >
+            <img src="http://c.csdnimg.cn/jifen/images/xunzhang/jianzhang/blog6.png" alt="" style="vertical-align: middle;" id="leveImg">
+            <div id="smallTittle" style=" position: absolute;  left: -24px;  top: 25px;  text-align: center;  width: 101px;  height: 32px;  background-color: #fff;  line-height: 32px;  border: 2px #DDDDDD solid;  box-shadow: 0px 2px 2px rgba (0,0,0,0.1);  display: none;   z-index: 999;">
+            <div style="left: 42%;  top: -8px;  position: absolute;  width: 0;  height: 0;  border-left: 10px solid transparent;  border-right: 10px solid transparent;  border-bottom: 8px solid #EAEAEA;"></div>
+            积分：9793 </div>
+        </span>  </li>
+    <li>排名：<span>第1186名</span></li>
+</ul>
+<ul id="blog_statistics">
+    <li>原创：<span>410篇</span></li>
+    <li>转载：<span>2篇</span></li>
+    <li>译文：<span>0篇</span></li>
+    <li>评论：<span>104条</span></li>
+</ul>
+</ul>
+</div>
+
+
+<div class="panel" id="panel_Search">
+    <ul class="panel_head"><span>文章搜索</span></ul>
+    <ul class="panel_body">
+        <form id="frmSearch" action="http://so.csdn.net/search" class="form_search" target="_blank">
+        <span><input id="inputSearch" type="text" class="blogsearch" title="请输入关键字" /></span>
+        <input id="btnSubmit" type="button" value="搜索" title="search in blog" />
+        <input type="hidden" name="q" id="inputQ" />
+        <input type="hidden" name="t" value="blog" />
+        <a id="btnSearchBlog" target="_blank"></a>
+        </form>
+    </ul>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $("#btnSubmit").click(function () {           
+            search();
+        });
+
+        $("#frmSearch").submit(function () {
+            search();
+            return false;
+        });
+
+        function search()
+        {
+            var url = "http://so.csdn.net/so/search/s.do?q=" + encodeURIComponent($("#inputSearch").val()) + "&u=" + username + "&t=blog";
+            window.location.href = url;
+        }   
+    });
+</script><div id="panel_Category" class="panel">
+<ul class="panel_head"><span>文章分类</span></ul>
+<ul class="panel_body">    
+                 <li>
+                    <a href="/zz198808/article/category/1085502" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">java学习总结</a><span>(32)</span>
+                </li>
+                 <li>
+                    <a href="/zz198808/article/category/1319907" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">Corba</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/zz198808/article/category/1197898" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">APUE学习笔记</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/zz198808/article/category/1182180" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">面试失败总结</a><span>(2)</span>
+                </li>
+                 <li>
+                    <a href="/zz198808/article/category/1443963" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">LAMP</a><span>(2)</span>
+                </li>
+                 <li>
+                    <a href="/zz198808/article/category/1177394" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">面试代码总结</a><span>(18)</span>
+                </li>
+                 <li>
+                    <a href="/zz198808/article/category/1163874" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">EJB</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/zz198808/article/category/1131994" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">C/C++面试</a><span>(240)</span>
+                </li>
+                 <li>
+                    <a href="/zz198808/article/category/1126589" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">C/C++</a><span>(14)</span>
+                </li>
+                 <li>
+                    <a href="/zz198808/article/category/1446417" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">Python</a><span>(12)</span>
+                </li>
+                 <li>
+                    <a href="/zz198808/article/category/1107568" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">Android学习</a><span>(16)</span>
+                </li>
+                 <li>
+                    <a href="/zz198808/article/category/1210180" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">java多线程与并发</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/zz198808/article/category/1411500" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">Nginx</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/zz198808/article/category/1148329" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">面试--设计模式</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/zz198808/article/category/1198456" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">程序员面试宝典</a><span>(24)</span>
+                </li>
+                 <li>
+                    <a href="/zz198808/article/category/1181894" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">网络</a><span>(2)</span>
+                </li>
+                 <li>
+                    <a href="/zz198808/article/category/1210437" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">数据库复习</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/zz198808/article/category/1465069" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">Perl</a><span>(9)</span>
+                </li>
+                 <li>
+                    <a href="/zz198808/article/category/1096868" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">算法</a><span>(5)</span>
+                </li>
+                 <li>
+                    <a href="/zz198808/article/category/1459453" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">jQuery</a><span>(4)</span>
+                </li>
+                 <li>
+                    <a href="/zz198808/article/category/1181158" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">HTTP协议详解</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/zz198808/article/category/1243333" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">数据库</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/zz198808/article/category/1270065" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">Linux基础学习</a><span>(29)</span>
+                </li>
+                 <li>
+                    <a href="/zz198808/article/category/1490945" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">Shell</a><span>(13)</span>
+                </li>
+</ul>
+</div><div id="panel_Archive" class="panel">
+<ul class="panel_head"><span>文章存档</span></ul>
+<ul class="panel_body">
+<div id="archive_list">
+<!--归档统计-->
+<li><a href="/zz198808/article/month/2013/07">2013年07月</a><span>(32)</span></li><li><a href="/zz198808/article/month/2013/06">2013年06月</a><span>(14)</span></li><li><a href="/zz198808/article/month/2013/05">2013年05月</a><span>(1)</span></li><li><a href="/zz198808/article/month/2013/01">2013年01月</a><span>(17)</span></li><li><a href="/zz198808/article/month/2012/12">2012年12月</a><span>(7)</span></li><li><a href="/zz198808/article/month/2012/11">2012年11月</a><span>(2)</span></li><li><a href="/zz198808/article/month/2012/10">2012年10月</a><span>(10)</span></li><li><a href="/zz198808/article/month/2012/09">2012年09月</a><span>(59)</span></li><li><a href="/zz198808/article/month/2012/08">2012年08月</a><span>(22)</span></li><li><a href="/zz198808/article/month/2012/07">2012年07月</a><span>(57)</span></li><li><a href="/zz198808/article/month/2012/06">2012年06月</a><span>(49)</span></li><li><a href="/zz198808/article/month/2012/05">2012年05月</a><span>(76)</span></li><li><a href="/zz198808/article/month/2012/04">2012年04月</a><span>(24)</span></li><li><a href="/zz198808/article/month/2012/03">2012年03月</a><span>(19)</span></li><li><a href="/zz198808/article/month/2012/02">2012年02月</a><span>(22)</span></li><li><a href="/zz198808/article/month/2011/12">2011年12月</a><span>(1)</span></li>
+</div>
+</ul>
+</div>
+<div id="hotarticls" class="panel">
+<ul class="panel_head">
+    <span>       
+阅读排行    </span>
+</ul>
+
+<ul class="panel_body itemlist">
+<li>
+<a href="/zz198808/article/details/7621500" title="求二叉树的深度">求二叉树的深度</a><span>(14484)</span>
+</li>
+<li>
+<a href="/zz198808/article/details/9319479" title="readlink命令">readlink命令</a><span>(11966)</span>
+</li>
+<li>
+<a href="/zz198808/article/details/8029405" title="AtomicInteger的用法">AtomicInteger的用法</a><span>(11202)</span>
+</li>
+<li>
+<a href="/zz198808/article/details/7281316" title="java &quot;Too small initial heap&quot; 错误">java &quot;Too small initial heap&quot; 错误</a><span>(10505)</span>
+</li>
+<li>
+<a href="/zz198808/article/details/8063061" title="https协议和Http协议的区别 HTTPS使用端口443">https协议和Http协议的区别 HTTPS使用端口443</a><span>(10043)</span>
+</li>
+<li>
+<a href="/zz198808/article/details/7573771" title="寻找发帖水王">寻找发帖水王</a><span>(8450)</span>
+</li>
+<li>
+<a href="/zz198808/article/details/7544113" title="寻找水王">寻找水王</a><span>(7788)</span>
+</li>
+<li>
+<a href="/zz198808/article/details/7585385" title="给定一个入栈序列，求所有可能的出栈序列">给定一个入栈序列，求所有可能的出栈序列</a><span>(6360)</span>
+</li>
+<li>
+<a href="/zz198808/article/details/7723259" title="HTTP（一）">HTTP（一）</a><span>(5911)</span>
+</li>
+<li>
+<a href="/zz198808/article/details/7934427" title="双向链表的建立，添加节点和删除节点（注意插入和删除要分三种情况）">双向链表的建立，添加节点和删除节点（注意插入和删除要分三种情况）</a><span>(5771)</span>
+</li>
+</ul>
+</div>
+<div id="hotarticls2" class="panel">
+<ul class="panel_head"><span>评论排行</span></ul>
+<ul class="panel_body itemlist">
+<li>
+<a href="/zz198808/article/details/7934393" title="一个链表只遍历一次求出中间的节点">一个链表只遍历一次求出中间的节点</a><span>(5)</span>
+</li>
+<li>
+<a href="/zz198808/article/details/7961688" title="有一个整数数组，请求出两两之差绝对值最小的值(微软)">有一个整数数组，请求出两两之差绝对值最小的值(微软)</a><span>(5)</span>
+</li>
+<li>
+<a href="/zz198808/article/details/8030042" title="使用位图法判断整形数组是否存在重复">使用位图法判断整形数组是否存在重复</a><span>(5)</span>
+</li>
+<li>
+<a href="/zz198808/article/details/7716798" title="腾讯实习生招聘笔试">腾讯实习生招聘笔试</a><span>(4)</span>
+</li>
+<li>
+<a href="/zz198808/article/details/7271874" title="通过类加载器的方式读取配置文件">通过类加载器的方式读取配置文件</a><span>(4)</span>
+</li>
+<li>
+<a href="/zz198808/article/details/7782624" title="链表排序总结">链表排序总结</a><span>(4)</span>
+</li>
+<li>
+<a href="/zz198808/article/details/7674344" title="给一个很大的数组，里面有两个数只出现过一次，其他数都出现过两次，把这两个数找出来">给一个很大的数组，里面有两个数只出现过一次，其他数都出现过两次，把这两个数找出来</a><span>(4)</span>
+</li>
+<li>
+<a href="/zz198808/article/details/7588335" title="求在从1到n的正数中1出现的次数">求在从1到n的正数中1出现的次数</a><span>(4)</span>
+</li>
+<li>
+<a href="/zz198808/article/details/7621500" title="求二叉树的深度">求二叉树的深度</a><span>(3)</span>
+</li>
+<li>
+<a href="/zz198808/article/details/7646786" title="当用java程序去频繁读取大文件的时候将读取到的内容放在内存中">当用java程序去频繁读取大文件的时候将读取到的内容放在内存中</a><span>(3)</span>
+</li>
+</ul>
+</div>
+<div id="homepageArticles" class="panel tracking-ad" data-mod="popu_4">
+<ul class="panel_head"><span>推荐文章</span></ul>
+<ul class="panel_body" id="ad_commend">
+<ul>
+<li><a href="http://blog.csdn.net/guolin_blog/article/details/51763825" target="_blank">* 郭神带你真正理解沉浸式模式</a></li>
+<li><a href="http://blog.csdn.net/poem_qianmo/article/details/52268975" 
+target="_blank">* 优秀代码的格式准则</a></li>
+<li><a href="http://blog.csdn.net/wzy0623/article/details/52249187" 
+target="_blank">* Hadoop的数据仓库实践——OLAP与数据可视化（二）</a></li>
+<li><a href="http://blog.csdn.net/megatronkings/article/details/52156312" target="_blank">* Android 视图篇——恼人的分割线留白解决之道</a></li>
+<li><a href="http://blog.csdn.net/abc649395594/article/details/52259409" 
+target="_blank">* 移动端开发者眼中的前端开发流程变迁与前后端分离</a></li>
+
+
+</ul></ul>
+</div>
+
+
+<div id="newcomments" class="panel">
+<ul class="panel_head"><span>最新评论</span></ul>
+<ul class="panel_body itemlist">
+    <li>
+   
+         <a href="/zz198808/article/details/8030042#comments">使用位图法判断整形数组是否存在重复</a>
+    <p style="margin:0px;"><a href="/adai_l" class="user_name">adai_l</a>:
+有时间找最大值，不如直接比较了
+    </p>
+    </li>
+    <li>
+   
+         <a href="/zz198808/article/details/7646786#comments">当用java程序去频繁读取大文件的时候将读取到的内容放在内存中</a>
+    <p style="margin:0px;"><a href="/u013857407" class="user_name">u013857407</a>:
+留爪，感谢分享~
+    </p>
+    </li>
+    <li>
+   
+         <a href="/zz198808/article/details/7782624#comments">链表排序总结</a>
+    <p style="margin:0px;"><a href="/u010284226" class="user_name">u010284226</a>:
+你这个链表的排序，怎么是把链表的数据交换一下啊，
+    </p>
+    </li>
+    <li>
+   
+         <a href="/zz198808/article/details/7657383#comments">栈的push、pop序列是否正确</a>
+    <p style="margin:0px;"><a href="/sffyjui666" class="user_name">sffyjui666</a>:
+不对啊
+    </p>
+    </li>
+    <li>
+   
+         <a href="/zz198808/article/details/7621500#comments">求二叉树的深度</a>
+    <p style="margin:0px;"><a href="/mayfla" class="user_name">mayfla</a>:
+如果一棵树只有一个结点，它的深度为1。如果根结点只有左子树而没有右子树，那么树的深度应该是其左子树的...
+    </p>
+    </li>
+    <li>
+   
+         <a href="/zz198808/article/details/7566098#comments">求子数组的最大和</a>
+    <p style="margin:0px;"><a href="/a20224238" class="user_name">a20224238</a>:
+确实有缺陷，begin的位置可能超出数组，大于end的值。
+    </p>
+    </li>
+    <li>
+   
+         <a href="/zz198808/article/details/7566098#comments">求子数组的最大和</a>
+    <p style="margin:0px;"><a href="/afanwhpu" class="user_name">afanwhpu</a>:
+既可以找到子数组的最大和，也可以定位到是子数组是从何开始的代码是有缺陷的例如数组是1 1 -3
+    </p>
+    </li>
+    <li>
+   
+         <a href="/zz198808/article/details/7674344#comments">给一个很大的数组，里面有两个数只出现过一次，其他数都出现过两次，把这两个数找出来</a>
+    <p style="margin:0px;"><a href="/langduhualangdu" class="user_name">langduhualangdu</a>:
+楼主你写的这是只有一个数单独出现的情况。
+    </p>
+    </li>
+    <li>
+   
+         <a href="/zz198808/article/details/7674344#comments">给一个很大的数组，里面有两个数只出现过一次，其他数都出现过两次，把这两个数找出来</a>
+    <p style="margin:0px;"><a href="/u010032372" class="user_name">u010032372</a>:
+题目应该是给一个很大的数组，里面有一个数只出现过一次，其他数都出现过两次，把这一个数找出来
+    </p>
+    </li>
+    <li>
+   
+         <a href="/zz198808/article/details/7588335#comments">求在从1到n的正数中1出现的次数</a>
+    <p style="margin:0px;"><a href="/u013163178" class="user_name">u013163178</a>:
+1，10，11和12，1一共出现了5次。这不是4次吗
+    </p>
+    </li>
+</ul>
+</div>
+    </div>
+    <div class="clear">
+    </div>
+
+
+                   <!-- 广告位开始 --> 
+                    <ins data-revive-zoneid="190" data-revive-id="8c38e720de1c90a6f6ff52f3f89c4d57"></ins> 
+                    <!-- 广告位结束 -->
+
+           </div>   
+
+            <div class="clear">
+            </div>
+        </div>
+
+        
+
+<script type="text/javascript" src="http://c.csdnimg.cn/rabbit/cnick/cnick.js"></script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/newblog.min.js"></script>
+
+
+<script type="text/javascript" src="http://medal.blog.csdn.net/showblogmedal.ashx?blogid=1226415"></script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/JavaScript1.js"></script>
+
+    <script type="text/javascript" src="http://passport.csdn.net/content/loginbox/login.js"></script>
+<script type="text/javascript">document.write("<img src=http://counter.csdn.net/pv.aspx?id=24 border=0 width=0 height=0>");</script>
+<script type="text/javascript" src="http://www.csdn.net/ui/scripts/Csdn/counter.js"></script>
+<script type="text/javascript" src="http://ad.csdn.net/scripts/ad-blog.js"></script>
+<script type="text/javascript">
+    $(function () {
+        function __get_code_toolbar(snippet_id) {
+            return $("<span class='tracking-ad' data-mod='popu_167'><a href='https://code.csdn.net/snippets/"
+                    + snippet_id
+                    + "' target='_blank' title='在CODE上查看代码片'  style='text-indent:0;'><img src='https://code.csdn.net/assets/CODE_ico.png' width=12 height=12 alt='在CODE上查看代码片' style='position:relative;top:1px;left:2px;'/></a></span>"
+                    + "<span class='tracking-ad' data-mod='popu_170'><a href='https://code.csdn.net/snippets/"
+                    + snippet_id
+                    + "/fork' target='_blank' title='派生到我的代码片' style='text-indent:0;'><img src='https://code.csdn.net/assets/ico_fork.svg' width=12 height=12 alt='派生到我的代码片' style='position:relative;top:2px;left:2px;'/></a></span>");
+        }
+        
+        $("[code_snippet_id]").each(function () {
+            __s_id = $(this).attr("code_snippet_id");
+            if (__s_id != null && __s_id != "" && __s_id != 0 && parseInt(__s_id) > 70020) {
+                __code_tool = __get_code_toolbar(__s_id);
+                $(this).prev().find(".tools").append(__code_tool);
+            }
+        });
+
+        $(".bar").show();
+    });
+</script>
+
+
+
+
+    </div>
+      <!--new top-->
+    
+    <script id="csdn-toolbar-id" btnId="header_notice_num" wrapId="note1" count="5" subCount="5" type="text/javascript" src="http://c.csdnimg.cn/public/common/toolbar/js/toolbar.js"></script>     <!--new top-->
+   
+    <link href="http://c.csdnimg.cn/comm_ask/css/ask_float_block.css" type="text/css" rel="stylesheet" />
+    <script language='JavaScript' type='text/javascript' src='http://c.csdnimg.cn/comm_ask/js/libs/wmd.js'></script>
+    <script language='JavaScript' type='text/javascript' src='http://c.csdnimg.cn/comm_ask/js/libs/showdown.js'></script>
+    <script language='JavaScript' type='text/javascript' src='http://c.csdnimg.cn/comm_ask/js/libs/prettify.js'></script>
+    <script language='JavaScript' type='text/javascript' src='http://c.csdnimg.cn/comm_ask/js/apps/ask_float_block.js'></script>
+   
+
+  <div id="a52b5334d" style="width: 1px; height: 1px; display: none;">
+                    <script id="adJs52b5334"></script>
+                    <script>document.getElementById("adJs52b5334").src = "http://ads.csdn.net/js/opt/52b5334.js?t=" + Math.random();</script>
+   </div>
+
+    <link rel="stylesheet" href="http://static.blog.csdn.net/css/blog_code.css" />
+    <script type="text/javascript" src="http://static.blog.csdn.net/scripts/saveToCode.js"></script>
+      <script type="text/javascript" src="//csdnimg.cn/rabbit/tracking-ad/main.js?75eacd8"></script>
+</body>
+</html>   
+ 

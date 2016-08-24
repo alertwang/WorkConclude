@@ -1,0 +1,5 @@
+1.ssh登录不了的问题尝试:
+http://legato.io/legato-docs/latest/yoctoInstallNotes.html#yoctoInstallNotes_yoctoNoPwd
+
+2.中文车牌识别的开源库
+https://github.com/liuruoze/EasyPR

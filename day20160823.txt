@@ -9,3 +9,17 @@ KERNEL_CONFIG := $(KERNEL_OUT)/.config
 
 2.WIFI驱动移植的文档路径：
 svn://127.0.0.1/TCU/doc/legato系统相关资料/sierra_legato/Legato - WiFi Hotspot using Atheros AR6003 SDIO/Legato - WiFi Hotspot using Atheros AR6003 SDIO.pdf
+
+3.kernel的编译过程：
+	调用 ./poky/meta/classes/kernel.bbclass 的 do_compile_kernelmodule 函数
+
+
+$scriptdir=/home/alert/samba/yocto/meta-swi-extras
+BD=/home/alert/samba/yocto/build
+
+${WS}=/home/alert/samba/yocto/poky
+$0 = meta-swi-extras/build.sh
+
+Makefile文件中:
+COMMON_BIN = "meta-swi-extras/build.sh" -p poky/ -o meta-openembedded/ -l meta-swi -x "kernel/.git" -j 9 -t 9    -a "SDKPATH_PREFIX=" -a "LK_REPO=/home/alert/workspace/mdm9x28_SWI9X28A_yocto/lk/" -m swi-mdm9x28 -b build_bin -q\
+meta-swi-extras\build.sh文件中:

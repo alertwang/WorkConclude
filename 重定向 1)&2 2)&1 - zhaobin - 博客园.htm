@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>重定向 1&gt;&amp;2 2&gt;&amp;1 - zhaobin - 博客园</title>
+<link type="text/css" rel="stylesheet" href="/bundles/blog-common.css?v=Ugwf7ssw_T-Y4bsdVDPHPhPR9NEESRNHOF-E8IRqEJk1"/>
+<link id="MainCss" type="text/css" rel="stylesheet" href="/skins/KJC/bundle-KJC.css?v=BgVWEKGeHjhs_JIs8b1ToIpGRqXHbfiWvV_z9898UDE1"/>
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/zhaobin/rss"/>
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/zhaobin/rsd.xml"/>
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/zhaobin/wlwmanifest.xml"/>
+<script src="//common.cnblogs.com/script/jquery.js" type="text/javascript"></script>  
+<script type="text/javascript">var currentBlogApp = 'zhaobin', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="/bundles/blog-common.js?v=MDcuX3oQ9OwiFqdRzX8c_ipTetMpYxSAeLULWxw1gTk1" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+
+<table class="Framework" cellspacing="0" cellpadding="0" width="100%">
+	<tr>
+		<td colspan="3">
+			
+<div id="top">
+<table cellpadding="10" cellspacing="0">
+	<tr>
+		<td nowrap>
+			<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/zhaobin/">Life is a journey</a></h1>
+			Who Dares Wins
+		</td>
+	</tr>
+</table>
+</div>
+<div id="sub">
+	<div id="sub-right">
+<div class="BlogStats">posts - 36, comments - 2, trackbacks - 0, articles - 0</div></div>
+	
+&nbsp;
+<a id="Header1_MyLinks1_HomeLink" href="http://www.cnblogs.com/">博客园</a> :: 
+<a id="Header1_MyLinks1_MyHomeLink" href="http://www.cnblogs.com/zhaobin/">首页</a> ::
+<a id="Header1_MyLinks1_NewPostLink" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a> ::
+<a id="Header1_MyLinks1_ContactLink" accesskey="9" rel="nofollow" href="http://msg.cnblogs.com/send/zhaobin">联系</a> ::
+<a id="Header1_MyLinks1_Syndication" href="http://www.cnblogs.com/zhaobin/rss">订阅</a>
+<a id="Header1_MyLinks1_XMLLink" class="XMLLink" href="http://www.cnblogs.com/zhaobin/rss"><img src="//www.cnblogs.com/images/xml.gif" alt="订阅" /></a> ::
+<a id="Header1_MyLinks1_Admin" rel="nofollow" href="https://i.cnblogs.com/">管理</a>
+
+</div>
+		</td>
+	</tr>
+	<tr>
+		<td class="LeftCell">
+			<div id="leftmenu">
+            	
+		            <div id="blog-calendar" style="display:none"></div><script type="text/javascript">loadBlogDefaultCalendar();</script>
+		            
+<div id=cell>
+<img src="/Skins/KJC/Images/icon-group.jpg" hspace=5 align=left vspace=2><h3>公告</h3>
+<div id=news>
+	<div id="blog-news"></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+</div>
+
+	            
+	            <div id="blog-sidecolumn"></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+		</td>
+		<td class="MainCell">
+			<div id="main">
+				
+<div id="post_detail">
+	<div class="post">
+		<div class="posthead">
+			<h2>
+				<a id="cb_post_title_url" class="singleposttitle" href="http://www.cnblogs.com/zhaobin/archive/2009/06/25/1511163.html">重定向 1&gt;&amp;2 2&gt;&amp;1</a>
+			</h2>
+ 			Posted on <span id="post-date">2009-06-25 18:14</span> <a href='http://www.cnblogs.com/zhaobin/'>zhaobin</a> 阅读(<span id="post_view_count">...</span>) 评论(<span id="post_comment_count">...</span>)  <a href ="https://i.cnblogs.com/EditPosts.aspx?postid=1511163" rel="nofollow">编辑</a> <a href="#" onclick="AddToWz(1511163);return false;">收藏</a>
+			<script type="text/javascript">var allowComments=true,cb_blogId=34461,cb_entryId=1511163,cb_blogApp=currentBlogApp,cb_blogUserGuid='2730420b-63cf-dd11-9e4d-001cf0cd104b',cb_entryCreatedDate='2009/6/25 18:14:00';loadViewCount(cb_entryId);</script>
+			
+		</div>
+		<div class="postbody"><div id="cnblogs_post_body"><p>当初在shell中, 看到"&gt;&amp;1"和"&gt;&amp;2"始终不明白什么意思.经过在网上的搜索得以解惑.其实这是两种输出. <br /><br />在 shell 程式中，最常使用的 FD (file descriptor) 大概有三个, 分别是: <br /><br />0: Standard Input (STDIN) <br /><br />1: Standard Output (STDOUT) <br /><br />2: Standard Error Output (STDERR) <br /><br />在标准情况下, 这些FD分别跟如下设备关联: <br /><br />stdin(0): keyboard&nbsp; 键盘输入,并返回在前端 <br /><br />stdout(1): monitor&nbsp; 正确返回值 输出到前端 <br /><br />stderr(2): monitor 错误返回值 输出到前端 <br /><br />举例说明吧: <br /><br />当前目录只有一个文件 a.txt. <br /><br />[root@redhat box]# ls <br /><br />a.txt <br /><br />[root@redhat box]# ls a.txt b.txt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br /><br />ls: b.txt: No such file or directory&nbsp;&nbsp;&nbsp;&nbsp; 由于没有b.txt这个文件, 于是返回错误值, 这就是所谓的2输出 <br /><br />a.txt&nbsp;&nbsp;&nbsp;&nbsp; 而这个就是所谓的1输出 <br /><br />再接着看: <br /><br />[root@redhat box]# ls a.txt b.txt&nbsp; 1&gt;file.out 2&gt;file.err <br /><br />执行后,没有任何返回值. 原因是, 返回值都重定向到相应的文件中了,而不再前端显示 <br /><br />[root@redhat box]# cat file.out <br /><br />a.txt <br /><br />[root@redhat box]# cat file.err <br /><br />ls: b.txt: No such file or directory <br /><br />一般来说, "1&gt;" 通常可以省略成 "&gt;". <br /><br />即可以把如上命令写成: ls a.txt b.txt&nbsp; &gt;file.out 2&gt;file.err <br /><br />有了这些认识才能理解 "<span class="hilite1">1&gt;&amp;2</span>" 和 "<span class="hilite2">2&gt;&amp;1</span>". <br /><br /><span class="hilite1">1&gt;&amp;2</span>&nbsp; 正确返回值传递给2输出通道 &amp;2表示2输出通道 <br /><br />如果此处错写成 1&gt;2, 就表示把1输出重定向到文件2中. <br /><br /><span class="hilite2">2&gt;&amp;1</span> 错误返回值传递给1输出通道, 同样&amp;1表示1输出通道. <br /><br />举个例子. <br /><br />[root@redhat box]# ls a.txt b.txt 1&gt;file.out <span class="hilite2">2&gt;&amp;1</span> <br /><br />[root@redhat box]# cat file.out <br /><br />ls: b.txt: No such file or directory <br /><br />a.txt <br /><br />现在, 正确的输出和错误的输出都定向到了file.out这个文件中, 而不显示在前端. <br /><br />补充下, 输出不只1和2, 还有其他的类型, 这两种只是最常用和最基本的. </p>
+<p>&nbsp;</p>
+<p>本文转自：<a href="http://chenyubo.javaeye.com/blog/321616">http://chenyubo.javaeye.com/blog/321616</a><br /></p> </div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory"></div>
+<div id="EntryTag"></div>
+<div id="blog_post_info">
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"></div>
+</div>
+
+</div>
+	</div></div><a name="!comments"></a><div id="blog-comments-placeholder"></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id='comment_form' class='commentform'>
+<a name='commentform'></a>
+<div id='divCommentShow'></div>
+<div id='comment_nav'><span id='span_refresh_tips'></span><a href='javascript:void(0);' onclick='return RefreshCommentList();' id='lnk_RefreshComments' runat='server' clientidmode='Static'>刷新评论</a><a href='#' onclick='return RefreshPage();'>刷新页面</a><a href='#top'>返回顶部</a></div>
+<div id='comment_form_container'></div>
+<div class='ad_text_commentbox' id='ad_text_under_commentbox'></div>
+<div id='ad_t2'></div>
+<div id='opt_under_post'></div>
+<div id='ad_c1' class='c_ad_block'></div>
+<div id='under_post_news'></div>
+<div id='ad_c2' class='c_ad_block'></div>
+<div id='under_post_kb'></div>
+<div id='HistoryToday' class='c_ad_block'></div>
+<script type='text/javascript'>
+$(function () {
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);    
+});
+</script>
+</div>
+
+
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" class="FooterCell">
+			
+<p id="footer">
+	Powered by: 
+	<br />
+	
+	<a id="Footer1_Hyperlink3" NAME="Hyperlink1" href="http://www.cnblogs.com/" style="font-family:Verdana;font-size:12px;">博客园</a>
+	<br />
+	Copyright &copy; zhaobin
+</p>
+
+		</td>
+	</tr>
+</table>
+
+</body>
+</html>
