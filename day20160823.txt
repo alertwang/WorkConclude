@@ -23,3 +23,19 @@ $0 = meta-swi-extras/build.sh
 Makefile文件中:
 COMMON_BIN = "meta-swi-extras/build.sh" -p poky/ -o meta-openembedded/ -l meta-swi -x "kernel/.git" -j 9 -t 9    -a "SDKPATH_PREFIX=" -a "LK_REPO=/home/alert/workspace/mdm9x28_SWI9X28A_yocto/lk/" -m swi-mdm9x28 -b build_bin -q\
 meta-swi-extras\build.sh文件中:
+
+
+4.内核的编译
+. poky/oe-init-build-env ./build_bin/
+bitbake linux-quic -c menuconfig
+bitbake deploy -f linux-quic 
+bitbake -c deploy -f linux-quic 
+
+
+adb devices
+//enable download mode:
+adb reboot-bootloader
+//flash the image:
+fastboot erase userapp
+fastboot flash sierra "D:\FDT\yocto_ar758x.cwe"
+fastboot reboot
