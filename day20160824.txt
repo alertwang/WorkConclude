@@ -3,3 +3,11 @@ http://legato.io/legato-docs/latest/yoctoInstallNotes.html#yoctoInstallNotes_yoc
 
 2.中文车牌识别的开源库
 https://github.com/liuruoze/EasyPR
+
+
+CONFIG_PRINTK_TIME
+
+
+3.
+bitbake -f linux-quic -c menuconfig
+bitbake -c compile -f virtual/kernel && bitbake virtual/kernel
