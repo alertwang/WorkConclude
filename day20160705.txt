@@ -1,0 +1,35 @@
+1.3G模块重启的过程
+TboxSendMsgPro(TBOX_HEARTBEAT_REQUEST
+	//超过N次没有响应则启动3G模块重启流程
+	RestartTSPAlarm(TSP_RSP_TIMEOUT_ALARM,1);
+ProTSPAlarm
+	//如果是TSP_RSP_TIMEOUT_ALARM:
+	Ril_CloseSocket(RilHandle, G_usSocketId,&usErr);
+  RIL_ReInit(ETU_RIL_INIT_TYPE_GPRS, &usErr);
+  	Ril_PowerReset(ETU_RIL_INIT_TYPE_GPRS,FALSE);
+  		UpdatePWN(etuInitPWNType, ufSyncStep, POWER_RESET);
+  			usHwCtl = ETU_RIL_HW_POWER_RESET;
+  			stuCB.usFuncLst = usHwCtl;
+  			pstuHwObj->pstuHwMgr((PSTU_RIL_CALLBACK_FUNCPROC)&stuCB);
+  			<==>
+
+
+收到重启的消息之后
+RilHWImplFunc
+	//如果消息是ETU_RIL_HW_POWER_RESET
+	GPRS_PW_RESET((PFN_RILAPP_OS_MGR)RilOSImplFunc);
+		//GPIO配置看手册21.5 Memory map and register description
+		//配置的是0x0600–0x06A0[GPIO Pad Data Output Registers (GPDO0_3–GPDO148_151)2 on page 424]
+		//参考datasheet的 4.7 Functional port pins
+		// 					 			21.5.1 SIUL memory map
+		(*(volatile struct SIU_tag *)0xC3F90000UL).GPDO[GPRS_RESET_PIN=81].R  =   0xFF;
+		pfnTimer((PSTU_RIL_CALLBACK_FUNCPROC)&stuCB);
+		<==>
+		RilOSImplFunc((PSTU_RIL_CALLBACK_FUNCPROC)&stuCB);
+				//判断pstuRilOSImplParam->usFuncLst = ETU_RIL_HW_POWER_RESET
+				//目前代码里面没有做任何处理
+  	(*(volatile struct SIU_tag *)0xC3F90000UL).GPDO[GPRS_RESET_PIN=81].R  =   0x00;
+  	
+//相关 GPIO 的配置
+RIL_HW_GPRS_INIT
+	SIU.PCR[GPRS_RESET_PIN=81].R   =  (LYCINT16U)0x0200U;

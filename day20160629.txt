@@ -1,0 +1,21 @@
+1.电子围栏的功能
+PeriTask
+	// 100*10ms=1s中发送一次 MAIN_TASK_MSG_TASK_MNG
+	CommonOSMsgPost(MAIN_TASK_MSG_TASK_MNG, 0U, 0U, (void *)0, (void *)0, MainMsg);
+
+MainTask
+	ReceiveMessage(MainMsg, (ApplicationDataRef) &StuRcvMsgBuf)
+	switch( StuRcvMsgBuf.ucMsgType )
+	case MAIN_TASK_MSG_TASK_MNG:
+		TSP_Alarm_Pro();
+			//针对除电子围栏以外的其他消息
+			TspWorkAlarm[i]--;
+			if(TspWorkAlarm[i] == 0)
+				ProTSPAlarm(i);
+					TboxSendMsgPro(TBOX_DATA_PACKAGE_REQUEST,NULL,0);
+							RestartTSPAlarm(TSP_DATA_UPLOAD_ALARM,DataSampleFre=REMOTE_HEART_BEAT_TIME_OUT);
+			//5.7.3.14	监控平台向T-BOX发送电子围栏设置
+			//超出电子围栏的区域之后发出报警
+			CalIfInElimits()
+			TboxSendMsgPro(TBOX_CROSS_E_LIMITS_REQUEST,NULL,0);
+				

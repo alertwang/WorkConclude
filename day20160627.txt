@@ -1,0 +1,109 @@
+1.Tbox 3G的初始化过程分析
+RilAppInitialize
+	stuCallback.pRilOSfunc	= (PFN_RILAPP_OS_MGR)RilOSImplFunc;
+	RIL_Init(ETU_RIL_INIT_TYPE_GPRS, &stuCallback, &errorcode);
+		*errors = Initialize(etuInitType, pInitHandle, pstuInitFunc=stuCallback);		
+									Initialize_OS(pstuInitParam, pstuInitFunc->pRilOSfunc);
+											Ril_OSInitialize((PFN_RILAPP_OS_MGR)fpOSMgr = stuCallback->pRilOSfunc);
+												G_stuRilOSProperty.G_pfOSMgr = fpOSMgr = = stuCallback->pRilOSfunc;
+									Initialize_GlobalHandle(pstuInitParam, (fpRilResponse)Ril_Response, (fpRilNotification)Ril_Notifications);
+										Ril_InitializeSetParseHandle(Ril_Response, Ril_Notifications);
+											G_stuRilObj.fpRilParseResp = Ril_Response;
+											G_stuRilObj.fpRilParseNotify = Ril_Notifications;
+	Ril_Initialize(RIL_INITIALIZE_FUNC_BASE|RIL_INITIALIZE_FUNC_SOCKET|RIL_INITIALIZE_FUNC_TCP|RIL_INITIALIZE_FUNC_CALLCTRL, (PFN_RILAPP_RESULT)RilAppResult,(PFN_RILAPP_NOTIFY)RilAppNotify, &errorcode);
+		stuRegistHandle.fpAppNofy = (PFN_RILAPP_NOTIFY)RilAppNotify;
+		stuRegistHandle.fpAppResp = (PFN_RILAPP_RESULT)RilAppResult;	
+		AddRegister(&stuRegistHandle);
+			G_stuRilHandleObj[index].fpAppNofy = RilAppNotify;
+			G_stuRilHandleObj[index].fpAppResp = RilAppResult;											
+												
+//使用ip地址和端口号连接后台服务器的过程
+
+	CreateSktResultPro(pstuRilAppCallbackResp->usSubType,pstuRilAppCallbackResp->lpData);
+		Ril_Connect(RilHandle, ((PSTU_SOCKET_HANDLE)lpData)->UsSocketId, G_DebugIp, G_DebugIpPort, &usErr);			
+			Connect(dwParam, usSockfd, pszSerAddr, pszSerPort, errors);
+				//将ip地址格式化到stuTempCmd.ucCmd
+				PDD_CreateCmd_Socket_Connect(stuTempCmd.ucCmd, &usLength, usSockfd, pszSerAddr, pszSerPort)
+				//pATcmd->pszCmd <-- stuTempCmd.ucCmd			
+				memcpy(pATcmd->pszCmd, stuTempCmd.ucCmd, usLength);
+				pATcmd->ucPri 		=  RIL_QUEUE_PRIORITY_TIME_CRITICAL;
+				PushCommand(pATcmd, errors);
+					G_stuQueueElement.pstuCmdListHead = pATcmd;
+				Ril_OS_SendMsg(RIL_COMHANDLE_CHANNEL_CMD, 0);				
+					fpOS = G_stuRilOSProperty.G_pfOSMgr;
+					//使用的是GPS还是GPRS
+					stuCB.usType 		= usMsgType = ETU_BASE_TASK_COMMAND_RECV_MSG;;
+					stuCB.usSubType 	= ucUserChannel = RIL_COMHANDLE_CHANNEL_CMD;
+					stuCB.usFuncLst 	= ETU_RIL_OS_MSG_SET;
+					fpOS((PSTU_RIL_CALLBACK_FUNCPROC)&stuCB);
+					<==>
+					RilOSImplFunc((PSTU_RIL_CALLBACK_FUNCPROC)&stuCB);
+						CommonOSMsgPost(REMOTE_TASK_MSG_AT_CMD, 0, 0, (void     *)0, (void     *)0, RemoteMsg);	
+							StuCommonMsg.ucMsgType  = ucMsgType = REMOTE_TASK_MSG_AT_CMD;
+							SendMessage(msgQ, &StuCommonMsg);
+							<==>
+							osSendMessage(msgQ, &StuCommonMsg);  //调用os层的发送消息函数
+
+
+
+//不停地接收信息,然后处理消息
+TASK(MainTask) 							
+	ReceiveMessage(MainMsg, (ApplicationDataRef) &StuRcvMsgBuf)
+	// 判断 StuRcvMsgBuf.ucMsgType 的类型
+	Ril_TskRespProc(0, RIL_COM_CHANNEL_GPS/RIL_COM_CHANNEL_GPRS, &errorcode);
+		ResponseThread(RIL_COM_CHANNEL_GPS/RIL_COM_CHANNEL_GPRS, dwParam);
+			GPRS_RECV(&errorcode);/GPS_RECV(&errorcode);
+				// 1.从 G_stuBuffer.stuBuffArray[etuChannel-1] 去取数据
+				Ril_GetMaxBuffer(pstuAnalyzerBuffer, ETU_RIL_INIT_TYPE_GPRS);
+				pRxByte = pstuAnalyzerBuffer->pByteTemp;
+				// 2.分析数据
+				HandleRxData(pRxByte+ usOffset, &usRecvLength)
+					pszPoint = pRxByte+ usOffset;
+					ParseBinaryRsp((LYCLPCSTR)pszPoint, (LYCLPCSTR*)&pszPoint, &rszNewlength)
+						ParseResultCallBack(dwReturn);
+							G_stuRilObj.fpRilParseResp(ETU_RESPONSE_AT_INIT , dwReturn, (LYCPFVOID)&pstuCmd->usParam);
+							<==>
+							Ril_Response(ETU_RESPONSE_AT_INIT , dwReturn, (LYCPFVOID)&pstuCmd->usParam);
+								stuCB.usFuncLst = RIL_FUNC_DCE_INITIALIZE;
+								stuCB.usType 	= RIL_FUNC_DCE_INITIALIZE;
+								stuCB.usSubType = dwReturn;
+								pstuInstance->fpAppResp((PSTU_RIL_CALLBACK_FUNCPROC)&stuCB);
+								<==>
+								RilAppResult((PSTU_RIL_CALLBACK_FUNCPROC)&stuCB);
+									DCEInitResultPro(pstuRilAppCallbackResp->usSubType);
+										Ril_CreateSocket(RIL_SOCKET_PROTOCOL_AF_UNIX,RIL_SOCKET_TYPE_STREAM,RIL_SOCKET_PROTOCOL_TCP,RilHandle,GetDidTSPApn(),&usErr);
+											CreateSocket(RIL_SOCKET_PROTOCOL_AF_UNIX, RIL_SOCKET_TYPE_STREAM, RIL_SOCKET_PROTOCOL_TCP, RilHandle, &usErr);
+												
+												
+3. GPS和GPRS数据的来源
+//中断向量表 osInterruptVectorTable
+b LIN3Flex_RXI_cat2
+		//  设置 LIN3Flex_RXI_cat2KillWrapC
+		(void)osIsrTerminationWrapperAsm((osuint32)LIN3Flex_RXI_cat2KillWrapC, 0xffffFFFFUL);
+// 调用 LIN3Flex_RXI_cat2KillWrapC
+LIN3Flex_RXI_cat2KillWrapC
+	LIN3Flex_RXI();
+		UartRxHandle(UART_CHANNEL3);
+			temp = (LYCBYTE)G_stuUart_Tx_Handle[channel].pUartRegBlock->BDRM;
+			switch(channel)
+			case UART_CHANNEL3:
+					Ril_BufferCom2PutRx(ETU_RIL_INIT_TYPE_GPS,(LYCBYTE)temp);		
+			case UART_CHANNEL4:
+					Ril_BufferCom2PutRx(ETU_RIL_INIT_TYPE_GPRS,(LYCBYTE)temp);		
+						Ril_Com2PutBuffer(etuChannel, ucRxByte);
+							Com2PutGPRS((LYCBYTE)ucRxByte);
+								pstuBuffer = &G_stuBuffer.stuBuffArray[index];
+								*(pstuBuffer->pszBuff + pstuBuffer->usHead) = (LYCBYTE)ucRxByte;
+	
+	
+4.DFLash的初始化
+DFlashInit
+	WRITE32(DFLS_BASE_ADDRESS + C90LC_LML, FLS_LML_PASSWORD);
+	 	/* #define DFLS_BASE_ADDRESS   0xC3F8C000   见 MPC5607BRM.pdf 的 P948 Table32-5
+	 	 * #define C90LC_LML 0x0004			见 MPC5607BRM.pdf 的 P843 Table30-8
+	 	 */
+		*(LYCINT32U*)(DFLS_BASE_ADDRESS + C90LC_LML) = FLS_LML_PASSWORD = 0b 1010 0001 1010 0001 0001 0001 0001 0001			
+
+
+5.获取后台的数据的过程
+

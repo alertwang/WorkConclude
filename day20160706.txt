@@ -1,0 +1,37 @@
+1.GPRS接收和发送数据在RemoteTask这个周期任务里面
+RemoteTask
+	ReceiveMessage(RemoteMsg, (ApplicationDataRef)&StuRcvMsgBuf);
+	//判断StuRcvMsgBuf.ucMsgType
+	//=REMOTE_TASK_MSG_AT_CMD
+	//=REMOTE_TASK_MSG_CALL
+	//=REMOTE_TASK_MSG_CONNECT
+	//=REMOTE_TASK_MSG_DISCONNECT
+	Ril_TskCommProc(0, RIL_COMHANDLE_CHANNEL_CMD, RIL_COM_CHANNEL_GPRS, &errors);
+		CommandThread(RIL_COM_CHANNEL_GPRS, RIL_COMHANDLE_CHANNEL_CMD, 0);
+			SetQueueUserChanel(RIL_COMHANDLE_CHANNEL_CMD);
+					G_stuQueueElement.ucUserChannel =  RIL_COMHANDLE_CHANNEL_CMD;
+			GPRS_SendCommand();
+				Write(pCmd->pszCmd, pCmd->usLength, pstuHwObj->stuHWCRArray[usIndex].etuChannel);
+						stuCB.usFuncLst = ETU_RIL_UART_WRITE;
+						
+						stuTxBuff.etuUartChannel = etuChannel = pstuHwObj->stuHWCRArray[usIndex].etuChannel;
+    				stuTxBuff.pTxByte        = (LYCPBYTE)pByteIn = pCmd->pszCmd;
+    				stuTxBuff.usTxLength     = usLength = pCmd->usLength;
+    
+						stuCB.lpData    = (LYCPBYTE)&stuTxBuff;
+						G_stuHwHandle.pstuHwMgr((PSTU_RIL_CALLBACK_FUNCPROC)&stuCB);
+						
+
+RilHWImplFunc(pstuRilHWImplParam)
+	//判断pstuRilHWImplParam->usFuncLst
+	//=ETU_RIL_UART_WRITE
+	pstuTxBuffer = (PSTU_RIL_UART_TX_BUFFER)pstuRilHWImplParam->lpData;
+	//判断pstuTxBuffer->etuUartChannel
+	Uart_Transmit(UART_CHANNEL_GPRS, pstuTxBuffer->pTxByte, pstuTxBuffer->usTxLength);
+			G_stuUart_Tx_Handle[channel].pTxByte = &(pTxData[j]);
+			G_stuUart_Tx_Handle[channel].usTxLen = --usTxLen;
+			SetUartTxInterrupt(ucUartChl,TRUE); 
+					//TRUE表示使能发送
+					G_stuUart_Tx_Handle[channel].pUartRegBlock->LINIER |= LIN1_LINIER_TX_ENABLE;
+在UART中断处理函数
+UartTxHandle		

@@ -1,0 +1,62 @@
+GetAnalyzerBuffer(ETU_RIL_INIT_TYPE_GPRS, 0);
+	Ril_MemAlloc(pAnalyzer->usMaxTempBufferSize,(LYCPBYTE)&pAnalyzerTmp);
+	
+2.内存的分配
+
+//所以的内存分配都是从这几个二维数组中得到的
+static LYCINT8U S_ucPublicRam4KBSize    [MEM_RAM_SIZE_4KB_BLOCK_NUM ][MEM_RAM_SIZE_4KB  + MEM_RAM_STRUCT_OFFSET];
+static LYCINT8U S_ucPublicRam1KBSize    [MEM_RAM_SIZE_1KB_BLOCK_NUM ][MEM_RAM_SIZE_1KB  + MEM_RAM_STRUCT_OFFSET];
+static LYCINT8U S_ucPublicRam512BSize   [MEM_RAM_SIZE_512B_BLOCK_NUM][MEM_RAM_SIZE_512B + MEM_RAM_STRUCT_OFFSET];
+static LYCINT8U S_ucPublicRam128BSize   [MEM_RAM_SIZE_128B_BLOCK_NUM][MEM_RAM_SIZE_128B + MEM_RAM_STRUCT_OFFSET];
+static LYCINT8U S_ucPublicRam32BSize    [MEM_RAM_SIZE_32B_BLOCK_NUM ][MEM_RAM_SIZE_32B  + MEM_RAM_STRUCT_OFFSET];
+
+
+
+Ril_BufferInitialize(ETU_RIL_INIT_TYPE_GPRS, MAX_GPRS_RECEIVE_BUFFER=0x400=1K);
+		G_stuBuffer.stuInitParam[index].etuBufferType= ETU_RIL_INIT_TYPE_GPRS;
+    G_stuBuffer.stuInitParam[index].ulBufferSize = 1K;
+    G_stuBuffer.stuBuffArray[index].usLength     = 1K;
+
+    G_stuBuffer.stuBuffArray[index].pszBuff      = NULL;
+    G_stuBuffer.stuBuffArray[index].pszFree      = pszBuff;    
+    
+    Ril_MemAlloc(G_stuBuffer.stuBuffArray[index].usLength, &G_stuBuffer.stuBuffArray[index].pszBuff);    
+    		
+    		stuCB.usFuncLst = ETU_MEM_CB_MGR_ALLOC;
+        stuCB.usLength  = G_stuBuffer.stuBuffArray[index].usLength=1K;
+        stuCB.pSrcData  = NULL;
+        stuCB.ppFunc    = (LYCPFVOID)NULL;
+				//1.申请内存,得到函数指针PublicRam1KBPut和内存地址pByte
+    		pByte=RilMEMImplFunc((PSTU_RIL_CALLBACK_MEM_FUNCPROC)&stuCB);
+									PublicRamGet(&(&stuCB->usLength), &error, (pFuncType*)&pFunc);
+												OSMemGet(S_PublicRam1KB,&ucErr);
+												pFunc = (pFuncType)PublicRam1KBPut;
+												stuCB.usLength = MEM_RAM_SIZE_1KB;
+									stuCB.ppFunc = PublicRam1KBPut; //内存释放的函数,放回到上面相应的5个数组中去
+																			OSMemPut(S_PublicRam1KB,pblk);
+				//2.将函数指针和内存地址存入全局变量中
+				Ril_MemAddrSave(stuCB.usLength,pByte,PublicRam1KBPut);
+					ppFunAddr_1KB = PublicRam1KBPut;
+					MemAddr_1KB[i] = pByte;
+				
+   
+		    G_stuBuffer.stuBuffArray[index].usConfidence = 0;
+		    
+		    G_stuBuffer.stuBuffArray[index].usHead       = 0;
+		    G_stuBuffer.stuBuffArray[index].usTail       = 0;
+
+RIL_Init
+	pInitHandle = GetInitObjHandle() = G_stuRilInitParam;
+										G_stuRilInitParam.stuMemMgr.etuMemType  = ETU_RIL_MEM_TYPE_IMPORT;
+								ValidateParameter(pstuInitFunc, G_stuRilInitParam);
+										Ril_MemInitialize(G_stuRilInitParam->stuMemMgr.etuMemType, pstuImportParam->pRilMemfunc);	
+												G_stuMemMgr.etuMemType = ETU_RIL_MEM_TYPE_IMPORT;
+
+
+
+
+DSPI_Flash_READ
+
+
+
+								

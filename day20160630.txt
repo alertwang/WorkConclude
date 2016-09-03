@@ -1,0 +1,4 @@
+1. TBoxSendHeartBeatNoRespondCnt 
+		这个变量表示如果发送多少次心跳之后如果没有响应则重启3G模块
+		
+2. OBD Android使用的方案商是 元征科技

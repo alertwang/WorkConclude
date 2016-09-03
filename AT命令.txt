@@ -1,0 +1,8 @@
+1.一般AT命令需要在后面加上\r\n=0x0D 0x0A
+AT 				查看AT指令是否准备OK
+ATE0			关闭回显
+AT+COPS? 	注册
+AT+CGMM		获得模块的表示  SARA-U270\r\n\r\nOK
+AT+CGMI		获得厂商表示    u-blox\r\n\r\nOK
+AT+CGSN		获得IMEI号
+AT+CSQ		获得信号强度

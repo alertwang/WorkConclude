@@ -1,0 +1,6 @@
+sdhci_msm_probe
+	sdhci_pltfm_init(pdev, pdata, priv_size);
+	sdhci_alloc_host(&pdev->dev, sizeof(struct sdhci_pltfm_host) + priv_size);
+		mmc_alloc_host(sizeof(struct sdhci_host) + priv_size, dev);
+			INIT_DELAYED_WORK(&host->detect, mmc_rescan);
+					mmc_rescan

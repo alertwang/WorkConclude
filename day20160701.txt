@@ -1,0 +1,28 @@
+1.Tbox休眠功能
+TASK(PeriTask)
+	if(us_10msCnt%5==0)
+		PMAPP_EF_Detect
+		
+唤醒功能
+PMAPP_SF_SetWakeUpSource(WAKEUP_SRC_CAN);
+	PM_SV_ParaStu.mWakeUpSrc = WAKEUP_SRC_CAN;
+PMAPP_SF_GetWakeUpSource
+	
+
+2.收到数据包的解析过程
+ACP_SF_MsgAnalyze( uReceiver_Rxbuf , *uReceiver_RxLen , &pData_Content , &Data_Len , &uEncryType ,&uOpearID_Rx);
+	//将 uMsgAnalyze_Rxbuf 数据判断头部ly
+	//复制到 uMsgAnalyze_Content
+	//整包数据的长度放在 uMsgAnalyze_ContentLen
+	ACP_SF_MsgFilter( uMsgAnalyze_Rxbuf , uMsgAnalyze_Rxlen , *uMsgAnalyze_Content , uMsgAnalyze_ContentLen );		
+	
+
+3.串口初始化
+main
+	UartInitPowerOn(UART_CHANNEL_DEBUG);
+		UartInit(channel);	
+
+4.标准的c库的所在路径
+C:\Program Files (x86)\Freescale\CW for MPC55xx and MPC56xx 2.10\PowerPC_EABI_Support\MSL\MSL_C\MSL_Common
+
+
