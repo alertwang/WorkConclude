@@ -1,0 +1,19 @@
+ioctl_g_fmt_cap
+	case V4L2_BUF_TYPE_PRIVATE
+	adv7180_get_std(&std);
+
+static struct v4l2_int_ioctl_desc adv7180_ioctl_desc[] = {
+	¡­¡­
+	{vidioc_int_g_fmt_cap_num, (v4l2_int_ioctl_func*)ioctl_g_fmt_cap},
+	¡­¡­
+}
+
+mxc_v4l_do_ioctl
+	switch (ioctlnr)
+	case VIDIOC_G_STD: 
+		mxc_v4l2_g_std(cam, e); /* ÅÐ¶Ï¸ñÊ½ÊÇ·ñ V4L2_STD_PAL != *e && V4L2_STD_NTSC != *e && V4L2_STD_NTSC_443 != *e */
+			vidioc_int_g_fmt_cap(cam->sensor, &tv_fmt);
+			<==>
+			ioctl_g_fmt_cap(cam->sensor, &tv_fmt);
+				adv7180_get_std(&std);
+				tv_fmt.fmt.pix.pixelformat = (u32)std;

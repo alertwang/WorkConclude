@@ -1,0 +1,22 @@
+1.编译的执行过程
+meta-swi-extras/build.sh 	-p poky/ 
+													-o meta-openembedded/ 
+													-l meta-swi 
+													-x kernel/.git 
+													-j 4 
+													-t 4   
+													-a SDKPATH_PREFIX= /* end COMMON_ARGS */
+													-a LK_REPO=/home/alert/workspace/mdm9x28-SWI9X28A_yocto/lk/ 
+													-m swi-mdm9x28 /* end COMMON_MDM9X28 */
+													-b build_bin 
+													-q /* end COMMON_BIN */
+													
+													
+
+enable_layer "meta-swi-mdm9xxx" "/home/alert/workspace/mdm9x28-SWI9X28A_yocto/meta-swi/meta-swi-mdm9xxx"
+
+
+
+2.AVD7180 Decode
+	Table 107 描述了所有的寄存器
+	
