@@ -1,0 +1,38 @@
+
+
+
+
+main
+	/* step1 */
+	createNetwork4gManager();
+			pNetwork4gManager->onNetConnectionStateChange = ConnectionStateHandler;			
+	createLocalSocketClient();
+		le_thread_Create("LocalSocket", LocalSocketReceiveThread, NULL);
+				/* 与systemService进程进程通信的localsocket */
+				LocalSocketReceiveThread
+					//判断pHead->msgID
+					case MSG_NETWORK_STATE_CHANGE: 
+						pNetwork4gManager->onNetConnectionStateChange(pNetworkStateChageMsg->isConnected); //注册过程见step1
+						<==>		
+						ConnectionStateHandler(pNetworkStateChageMsg->isConnected); 
+								//socket去连接sierrawireless的官网								
+								pNetwork4gManager->testDataConnectionV4()
+								<==>
+								testDataConnectionV4()
+									
+								//遍历其注册的监听器
+								LIST_FOR_EACH_ENTRY(l, &pNetwork4gManager->listeners, Network4gStatusListener, head)		
+										l->onNetConnectionStateChange(isConnected); //注册过程见step2
+										<==>
+										onNetConnectionStateChange(isConnected); /* 网络状态发生改变,接收数据出错,发送数据出错 */
+												startConnectWithServer
+														pthread_create(&cloudClient.connectionThreadID, NULL, serverConnectionThread, NULL);
+															serverConnectionThread		
+	/* step2 */	
+	create4GDataDispatcher(&cloudClientThreadID);
+		cloudClient.netWorkListener.onNetConnectionStateChange = onNetConnectionStateChange;		
+		pNetwork4gManager->setNetwork4gStatusListener(&(cloudClient.netWorkListener));
+
+
+
+
