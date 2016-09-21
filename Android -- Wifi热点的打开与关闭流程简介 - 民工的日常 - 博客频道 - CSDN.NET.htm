@@ -1,0 +1,1382 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+     
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    
+<head>   
+   
+
+    <script type="text/javascript" src="http://c.csdnimg.cn/pubfooter/js/tracking.js" charset="utf-8"></script>  
+
+    <script type="text/javascript">
+        var protocol = window.location.protocol;
+        document.write('<script type="text/javascript" src="' + protocol + '//csdnimg.cn/pubfooter/js/repoAddr2.js?v=' + Math.random() + '"></' + 'script>');
+    </script>
+
+  
+ <meta http-equiv="Cache-Control" content="no-siteapp" /><link rel="alternate" media="handheld" href="#" />
+
+    <title>Android -- Wifi热点的打开与关闭流程简介 - 民工的日常
+        - 博客频道 - CSDN.NET</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="在linux下面使用sqlpus连接数据库处理，实在不是很方便，还好有一个工具rlwrap,通过这个能够调用历史命令和回调功能，能够极大的提高效率。1、&#160; 下载从http://utopia.knoware.nl/~hlub/uck/rlwrap/下载rlwrap-0.37.tar.gz&#160;2、&#160; 解压缩安装[root@localhosttmp]# tar -zxvf rlwrap" />
+    <script src="http://static.blog.csdn.net/scripts/jquery.js" type="text/javascript"></script>
+      <script type="text/javascript" src="http://static.blog.csdn.net/scripts/jquery-version.js"></script>
+    <script type="text/javascript" src="http://static.blog.csdn.net/scripts/ad.js?v=1.1"></script>
+        <!--new top-->
+               <link rel="stylesheet" href="http://c.csdnimg.cn/public/common/toolbar/css/index.css">        <!--new top-->
+    
+      <!-- ad begin -->
+         <script language="javascript" type="text/javascript" src="http://ads.csdn.net/js/tracking.js"></script>
+    <!-- ad end-->
+
+    <link rel="Stylesheet" type="text/css" href="http://static.blog.csdn.net/skin/dark1/css/style.css?v=1.1" />
+    <link id="RSSLink" title="RSS" type="application/rss+xml" rel="alternate" href="/csdn_of_coder/rss/list" />
+    <link rel="shortcut icon" href="http://c.csdnimg.cn/public/favicon.ico" />
+    <link type="text/css" rel="stylesheet" href="http://static.blog.csdn.net/scripts/SyntaxHighlighter/styles/default.css" />
+ 
+
+
+</head>
+<body>
+    <!-- 广告位开始 -->
+        <ins data-revive-zoneid="149" data-revive-id="8c38e720de1c90a6f6ff52f3f89c4d57"></ins>
+    <!-- 广告位结束 -->
+
+    
+   
+      <!--new top-->
+    <script id="toolbar-tpl-scriptId" fixed="true" prod="blog" skin="black" src="http://c.csdnimg.cn/public/common/toolbar/js/html.js" type="text/javascript"></script>
+     <!--new top-->
+    <div id="container">
+        <div id="header">
+    <div class="header">
+        <div id="blog_title">
+            <h2>
+                <a href="http://blog.csdn.net/csdn_of_coder">民工的日常</a></h2>
+            <h3>我们的意义是让老板更有钱~</h3>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+        
+     
+    </div>
+</div>
+<div id="navigator">
+    <div class="navigator_bg">
+    </div>
+    <div class="navigator">
+        <ul>
+            
+                <li id="btnContents"><a href="http://blog.csdn.net/csdn_of_coder?viewmode=contents"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_mulu'])">
+                    <img src="http://static.blog.csdn.net/images/ico_list.gif">目录视图</span></a></li>
+                <li id="btnView"><a href="http://blog.csdn.net/csdn_of_coder?viewmode=list"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_zhaiyao'])">
+                    <img src="http://static.blog.csdn.net/images/ico_summary.gif">摘要视图</span></a></li>
+                <li id="btnRss"><a href="http://blog.csdn.net/csdn_of_coder/rss/list"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_RSS'])">
+                    <img src="http://static.blog.csdn.net/images/ico_rss.gif">订阅</span></a></li>                
+            
+
+            </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    var username = "csdn_of_coder";
+    var _blogger = username;
+    var blog_address = "http://blog.csdn.net/csdn_of_coder";
+    var static_host = "http://static.blog.csdn.net";
+    var currentUserName = "";  
+</script>
+
+        <div id="body">
+            <div id="main">
+                <div class="main">
+                        <div class="ad_class">
+<div class="notice tracking-ad" data-mod='popu_3' > 
+
+
+<a href="https://code.csdn.net/blog/41">
+<font color=red>深度学习代码专栏
+</font></a>
+&nbsp;&nbsp;&nbsp;
+
+<a href="http://edu.csdn.net/collectCourse">
+<font color=blue>攒课--我的学习我做主
+</font></a>
+&nbsp;&nbsp;&nbsp;
+<a href="http://geek.csdn.net/news/detail/100097">
+<font color=red>【HOT】提交深度学习内容，享殊荣
+</font></a>
+&nbsp;&nbsp;&nbsp;
+
+
+</font></a>
+</div>                        </div>
+                        
+
+
+<!-- 广告位开始 -->
+<ins data-revive-zoneid="72" data-revive-id="8c38e720de1c90a6f6ff52f3f89c4d57"></ins>
+<!-- 广告位结束 -->
+
+  
+<link href="http://static.blog.csdn.net/css/comment1.css" type="text/css" rel="stylesheet" />
+<link href="http://static.blog.csdn.net/css/style1.css" type="text/css" rel="stylesheet" />
+<script language='JavaScript' type='text/javascript' src='http://download.csdn.net/js/jquery.cookie.js'></script>
+<script type="text/javascript" src="http://c.csdnimg.cn/rabbit/search-service/main.js"></script>
+<link rel="stylesheet" href="http://static.blog.csdn.net/public/res-min/markdown_views.css?v=1.0" />
+<link rel="stylesheet" href="http://static.blog.csdn.net/css/category.css?v=1.0" />
+<script type="text/javascript" src="http://static.blog.csdn.net/public/res/bower-libs/MathJax/MathJax.js?config=TeX-AMS_HTML"></script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/web-storage-cache.min.js"></script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/replace.min.js"></script>
+
+
+
+
+  <script type="text/ecmascript">
+      window.quickReplyflag = true;
+           
+            var isBole = false;
+            
+          
+    </script>
+<div id="article_details" class="details">
+    <div class="article_title">   
+         <span class="ico ico_type_Original"></span>
+
+
+    <h1>
+        <span class="link_title"><a href="/csdn_of_coder/article/details/52423389">
+        Android -- Wifi热点的打开与关闭流程简介            
+        </a></span>
+    </h1>
+</div>
+
+   
+
+        <div class="article_manage clearfix">
+        <div class="article_l">
+            <span class="link_categories">
+            标签：
+              <a href='http://www.csdn.net/tag/android' target=_blank onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_tag']);">android</a><a href='http://www.csdn.net/tag/wi-fi' target=_blank onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_tag']);">wi-fi</a><a href='http://www.csdn.net/tag/SoftAP' target=_blank onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_tag']);">SoftAP</a><a href='http://www.csdn.net/tag/WifiStateMachine' target=_blank onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_tag']);">WifiStateMachine</a><a href='http://www.csdn.net/tag/WifiApConfigStore' target=_blank onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_tag']);">WifiApConfigStore</a>
+            </span>
+        </div>
+        <div class="article_r">
+            <span class="link_postdate">2016-09-03 16:56</span>
+            <span class="link_view" title="阅读次数">178人阅读</span>
+            <span class="link_comments" title="评论次数"> <a href="#comments" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_pinglun'])">评论</a>(0)</span>
+            <span class="link_collect tracking-ad" data-mod="popu_171"> <a href="javascript:void(0);" onclick="javascript:collectArticle('Android -- Wifi热点的打开与关闭流程简介','52423389');return false;" title="收藏">收藏</a></span>
+             <span class="link_report"> <a href="#report" onclick="javascript:report(52423389,2);return false;" title="举报">举报</a></span>
+
+        </div>
+    </div>
+    <div class="embody"  style="display:none" id="embody">
+        <span class="embody_t">本文章已收录于：</span>
+        <div class="embody_c" id="lib" value="{&quot;err&quot;:0,&quot;msg&quot;:&quot;ok&quot;,&quot;data&quot;:[]}"></div>
+    </div>
+    <style type="text/css">        
+            .embody{
+                padding:10px 10px 10px;
+                margin:0 -20px;
+                border-bottom:solid 1px #ededed;                
+            }
+            .embody_b{
+                margin:0 ;
+                padding:10px 0;
+            }
+            .embody .embody_t,.embody .embody_c{
+                display: inline-block;
+                margin-right:10px;
+            }
+            .embody_t{
+                font-size: 12px;
+                color:#999;
+            }
+            .embody_c{
+                font-size: 12px;
+            }
+            .embody_c img,.embody_c em{
+                display: inline-block;
+                vertical-align: middle;               
+            }
+             .embody_c img{               
+                width:30px;
+                height:30px;
+            }
+            .embody_c em{
+                margin: 0 20px 0 10px;
+                color:#333;
+                font-style: normal;
+            }
+    </style>
+    <script  type="text/javascript">
+        $(function () {
+            try
+            {
+                var lib = eval("("+$("#lib").attr("value")+")");
+                var html = "";
+                if (lib.err == 0) {
+                    $.each(lib.data, function (i) {
+                        var obj = lib.data[i];
+                        //html += '<img src="' + obj.logo + '"/>' + obj.name + "&nbsp;&nbsp;";
+                        html += ' <a href="' + obj.url + '" target="_blank">';
+                        html += ' <img src="' + obj.logo + '">';
+                        html += ' <em><b>' + obj.name + '</b></em>';
+                        html += ' </a>';
+                    });
+                    if (html != "") {
+                        setTimeout(function () {
+                            $("#lib").html(html);                      
+                            $("#embody").show();
+                        }, 100);
+                    }
+                }      
+            } catch (err)
+            { }
+            
+        });
+    </script>
+      <div class="category clearfix">
+        <div class="category_l">
+           <img src="http://static.blog.csdn.net/images/category_icon.jpg">
+            <span>分类：</span>
+        </div>
+        <div class="category_r">
+                    <label  onclick="GetCategoryArticles('6200080','csdn_of_coder','top','52423389');">
+                        <span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_fenlei']);">Android Framework<em>（13）</em></span>
+                      <img class="arrow-down" src="http://static.blog.csdn.net/images/arrow_triangle _down.jpg" style="display:inline;">
+                      <img class="arrow-up" src="http://static.blog.csdn.net/images/arrow_triangle_up.jpg" style="display:none;">
+                        <div class="subItem">
+                            <div class="subItem_t"><a  href="http://blog.csdn.net/csdn_of_coder/article/category/6200080"  target="_blank">作者同类文章</a><i class="J_close">X</i></div>
+                            <ul class="subItem_l" id="top_6200080">                            
+                            </ul>
+                        </div>
+                    </label>                    
+        </div>
+    </div>
+    <script   type="text/javascript" src="http://static.blog.csdn.net/scripts/category.js"></script>  
+        <div   class="bog_copyright">         
+            <p  class="copyright_p" >版权声明：本文为博主原创文章，未经博主允许不得转载。</p>
+        </div>
+
+  
+
+  
+  
+     
+
+<div id="article_content" class="article_content">
+
+<h1 style="text-align:center">Android -- Wifi热点的打开与关闭流程简介</h1>
+<div><br>
+</div>
+<div>在Android手机中，热点也是一个较为常用的功能。对于framework开发者来说，要开发、维护SoftAp，了解framework中热点开关的具体流程是非常有必要的。下面就对这部分内容做一些介绍，以供后续查阅。</div>
+<h3>一、SoftAp打开流程</h3>
+<div>当我们在设置中打开热点时，会调用WifiManager::setWifiApEnabled()，参数enabled为true；间接调用同名的WifiServiceImpl::setWifiApEnabled()：<pre code_snippet_id="1864589" snippet_file_name="blog_20160903_1_1108116"  code_snippet_id="1864589" snippet_file_name="blog_20160903_1_1108116" name="code" class="java">/**
+     * Start AccessPoint mode with the specified
+     * configuration. If the radio is already running in
+     * AP mode, update the new configuration
+     * Note that starting in access point mode disables station
+     * mode operation
+     * @param wifiConfig SSID, security and channel details as
+     *        part of WifiConfiguration
+     * @return {@code true} if the operation succeeds, {@code false} otherwise
+     *
+     * @hide Dont open up yet
+     */
+    public boolean setWifiApEnabled(WifiConfiguration wifiConfig, boolean enabled) {
+        try {
+            mService.setWifiApEnabled(wifiConfig, enabled);
+            return true;
+        } catch (RemoteException e) {
+            return false;
+        }
+    }</pre><pre code_snippet_id="1864589" snippet_file_name="blog_20160903_2_9744912"  code_snippet_id="1864589" snippet_file_name="blog_20160903_2_9744912" name="code" class="java">    /**
+     * see {@link android.net.wifi.WifiManager#setWifiApEnabled(WifiConfiguration, boolean)}
+     * @param wifiConfig SSID, security and channel details as
+     *        part of WifiConfiguration
+     * @param enabled true to enable and false to disable
+     */
+    public void setWifiApEnabled(WifiConfiguration wifiConfig, boolean enabled) {
+        enforceChangePermission();
+        ConnectivityManager.enforceTetherChangePermission(mContext);
+        if (mUserManager.hasUserRestriction(UserManager.DISALLOW_CONFIG_TETHERING)) {
+            throw new SecurityException(&quot;DISALLOW_CONFIG_TETHERING is enabled for this user.&quot;);
+        }
+        // null wifiConfig is a meaningful input for CMD_SET_AP
+        if (wifiConfig == null || isValid(wifiConfig)) {
+            mWifiController.obtainMessage(CMD_SET_AP, enabled ? 1 : 0, 0, wifiConfig).sendToTarget();
+        } else {
+            Slog.e(TAG, &quot;Invalid WifiConfiguration&quot;);
+        }
+    }</pre>参数中的wifiConfig对象保存了在Settings中操作时保留的热点信息，如热点名称、密钥和加密方式等等。与Wifi本身的打开和关闭类&#20284;，Wifi热点的打开流程也是通过WifiController状态机向WifiStateMachine转发消息的。与前面介绍的Wifi打开流程类&#20284;，CMD_SET_AP消息在ApStaDisabledState状态处理：<pre code_snippet_id="1864589" snippet_file_name="blog_20160903_3_3539924"  code_snippet_id="1864589" snippet_file_name="blog_20160903_3_3539924" name="code" class="java">                case CMD_SET_AP:
+                    if (msg.arg1 == 1) {
+                        mWifiStateMachine.setHostApRunning((WifiConfiguration) msg.obj,
+                                true);
+                        transitionTo(mApEnabledState);//此时WifiController的状态停留在ApEnabledState
+                    }</pre>由此转入WifiStateMachine进行打开流程：<pre code_snippet_id="1864589" snippet_file_name="blog_20160903_20_1171255"  code_snippet_id="1864589" snippet_file_name="blog_20160903_20_1171255" name="code" class="java">    /**
+     * TODO: doc
+     */
+    public void setHostApRunning(WifiConfiguration wifiConfig, boolean enable) {
+        if (enable) {
+            sendMessage(CMD_START_AP, wifiConfig);
+        } else {
+            sendMessage(CMD_STOP_AP);
+        }
+    }</pre>WifiStateMachine::InitialState会处理该消息：<pre code_snippet_id="1864589" snippet_file_name="blog_20160903_5_5208363"  code_snippet_id="1864589" snippet_file_name="blog_20160903_5_5208363" name="code" class="java">case CMD_START_AP:
+                    if (mWifiNative.loadDriver() == false) {
+                        loge(&quot;Failed to load driver for softap&quot;);
+                    } else {
+                        if (enableSoftAp() == true) {
+                            setWifiApState(WIFI_AP_STATE_ENABLING, 0);//该函数中会发送广播，告知外界当前热点的启动阶段
+                            transitionTo(mSoftApStartingState);//切换状态
+                        } else {
+                            setWifiApState(WIFI_AP_STATE_FAILED,
+                                    WifiManager.SAP_START_FAILURE_GENERAL);
+                            transitionTo(mInitialState);
+                        }
+                    }
+                    break;</pre>首先肯定是先加载驱动，驱动加载成功后通过enableSoftAp()配置Wifi热点：<pre code_snippet_id="1864589" snippet_file_name="blog_20160903_6_257110"  code_snippet_id="1864589" snippet_file_name="blog_20160903_6_257110" name="code" class="java">    /* SoftAP configuration */
+    private boolean enableSoftAp() {
+        if (WifiNative.getInterfaces() != 0) {
+            if (!mWifiNative.toggleInterface(0)) {
+                if (DBG) Log.e(TAG, &quot;toggleInterface failed&quot;);
+                return false;
+            }
+        } else {
+            if (DBG) Log.d(TAG, &quot;No interfaces to toggle&quot;);
+        }
+
+        try {
+            mNwService.wifiFirmwareReload(mInterfaceName, &quot;AP&quot;);//加载固件
+            if (DBG) Log.d(TAG, &quot;Firmware reloaded in AP mode&quot;);
+        } catch (Exception e) {
+            Log.e(TAG, &quot;Failed to reload AP firmware &quot; + e);
+        }
+
+        if (WifiNative.startHal() == false) {//启动HAL层
+            /* starting HAL is optional */
+            Log.e(TAG, &quot;Failed to start HAL&quot;);
+        }
+        return true;
+    }</pre>Wifi热点首先需要绑定端口信息，再以AP模式通过NetworkManagementService在wlan0端口下加载固件；同时热点功能也需要HAL层的支持。</div>
+<div>setWifiApState()会发送广播，告知当前热点打开的过程信息；同理，也有setWifiState()，告知外界当前Wifi打开的过程信息；如果我们有必要知道当前热点打开的过程进行到什么阶段了，可以监听WifiManager.WIFI_AP_STATE_CHANGED_ACTION广播。最后状态切换到SoftApStartingState，如果流程有误，则会重新进入InitialState。<br>
+</div>
+<div>接着看SoftApStartingState::enter()：<pre code_snippet_id="1864589" snippet_file_name="blog_20160903_7_5970948"  code_snippet_id="1864589" snippet_file_name="blog_20160903_7_5970948" name="code" class="java">        public void enter() {
+            final Message message = getCurrentMessage();
+            if (message.what == CMD_START_AP) {
+                final WifiConfiguration config = (WifiConfiguration) message.obj;
+
+                if (config == null) {
+                    mWifiApConfigChannel.sendMessage(CMD_REQUEST_AP_CONFIG);//1 - 获取先前或者默认的配置信息
+                } else {
+                    mWifiApConfigChannel.sendMessage(CMD_SET_AP_CONFIG, config);//2 - 将上层传入的配置信息写到本地文件
+                    startSoftApWithConfig(config);//开启热点
+                }
+            } else {
+                throw new RuntimeException(&quot;Illegal transition to SoftApStartingState: &quot; + message);
+            }
+        }</pre>首先会判断打开热点时传入的WifiConfiguration对象是否为null；如果为空，则会向WifiApConfigStore发送CMD_REQUEST_AP_CONFIG消息，请求一个热点配置信息</div>
+<div>。我们一起介绍这两个分支过程。回过头看InitialState状态的enter()：<pre code_snippet_id="1864589" snippet_file_name="blog_20160903_8_5862264"  code_snippet_id="1864589" snippet_file_name="blog_20160903_8_5862264" name="code" class="java">public void enter() {
+            WifiNative.stopHal();
+            mWifiNative.unloadDriver();
+            if (mWifiP2pChannel == null) {
+                mWifiP2pChannel = new AsyncChannel();
+                mWifiP2pChannel.connect(mContext, getHandler(),
+                    mWifiP2pServiceImpl.getP2pStateMachineMessenger());
+            }
+
+            if (mWifiApConfigChannel == null) {
+                mWifiApConfigChannel = new AsyncChannel();
+                mWifiApConfigStore = WifiApConfigStore.makeWifiApConfigStore(
+                        mContext, getHandler());//WifiApConfigStore也是一个小的状态机，此时会构建mWifiApConfigStore对戏，并启动状态机
+                mWifiApConfigStore.loadApConfiguration();//在WifiApConfigStore中加载默认的热点配置信息
+                mWifiApConfigChannel.connectSync(mContext, getHandler(),
+                        mWifiApConfigStore.getMessenger());//创建AsyncChannel对象，以供向WifiApConfigStore发送消息
+            }
+
+            if (mWifiConfigStore.enableHalBasedPno.get()) {
+                // make sure developer Settings are in sync with the config option
+                mHalBasedPnoEnableInDevSettings = true;
+            }
+        }</pre>在创建完mWifiApConfigStore对象后，会调用mWifiApConfigStore.loadApConfiguration()加载热点配置信息：<pre code_snippet_id="1864589" snippet_file_name="blog_20160903_9_4956410"  code_snippet_id="1864589" snippet_file_name="blog_20160903_9_4956410" name="code" class="java">    void loadApConfiguration() {
+        DataInputStream in = null;
+        try {
+            WifiConfiguration config = new WifiConfiguration();
+            in = new DataInputStream(new BufferedInputStream(new FileInputStream(
+                            AP_CONFIG_FILE)));
+
+            int version = in.readInt();
+            if ((version != 1) &amp;&amp; (version != 2)) {
+                Log.e(TAG, &quot;Bad version on hotspot configuration file, set defaults&quot;);
+                setDefaultApConfiguration();
+                return;
+            }
+            config.SSID = in.readUTF();
+
+            if (version &gt;= 2) {
+                config.apBand = in.readInt();
+                config.apChannel = in.readInt();
+            }
+
+            int authType = in.readInt();
+            config.allowedKeyManagement.set(authType);
+            if (authType != KeyMgmt.NONE) {
+                config.preSharedKey = in.readUTF();
+            }
+
+            mWifiApConfig = config;
+        } catch (IOException ignore) {
+            setDefaultApConfiguration();
+        } finally {
+            if (in != null) {
+                try {
+                    in.close();
+                } catch (IOException e) {}
+            }
+        }
+    }</pre>主要是从/misc/wifi/softap.conf文件中读取其中的信息，并赋给WifiApConfigStore的成员变量mWifiApConfig，这个变量保存的就是当前SoftAp的配置信息。该文件一开始会有默认的信息保存其中，如果我们从没配置过热点，拿到的就是系统默认的信息；如果，上层配置了热点；我们也会将新的配置信息更新到softap.conf中，以供下载再次加载。再看消息处理过程：<pre code_snippet_id="1864589" snippet_file_name="blog_20160903_10_9482551"  code_snippet_id="1864589" snippet_file_name="blog_20160903_10_9482551" name="code" class="java">case WifiStateMachine.CMD_REQUEST_AP_CONFIG:
+                    mReplyChannel.replyToMessage(message,
+                            WifiStateMachine.CMD_RESPONSE_AP_CONFIG, mWifiApConfig);</pre>向WifiStateMachine回复CMD_RESPONSE_AP_CONFIG消息，并附带mWifiApConfig对象。在SoftApStartingState::enter()中，如果config不为空，我们直接去调用startSoftApWithConfig()启动SoftAP；如果一开始config为null，通过处理CMD_RESPONSE_AP_CONFIG，获取到新的config对象，也应该去开启SoftAP了：<pre code_snippet_id="1864589" snippet_file_name="blog_20160903_11_3244543"  code_snippet_id="1864589" snippet_file_name="blog_20160903_11_3244543" name="code" class="java">case WifiStateMachine.CMD_RESPONSE_AP_CONFIG:
+                    WifiConfiguration config = (WifiConfiguration) message.obj;
+                    if (config != null) {
+                        startSoftApWithConfig(config);
+                    } else {
+                        loge(&quot;Softap config is null!&quot;);//config依然为null，则热点打开失败
+                        sendMessage(CMD_START_AP_FAILURE, WifiManager.SAP_START_FAILURE_GENERAL);//SoftApStartingState处理，状态重新切换到InitialState
+                    }
+                    break;</pre>
+<div>如果一开始的config对象不为空，从代码可知我们会先发送CMD_SET_AP_CONFIG消息，通知WifiApConfigStore更新配置信息，看处理流程：<pre code_snippet_id="1864589" snippet_file_name="blog_20160903_12_8991400"  code_snippet_id="1864589" snippet_file_name="blog_20160903_12_8991400" name="code" class="java">    class InactiveState extends State {
+        public boolean processMessage(Message message) {
+            switch (message.what) {
+                case WifiStateMachine.CMD_SET_AP_CONFIG:
+                     WifiConfiguration config = (WifiConfiguration)message.obj;
+                    if (config.SSID != null) {
+                        mWifiApConfig = config;//将上层传入的配置信息先保存到成员变量中
+                        transitionTo(mActiveState);//切换状态
+                    } else {
+                        Log.e(TAG, &quot;Try to setup AP config without SSID: &quot; + message);
+                    }</pre>首先将传入的配置对象保存到mWifiApConfig，接着切换状态：<pre code_snippet_id="1864589" snippet_file_name="blog_20160903_13_8118565"  code_snippet_id="1864589" snippet_file_name="blog_20160903_13_8118565" name="code" class="java">    class ActiveState extends State {
+        public void enter() {
+            new Thread(new Runnable() {
+                public void run() {
+                    writeApConfiguration(mWifiApConfig);//更新配置信息到本地
+                    sendMessage(WifiStateMachine.CMD_SET_AP_CONFIG_COMPLETED);//发送更新完成消息
+                }
+            }).start();
+        }
+
+        public boolean processMessage(Message message) {
+            switch (message.what) {
+                //TODO: have feedback to the user when we do this
+                //to indicate the write is currently in progress
+                case WifiStateMachine.CMD_SET_AP_CONFIG:
+                    deferMessage(message);
+                    break;
+                case WifiStateMachine.CMD_SET_AP_CONFIG_COMPLETED:
+                    transitionTo(mInactiveState);
+                    break;
+                default:
+                    return NOT_HANDLED;
+            }
+            return HANDLED;
+        }
+    }</pre>enter()函数中，会调用writeApConfiguration()将mWifiApConfig的信息更新到/misc/wifi/softap.conf文件中，供下次加载使用：<pre code_snippet_id="1864589" snippet_file_name="blog_20160903_14_4388812"  code_snippet_id="1864589" snippet_file_name="blog_20160903_14_4388812" name="code" class="java">    private void writeApConfiguration(final WifiConfiguration config) {
+        DataOutputStream out = null;
+        try {
+            out = new DataOutputStream(new BufferedOutputStream(
+                        new FileOutputStream(AP_CONFIG_FILE)));
+
+            out.writeInt(AP_CONFIG_FILE_VERSION);
+            out.writeUTF(config.SSID);
+            out.writeInt(config.apBand);
+            out.writeInt(config.apChannel);
+            int authType = config.getAuthType();
+            out.writeInt(authType);
+            if(authType != KeyMgmt.NONE) {
+                out.writeUTF(config.preSharedKey);
+            }
+        } catch (IOException e) {
+            Log.e(TAG, &quot;Error writing hotspot configuration&quot; + e);
+        } finally {
+            if (out != null) {
+                try {
+                    out.close();
+                } catch (IOException e) {}
+            }
+        }
+    }</pre>处理比较简单，接着给自己发送CMD_SET_AP_CONFIG_COMPLETED消息，告知配置信息更新已经完毕，并重新进入InactiveState，重新等待下次配置信息的更新处理。</div>
+我们再返回到WifiStateMachine::SoftApStartingState处理CMD_RESPONSE_AP_CONFIG，如果再次获取后的config依然为null，则通知热点打开失败。接着就是真正开启热点的函数处理：<pre code_snippet_id="1864589" snippet_file_name="blog_20160903_15_8183822"  code_snippet_id="1864589" snippet_file_name="blog_20160903_15_8183822" name="code" class="java">    /* Current design is to not set the config on a running hostapd but instead
+     * stop and start tethering when user changes config on a running access point
+     *
+     * TODO: Add control channel setup through hostapd that allows changing config
+     * on a running daemon
+     */
+    private void startSoftApWithConfig(final WifiConfiguration configuration) {
+        // set channel
+        final WifiConfiguration config = new WifiConfiguration(configuration);
+
+        if (DBG) {
+            Log.d(TAG, &quot;SoftAp config channel is: &quot; + config.apChannel);
+        }
+
+        //We need HAL support to set country code and get available channel list, if HAL is
+        //not available, like razor, we regress to original implementaion (2GHz, channel 6)
+        if (mWifiNative.isHalStarted()) {//因为SoftAp需要HAL层的支持，所有首先要进行确定，再继续配置
+            //set country code through HAL Here
+            if (mSetCountryCode != null) {
+                if (!mWifiNative.setCountryCodeHal(mSetCountryCode.toUpperCase(Locale.ROOT))) {
+                    if (config.apBand != 0) {
+                        Log.e(TAG, &quot;Fail to set country code. Can not setup Softap on 5GHz&quot;);
+                        //countrycode is mandatory for 5GHz
+                        sendMessage(CMD_START_AP_FAILURE, WifiManager.SAP_START_FAILURE_GENERAL);
+                        return;
+                    }
+                }
+            } else {
+                if (config.apBand != 0) {
+                    //countrycode is mandatory for 5GHz
+                    Log.e(TAG, &quot;Can not setup softAp on 5GHz without country code!&quot;);
+                    sendMessage(CMD_START_AP_FAILURE, WifiManager.SAP_START_FAILURE_GENERAL);
+                    return;
+                }
+            }
+
+            if (config.apChannel == 0) {
+                config.apChannel = chooseApChannel(config.apBand);
+                if (config.apChannel == 0) {
+                    if(mWifiNative.isGetChannelsForBandSupported()) {
+                        //fail to get available channel
+                        sendMessage(CMD_START_AP_FAILURE, WifiManager.SAP_START_FAILURE_NO_CHANNEL);
+                        return;
+                    } else {
+                        //for some old device, wifiHal may not be supportedget valid channels are not
+                        //supported
+                        config.apBand = 0;
+                        config.apChannel = 6;
+                    }
+                }
+            }
+        } else {
+            //for some old device, wifiHal may not be supported
+            config.apBand = 0;
+            config.apChannel = 6;
+        }
+        // Start hostapd on a separate thread
+        new Thread(new Runnable() {//开启一个新线程，来启动hostapd；我们支持wpa_s是支持Wifi的，hostapd则是支持SoftAP的
+            public void run() {
+                try {
+                    mNwService.startAccessPoint(config, mInterfaceName);//通过NetworkManagerService，在无线端口上，按传入的配置信息开启SoftAP；
+                } catch (Exception e) {
+                    loge(&quot;Exception in softap start &quot; + e);
+                    try {
+                        mNwService.stopAccessPoint(mInterfaceName);
+                        mNwService.startAccessPoint(config, mInterfaceName);
+                    } catch (Exception e1) {
+                        loge(&quot;Exception in softap re-start &quot; + e1);
+                        sendMessage(CMD_START_AP_FAILURE, WifiManager.SAP_START_FAILURE_GENERAL);//打开失败,状态会重新切换到InitialState；等待下一次过程
+                        return;
+                    }
+                }
+                if (DBG) log(&quot;Soft AP start successful&quot;);
+                sendMessage(CMD_START_AP_SUCCESS);//打开成功
+            }
+        }).start();
+    }</pre>如果最后热点打开成功，发送CMD_START_AP_SUCCESS，看处理过程，SoftApStartingState：<pre code_snippet_id="1864589" snippet_file_name="blog_20160903_16_5533863"  code_snippet_id="1864589" snippet_file_name="blog_20160903_16_5533863" name="code" class="java">                case CMD_START_AP_SUCCESS:
+                    setWifiApState(WIFI_AP_STATE_ENABLED, 0);//发送广播，告知SoftAp已经成功打开
+                    transitionTo(mSoftApStartedState);//切换状态
+                    break;
+                case CMD_START_AP_FAILURE:
+                    setWifiApState(WIFI_AP_STATE_FAILED, message.arg1);//发送广播，告知SoftAp未成功打开
+                    transitionTo(mInitialState);//切换到初始状态</pre>最终状态在SoftApStartedState：<pre code_snippet_id="1864589" snippet_file_name="blog_20160903_17_9121131"  code_snippet_id="1864589" snippet_file_name="blog_20160903_17_9121131" name="code" class="java">    class SoftApStartedState extends State {
+        @Override
+        public boolean processMessage(Message message) {
+            logStateAndMessage(message, getClass().getSimpleName());
+
+            switch(message.what) {
+                case CMD_STOP_AP:
+                    if (DBG) log(&quot;Stopping Soft AP&quot;);
+                    /* We have not tethered at this point, so we just shutdown soft Ap */
+                    try {
+                        mNwService.stopAccessPoint(mInterfaceName);
+                    } catch(Exception e) {
+                        loge(&quot;Exception in stopAccessPoint()&quot;);
+                    }
+                    setWifiApState(WIFI_AP_STATE_DISABLED, 0);
+                    transitionTo(mInitialState);
+                    break;
+                case CMD_START_AP:
+                    // Ignore a start on a running access point
+                    break;
+                    // Fail client mode operation when soft AP is enabled
+                case CMD_START_SUPPLICANT:
+                    loge(&quot;Cannot start supplicant with a running soft AP&quot;);
+                    setWifiState(WIFI_STATE_UNKNOWN);
+                    break;
+                case CMD_TETHER_STATE_CHANGE:
+                    TetherStateChange stateChange = (TetherStateChange) message.obj;
+                    if (startTethering(stateChange.available)) {
+                        transitionTo(mTetheringState);
+                    }
+                    break;
+                default:
+                    return NOT_HANDLED;
+            }
+            return HANDLED;
+        }</pre></div>
+<div>到这里，一个完整的SoftAp打开流程就结束了。</div>
+<h3>二、SoftAp关闭流程</h3>
+<div>关闭SoftAp的方法调用与打开SoftAp一致，不过enabled此时是为false：<pre code_snippet_id="1864589" snippet_file_name="blog_20160903_18_3647273"  code_snippet_id="1864589" snippet_file_name="blog_20160903_18_3647273" name="code" class="java">public boolean setWifiApEnabled(WifiConfiguration wifiConfig, boolean enabled) </pre>由第一部分的内容可知WifiController状态机在处理完SoftAp打开后，停在ApEnabledState状态，那么我们看它是怎么处理CMD_SET_AP的：<pre code_snippet_id="1864589" snippet_file_name="blog_20160903_19_7409263"  code_snippet_id="1864589" snippet_file_name="blog_20160903_19_7409263" name="code" class="java"> case CMD_SET_AP:
+      if (msg.arg1 == 0) {
+              mWifiStateMachine.setHostApRunning(null, false);//在WifiStateMachine中开始热点关闭流程
+              transitionTo(mApStaDisabledState);//切换到初始状态
+       }
+       break;</pre>有前述可知，如果参数enabled为false，mag.arg1就应该为0，调用setHostApRunning()走关闭流程，并将WifiController中的状态重置为ApStaDisabledState，等待下一次流程的开始。看setHostApRunning()：<pre code_snippet_id="1864589" snippet_file_name="blog_20160903_20_1171255"  code_snippet_id="1864589" snippet_file_name="blog_20160903_20_1171255" name="code" class="java">    /**
+     * TODO: doc
+     */
+    public void setHostApRunning(WifiConfiguration wifiConfig, boolean enable) {
+        if (enable) {
+            sendMessage(CMD_START_AP, wifiConfig);
+        } else {
+            sendMessage(CMD_STOP_AP);
+        }
+    }</pre>发送CMD_STOP_AP消息；已知SoftAp成功打开后，WifiStateMachine停留在SoftApStartedState，看其处理：<pre code_snippet_id="1864589" snippet_file_name="blog_20160903_21_2458011"  code_snippet_id="1864589" snippet_file_name="blog_20160903_21_2458011" name="code" class="java">                case CMD_STOP_AP:
+                    if (DBG) log(&quot;Stopping Soft AP&quot;);
+                    /* We have not tethered at this point, so we just shutdown soft Ap */
+                    try {
+                        mNwService.stopAccessPoint(mInterfaceName);//直接关闭SoftAp
+                    } catch(Exception e) {
+                        loge(&quot;Exception in stopAccessPoint()&quot;);
+                    }
+                    setWifiApState(WIFI_AP_STATE_DISABLED, 0);//发送广播，告知外界SoftAp的状态
+                    transitionTo(mInitialState);//切换到初始状态</pre>首先，通过NetworkManagermentService关闭SoftAp，并发送广播通知SoftAp的状态改变；最后WifiStateMachine切换到InitialState：<pre code_snippet_id="1864589" snippet_file_name="blog_20160903_22_2316307"  code_snippet_id="1864589" snippet_file_name="blog_20160903_22_2316307" name="code" class="java">public void enter() {
+            WifiNative.stopHal();
+            mWifiNative.unloadDriver();
+            if (mWifiP2pChannel == null) {
+                mWifiP2pChannel = new AsyncChannel();
+                mWifiP2pChannel.connect(mContext, getHandler(),
+                    mWifiP2pServiceImpl.getP2pStateMachineMessenger());
+            }
+
+            if (mWifiApConfigChannel == null) {
+                mWifiApConfigChannel = new AsyncChannel();
+                mWifiApConfigStore = WifiApConfigStore.makeWifiApConfigStore(
+                        mContext, getHandler());
+                mWifiApConfigStore.loadApConfiguration();
+                mWifiApConfigChannel.connectSync(mContext, getHandler(),
+                        mWifiApConfigStore.getMessenger());
+            }
+
+            if (mWifiConfigStore.enableHalBasedPno.get()) {
+                // make sure developer Settings are in sync with the config option
+                mHalBasedPnoEnableInDevSettings = true;
+            }
+        }</pre>停掉HAL层，卸载驱动；重新等待下一次Wifi/SoftAp的启动过程。到此，热点关闭的动作就结束了。</div>
+<div>PS：</div>
+<div>WifiManager中提供了两个关于SoftAp的操作函数：</div>
+<div>1、设置SoftAP的配置信息<br>
+<pre code_snippet_id="1864589" snippet_file_name="blog_20160903_23_5521890"  code_snippet_id="1864589" snippet_file_name="blog_20160903_23_5521890" name="code" class="java">    /**
+     * Sets the Wi-Fi AP Configuration.
+     * @return {@code true} if the operation succeeded, {@code false} otherwise
+     *
+     * @hide Dont open yet
+     */
+    public boolean setWifiApConfiguration(WifiConfiguration wifiConfig) {
+        try {
+            mService.setWifiApConfiguration(wifiConfig);
+            return true;
+        } catch (RemoteException e) {
+            return false;
+        }
+    }</pre>设置Wi-Fi AP的配置信息，它真正的处理过程是向WifiApConfigStore发送CMD_SET_AP_CONFIG消息，告知其要更新配置信息了。这一部分处理在第一部分已经分析过。</div>
+<div>2、获取当前SoftAp正在使用的配置信息<pre code_snippet_id="1864589" snippet_file_name="blog_20160903_24_9873308"  code_snippet_id="1864589" snippet_file_name="blog_20160903_24_9873308" name="code" class="java">    /**
+     * Gets the Wi-Fi AP Configuration.
+     * @return AP details in WifiConfiguration
+     *
+     * @hide Dont open yet
+     */
+    public WifiConfiguration getWifiApConfiguration() {
+        try {
+            return mService.getWifiApConfiguration();
+        } catch (RemoteException e) {
+            return null;
+        }
+    }</pre>它真正的处理过程是向WifiApConfigStore发送CMD_REQUEST_AP_CONFIG消息，请求WifiApConfigStore::mWifiApConfig成员，第一部分也已经说过，该变量保存的就是当前SoftAp正在使用的配置信息。</div>
+<div><br>
+</div>
+<div><br>
+</div>
+   
+</div>
+
+
+
+
+<!-- Baidu Button BEGIN -->
+
+
+
+
+<div class="bdsharebuttonbox tracking-ad" style="float: right;" data-mod="popu_172">
+<a href="#" class="bds_more" data-cmd="more" style="background-position:0 0 !important; background-image: url(http://bdimg.share.baidu.com/static/api/img/share/icons_0_16.png?v=d754dcc0.png) !important"></a>
+<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"  style="background-position:0 -52px !important"></a>
+<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"style="background-position:0 -104px !important"></a>
+<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"style="background-position:0 -260px !important"></a>
+<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"style="background-position:0 -208px !important"></a>
+<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"style="background-position:0 -1612px !important" ></a>
+</div>
+<script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "1", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
+<!-- Baidu Button END -->
+
+   <link rel="stylesheet" href="http://static.blog.csdn.net/css/blog_detail.css" />
+
+    
+<!--172.16.140.12-->
+
+<!-- Baidu Button BEGIN -->
+<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=1536434" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+    document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script>
+<!-- Baidu Button END -->
+
+ 
+
+        <div id="digg" ArticleId="52423389" >
+            <dl id="btnDigg" class="digg digg_disable"  onclick="btndigga();">
+               
+                 <dt>顶</dt>
+                <dd>0</dd>
+            </dl>
+           
+              
+            <dl id="btnBury" class="digg digg_disable"  onclick="btnburya();">
+              
+                  <dt>踩</dt>
+                <dd>0</dd>               
+            </dl>
+            
+        </div>
+     <div class="tracking-ad" data-mod="popu_222"><a href="javascript:void(0);" >&nbsp;</a>   </div>
+    <div class="tracking-ad" data-mod="popu_223"> <a href="javascript:void(0);" >&nbsp;</a></div>
+    <script type="text/javascript">
+                function btndigga() {
+                    $(".tracking-ad[data-mod='popu_222'] a").click();
+                }
+                function btnburya() {
+                    $(".tracking-ad[data-mod='popu_223'] a").click();
+                }
+            </script>
+
+   <ul class="article_next_prev">
+    </ul>
+
+    <div style="clear:both; height:10px;"></div>
+
+
+        <div class="similar_article"  style="display:none">
+                <h4>我的同类文章</h4>
+                <div class="similar_c"style="margin:20px 0px 0px 0px">
+                    <div class="similar_c_t">
+                                <label class="similar_cur">
+                                    <span  style="cursor:pointer"  onclick="GetCategoryArticles('6200080','csdn_of_coder','foot','52423389');">Android Framework<em>（13）</em></span>
+                                </label>
+                    </div>
+                   
+                    <div class="similar_wrap tracking-ad" data-mod="popu_141"  style="max-height:195px;">
+                        <a href="http://blog.csdn.net" style="display:none">http://blog.csdn.net</a>
+                        <ul class="similar_list fl">                          
+                        </ul>
+
+                        <ul class="similar_list fr">                           
+                        </ul>
+                    </div>
+                </div>
+            </div>    
+    <script  type="text/javascript">
+        $(function () {
+            GetCategoryArticles('6200080', 'csdn_of_coder','foot','52423389');
+        });
+    </script>
+      
+</div>
+<div id="suggest"></div>
+         <script  language="javascript" type='text/javascript'>     
+             $(function(){
+                 $.get("/csdn_of_coder/svc/GetSuggestContent/52423389",function(data){
+                     $("#suggest").html(data);
+                 });     
+             });             
+         </script>  
+
+
+<style>
+.blog-ass-articl dd {
+color: #369;
+width: 99%; /*修改行*/
+float: left;
+overflow: hidden;
+font: normal normal 12px/23px "SimSun";
+height: 23px;
+margin: 0;
+padding: 0 0 0 10px;
+margin-right: 30px;
+background: url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px;
+}
+</style>
+
+ <link rel="stylesheet" href="http://static.blog.csdn.net/css/replace.css"/>
+<div id="relate" data-mod="popu_218"  class="tracking-ad">
+        <div class="relate_t">
+            <h3><span>参考知识库</span></h3>
+        </div>
+        <div class="relate_c">
+        </div>
+</div>
+ 
+
+<dl class="blog-ass-articl" id="res-relatived" > 
+    <div class="embody embody_b" id="libkeyparent"  style="display:none">
+            <span class="embody_t">更多资料请参考：</span>
+            <div class="embody_c" id="libkey"></div>
+    </div>
+
+
+     <dt><span>猜你在找</span></dt>    
+
+
+   
+
+
+    <div id="adCollege" style="width: 42%;float: left;"> 
+        <script src="http://csdnimg.cn/jobreco/job_reco.js" type="text/javascript"></script> 
+        <script type="text/javascript">
+            csdn.position.showEdu({
+                sourceType: "blog",
+                searchType: "detail",
+                searchKey: "52423389",
+                username: "",
+                recordcount: "5",
+                containerId: "adCollege" //容器DIV的id。 
+            });
+        </script> 
+    </div>  
+
+    
+     <div id="res"  data-mod="popu_36"  class="tracking-ad" style="width: 42%;float: left;margin-right: 30px;"></div>
+   
+</dl>
+
+
+<script type="text/javascript">
+    $(function () {
+        setTimeout(function () {
+            var searchtitletags = 'Android -- Wifi热点的打开与关闭流程简介' + ',' + $("#tags").html();
+            searchService({
+                index: 'blog',
+                query: searchtitletags,
+                from: 5,
+                size: 5,
+                appendTo: '#res',
+                url: 'recommend',
+                his: 2,
+                client: "blog_cf_enhance",
+                tmpl: '<dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px;"><a href="#{ url }" title="#{ title }" strategy="#{ strategy }">#{ title }</a></dd>'
+            });
+        }, 500);
+    });    
+
+ </script>  
+
+    <div id="ad_cen">        
+                    <script type="text/javascript">
+                        /*博客内容页下方Banner-728*90，创建于2014-7-3*/
+                        var cpro_id = "u1607657";
+                    </script>
+                    <script type="text/javascript" src="http://cpro.baidustatic.com/cpro/ui/c.js"></script>
+    </div>  
+
+<div class="comment_class">
+    <div id="comment_title" class="panel_head">
+        <span class="see_comment">查看评论</span><a name="comments"></a></div>
+    <div id="comment_list">
+    </div>
+    <div id="comment_bar">
+    </div>
+    <div id="comment_form">
+    </div>
+    <div class="announce">
+        * 以上用户言论只代表其个人观点，不代表CSDN网站的观点或立场<a name="reply"></a><a name="quote"></a></div>
+</div>
+
+<script type="text/javascript">
+    var fileName = '52423389';
+    var commentscount = 0;
+    var islock = false
+</script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/comment.js"></script>
+    <div id="ad_bot">
+    </div>
+<div id="report_dialog">
+</div>
+
+<div id="d-top"  style="bottom:60px;">
+        <a id="quick-reply" class="btn btn-top q-reply" title="快速回复" style="display:none;">
+            <img src="http://static.blog.csdn.net/images/blog-icon-reply.png" alt="快速回复">
+        </a>    
+
+    <a id="d-top-a" class="btn btn-top backtop"  style="display: none;" title="返回顶部" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_huidaodingbu'])" style="">         
+         <img src="http://static.blog.csdn.net/images/top.png" alt="TOP">
+    </a>
+</div>
+<script type="text/javascript">
+    $(function ()
+    {
+        $("#ad_frm_0").height("90px");
+        
+        setTimeout(function(){
+            $("#ad_frm_2").height("200px");
+        },1000);    
+    });
+  
+</script>
+<style type="text/css">
+    .tag_list
+    {
+        background: none repeat scroll 0 0 #FFFFFF;
+        border: 1px solid #D7CBC1;
+        color: #000000;
+        font-size: 12px;
+        line-height: 20px;
+        list-style: none outside none;
+        margin: 10px 2% 0 1%;
+        padding: 1px;
+    }
+    .tag_list h5
+    {
+        background: none repeat scroll 0 0 #E0DBD3;
+        color: #47381C;
+        font-size: 12px;
+        height: 24px;
+        line-height: 24px;
+        padding: 0 5px;
+        margin: 0;
+    }
+    .tag_list h5 a
+    {
+        color: #47381C;
+    }
+    .classify
+    {
+        margin: 10px 0;
+        padding: 4px 12px 8px;
+    }
+    .classify a
+    {
+        margin-right: 20px;
+        white-space: nowrap;
+    }
+</style>
+
+
+<div class="tag_list" style="display:none"></div>
+  <script  language="javascript" type='text/javascript'>     
+      $(function(){
+              setTimeout(function(){
+                  $.get("/csdn_of_coder/svc/GetTagContent",function(data){
+                      $(".tag_list").html(data).show();
+                  });     
+              });
+          },500);                       
+ </script> 
+
+
+<div id="pop_win" style="display:none ;position: absolute; z-index: 10000; border: 1px solid rgb(220, 220, 220); top: 222.5px; left: 630px; opacity: 1; background: none 0px 0px repeat scroll rgb(255, 255, 255);">
+    
+</div>
+<div id="popup_mask"></div>
+<style>
+    #popup_mask
+    {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        z-index: 9999;
+        left: 0px;
+        top: 0px;
+        opacity: 0.3;
+        filter: alpha(opacity=30);
+        display: none;
+    }
+
+</style>
+
+
+
+
+<script type="text/javascript">
+    $(function(){
+        setTimeout(function(){
+            $(".comment_body:contains('回复')").each(function(index,item){
+                var u=$(this).text().split('：')[0].toString().replace("回复","")
+                var thisComment=$(this);
+                if(u)
+                {
+                    $.getJSON("https://passport.csdn.net/get/nick?callback=?", {users: u}, function(a) {
+                        if(a!=null&&a.data!=null&&a.data.length>0)
+                        {
+                            nick=a.data[0].n; 
+                            if(u!=nick)
+                            {
+                                thisComment.text(thisComment.text().replace(u,nick));  
+                            }
+                        }       
+                    });  
+                }
+            });         
+
+        },200);  
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },5000);
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },10000);
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },15000);
+        
+        setTimeout(function(){
+            $("a img[src='http://js.tongji.linezing.com/stats.gif']").parent().css({"position":"absolute","left":"50%"});
+        },300);
+    });
+
+    function loginbox(){
+        var $logpop=$("#pop_win");
+        $logpop.html('<iframe src="https://passport.csdn.net/account/loginbox?service=http://static.blog.csdn.net/callback.htm" frameborder="0" height="600" width="400" scrolling="no"></iframe>');
+
+        $('#popup_mask').css({
+            opacity: 0.5,
+            width: $( document ).width() + 'px',
+            height:  $( document ).height() + 'px'
+        });
+        $('#popup_mask').css("display","block");
+ 
+        $logpop.css( {
+            top: ($( window ).height() - $logpop.height())/ 2  + $( window 
+       ).scrollTop() + 'px',
+            left:($( window ).width() - $logpop.width())/ 2
+        } );
+ 
+        setTimeout( function () {
+            $logpop.show();
+            $logpop.css( {
+                opacity: 1
+            } );
+        }, 200 );
+ 
+        $('#popup_mask').unbind("click");
+        $('#popup_mask').bind("click", function(){
+            $('#popup_mask').hide();
+            var $clopop = $("#pop_win");
+            $("#common_ask_div_sc").css("display","none");
+            $clopop.css( {
+                opacity: 0
+            } );
+            setTimeout( function () {
+                $clopop.hide();
+            }, 350 );
+            return false;
+        });
+    }   
+
+</script>
+ <script language="javascript" type="text/javascript" src="http://ads.csdn.net/js/async_new.js"></script>      
+
+
+                        <div class="clear">
+                        </div>
+                    </div>                   
+                
+            </div>
+                   
+           <div id="side">
+               
+    <div class="side">
+<div id="panel_Profile" class="panel">
+<ul class="panel_head"><span>个人资料</span></ul>
+<ul class="panel_body profile">
+<div id="blog_userface">
+    <a href="http://my.csdn.net/csdn_of_coder" target="_blank">
+    <img src="http://avatar.csdn.net/A/9/D/1_csdn_of_coder.jpg" title="访问我的空间" style="max-width:90%"/>
+    </a>
+    <br />
+    <span><a href="http://my.csdn.net/csdn_of_coder" class="user_name" target="_blank">csdn_of_coder</a></span>
+</div>
+<div class="interact">
+
+    <a href="javascript:void(0);" class="attent" id="span_add_follow" title="[加关注]"></a>
+
+ <a href="javascript:void(0);" class="letter"  title="[发私信]" onclick="window.open('http://msg.csdn.net/letters/model?receiver=csdn_of_coder','_blank','height=350,width=700');_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_sixin'])"></a>  
+</div>
+<div id="blog_medal">
+                <div id="bms_box">
+                                            <a  target="_blank">
+                                                    <img src="http://c.csdnimg.cn/jifen/images/xunzhang/xunzhang/chizhiyiheng.png" onmouseover="m_over_m(this,4)" onmouseout="m_out_m()" alt="1" >
+                                            </a>
+               </div>
+</div>
+<ul id="blog_rank">
+    <li>访问：<span>4140次</span></li>
+    <li>积分：<span>260</span> </li>    
+    <li >等级： <span style="position:relative;display:inline-block;z-index:1" >
+            <img src="http://c.csdnimg.cn/jifen/images/xunzhang/jianzhang/blog2.png" alt="" style="vertical-align: middle;" id="leveImg">
+            <div id="smallTittle" style=" position: absolute;  left: -24px;  top: 25px;  text-align: center;  width: 101px;  height: 32px;  background-color: #fff;  line-height: 32px;  border: 2px #DDDDDD solid;  box-shadow: 0px 2px 2px rgba (0,0,0,0.1);  display: none;   z-index: 999;">
+            <div style="left: 42%;  top: -8px;  position: absolute;  width: 0;  height: 0;  border-left: 10px solid transparent;  border-right: 10px solid transparent;  border-bottom: 8px solid #EAEAEA;"></div>
+            积分：260 </div>
+        </span>  </li>
+    <li>排名：<span>千里之外</span></li>
+</ul>
+<ul id="blog_statistics">
+    <li>原创：<span>23篇</span></li>
+    <li>转载：<span>0篇</span></li>
+    <li>译文：<span>0篇</span></li>
+    <li>评论：<span>1条</span></li>
+</ul>
+</ul>
+</div>
+
+
+<div class="panel" id="panel_Search">
+    <ul class="panel_head"><span>文章搜索</span></ul>
+    <ul class="panel_body">
+        <form id="frmSearch" action="http://so.csdn.net/search" class="form_search" target="_blank">
+        <span><input id="inputSearch" type="text" class="blogsearch" title="请输入关键字" /></span>
+        <input id="btnSubmit" type="button" value="搜索" title="search in blog" />
+        <input type="hidden" name="q" id="inputQ" />
+        <input type="hidden" name="t" value="blog" />
+        <a id="btnSearchBlog" target="_blank"></a>
+        </form>
+    </ul>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $("#btnSubmit").click(function () {           
+            search();
+        });
+
+        $("#frmSearch").submit(function () {
+            search();
+            return false;
+        });
+
+        function search()
+        {
+            var url = "http://so.csdn.net/so/search/s.do?q=" + encodeURIComponent($("#inputSearch").val()) + "&u=" + username + "&t=blog";
+            window.location.href = url;
+        }   
+    });
+</script><div id="panel_Category" class="panel">
+<ul class="panel_head"><span>文章分类</span></ul>
+<ul class="panel_body">    
+                 <li>
+                    <a href="/csdn_of_coder/article/category/6200080" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">Android Framework</a><span>(14)</span>
+                </li>
+                 <li>
+                    <a href="/csdn_of_coder/article/category/6352766" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">JNI</a><span>(4)</span>
+                </li>
+                 <li>
+                    <a href="/csdn_of_coder/article/category/6200084" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">Java</a><span>(4)</span>
+                </li>
+                 <li>
+                    <a href="/csdn_of_coder/article/category/6414835" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">DHCP协议</a><span>(0)</span>
+                </li>
+</ul>
+</div><div id="hotarticls" class="panel">
+<ul class="panel_head">
+    <span>       
+阅读排行    </span>
+</ul>
+
+<ul class="panel_body itemlist">
+<li>
+<a href="/csdn_of_coder/article/details/51922801" title="Android -- Wifi连接流程分析">Android -- Wifi连接流程分析</a><span>(1399)</span>
+</li>
+<li>
+<a href="/csdn_of_coder/article/details/51541094" title="Android -- Wifi启动流程分析">Android -- Wifi启动流程分析</a><span>(511)</span>
+</li>
+<li>
+<a href="/csdn_of_coder/article/details/51972138" title="Android -- Wifi的断开及关闭流程简介">Android -- Wifi的断开及关闭流程简介</a><span>(299)</span>
+</li>
+<li>
+<a href="/csdn_of_coder/article/details/52389603" title="Android -- 无线网络配置信息的管理者WifiConfigStore简介">Android -- 无线网络配置信息的管理者WifiConfigStore简介</a><span>(237)</span>
+</li>
+<li>
+<a href="/csdn_of_coder/article/details/51637700" title="Android -- 网络模块中NetworkFactory与NetworkAgent的通信机制">Android -- 网络模块中NetworkFactory与NetworkAgent的通信机制</a><span>(214)</span>
+</li>
+<li>
+<a href="/csdn_of_coder/article/details/51922654" title="Android -- Wifi扫描流程分析">Android -- Wifi扫描流程分析</a><span>(192)</span>
+</li>
+<li>
+<a href="/csdn_of_coder/article/details/51533576" title="Android -- WifiMonitor分析">Android -- WifiMonitor分析</a><span>(187)</span>
+</li>
+<li>
+<a href="/csdn_of_coder/article/details/52423389" title="Android -- Wifi热点的打开与关闭流程简介">Android -- Wifi热点的打开与关闭流程简介</a><span>(177)</span>
+</li>
+<li>
+<a href="/csdn_of_coder/article/details/51636855" title="Android -- 网络相关的系统服务启动简要分析">Android -- 网络相关的系统服务启动简要分析</a><span>(116)</span>
+</li>
+<li>
+<a href="/csdn_of_coder/article/details/51526621" title="Android -- StateMachine解析">Android -- StateMachine解析</a><span>(107)</span>
+</li>
+</ul>
+</div>
+<div id="hotarticls2" class="panel">
+<ul class="panel_head"><span>评论排行</span></ul>
+<ul class="panel_body itemlist">
+<li>
+<a href="/csdn_of_coder/article/details/51541094" title="Android -- Wifi启动流程分析">Android -- Wifi启动流程分析</a><span>(1)</span>
+</li>
+<li>
+<a href="/csdn_of_coder/article/details/52561486" title="Java -- 泛型表达式和泛型方法调用中的类型擦除（三）">Java -- 泛型表达式和泛型方法调用中的类型擦除（三）</a><span>(0)</span>
+</li>
+<li>
+<a href="/csdn_of_coder/article/details/51972138" title="Android -- Wifi的断开及关闭流程简介">Android -- Wifi的断开及关闭流程简介</a><span>(0)</span>
+</li>
+<li>
+<a href="/csdn_of_coder/article/details/51959561" title="Android -- ConnectifyService网络更新流程简介">Android -- ConnectifyService网络更新流程简介</a><span>(0)</span>
+</li>
+<li>
+<a href="/csdn_of_coder/article/details/51922801" title="Android -- Wifi连接流程分析">Android -- Wifi连接流程分析</a><span>(0)</span>
+</li>
+<li>
+<a href="/csdn_of_coder/article/details/51922654" title="Android -- Wifi扫描流程分析">Android -- Wifi扫描流程分析</a><span>(0)</span>
+</li>
+<li>
+<a href="/csdn_of_coder/article/details/51637700" title="Android -- 网络模块中NetworkFactory与NetworkAgent的通信机制">Android -- 网络模块中NetworkFactory与NetworkAgent的通信机制</a><span>(0)</span>
+</li>
+<li>
+<a href="/csdn_of_coder/article/details/51636855" title="Android -- 网络相关的系统服务启动简要分析">Android -- 网络相关的系统服务启动简要分析</a><span>(0)</span>
+</li>
+<li>
+<a href="/csdn_of_coder/article/details/51533576" title="Android -- WifiMonitor分析">Android -- WifiMonitor分析</a><span>(0)</span>
+</li>
+<li>
+<a href="/csdn_of_coder/article/details/51526621" title="Android -- StateMachine解析">Android -- StateMachine解析</a><span>(0)</span>
+</li>
+</ul>
+</div>
+<div id="homepageArticles" class="panel tracking-ad" data-mod="popu_4">
+<ul class="panel_head"><span>推荐文章</span></ul>
+<ul class="panel_body" id="ad_commend">
+<ul>
+<li><a href="http://blog.csdn.net/luoshengyang/article/details/52246854" target="_blank">* Chromium扩展（Extension）机制简要介绍和学习计划</a></li>
+<li><a href="http://blog.csdn.net/sahadev_/article/details/52317525" 
+target="_blank">* Android官方开发文档Training系列课程中文版：APP的内存管理</a></li>
+<li><a href="http://blog.csdn.net/mindfloating/article/details/52434631" 
+target="_blank">* 程序员，别了校园入了江湖</a></li>
+<li><a href="http://blog.csdn.net/jdsjlzx/article/details/52415615" target="_blank">*  RxJava 合并组合两个（或多个）Observable数据源</a></li>
+<li><a href="http://blog.csdn.net/lfdfhl/article/details/52415390" 
+target="_blank">* 探索Android软键盘的疑难杂症</a></li>
+
+
+</ul></ul>
+</div>
+
+
+<div id="newcomments" class="panel">
+<ul class="panel_head"><span>最新评论</span></ul>
+<ul class="panel_body itemlist">
+    <li>
+   
+         <a href="/csdn_of_coder/article/details/51541094#comments">Android -- Wifi启动流程分析</a>
+    <p style="margin:0px;"><a href="/cs520920" class="user_name">cs520920</a>:
+顶楼主！但是CMD_SET_OPERATIONAL_MODE这个命令的处理由Disconnected...
+    </p>
+    </li>
+</ul>
+</div>
+    </div>
+    <div class="clear">
+    </div>
+
+
+                   <!-- 广告位开始 --> 
+                    <ins data-revive-zoneid="190" data-revive-id="8c38e720de1c90a6f6ff52f3f89c4d57"></ins> 
+                    <!-- 广告位结束 -->
+
+           </div>   
+
+            <div class="clear">
+            </div>
+        </div>
+
+        
+
+<script type="text/javascript" src="http://c.csdnimg.cn/rabbit/cnick/cnick.js"></script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/newblog.min.js"></script>
+
+
+<script type="text/javascript" src="http://medal.blog.csdn.net/showblogmedal.ashx?blogid=5625775"></script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/JavaScript1.js"></script>
+
+    <script type="text/javascript" src="http://passport.csdn.net/content/loginbox/login.js"></script>
+<script type="text/javascript">document.write("<img src=http://counter.csdn.net/pv.aspx?id=24 border=0 width=0 height=0>");</script>
+<script type="text/javascript" src="http://www.csdn.net/ui/scripts/Csdn/counter.js"></script>
+<script type="text/javascript" src="http://ad.csdn.net/scripts/ad-blog.js"></script>
+<script type="text/javascript">
+    $(function () {
+        function __get_code_toolbar(snippet_id) {
+            return $("<span class='tracking-ad' data-mod='popu_167'><a href='https://code.csdn.net/snippets/"
+                    + snippet_id
+                    + "' target='_blank' title='在CODE上查看代码片'  style='text-indent:0;'><img src='https://code.csdn.net/assets/CODE_ico.png' width=12 height=12 alt='在CODE上查看代码片' style='position:relative;top:1px;left:2px;'/></a></span>"
+                    + "<span class='tracking-ad' data-mod='popu_170'><a href='https://code.csdn.net/snippets/"
+                    + snippet_id
+                    + "/fork' target='_blank' title='派生到我的代码片' style='text-indent:0;'><img src='https://code.csdn.net/assets/ico_fork.svg' width=12 height=12 alt='派生到我的代码片' style='position:relative;top:2px;left:2px;'/></a></span>");
+        }
+        
+        $("[code_snippet_id]").each(function () {
+            __s_id = $(this).attr("code_snippet_id");
+            if (__s_id != null && __s_id != "" && __s_id != 0 && parseInt(__s_id) > 70020) {
+                __code_tool = __get_code_toolbar(__s_id);
+                $(this).prev().find(".tools").append(__code_tool);
+            }
+        });
+
+        $(".bar").show();
+    });
+</script>
+
+
+
+
+    </div>
+      <!--new top-->
+    
+    <script id="csdn-toolbar-id" btnId="header_notice_num" wrapId="note1" count="5" subCount="5" type="text/javascript" src="http://c.csdnimg.cn/public/common/toolbar/js/toolbar.js"></script>     <!--new top-->
+   
+    <link href="http://c.csdnimg.cn/comm_ask/css/ask_float_block.css" type="text/css" rel="stylesheet" />
+    <script language='JavaScript' type='text/javascript' src='http://c.csdnimg.cn/comm_ask/js/libs/wmd.js'></script>
+    <script language='JavaScript' type='text/javascript' src='http://c.csdnimg.cn/comm_ask/js/libs/showdown.js'></script>
+    <script language='JavaScript' type='text/javascript' src='http://c.csdnimg.cn/comm_ask/js/libs/prettify.js'></script>
+    <script language='JavaScript' type='text/javascript' src='http://c.csdnimg.cn/comm_ask/js/apps/ask_float_block.js'></script>
+   
+
+  <div id="a52b5334d" style="width: 1px; height: 1px; display: none;">
+                    <script id="adJs52b5334"></script>
+                    <script>document.getElementById("adJs52b5334").src = "http://ads.csdn.net/js/opt/52b5334.js?t=" + Math.random();</script>
+   </div>
+
+    <link rel="stylesheet" href="http://static.blog.csdn.net/css/blog_code.css" />
+    <script type="text/javascript" src="http://static.blog.csdn.net/scripts/saveToCode.js"></script>
+      <script type="text/javascript" src="//csdnimg.cn/rabbit/tracking-ad/main.js?75eacd8"></script>
+</body>
+</html>   
+ 
