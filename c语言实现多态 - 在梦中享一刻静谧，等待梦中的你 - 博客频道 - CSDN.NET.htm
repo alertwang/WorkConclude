@@ -1,0 +1,1549 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+     
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    
+<head>   
+   
+
+    <script type="text/javascript" src="http://c.csdnimg.cn/pubfooter/js/tracking.js" charset="utf-8"></script>  
+
+    <script type="text/javascript">
+        var protocol = window.location.protocol;
+        document.write('<script type="text/javascript" src="' + protocol + '//csdnimg.cn/pubfooter/js/repoAddr2.js?v=' + Math.random() + '"></' + 'script>');
+    </script>
+
+  
+ <meta http-equiv="Cache-Control" content="no-siteapp" /><link rel="alternate" media="handheld" href="#" />
+
+    <title>c语言实现多态 - 在梦中享一刻静谧，等待梦中的你
+        - 博客频道 - CSDN.NET</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="WebView的缓存可以分为页面缓存和数据缓存。页面缓存是指加载一个网页时的html、JS、CSS等页面或者资源数据。这些缓存资源是由于浏览器的行为而产生，开发者只能通过配置HTTP响应头影响浏览器的行为才能间接地影响到这些缓存数据。他们的索引存放在/data/data/package_name/databases下。他们的文件存放在/data/data/package_name/cach" />
+    <script src="http://static.blog.csdn.net/scripts/jquery.js" type="text/javascript"></script>
+      <script type="text/javascript" src="http://static.blog.csdn.net/scripts/jquery-version.js"></script>
+    <script type="text/javascript" src="http://static.blog.csdn.net/scripts/ad.js?v=1.1"></script>
+        <!--new top-->
+               <link rel="stylesheet" href="http://c.csdnimg.cn/public/common/toolbar/css/index.css">        <!--new top-->
+    
+      <!-- ad begin -->
+         <script language="javascript" type="text/javascript" src="http://ads.csdn.net/js/tracking.js"></script>
+    <!-- ad end-->
+
+    <link rel="Stylesheet" type="text/css" href="http://static.blog.csdn.net/skin/skin-white/css/style.css?v=1.1" />
+    <link id="RSSLink" title="RSS" type="application/rss+xml" rel="alternate" href="/dai_jing/rss/list" />
+    <link rel="shortcut icon" href="http://c.csdnimg.cn/public/favicon.ico" />
+    <link type="text/css" rel="stylesheet" href="http://static.blog.csdn.net/scripts/SyntaxHighlighter/styles/blue.css" />
+ 
+
+
+</head>
+<body>
+    <!-- 广告位开始 -->
+        <ins data-revive-zoneid="149" data-revive-id="8c38e720de1c90a6f6ff52f3f89c4d57"></ins>
+    <!-- 广告位结束 -->
+
+    
+   
+      <!--new top-->
+    <script id="toolbar-tpl-scriptId" fixed="true" prod="blog" skin="black" src="http://c.csdnimg.cn/public/common/toolbar/js/html.js" type="text/javascript"></script>
+     <!--new top-->
+    <div id="container">
+        <div id="header">
+    <div class="header">
+        <div id="blog_title">
+            <h2>
+                <a href="http://blog.csdn.net/dai_jing">在梦中享一刻静谧，等待梦中的你</a></h2>
+            <h3></h3>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+        
+     
+    </div>
+</div>
+<div id="navigator">
+    <div class="navigator_bg">
+    </div>
+    <div class="navigator">
+        <ul>
+            
+                <li id="btnContents"><a href="http://blog.csdn.net/dai_jing?viewmode=contents"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_mulu'])">
+                    <img src="http://static.blog.csdn.net/images/ico_list.gif">目录视图</span></a></li>
+                <li id="btnView"><a href="http://blog.csdn.net/dai_jing?viewmode=list"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_zhaiyao'])">
+                    <img src="http://static.blog.csdn.net/images/ico_summary.gif">摘要视图</span></a></li>
+                <li id="btnRss"><a href="http://blog.csdn.net/dai_jing/rss/list"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_RSS'])">
+                    <img src="http://static.blog.csdn.net/images/ico_rss.gif">订阅</span></a></li>                
+            
+
+            </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    var username = "dai_jing";
+    var _blogger = username;
+    var blog_address = "http://blog.csdn.net/dai_jing";
+    var static_host = "http://static.blog.csdn.net";
+    var currentUserName = "";  
+</script>
+
+        <div id="body">
+            <div id="main">
+                <div class="main">
+                        <div class="ad_class">
+<div class="notice tracking-ad" data-mod='popu_3' > 
+
+
+<a href="https://code.csdn.net/blog/41">
+<font color=red>深度学习代码专栏
+</font></a>
+&nbsp;&nbsp;&nbsp;
+
+<a href="http://edu.csdn.net/collectCourse">
+<font color=blue>攒课--我的学习我做主
+</font></a>
+&nbsp;&nbsp;&nbsp;
+<a href="http://blog.csdn.net/baiyuzhong2012/article/details/52587847">
+<font color=red>开启你的知识管理，知识库个人图谱上线
+</font></a>
+&nbsp;&nbsp;&nbsp;
+
+
+</font></a>
+</div>                        </div>
+                        
+
+
+<!-- 广告位开始 -->
+<ins data-revive-zoneid="72" data-revive-id="8c38e720de1c90a6f6ff52f3f89c4d57"></ins>
+<!-- 广告位结束 -->
+
+  
+<link href="http://static.blog.csdn.net/css/comment1.css" type="text/css" rel="stylesheet" />
+<link href="http://static.blog.csdn.net/css/style1.css" type="text/css" rel="stylesheet" />
+<script language='JavaScript' type='text/javascript' src='http://download.csdn.net/js/jquery.cookie.js'></script>
+<script type="text/javascript" src="http://c.csdnimg.cn/rabbit/search-service/main.js"></script>
+<link rel="stylesheet" href="http://static.blog.csdn.net/public/res-min/markdown_views.css?v=1.0" />
+<link rel="stylesheet" href="http://static.blog.csdn.net/css/category.css?v=1.0" />
+<script type="text/javascript" src="http://static.blog.csdn.net/public/res/bower-libs/MathJax/MathJax.js?config=TeX-AMS_HTML"></script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/web-storage-cache.min.js"></script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/replace.min.js"></script>
+
+
+
+
+  <script type="text/ecmascript">
+      window.quickReplyflag = true;
+           
+            var isBole = false;
+            
+          
+    </script>
+<div id="article_details" class="details">
+    <div class="article_title">   
+         <span class="ico ico_type_Repost"></span>
+
+
+    <h1>
+        <span class="link_title"><a href="/dai_jing/article/details/38232641">
+        c语言实现多态            
+        </a></span>
+    </h1>
+</div>
+
+   
+
+        <div class="article_manage clearfix">
+        <div class="article_l">
+            <span class="link_categories">
+            标签：
+              <a href='http://www.csdn.net/tag/c' target=_blank onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_tag']);">c</a>
+            </span>
+        </div>
+        <div class="article_r">
+            <span class="link_postdate">2014-07-28 16:35</span>
+            <span class="link_view" title="阅读次数">2203人阅读</span>
+            <span class="link_comments" title="评论次数"> <a href="#comments" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_pinglun'])">评论</a>(3)</span>
+            <span class="link_collect tracking-ad" data-mod="popu_171"> <a href="javascript:void(0);" onclick="javascript:collectArticle('c语言实现多态','38232641');return false;" title="收藏">收藏</a></span>
+             <span class="link_report"> <a href="#report" onclick="javascript:report(38232641,2);return false;" title="举报">举报</a></span>
+
+        </div>
+    </div>
+    <div class="embody"  style="display:none" id="embody">
+        <span class="embody_t">本文章已收录于：</span>
+        <div class="embody_c" id="lib" value="{&quot;err&quot;:0,&quot;msg&quot;:&quot;ok&quot;,&quot;data&quot;:[]}"></div>
+    </div>
+    <style type="text/css">        
+            .embody{
+                padding:10px 10px 10px;
+                margin:0 -20px;
+                border-bottom:solid 1px #ededed;                
+            }
+            .embody_b{
+                margin:0 ;
+                padding:10px 0;
+            }
+            .embody .embody_t,.embody .embody_c{
+                display: inline-block;
+                margin-right:10px;
+            }
+            .embody_t{
+                font-size: 12px;
+                color:#999;
+            }
+            .embody_c{
+                font-size: 12px;
+            }
+            .embody_c img,.embody_c em{
+                display: inline-block;
+                vertical-align: middle;               
+            }
+             .embody_c img{               
+                width:30px;
+                height:30px;
+            }
+            .embody_c em{
+                margin: 0 20px 0 10px;
+                color:#333;
+                font-style: normal;
+            }
+    </style>
+    <script  type="text/javascript">
+        $(function () {
+            try
+            {
+                var lib = eval("("+$("#lib").attr("value")+")");
+                var html = "";
+                if (lib.err == 0) {
+                    $.each(lib.data, function (i) {
+                        var obj = lib.data[i];
+                        //html += '<img src="' + obj.logo + '"/>' + obj.name + "&nbsp;&nbsp;";
+                        html += ' <a href="' + obj.url + '" target="_blank">';
+                        html += ' <img src="' + obj.logo + '">';
+                        html += ' <em><b>' + obj.name + '</b></em>';
+                        html += ' </a>';
+                    });
+                    if (html != "") {
+                        setTimeout(function () {
+                            $("#lib").html(html);                      
+                            $("#embody").show();
+                        }, 100);
+                    }
+                }      
+            } catch (err)
+            { }
+            
+        });
+    </script>
+      <div class="category clearfix">
+        <div class="category_l">
+           <img src="http://static.blog.csdn.net/images/category_icon.jpg">
+            <span>分类：</span>
+        </div>
+        <div class="category_r">
+                    <label  onclick="GetCategoryArticles('1374121','dai_jing','top','38232641');">
+                        <span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_fenlei']);">c++<em>（47）</em></span>
+                      <img class="arrow-down" src="http://static.blog.csdn.net/images/arrow_triangle _down.jpg" style="display:inline;">
+                      <img class="arrow-up" src="http://static.blog.csdn.net/images/arrow_triangle_up.jpg" style="display:none;">
+                        <div class="subItem">
+                            <div class="subItem_t"><a  href="http://blog.csdn.net/dai_jing/article/category/1374121"  target="_blank">作者同类文章</a><i class="J_close">X</i></div>
+                            <ul class="subItem_l" id="top_1374121">                            
+                            </ul>
+                        </div>
+                    </label>                    
+        </div>
+    </div>
+    <script   type="text/javascript" src="http://static.blog.csdn.net/scripts/category.js"></script>  
+
+  
+
+  
+  
+     
+
+<div id="article_content" class="article_content">
+
+<p><span style="font-size:18px"><strong>转载自：<a target="_blank" href="http://www.cnblogs.com/haippy/archive/2012/12/31/2840501.html">http://www.cnblogs.com/haippy/archive/2012/12/31/2840501.html</a></strong></span></p>
+<p><span style="font-size:18px"><br>
+</span></p>
+<p><span style="font-size:18px"><br>
+</span></p>
+<p><span style="font-size:18px">上面一篇博客中写了《<a target="_blank" href="http://www.cnblogs.com/haippy/admin/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%20C%20%E7%9A%84%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD" target="_blank">如何实现 C 的函数重载</a>》，本文将进一步讲讲如何实现 C 语言的继承和多态，其实大致的思想已经在前面的一篇博客《<a target="_blank" href="http://www.cnblogs.com/haippy/archive/2012/11/24/2786404.html" target="_blank">200
+ 行 C 代码实现插件式 NOSQL 存储服务器(一)</a>》中体现过了，主要就是如何灵活运用C的函数指针这一特性！</span></p>
+<p><span style="font-size:18px">等等，C本身是不支持继承和多态的，那还煞费苦心实现 C 的继承和多态干嘛呢？其实在 C 的世界里，有一套非常有名的面向对象的框架，用的也非常广，那就是
+<a target="_blank" href="http://developer.gnome.org/gobject/stable/" target="_blank">
+GObject</a>，它是整个图形界面开发库 GTK 的基石，在IBM developerWorks上有一篇很好的文章介绍 GObject《<a target="_blank" href="http://www.ibm.com/developerworks/cn/linux/l-gobject/index.html" target="_blank">GObject对象系统</a>》。另外，在 Linux 内核里面也大量使用了面向对象的思想，比如虚拟文件系统，设备驱动等模块，在
+<a target="_blank" href="https://lwn.net/" target="_blank">lwn </a>上有两篇文章就讲到了内核中的面向对象，详细请看：《<a target="_blank" href="https://lwn.net/Articles/444910/" target="_blank">Object oriented design patterns in the kernel, part 1</a>》，《<a target="_blank" href="http://lwn.net/Articles/446317/" target="_blank">Object
+ oriented design patterns in the kernel, part 2</a>》。</span></p>
+<p><span style="font-size:18px">好了，貌&#20284;扯远了，现在我们就来动手实现C语言的继承与多态，我们还是以比较经典的动物世界中的实例来举例：假设动物们（包括人）都会吃(Eat)，会走（Walk），会说（Talk）,而派生类为 dog（汪星人） 和 cat（喵星人），当然还可以是更多，dog 和 cat 都有自己独特的 eat, walk 和 talk 方式，那么大致的代码如下：</span></p>
+<p><span style="font-size:18px">基类代码 animal-base.h|c:</span></p>
+<div class="cnblogs_code">
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><span style="font-size:18px"><img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif"></span></span></div>
+<pre><span style="font-size:18px"><span style="color:rgb(0,128,0)">/*</span><span style="color:rgb(0,128,0)">
+ * =============================================================================
+ *
+ *       Filename:  animal-base.h
+ *
+ *    Description:  animal base class.
+ *
+ *        Created:  12/31/2012 11:36:43 AM
+ *
+ *         Author:  Fu Haiping (forhappy), haipingf@gmail.com
+ *        Company:  ICT ( Institute Of Computing Technology, CAS )
+ *
+ * =============================================================================
+ </span><span style="color:rgb(0,128,0)">*/</span>
+#ifndef _ANIMAL_H_
+<span style="color:rgb(0,0,255)">#define</span> _ANIMAL_H_
+
+typedef <span style="color:rgb(0,0,255)">struct</span> animal_s_ animal_t;
+typedef <span style="color:rgb(0,0,255)">struct</span> animal_ops_s_ animal_ops_t;
+
+
+<span style="color:rgb(0,128,0)">/*</span><span style="color:rgb(0,128,0)"> 动物类，是所有动物类的基类,也是抽象类 </span><span style="color:rgb(0,128,0)">*/</span>
+<span style="color:rgb(0,0,255)">struct</span> animal_s_ {
+    <span style="color:rgb(0,0,255)">char</span> *name; <span style="color:rgb(0,128,0)">/*</span><span style="color:rgb(0,128,0)">&lt; 动物的名称 </span><span style="color:rgb(0,128,0)">*/</span>
+    animal_ops_t *animal_ops; <span style="color:rgb(0,128,0)">/*</span><span style="color:rgb(0,128,0)"> 动物的基本行为 </span><span style="color:rgb(0,128,0)">*/</span>
+};
+
+<span style="color:rgb(0,128,0)">/*</span><span style="color:rgb(0,128,0)"> 动物的基本行为 </span><span style="color:rgb(0,128,0)">*/</span>
+<span style="color:rgb(0,0,255)">struct</span> animal_ops_s_ {
+    <span style="color:rgb(0,128,0)">/*</span><span style="color:rgb(0,128,0)"> 动物吃了什么食物 </span><span style="color:rgb(0,128,0)">*/</span>
+    <span style="color:rgb(0,0,255)">void</span> (*eat)(<span style="color:rgb(0,0,255)">char</span> *food);
+    <span style="color:rgb(0,128,0)">/*</span><span style="color:rgb(0,128,0)"> 动物走了多少步 </span><span style="color:rgb(0,128,0)">*/</span>
+    <span style="color:rgb(0,0,255)">void</span> (*walk)(<span style="color:rgb(0,0,255)">int</span> steps);
+    <span style="color:rgb(0,128,0)">/*</span><span style="color:rgb(0,128,0)"> 动物在说什么 </span><span style="color:rgb(0,128,0)">*/</span>
+    <span style="color:rgb(0,0,255)">void</span> (*talk)(<span style="color:rgb(0,0,255)">char</span> *msg);
+};
+
+<span style="color:rgb(0,128,0)">/*</span><span style="color:rgb(0,128,0)"> 基类的构造函数，需要显示调用 </span><span style="color:rgb(0,128,0)">*/</span>
+<span style="color:rgb(0,0,255)">extern</span> animal_t * animal_init(<span style="color:rgb(0,0,255)">char</span> *name);
+
+<span style="color:rgb(0,128,0)">/*</span><span style="color:rgb(0,128,0)"> 基类的有关操作，如吃，走，说等等 </span><span style="color:rgb(0,128,0)">*/</span>
+<span style="color:rgb(0,0,255)">extern</span> <span style="color:rgb(0,0,255)">void</span> animal_eat(animal_t *animal, <span style="color:rgb(0,0,255)">char</span> *food);
+<span style="color:rgb(0,0,255)">extern</span> <span style="color:rgb(0,0,255)">void</span> animal_walk(animal_t *animal, <span style="color:rgb(0,0,255)">int</span> steps);
+<span style="color:rgb(0,0,255)">extern</span> <span style="color:rgb(0,0,255)">void</span> animal_talk(animal_t *animal, <span style="color:rgb(0,0,255)">char</span> *msg);
+
+<span style="color:rgb(0,128,0)">/*</span><span style="color:rgb(0,128,0)"> 基类的析构函数，需要显示调用 </span><span style="color:rgb(0,128,0)">*/</span>
+<span style="color:rgb(0,0,255)">extern</span> <span style="color:rgb(0,0,255)">void</span> animal_die(animal_t *animal);
+
+<span style="color:rgb(0,0,255)">#endif</span>  /* _ANIMAL_H_ */</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><span style="font-size:18px"><img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif"></span></span></div>
+</div>
+<div class="cnblogs_code">
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><span style="font-size:18px"><img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif"></span></span></div>
+<pre><span style="font-size:18px"><span style="color:rgb(0,128,0)">/*</span><span style="color:rgb(0,128,0)">
+ * =============================================================================
+ *
+ *       Filename:  animal-base.c
+ *
+ *    Description:  animal base class.
+ *
+ *        Created:  12/31/2012 12:27:27 PM
+ *
+ *         Author:  Fu Haiping (forhappy), haipingf@gmail.com
+ *        Company:  ICT ( Institute Of Computing Technology, CAS )
+ *
+ * =============================================================================
+ </span><span style="color:rgb(0,128,0)">*/</span>
+#include &lt;assert.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;<span style="color:rgb(0,0,255)">string</span>.h&gt;
+
+#include <span style="color:rgb(128,0,0)">&quot;</span><span style="color:rgb(128,0,0)">animal-base.h</span><span style="color:rgb(128,0,0)">&quot;</span>
+
+<span style="color:rgb(0,128,0)">/*</span><span style="color:rgb(0,128,0)"> 基类的构造函数，需要显示调用 </span><span style="color:rgb(0,128,0)">*/</span>
+animal_t * animal_init(<span style="color:rgb(0,0,255)">char</span> *name)
+{
+    assert(name != NULL);
+    size_t name_len = strlen(name);
+
+    animal_t *animal = (animal_t *)malloc(<span style="color:rgb(0,0,255)">sizeof</span>(animal_t)
+            &#43; <span style="color:rgb(0,0,255)">sizeof</span>(animal_ops_t) &#43; name_len &#43; <span style="color:rgb(128,0,128)">1</span>);
+    memset(animal, <span style="color:rgb(128,0,128)">0</span>, (<span style="color:rgb(0,0,255)">sizeof</span>(animal_t) &#43; <span style="color:rgb(0,0,255)">sizeof</span>(animal_ops_t)
+                &#43; name_len &#43; <span style="color:rgb(128,0,128)">1</span>));
+    animal-&gt;name = (<span style="color:rgb(0,0,255)">char</span> *)animal &#43; <span style="color:rgb(0,0,255)">sizeof</span>(animal_t);
+    memcpy(animal, name, name_len);
+    animal-&gt;animal_ops = (animal_ops_t *)((<span style="color:rgb(0,0,255)">char</span> *)animal
+            &#43; <span style="color:rgb(0,0,255)">sizeof</span>(animal_t) &#43; name_len &#43; <span style="color:rgb(128,0,128)">1</span>);
+
+    <span style="color:rgb(0,0,255)">return</span> animal;
+}
+
+<span style="color:rgb(0,128,0)">/*</span><span style="color:rgb(0,128,0)"> 基类的有关操作，如吃，走，说等等 </span><span style="color:rgb(0,128,0)">*/</span>
+<span style="color:rgb(0,0,255)">void</span> animal_eat(animal_t *animal, <span style="color:rgb(0,0,255)">char</span> *food)
+{
+    animal-&gt;animal_ops-&gt;eat(food);
+    <span style="color:rgb(0,0,255)">return</span>;
+}
+
+<span style="color:rgb(0,0,255)">void</span> animal_walk(animal_t *animal, <span style="color:rgb(0,0,255)">int</span> steps)
+{
+    animal-&gt;animal_ops-&gt;walk(steps);
+    <span style="color:rgb(0,0,255)">return</span>;
+}
+
+<span style="color:rgb(0,0,255)">void</span> animal_talk(animal_t *animal, <span style="color:rgb(0,0,255)">char</span> *msg)
+{
+    animal-&gt;animal_ops-&gt;talk(msg);
+    <span style="color:rgb(0,0,255)">return</span>;
+}
+
+<span style="color:rgb(0,128,0)">/*</span><span style="color:rgb(0,128,0)"> 基类的析构函数，需要显示调用 </span><span style="color:rgb(0,128,0)">*/</span>
+<span style="color:rgb(0,0,255)">void</span> animal_die(animal_t *animal)
+{
+    assert(animal != NULL);
+
+    free(animal);
+    <span style="color:rgb(0,0,255)">return</span>;
+}</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><span style="font-size:18px"><img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif"></span></span></div>
+</div>
+<p><span style="font-size:18px">汪星人 dog 类的实现代码：</span></p>
+<div class="cnblogs_code">
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><span style="font-size:18px"><img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif"></span></span></div>
+<pre><span style="font-size:18px">#include <span style="color:rgb(128,0,0)">&quot;</span><span style="color:rgb(128,0,0)">animal-base.h</span><span style="color:rgb(128,0,0)">&quot;</span>
+
+typedef <span style="color:rgb(0,0,255)">struct</span> dog_s_ dog_t;
+
+<span style="color:rgb(0,0,255)">struct</span> dog_s_ {
+    animal_t <span style="color:rgb(0,0,255)">base</span>; <span style="color:rgb(0,128,0)">/*</span><span style="color:rgb(0,128,0)"> 继承自 animal 基类 </span><span style="color:rgb(0,128,0)">*/</span>
+
+    <span style="color:rgb(0,128,0)">/*</span><span style="color:rgb(0,128,0)"> 以下还可以添加与 dog 相关的属性和方法(函数指针), 如: </span><span style="color:rgb(0,128,0)">*/</span>
+    <span style="color:rgb(0,128,0)">/*</span><span style="color:rgb(0,128,0)"> char *owner; // dog 的主人 </span><span style="color:rgb(0,128,0)">*/</span>
+    <span style="color:rgb(0,128,0)">/*</span><span style="color:rgb(0,128,0)"> void (*hunt)(const char *rabbit); // 猎兔犬 </span><span style="color:rgb(0,128,0)">*/</span>
+};
+
+<span style="color:rgb(0,0,255)">extern</span> dog_t * dog_init();
+<span style="color:rgb(0,0,255)">extern</span> <span style="color:rgb(0,0,255)">void</span> dog_die(dog_t * dog);</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><span style="font-size:18px"><img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif"></span></span></div>
+</div>
+<div class="cnblogs_code">
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><span style="font-size:18px"><img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif"></span></span></div>
+<pre><span style="font-size:18px"><span style="color:rgb(0,128,0)">/*</span><span style="color:rgb(0,128,0)">
+ * =============================================================================
+ *
+ *       Filename:  dog.c
+ *
+ *    Description:  dog class derived from animal base class.
+ *
+ *        Created:  12/31/2012 12:52:26 PM
+ *
+ *         Author:  Fu Haiping (forhappy), haipingf@gmail.com
+ *        Company:  ICT ( Institute Of Computing Technology, CAS )
+ *
+ * =============================================================================
+ </span><span style="color:rgb(0,128,0)">*/</span>
+#include &lt;assert.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;<span style="color:rgb(0,0,255)">string</span>.h&gt;
+
+#include <span style="color:rgb(128,0,0)">&quot;</span><span style="color:rgb(128,0,0)">dog.h</span><span style="color:rgb(128,0,0)">&quot;</span>
+
+<span style="color:rgb(0,0,255)">static</span> <span style="color:rgb(0,0,255)">void</span> eat(<span style="color:rgb(0,0,255)">char</span> *food);
+
+<span style="color:rgb(0,0,255)">static</span> <span style="color:rgb(0,0,255)">void</span> walk(<span style="color:rgb(0,0,255)">int</span> steps);
+
+<span style="color:rgb(0,0,255)">static</span> <span style="color:rgb(0,0,255)">void</span> talk(<span style="color:rgb(0,0,255)">char</span> *msg);
+
+dog_t * dog_init()
+{
+    dog_t *dog = (dog_t *)malloc(<span style="color:rgb(0,0,255)">sizeof</span>(dog_t));
+    animal_t *animal = (animal_t *)animal_init(<span style="color:rgb(128,0,0)">&quot;</span><span style="color:rgb(128,0,0)">doggggggggggggg</span><span style="color:rgb(128,0,0)">&quot;</span>);
+    memcpy(&amp;(dog-&gt;<span style="color:rgb(0,0,255)">base</span>), animal, <span style="color:rgb(0,0,255)">sizeof</span>(animal_t));
+
+    dog-&gt;<span style="color:rgb(0,0,255)">base</span>.animal_ops-&gt;eat = eat;
+    dog-&gt;<span style="color:rgb(0,0,255)">base</span>.animal_ops-&gt;walk = walk;
+    dog-&gt;<span style="color:rgb(0,0,255)">base</span>.animal_ops-&gt;talk = talk;
+
+    free(animal);
+    <span style="color:rgb(0,0,255)">return</span> dog;
+}
+
+<span style="color:rgb(0,0,255)">void</span> dog_die(dog_t *dog)
+{
+    <span style="color:rgb(0,128,0)">/*</span><span style="color:rgb(0,128,0)"> nothing to do here. </span><span style="color:rgb(0,128,0)">*/</span>
+}
+
+<span style="color:rgb(0,0,255)">static</span> <span style="color:rgb(0,0,255)">void</span> eat(<span style="color:rgb(0,0,255)">char</span> *food)
+{
+    printf(<span style="color:rgb(128,0,0)">&quot;</span><span style="color:rgb(128,0,0)">I'm a dog, I eat %s\n</span><span style="color:rgb(128,0,0)">&quot;</span>, food);
+}
+
+<span style="color:rgb(0,0,255)">static</span> <span style="color:rgb(0,0,255)">void</span> walk(<span style="color:rgb(0,0,255)">int</span> steps)
+{
+    printf(<span style="color:rgb(128,0,0)">&quot;</span><span style="color:rgb(128,0,0)">I'm a dog, I can jump %d steps one time\n</span><span style="color:rgb(128,0,0)">&quot;</span>, steps);
+}
+
+<span style="color:rgb(0,0,255)">static</span> <span style="color:rgb(0,0,255)">void</span> talk(<span style="color:rgb(0,0,255)">char</span> *msg)
+{
+    printf(<span style="color:rgb(128,0,0)">&quot;</span><span style="color:rgb(128,0,0)">I'm a dog, I talk my language %s\n</span><span style="color:rgb(128,0,0)">&quot;</span>, msg);
+}</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><span style="font-size:18px"><img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif"></span></span></div>
+</div>
+<p><span style="font-size:18px">喵星人(cat 类) 的实现代码：</span></p>
+<div class="cnblogs_code">
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><span style="font-size:18px"><img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif"></span></span></div>
+<pre><span style="font-size:18px"><span style="color:rgb(0,128,0)">/*</span><span style="color:rgb(0,128,0)">
+ * =============================================================================
+ *
+ *       Filename:  cat.h
+ *
+ *    Description:  cat class derived from animal base class.
+ *
+ *        Created:  12/31/2012 12:44:05 PM
+ *
+ *         Author:  Fu Haiping (forhappy), haipingf@gmail.com
+ *        Company:  ICT ( Institute Of Computing Technology, CAS )
+ *
+ * =============================================================================
+ </span><span style="color:rgb(0,128,0)">*/</span>
+#include <span style="color:rgb(128,0,0)">&quot;</span><span style="color:rgb(128,0,0)">animal-base.h</span><span style="color:rgb(128,0,0)">&quot;</span>
+
+typedef <span style="color:rgb(0,0,255)">struct</span> cat_s_ cat_t;
+
+<span style="color:rgb(0,0,255)">struct</span> cat_s_ {
+    animal_t <span style="color:rgb(0,0,255)">base</span>; <span style="color:rgb(0,128,0)">/*</span><span style="color:rgb(0,128,0)"> 继承自 animal 基类 </span><span style="color:rgb(0,128,0)">*/</span>
+
+    <span style="color:rgb(0,128,0)">/*</span><span style="color:rgb(0,128,0)"> 以下还可以添加与 cat 相关的属性和方法(函数指针), 如: </span><span style="color:rgb(0,128,0)">*/</span>
+    <span style="color:rgb(0,128,0)">/*</span><span style="color:rgb(0,128,0)"> char *owner; // cat 的主人 </span><span style="color:rgb(0,128,0)">*/</span>
+    <span style="color:rgb(0,128,0)">/*</span><span style="color:rgb(0,128,0)"> void (*hunt)(const char *rabbit); // 猎兔犬 </span><span style="color:rgb(0,128,0)">*/</span>
+};
+
+<span style="color:rgb(0,0,255)">extern</span> cat_t * cat_init();
+<span style="color:rgb(0,0,255)">extern</span> <span style="color:rgb(0,0,255)">void</span> cat_die(cat_t * cat);</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><span style="font-size:18px"><img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif"></span></span></div>
+</div>
+<div class="cnblogs_code">
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><span style="font-size:18px"><img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif"></span></span></div>
+<pre><span style="font-size:18px"><span style="color:rgb(0,128,0)">/*</span><span style="color:rgb(0,128,0)">
+ * =============================================================================
+ *
+ *       Filename:  cat.c
+ *
+ *    Description:  cat class derived from animal base class.
+ *
+ *        Created:  12/31/2012 12:52:26 PM
+ *
+ *         Author:  Fu Haiping (forhappy), haipingf@gmail.com
+ *        Company:  ICT ( Institute Of Computing Technology, CAS )
+ *
+ * =============================================================================
+ </span><span style="color:rgb(0,128,0)">*/</span>
+#include &lt;assert.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;<span style="color:rgb(0,0,255)">string</span>.h&gt;
+
+#include <span style="color:rgb(128,0,0)">&quot;</span><span style="color:rgb(128,0,0)">cat.h</span><span style="color:rgb(128,0,0)">&quot;</span>
+
+<span style="color:rgb(0,0,255)">static</span> <span style="color:rgb(0,0,255)">void</span> eat(<span style="color:rgb(0,0,255)">char</span> *food);
+
+<span style="color:rgb(0,0,255)">static</span> <span style="color:rgb(0,0,255)">void</span> walk(<span style="color:rgb(0,0,255)">int</span> steps);
+
+<span style="color:rgb(0,0,255)">static</span> <span style="color:rgb(0,0,255)">void</span> talk(<span style="color:rgb(0,0,255)">char</span> *msg);
+
+cat_t * cat_init()
+{
+    cat_t *cat = (cat_t *)malloc(<span style="color:rgb(0,0,255)">sizeof</span>(cat_t));
+    animal_t *animal = (animal_t *)animal_init(<span style="color:rgb(128,0,0)">&quot;</span><span style="color:rgb(128,0,0)">cat</span><span style="color:rgb(128,0,0)">&quot;</span>);
+    memcpy(&amp;(cat-&gt;<span style="color:rgb(0,0,255)">base</span>), animal, <span style="color:rgb(0,0,255)">sizeof</span>(animal_t));
+
+    cat-&gt;<span style="color:rgb(0,0,255)">base</span>.animal_ops-&gt;eat = eat;
+    cat-&gt;<span style="color:rgb(0,0,255)">base</span>.animal_ops-&gt;walk = walk;
+    cat-&gt;<span style="color:rgb(0,0,255)">base</span>.animal_ops-&gt;talk = talk;
+
+    free(animal);
+    <span style="color:rgb(0,0,255)">return</span> cat;
+}
+
+<span style="color:rgb(0,0,255)">void</span> cat_die(cat_t *cat)
+{
+    <span style="color:rgb(0,128,0)">/*</span><span style="color:rgb(0,128,0)"> nothing to do here. </span><span style="color:rgb(0,128,0)">*/</span>
+}
+
+<span style="color:rgb(0,0,255)">static</span> <span style="color:rgb(0,0,255)">void</span> eat(<span style="color:rgb(0,0,255)">char</span> *food)
+{
+    printf(<span style="color:rgb(128,0,0)">&quot;</span><span style="color:rgb(128,0,0)">I'm a cat, I eat %s\n</span><span style="color:rgb(128,0,0)">&quot;</span>, food);
+}
+
+<span style="color:rgb(0,0,255)">static</span> <span style="color:rgb(0,0,255)">void</span> walk(<span style="color:rgb(0,0,255)">int</span> steps)
+{
+    printf(<span style="color:rgb(128,0,0)">&quot;</span><span style="color:rgb(128,0,0)">I'm a cat, I can jump %d steps one time\n</span><span style="color:rgb(128,0,0)">&quot;</span>, steps);
+}
+
+<span style="color:rgb(0,0,255)">static</span> <span style="color:rgb(0,0,255)">void</span> talk(<span style="color:rgb(0,0,255)">char</span> *msg)
+{
+    printf(<span style="color:rgb(128,0,0)">&quot;</span><span style="color:rgb(128,0,0)">I'm a cat, I talk my language %s\n</span><span style="color:rgb(128,0,0)">&quot;</span>, msg);
+}</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><span style="font-size:18px"><img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif"></span></span></div>
+</div>
+<p><span style="font-size:18px">最后，测试代码如下：</span></p>
+<div class="cnblogs_code">
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><span style="font-size:18px"><img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif"></span></span></div>
+<pre><span style="font-size:18px"><span style="color:rgb(0,128,0)">/*</span><span style="color:rgb(0,128,0)">
+ * =============================================================================
+ *
+ *       Filename:  main.c
+ *
+ *    Description:  main test.
+ *
+ *        Created:  12/31/2012 01:00:43 PM
+ *
+ *         Author:  Fu Haiping (forhappy), haipingf@gmail.com
+ *        Company:  ICT ( Institute Of Computing Technology, CAS )
+ *
+ * =============================================================================
+ </span><span style="color:rgb(0,128,0)">*/</span>
+#include &lt;stdio.h&gt;
+
+#include <span style="color:rgb(128,0,0)">&quot;</span><span style="color:rgb(128,0,0)">animal-base.h</span><span style="color:rgb(128,0,0)">&quot;</span>
+#include <span style="color:rgb(128,0,0)">&quot;</span><span style="color:rgb(128,0,0)">dog.h</span><span style="color:rgb(128,0,0)">&quot;</span>
+#include <span style="color:rgb(128,0,0)">&quot;</span><span style="color:rgb(128,0,0)">cat.h</span><span style="color:rgb(128,0,0)">&quot;</span>
+
+<span style="color:rgb(0,0,255)">int</span> main(<span style="color:rgb(0,0,255)">int</span> argc, <span style="color:rgb(0,0,255)">const</span> <span style="color:rgb(0,0,255)">char</span> *argv[])
+{
+    dog_t *dog = dog_init();
+    cat_t *cat = cat_init();
+
+    <span style="color:rgb(0,128,0)">/*</span><span style="color:rgb(0,128,0)"> dog 类测试 </span><span style="color:rgb(0,128,0)">*/</span>
+    animal_eat(dog, <span style="color:rgb(128,0,0)">&quot;</span><span style="color:rgb(128,0,0)">bones</span><span style="color:rgb(128,0,0)">&quot;</span>);
+    animal_walk(dog, <span style="color:rgb(128,0,128)">5</span>);
+    animal_talk(dog, <span style="color:rgb(128,0,0)">&quot;</span><span style="color:rgb(128,0,0)">wuang wuang wuang...</span><span style="color:rgb(128,0,0)">&quot;</span>);
+
+    <span style="color:rgb(0,128,0)">/*</span><span style="color:rgb(0,128,0)"> cat 类测试 </span><span style="color:rgb(0,128,0)">*/</span>
+    animal_eat(cat, <span style="color:rgb(128,0,0)">&quot;</span><span style="color:rgb(128,0,0)">fish</span><span style="color:rgb(128,0,0)">&quot;</span>);
+    animal_walk(cat, <span style="color:rgb(128,0,128)">3</span>);
+    animal_talk(cat, <span style="color:rgb(128,0,0)">&quot;</span><span style="color:rgb(128,0,0)">miao miao miao...</span><span style="color:rgb(128,0,0)">&quot;</span>);
+
+}</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><span style="font-size:18px"><img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif"></span></span></div>
+</div>
+<p><span style="font-size:18px">当然还有一点点 Makefile 啦：</span></p>
+<div class="cnblogs_code">
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><span style="font-size:18px"><img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif"></span></span></div>
+<pre><span style="font-size:18px">all:main
+
+main:main.o dog.o <span style="color:rgb(0,0,255)">cat</span>.o animal-base.o
+    <span style="color:rgb(0,0,255)">gcc</span> -o $@ $^
+
+main.o:main.c
+
+<span style="color:rgb(0,0,255)">cat</span>.o:<span style="color:rgb(0,0,255)">cat</span>.c
+
+dog.o:dog.c
+
+animal-base.o:animal-base.c
+
+.PHONY:clean
+
+clean:
+    <span style="color:rgb(0,0,255)">rm</span> main main.o dog.o <span style="color:rgb(0,0,255)">cat</span>.o animal-base.o</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><span style="font-size:18px"><img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif"></span></span></div>
+</div>
+<p><span style="font-size:18px">最后执行结果为：</span></p>
+<div class="cnblogs_code">
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><span style="font-size:18px"><img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif"></span></span></div>
+<pre><span style="font-size:18px">I<span style="color:rgb(128,0,0)">'</span><span style="color:rgb(128,0,0)">m a dog, I eat bones</span>
+I<span style="color:rgb(128,0,0)">'</span><span style="color:rgb(128,0,0)">m a dog, I can jump 5 steps one time</span>
+I<span style="color:rgb(128,0,0)">'</span><span style="color:rgb(128,0,0)">m a dog, I talk my language wuang wuang wuang...</span>
+I<span style="color:rgb(128,0,0)">'</span><span style="color:rgb(128,0,0)">m a cat, I eat fish</span>
+I<span style="color:rgb(128,0,0)">'</span><span style="color:rgb(128,0,0)">m a cat, I can jump 3 steps one time</span>
+I<span style="color:rgb(128,0,0)">'</span><span style="color:rgb(128,0,0)">m a cat, I talk my language miao miao miao...</span></span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><span style="font-size:18px"><img alt="复制代码" src="http://common.cnblogs.com/images/copycode.gif"></span></span></div>
+</div>
+<p><span style="font-size:18px">查看完整的代码请移步：<a target="_blank" href="https://github.com/forhappy/c-recipes/tree/master/ooc" target="_blank">https://github.com/forhappy/c-recipes/tree/master/ooc</a></span></p>
+   
+</div>
+
+
+
+
+<!-- Baidu Button BEGIN -->
+
+
+
+
+<div class="bdsharebuttonbox tracking-ad" style="float: right;" data-mod="popu_172">
+<a href="#" class="bds_more" data-cmd="more" style="background-position:0 0 !important; background-image: url(http://bdimg.share.baidu.com/static/api/img/share/icons_0_16.png?v=d754dcc0.png) !important"></a>
+<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"  style="background-position:0 -52px !important"></a>
+<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"style="background-position:0 -104px !important"></a>
+<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"style="background-position:0 -260px !important"></a>
+<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"style="background-position:0 -208px !important"></a>
+<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"style="background-position:0 -1612px !important" ></a>
+</div>
+<script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "1", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
+<!-- Baidu Button END -->
+
+   <link rel="stylesheet" href="http://static.blog.csdn.net/css/blog_detail.css" />
+
+    
+<!--172.16.140.13-->
+
+<!-- Baidu Button BEGIN -->
+<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=1536434" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+    document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script>
+<!-- Baidu Button END -->
+
+ 
+
+        <div id="digg" ArticleId="38232641" >
+            <dl id="btnDigg" class="digg digg_disable"  onclick="btndigga();">
+               
+                 <dt>顶</dt>
+                <dd>0</dd>
+            </dl>
+           
+              
+            <dl id="btnBury" class="digg digg_disable"  onclick="btnburya();">
+              
+                  <dt>踩</dt>
+                <dd>1</dd>               
+            </dl>
+            
+        </div>
+     <div class="tracking-ad" data-mod="popu_222"><a href="javascript:void(0);" >&nbsp;</a>   </div>
+    <div class="tracking-ad" data-mod="popu_223"> <a href="javascript:void(0);" >&nbsp;</a></div>
+    <script type="text/javascript">
+                function btndigga() {
+                    $(".tracking-ad[data-mod='popu_222'] a").click();
+                }
+                function btnburya() {
+                    $(".tracking-ad[data-mod='popu_223'] a").click();
+                }
+            </script>
+
+   <ul class="article_next_prev">
+                <li class="prev_article"><span  onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_shangyipian']);location.href='/dai_jing/article/details/38225435';">上一篇</span><a href="/dai_jing/article/details/38225435" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_shangyipian'])">windows 上安装 libevent</a></li>
+                <li class="next_article"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_xiayipian']);location.href='/dai_jing/article/details/38314481';">下一篇</span><a href="/dai_jing/article/details/38314481" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_xiayipian'])">模板设计策略</a></li>
+    </ul>
+
+    <div style="clear:both; height:10px;"></div>
+
+
+        <div class="similar_article"  style="display:none">
+                <h4>我的同类文章</h4>
+                <div class="similar_c"style="margin:20px 0px 0px 0px">
+                    <div class="similar_c_t">
+                                <label class="similar_cur">
+                                    <span  style="cursor:pointer"  onclick="GetCategoryArticles('1374121','dai_jing','foot','38232641');">c++<em>（47）</em></span>
+                                </label>
+                    </div>
+                   
+                    <div class="similar_wrap tracking-ad" data-mod="popu_141"  style="max-height:195px;">
+                        <a href="http://blog.csdn.net" style="display:none">http://blog.csdn.net</a>
+                        <ul class="similar_list fl">                          
+                        </ul>
+
+                        <ul class="similar_list fr">                           
+                        </ul>
+                    </div>
+                </div>
+            </div>    
+    <script  type="text/javascript">
+        $(function () {
+            GetCategoryArticles('1374121', 'dai_jing','foot','38232641');
+        });
+    </script>
+      
+</div>
+<div id="suggest"></div>
+         <script  language="javascript" type='text/javascript'>     
+             $(function(){
+                 $.get("/dai_jing/svc/GetSuggestContent/38232641",function(data){
+                     $("#suggest").html(data);
+                 });     
+             });             
+         </script>  
+
+
+<style>
+.blog-ass-articl dd {
+color: #369;
+width: 99%; /*修改行*/
+float: left;
+overflow: hidden;
+font: normal normal 12px/23px "SimSun";
+height: 23px;
+margin: 0;
+padding: 0 0 0 10px;
+margin-right: 30px;
+background: url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px;
+}
+</style>
+
+ <link rel="stylesheet" href="http://static.blog.csdn.net/css/replace.css"/>
+<div id="relate" data-mod="popu_218"  class="tracking-ad">
+        <div class="relate_t">
+            <h3><span>参考知识库</span></h3>
+        </div>
+        <div class="relate_c">
+        </div>
+</div>
+ 
+
+<dl class="blog-ass-articl" id="res-relatived" > 
+    <div class="embody embody_b" id="libkeyparent"  style="display:none">
+            <span class="embody_t">更多资料请参考：</span>
+            <div class="embody_c" id="libkey"></div>
+    </div>
+
+
+     <dt><span>猜你在找</span></dt>    
+
+
+   
+
+
+    <div id="adCollege" style="width: 42%;float: left;"> 
+        <script src="http://csdnimg.cn/jobreco/job_reco.js" type="text/javascript"></script> 
+        <script type="text/javascript">
+            csdn.position.showEdu({
+                sourceType: "blog",
+                searchType: "detail",
+                searchKey: "38232641",
+                username: "",
+                recordcount: "5",
+                containerId: "adCollege" //容器DIV的id。 
+            });
+        </script> 
+    </div>  
+
+    
+     <div id="res"  data-mod="popu_36"  class="tracking-ad" style="width: 42%;float: left;margin-right: 30px;"></div>
+   
+</dl>
+
+
+<script type="text/javascript">
+    $(function () {
+        setTimeout(function () {
+            var searchtitletags = 'c语言实现多态' + ',' + $("#tags").html();
+            searchService({
+                index: 'blog',
+                query: searchtitletags,
+                from: 5,
+                size: 5,
+                appendTo: '#res',
+                url: 'recommend',
+                his: 2,
+                client: "blog_cf_enhance",
+                tmpl: '<dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px;"><a href="#{ url }" title="#{ title }" strategy="#{ strategy }">#{ title }</a></dd>'
+            });
+        }, 500);
+    });    
+
+ </script>  
+
+    <div id="ad_cen">        
+<!-- 广告位开始 -->
+<ins data-revive-zoneid="71" data-revive-id="8c38e720de1c90a6f6ff52f3f89c4d57"></ins>
+<!-- 广告位结束 -->    </div>  
+
+<div class="comment_class">
+    <div id="comment_title" class="panel_head">
+        <span class="see_comment">查看评论</span><a name="comments"></a></div>
+    <div id="comment_list">
+    </div>
+    <div id="comment_bar">
+    </div>
+    <div id="comment_form">
+    </div>
+    <div class="announce">
+        * 以上用户言论只代表其个人观点，不代表CSDN网站的观点或立场<a name="reply"></a><a name="quote"></a></div>
+</div>
+
+<script type="text/javascript">
+    var fileName = '38232641';
+    var commentscount = 3;
+    var islock = false
+</script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/comment.js"></script>
+    <div id="ad_bot">
+    </div>
+<div id="report_dialog">
+</div>
+
+<div id="d-top"  style="bottom:60px;">
+        <a id="quick-reply" class="btn btn-top q-reply" title="快速回复" style="display:none;">
+            <img src="http://static.blog.csdn.net/images/blog-icon-reply.png" alt="快速回复">
+        </a>    
+
+    <a id="d-top-a" class="btn btn-top backtop"  style="display: none;" title="返回顶部" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_huidaodingbu'])" style="">         
+         <img src="http://static.blog.csdn.net/images/top.png" alt="TOP">
+    </a>
+</div>
+<script type="text/javascript">
+    $(function ()
+    {
+        $("#ad_frm_0").height("90px");
+        
+        setTimeout(function(){
+            $("#ad_frm_2").height("200px");
+        },1000);    
+    });
+  
+</script>
+<style type="text/css">
+    .tag_list
+    {
+        background: none repeat scroll 0 0 #FFFFFF;
+        border: 1px solid #D7CBC1;
+        color: #000000;
+        font-size: 12px;
+        line-height: 20px;
+        list-style: none outside none;
+        margin: 10px 2% 0 1%;
+        padding: 1px;
+    }
+    .tag_list h5
+    {
+        background: none repeat scroll 0 0 #E0DBD3;
+        color: #47381C;
+        font-size: 12px;
+        height: 24px;
+        line-height: 24px;
+        padding: 0 5px;
+        margin: 0;
+    }
+    .tag_list h5 a
+    {
+        color: #47381C;
+    }
+    .classify
+    {
+        margin: 10px 0;
+        padding: 4px 12px 8px;
+    }
+    .classify a
+    {
+        margin-right: 20px;
+        white-space: nowrap;
+    }
+</style>
+
+
+<div class="tag_list" style="display:none"></div>
+  <script  language="javascript" type='text/javascript'>     
+      $(function(){
+              setTimeout(function(){
+                  $.get("/dai_jing/svc/GetTagContent",function(data){
+                      $(".tag_list").html(data).show();
+                  });     
+              });
+          },500);                       
+ </script> 
+
+
+<div id="pop_win" style="display:none ;position: absolute; z-index: 10000; border: 1px solid rgb(220, 220, 220); top: 222.5px; left: 630px; opacity: 1; background: none 0px 0px repeat scroll rgb(255, 255, 255);">
+    
+</div>
+<div id="popup_mask"></div>
+<style>
+    #popup_mask
+    {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        z-index: 9999;
+        left: 0px;
+        top: 0px;
+        opacity: 0.3;
+        filter: alpha(opacity=30);
+        display: none;
+    }
+
+</style>
+
+
+
+
+<script type="text/javascript">
+    $(function(){
+        setTimeout(function(){
+            $(".comment_body:contains('回复')").each(function(index,item){
+                var u=$(this).text().split('：')[0].toString().replace("回复","")
+                var thisComment=$(this);
+                if(u)
+                {
+                    $.getJSON("https://passport.csdn.net/get/nick?callback=?", {users: u}, function(a) {
+                        if(a!=null&&a.data!=null&&a.data.length>0)
+                        {
+                            nick=a.data[0].n; 
+                            if(u!=nick)
+                            {
+                                thisComment.text(thisComment.text().replace(u,nick));  
+                            }
+                        }       
+                    });  
+                }
+            });         
+
+        },200);  
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },5000);
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },10000);
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },15000);
+        
+        setTimeout(function(){
+            $("a img[src='http://js.tongji.linezing.com/stats.gif']").parent().css({"position":"absolute","left":"50%"});
+        },300);
+    });
+
+    function loginbox(){
+        var $logpop=$("#pop_win");
+        $logpop.html('<iframe src="https://passport.csdn.net/account/loginbox?service=http://static.blog.csdn.net/callback.htm" frameborder="0" height="600" width="400" scrolling="no"></iframe>');
+
+        $('#popup_mask').css({
+            opacity: 0.5,
+            width: $( document ).width() + 'px',
+            height:  $( document ).height() + 'px'
+        });
+        $('#popup_mask').css("display","block");
+ 
+        $logpop.css( {
+            top: ($( window ).height() - $logpop.height())/ 2  + $( window 
+       ).scrollTop() + 'px',
+            left:($( window ).width() - $logpop.width())/ 2
+        } );
+ 
+        setTimeout( function () {
+            $logpop.show();
+            $logpop.css( {
+                opacity: 1
+            } );
+        }, 200 );
+ 
+        $('#popup_mask').unbind("click");
+        $('#popup_mask').bind("click", function(){
+            $('#popup_mask').hide();
+            var $clopop = $("#pop_win");
+            $("#common_ask_div_sc").css("display","none");
+            $clopop.css( {
+                opacity: 0
+            } );
+            setTimeout( function () {
+                $clopop.hide();
+            }, 350 );
+            return false;
+        });
+    }   
+
+</script>
+ <script language="javascript" type="text/javascript" src="http://ads.csdn.net/js/async_new.js"></script>      
+
+
+                        <div class="clear">
+                        </div>
+                    </div>                   
+                
+            </div>
+                   
+           <div id="side">
+               
+    <div class="side">
+<div id="panel_Profile" class="panel">
+<ul class="panel_head"><span>个人资料</span></ul>
+<ul class="panel_body profile">
+<div id="blog_userface">
+    <a href="http://my.csdn.net/dai_jing" target="_blank">
+    <img src="http://avatar.csdn.net/B/5/A/1_dai_jing.jpg" title="访问我的空间" style="max-width:90%"/>
+    </a>
+    <br />
+    <span><a href="http://my.csdn.net/dai_jing" class="user_name" target="_blank">dai_jing</a></span>
+</div>
+<div class="interact">
+
+    <a href="javascript:void(0);" class="attent" id="span_add_follow" title="[加关注]"></a>
+
+ <a href="javascript:void(0);" class="letter"  title="[发私信]" onclick="window.open('http://msg.csdn.net/letters/model?receiver=dai_jing','_blank','height=350,width=700');_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_sixin'])"></a>  
+</div>
+<div id="blog_medal">
+                <div id="bms_box">
+                                            <a  target="_blank">
+                                                    <img src="http://c.csdnimg.cn/jifen/images/xunzhang/xunzhang/chizhiyiheng.png" onmouseover="m_over_m(this,4)" onmouseout="m_out_m()" alt="2" >
+                                            </a>
+               </div>
+</div>
+<ul id="blog_rank">
+    <li>访问：<span>314555次</span></li>
+    <li>积分：<span>6272</span> </li>    
+    <li >等级： <span style="position:relative;display:inline-block;z-index:1" >
+            <img src="http://c.csdnimg.cn/jifen/images/xunzhang/jianzhang/blog6.png" alt="" style="vertical-align: middle;" id="leveImg">
+            <div id="smallTittle" style=" position: absolute;  left: -24px;  top: 25px;  text-align: center;  width: 101px;  height: 32px;  background-color: #fff;  line-height: 32px;  border: 2px #DDDDDD solid;  box-shadow: 0px 2px 2px rgba (0,0,0,0.1);  display: none;   z-index: 999;">
+            <div style="left: 42%;  top: -8px;  position: absolute;  width: 0;  height: 0;  border-left: 10px solid transparent;  border-right: 10px solid transparent;  border-bottom: 8px solid #EAEAEA;"></div>
+            积分：6272 </div>
+        </span>  </li>
+    <li>排名：<span>第2724名</span></li>
+</ul>
+<ul id="blog_statistics">
+    <li>原创：<span>293篇</span></li>
+    <li>转载：<span>216篇</span></li>
+    <li>译文：<span>1篇</span></li>
+    <li>评论：<span>22条</span></li>
+</ul>
+</ul>
+</div>
+
+
+<div class="panel" id="panel_Search">
+    <ul class="panel_head"><span>文章搜索</span></ul>
+    <ul class="panel_body">
+        <form id="frmSearch" action="http://so.csdn.net/search" class="form_search" target="_blank">
+        <span><input id="inputSearch" type="text" class="blogsearch" title="请输入关键字" /></span>
+        <input id="btnSubmit" type="button" value="搜索" title="search in blog" />
+        <input type="hidden" name="q" id="inputQ" />
+        <input type="hidden" name="t" value="blog" />
+        <a id="btnSearchBlog" target="_blank"></a>
+        </form>
+    </ul>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $("#btnSubmit").click(function () {           
+            search();
+        });
+
+        $("#frmSearch").submit(function () {
+            search();
+            return false;
+        });
+
+        function search()
+        {
+            var url = "http://so.csdn.net/so/search/s.do?q=" + encodeURIComponent($("#inputSearch").val()) + "&u=" + username + "&t=blog";
+            window.location.href = url;
+        }   
+    });
+</script><div id="panel_Category" class="panel">
+<ul class="panel_head"><span>文章分类</span></ul>
+<ul class="panel_body">    
+                 <li>
+                    <a href="/dai_jing/article/category/1282821" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">win32 SDK</a><span>(68)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/1290451" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">关于我</a><span>(11)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/1290450" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">mysql</a><span>(9)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/1290452" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">xml</a><span>(4)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/1290453" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">opengl</a><span>(4)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/1292690" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">OS(windows)</a><span>(4)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/1304062" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">STL(C++)</a><span>(8)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/1306603" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">项目开发实例</a><span>(7)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/1306609" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">数据结构</a><span>(9)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/1314395" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">html</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/1374121" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">c++</a><span>(48)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/1290449" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">设计模式 （c++）</a><span>(24)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/1413654" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">winsock</a><span>(6)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/1423977" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">内核编程</a><span>(5)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/1374124" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">问题请教</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/1428213" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">MFC</a><span>(29)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/1436661" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">Directed X</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/1608609" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">注册表编程</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/1613277" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">《数据结构实践教程--徐慧编》源码</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/1628195" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">effective c++</a><span>(3)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/1638549" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">c++算法集</a><span>(10)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/1653195" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">动态链接库</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/1655535" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">数据库技术（ms sql server）</a><span>(3)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/1706195" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">c#</a><span>(0)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/1836459" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">ace</a><span>(12)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/1838731" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">pugixml</a><span>(2)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/1868553" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">csv</a><span>(2)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/2000869" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">linux</a><span>(30)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/2162649" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">lua</a><span>(20)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/2163133" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">python</a><span>(48)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/2163137" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">CGI</a><span>(0)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/2167801" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">boost</a><span>(2)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/2170671" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">java</a><span>(11)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/2196023" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">sqlite</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/2287453" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">MongoDB</a><span>(9)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/2298291" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">php</a><span>(16)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/2305805" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">debug</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/2375591" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">uml</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/2375593" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">json</a><span>(2)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/2376177" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">GDB</a><span>(8)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/2376271" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">luatinker</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/2376273" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">luabind</a><span>(0)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/2386467" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">游戏服务器设计</a><span>(9)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/2397149" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">c/c++ 安全编程</a><span>(2)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/2405183" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">游戏客户端</a><span>(2)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/2414445" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">web开发技术</a><span>(2)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/2416091" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">node.js技术</a><span>(42)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/2423759" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">libuv</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/2424771" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">libevent</a><span>(8)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/3192139" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">javascript</a><span>(10)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/3277287" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">shell 脚本编程</a><span>(3)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/5683537" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">redis</a><span>(3)</span>
+                </li>
+                 <li>
+                    <a href="/dai_jing/article/category/6204314" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">go</a><span>(1)</span>
+                </li>
+</ul>
+</div><div id="panel_Archive" class="panel">
+<ul class="panel_head"><span>文章存档</span></ul>
+<ul class="panel_body">
+<div id="archive_list">
+<!--归档统计-->
+<li><a href="/dai_jing/article/month/2016/09">2016年09月</a><span>(5)</span></li><li><a href="/dai_jing/article/month/2016/08">2016年08月</a><span>(1)</span></li><li><a href="/dai_jing/article/month/2016/07">2016年07月</a><span>(3)</span></li><li><a href="/dai_jing/article/month/2016/05">2016年05月</a><span>(1)</span></li><li><a href="/dai_jing/article/month/2016/04">2016年04月</a><span>(5)</span></li><li><a href="/dai_jing/article/month/2016/03">2016年03月</a><span>(1)</span></li><li><a href="/dai_jing/article/month/2016/01">2016年01月</a><span>(2)</span></li><li><a href="/dai_jing/article/month/2015/12">2015年12月</a><span>(3)</span></li><li><a href="/dai_jing/article/month/2015/11">2015年11月</a><span>(3)</span></li><li><a href="/dai_jing/article/month/2015/10">2015年10月</a><span>(1)</span></li><li><a href="/dai_jing/article/month/2015/09">2015年09月</a><span>(1)</span></li><li><a href="/dai_jing/article/month/2015/08">2015年08月</a><span>(7)</span></li><li><a href="/dai_jing/article/month/2015/07">2015年07月</a><span>(15)</span></li><li><a href="/dai_jing/article/month/2015/06">2015年06月</a><span>(20)</span></li><li><a href="/dai_jing/article/month/2015/05">2015年05月</a><span>(30)</span></li><li><a href="/dai_jing/article/month/2015/04">2015年04月</a><span>(5)</span></li><li><a href="/dai_jing/article/month/2015/01">2015年01月</a><span>(1)</span></li><li><a href="/dai_jing/article/month/2014/11">2014年11月</a><span>(1)</span></li><li><a href="/dai_jing/article/month/2014/10">2014年10月</a><span>(34)</span></li><li><a href="/dai_jing/article/month/2014/09">2014年09月</a><span>(5)</span></li><li><a href="/dai_jing/article/month/2014/08">2014年08月</a><span>(3)</span></li><li><a href="/dai_jing/article/month/2014/07">2014年07月</a><span>(91)</span></li><li><a href="/dai_jing/article/month/2014/06">2014年06月</a><span>(20)</span></li><li><a href="/dai_jing/article/month/2014/05">2014年05月</a><span>(11)</span></li><li><a href="/dai_jing/article/month/2014/04">2014年04月</a><span>(24)</span></li><li><a href="/dai_jing/article/month/2014/03">2014年03月</a><span>(2)</span></li><li><a href="/dai_jing/article/month/2014/01">2014年01月</a><span>(18)</span></li><li><a href="/dai_jing/article/month/2013/12">2013年12月</a><span>(1)</span></li><li><a href="/dai_jing/article/month/2013/11">2013年11月</a><span>(1)</span></li><li><a href="/dai_jing/article/month/2013/10">2013年10月</a><span>(3)</span></li><li><a href="/dai_jing/article/month/2013/09">2013年09月</a><span>(45)</span></li><li><a href="/dai_jing/article/month/2013/08">2013年08月</a><span>(29)</span></li><li><a href="/dai_jing/article/month/2013/06">2013年06月</a><span>(7)</span></li><li><a href="/dai_jing/article/month/2013/05">2013年05月</a><span>(22)</span></li><li><a href="/dai_jing/article/month/2013/04">2013年04月</a><span>(6)</span></li><li><a href="/dai_jing/article/month/2013/03">2013年03月</a><span>(21)</span></li><li><a href="/dai_jing/article/month/2013/02">2013年02月</a><span>(2)</span></li><li><a href="/dai_jing/article/month/2013/01">2013年01月</a><span>(1)</span></li><li><a href="/dai_jing/article/month/2012/12">2012年12月</a><span>(11)</span></li><li><a href="/dai_jing/article/month/2012/11">2012年11月</a><span>(48)</span></li>
+</div>
+</ul>
+</div>
+<div id="hotarticls" class="panel">
+<ul class="panel_head">
+    <span>       
+阅读排行    </span>
+</ul>
+
+<ul class="panel_body itemlist">
+<li>
+<a href="/dai_jing/article/details/24043665" title="socket 封包和解包">socket 封包和解包</a><span>(6148)</span>
+</li>
+<li>
+<a href="/dai_jing/article/details/47276921" title="nodejs uuid 生成">nodejs uuid 生成</a><span>(5040)</span>
+</li>
+<li>
+<a href="/dai_jing/article/details/17914445" title="TCP/IP 网络数据封包和解包">TCP/IP 网络数据封包和解包</a><span>(4546)</span>
+</li>
+<li>
+<a href="/dai_jing/article/details/38087443" title="express command not found 解决方案">express command not found 解决方案</a><span>(4360)</span>
+</li>
+<li>
+<a href="/dai_jing/article/details/8902976" title="win32 API　＆winsock &amp; c++架构实现仿QQ聊天室">win32 API　＆winsock &amp; c++架构实现仿QQ聊天室</a><span>(3986)</span>
+</li>
+<li>
+<a href="/dai_jing/article/details/37960691" title="c++ 获取两个标准日期之间相差的秒数">c++ 获取两个标准日期之间相差的秒数</a><span>(3776)</span>
+</li>
+<li>
+<a href="/dai_jing/article/details/38148381" title="libevent 简单客户端和服务器">libevent 简单客户端和服务器</a><span>(3450)</span>
+</li>
+<li>
+<a href="/dai_jing/article/details/38141665" title="centos 安装libevent">centos 安装libevent</a><span>(3408)</span>
+</li>
+<li>
+<a href="/dai_jing/article/details/38225435" title="windows 上安装 libevent">windows 上安装 libevent</a><span>(3234)</span>
+</li>
+<li>
+<a href="/dai_jing/article/details/8694224" title="设置按钮的背景色和颜色">设置按钮的背景色和颜色</a><span>(3228)</span>
+</li>
+</ul>
+</div>
+<div id="hotarticls2" class="panel">
+<ul class="panel_head"><span>评论排行</span></ul>
+<ul class="panel_body itemlist">
+<li>
+<a href="/dai_jing/article/details/38232641" title="c语言实现多态">c语言实现多态</a><span>(3)</span>
+</li>
+<li>
+<a href="/dai_jing/article/details/46661969" title="python 爬虫批量下载图片">python 爬虫批量下载图片</a><span>(2)</span>
+</li>
+<li>
+<a href="/dai_jing/article/details/8691000" title="去除静态文本框的背景色和设置颜色">去除静态文本框的背景色和设置颜色</a><span>(2)</span>
+</li>
+<li>
+<a href="/dai_jing/article/details/46005729" title="python 创建自己的包">python 创建自己的包</a><span>(2)</span>
+</li>
+<li>
+<a href="/dai_jing/article/details/38148381" title="libevent 简单客户端和服务器">libevent 简单客户端和服务器</a><span>(2)</span>
+</li>
+<li>
+<a href="/dai_jing/article/details/8683487" title="win32 控件之 sysLink控件（超链接）">win32 控件之 sysLink控件（超链接）</a><span>(1)</span>
+</li>
+<li>
+<a href="/dai_jing/article/details/22786247" title="linux c++线程池框架">linux c++线程池框架</a><span>(1)</span>
+</li>
+<li>
+<a href="/dai_jing/article/details/8902976" title="win32 API　＆winsock &amp; c++架构实现仿QQ聊天室">win32 API　＆winsock &amp; c++架构实现仿QQ聊天室</a><span>(1)</span>
+</li>
+<li>
+<a href="/dai_jing/article/details/17914445" title="TCP/IP 网络数据封包和解包">TCP/IP 网络数据封包和解包</a><span>(1)</span>
+</li>
+<li>
+<a href="/dai_jing/article/details/12346737" title="MFC版的音乐播放器">MFC版的音乐播放器</a><span>(1)</span>
+</li>
+</ul>
+</div>
+<div id="homepageArticles" class="panel tracking-ad" data-mod="popu_4">
+<ul class="panel_head"><span>推荐文章</span></ul>
+<ul class="panel_body" id="ad_commend">
+<ul>
+<li><a href="http://blog.csdn.net/googdev/article/details/52575079" target="_blank">* 2016 年最受欢迎的编程语言是什么？</a></li>
+<li><a href="http://blog.csdn.net/luoshengyang/article/details/52420761" 
+target="_blank">* Chromium扩展（Extension）的页面（Page）加载过程分析</a></li>
+<li><a href="http://blog.csdn.net/googdev/article/details/52598892" 
+target="_blank">* Android Studio 2.2 来啦</a></li>
+<li><a href="http://blog.csdn.net/anddlecn/article/details/52608697" target="_blank">* 手把手教你做音乐播放器（二）技术原理与框架设计</a></li>
+<li><a href="http://blog.csdn.net/defonds/article/details/52605670" 
+target="_blank">* JVM 性能调优实战之：使用阿里开源工具 TProfiler 在海量业务代码中精确定位性能代码</a></li>
+
+
+</ul></ul>
+</div>
+
+
+<div id="newcomments" class="panel">
+<ul class="panel_head"><span>最新评论</span></ul>
+<ul class="panel_body itemlist">
+    <li>
+   
+         <a href="/dai_jing/article/details/38141665#comments">centos 安装libevent</a>
+    <p style="margin:0px;"><a href="/edisonyuan" class="user_name">edisonyuan</a>:
+您好，我在第一步./configure –prefix=/usr的时候出现Permission De...
+    </p>
+    </li>
+    <li>
+   
+         <a href="/dai_jing/article/details/46005729#comments">python 创建自己的包</a>
+    <p style="margin:0px;"><a href="/Jemila" class="user_name">Jemila</a>:
+创建后如何删除呢
+    </p>
+    </li>
+    <li>
+   
+         <a href="/dai_jing/article/details/8691000#comments">去除静态文本框的背景色和设置颜色</a>
+    <p style="margin:0px;"><a href="/xhmwuyan" class="user_name">xhmwuyan</a>:
+你好，我用VS2010创建了一个基于对话框的MFC，自己添加了背景，从工具箱中拖出了一个静态文本框，...
+    </p>
+    </li>
+    <li>
+   
+         <a href="/dai_jing/article/details/46661969#comments">python 爬虫批量下载图片</a>
+    <p style="margin:0px;"><a href="/shanzhangyi27" class="user_name">shanzhangyi27</a>:
+good!
+    </p>
+    </li>
+    <li>
+   
+         <a href="/dai_jing/article/details/46661969#comments">python 创建自己的包</a>
+    <p style="margin:0px;"><a href="/WoBuShiLaoMai" class="user_name">WoBuShiLaoMai</a>:
+如果getMax.py是类，__init__.py的__all__应该怎样写？
+    </p>
+    </li>
+    <li>
+   
+         <a href="/dai_jing/article/details/22786247#comments">linux c++线程池框架</a>
+    <p style="margin:0px;"><a href="/wj_nxly" class="user_name">wj_nxly</a>:
+求源码！！！
+    </p>
+    </li>
+    <li>
+   
+         <a href="/dai_jing/article/details/12346737#comments">MFC版的音乐播放器</a>
+    <p style="margin:0px;"><a href="/w1146869587" class="user_name">w1146869587</a>:
+不错！！
+    </p>
+    </li>
+    <li>
+   
+         <a href="/dai_jing/article/details/17914445#comments">TCP/IP 网络数据封包和解包</a>
+    <p style="margin:0px;"><a href="/YouAreMySunShine7" class="user_name">YouAreMySunShine7</a>:
+大神，麻烦给下头文件，谢谢！
+    </p>
+    </li>
+    <li>
+   
+         <a href="/dai_jing/article/details/38148381#comments">libevent 简单客户端和服务器</a>
+    <p style="margin:0px;"><a href="/djs80212446" class="user_name">djs80212446</a>:
+服务器端编译不过。collect2: ld returned 1 exit statusdjs@li...
+    </p>
+    </li>
+    <li>
+   
+         <a href="/dai_jing/article/details/8683487#comments">win32 控件之 sysLink控件（超链接）</a>
+    <p style="margin:0px;"><a href="/oJiDiQiE" class="user_name">oJiDiQiE</a>:
+楼主,  请问PNMLINK类型是包含在哪个头文件里面啊,不是MFC,纯WINDOWS SDK,Wi...
+    </p>
+    </li>
+</ul>
+</div>
+    </div>
+    <div class="clear">
+    </div>
+
+
+                 <!-- 广告位开始 --> 
+                    <ins data-revive-zoneid="189" data-revive-id="8c38e720de1c90a6f6ff52f3f89c4d57"></ins> 
+                <!-- 广告位结束 -->
+
+           </div>   
+
+            <div class="clear">
+            </div>
+        </div>
+
+        
+
+<script type="text/javascript" src="http://c.csdnimg.cn/rabbit/cnick/cnick.js"></script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/newblog.min.js"></script>
+
+
+<script type="text/javascript" src="http://medal.blog.csdn.net/showblogmedal.ashx?blogid=1366134"></script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/JavaScript1.js"></script>
+
+    <script type="text/javascript" src="http://passport.csdn.net/content/loginbox/login.js"></script>
+<script type="text/javascript">document.write("<img src=http://counter.csdn.net/pv.aspx?id=24 border=0 width=0 height=0>");</script>
+<script type="text/javascript" src="http://www.csdn.net/ui/scripts/Csdn/counter.js"></script>
+<script type="text/javascript" src="http://ad.csdn.net/scripts/ad-blog.js"></script>
+<script type="text/javascript">
+    $(function () {
+        function __get_code_toolbar(snippet_id) {
+            return $("<span class='tracking-ad' data-mod='popu_167'><a href='https://code.csdn.net/snippets/"
+                    + snippet_id
+                    + "' target='_blank' title='在CODE上查看代码片'  style='text-indent:0;'><img src='https://code.csdn.net/assets/CODE_ico.png' width=12 height=12 alt='在CODE上查看代码片' style='position:relative;top:1px;left:2px;'/></a></span>"
+                    + "<span class='tracking-ad' data-mod='popu_170'><a href='https://code.csdn.net/snippets/"
+                    + snippet_id
+                    + "/fork' target='_blank' title='派生到我的代码片' style='text-indent:0;'><img src='https://code.csdn.net/assets/ico_fork.svg' width=12 height=12 alt='派生到我的代码片' style='position:relative;top:2px;left:2px;'/></a></span>");
+        }
+        
+        $("[code_snippet_id]").each(function () {
+            __s_id = $(this).attr("code_snippet_id");
+            if (__s_id != null && __s_id != "" && __s_id != 0 && parseInt(__s_id) > 70020) {
+                __code_tool = __get_code_toolbar(__s_id);
+                $(this).prev().find(".tools").append(__code_tool);
+            }
+        });
+
+        $(".bar").show();
+    });
+</script>
+
+
+
+
+    </div>
+      <!--new top-->
+    
+    <script id="csdn-toolbar-id" btnId="header_notice_num" wrapId="note1" count="5" subCount="5" type="text/javascript" src="http://c.csdnimg.cn/public/common/toolbar/js/toolbar.js"></script>     <!--new top-->
+   
+    <link href="http://c.csdnimg.cn/comm_ask/css/ask_float_block.css" type="text/css" rel="stylesheet" />
+    <script language='JavaScript' type='text/javascript' src='http://c.csdnimg.cn/comm_ask/js/libs/wmd.js'></script>
+    <script language='JavaScript' type='text/javascript' src='http://c.csdnimg.cn/comm_ask/js/libs/showdown.js'></script>
+    <script language='JavaScript' type='text/javascript' src='http://c.csdnimg.cn/comm_ask/js/libs/prettify.js'></script>
+    <script language='JavaScript' type='text/javascript' src='http://c.csdnimg.cn/comm_ask/js/apps/ask_float_block.js'></script>
+   
+
+  <div id="a52b5334d" style="width: 1px; height: 1px; display: none;">
+                    <script id="adJs52b5334"></script>
+                    <script>document.getElementById("adJs52b5334").src = "http://ads.csdn.net/js/opt/52b5334.js?t=" + Math.random();</script>
+   </div>
+
+    <link rel="stylesheet" href="http://static.blog.csdn.net/css/blog_code.css" />
+    <script type="text/javascript" src="http://static.blog.csdn.net/scripts/saveToCode.js"></script>
+      <script type="text/javascript" src="//csdnimg.cn/rabbit/tracking-ad/main.js?75eacd8"></script>
+</body>
+</html>   
+ 
