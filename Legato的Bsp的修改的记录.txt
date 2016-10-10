@@ -1,0 +1,32 @@
+1.kernel默认使用的配置文件是:
+	kernel\arch\arm\configs\mdm9607_defconfig
+	在kernel下面使用:
+	make ARCH=arm mdm9607_defconfig
+	make ARCH=arm menuconfig
+	cp .config arch/arm/configs/mdm9607_defconfig
+	make mrproper
+	cd $(ROOT) //yocto的根目录
+	make
+2.添加wifi的firmware,修改文件
+	(1)poky\meta\recipes-kernel\linux-firmware\linux-firmware_git.bb 
+	在 do_install 函数中添加
+	# fix missing board file for Atheros AR6003 HW2.1.1
+	( cd ${D}/lib/firmware/ath6k/AR6003/hw2.1.1 ; ln -s bdata.SD31.bin bdata.bin )
+	(2)meta-swi\meta-swi-mdm9x28\recipes-core\images
+	添加
+	# Install kernel modules to support Atheros AR6003 / Qualcomm QCA6053
+	IMAGE_INSTALL += "kernel-module-ath6kl-core"
+	IMAGE_INSTALL += "kernel-module-ath6kl-sdio"
+	IMAGE_INSTALL += "linux-firmware-ath6k"
+	# Install apps needed to run WiFi Access Point
+	IMAGE_INSTALL += "hostapd"
+	IMAGE_INSTALL += "iw"
+	IMAGE_INSTALL += "iptables"
+	IMAGE_INSTALL += "wpa-supplicant"
+	两者缺一不可否则在/lib/firmware发现不了该固件
+	
+3.app运行不了的情况下：
+	查看 legato.version: 16.04.1.9xxx.rc7,如果版本不对则会运行不了
+	正确的版本需要执行:
+	source bin/configlegatoenv
+	bin/legs
