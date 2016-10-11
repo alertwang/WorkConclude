@@ -24,6 +24,10 @@
 	IMAGE_INSTALL += "iptables"
 	IMAGE_INSTALL += "wpa-supplicant"
 	两者缺一不可否则在/lib/firmware发现不了该固件
+	(3)修改meta-swi/common/recipes-core/packagegroups/packagegroup-swi-image-target.bb,添加
+	对应查看在 meta-openembedded\meta-networking\recipes-support 目录下面有些什么工具(查看文件夹的名字)
+	
+	
 	
 3.app运行不了的情况下：
 	查看 legato.version: 16.04.1.9xxx.rc7,如果版本不对则会运行不了
