@@ -1,0 +1,39 @@
+main
+	createNetwork4gManager();
+			//设置其回调函数
+			pNetwork4gManager->disable4G = disable4G;
+	pNetwork4gManager->disable4G();
+	<==>
+	disable4G
+			configure4GenableState(false);	
+					le_mrc_SetRadioPower(LE_OFF);
+					
+
+2.legato的GPIO控制
+	1)GPIO8控制的是板子4G模块上最右边的LED(红灯)
+	cd /sys/class/gpio
+	echo 8 > /sys/class/gpio/export
+	echo out > gpio8/direction
+	#to set high
+	echo 1 > gpio8/value ==>  亮
+	#to set low
+	echo 0 > gpio8/value  ==>  灭
+	echo 8 > /sys/class/gpio/unexport
+	
+	2)GPIO9控制的是板子4G模块上最右边第二个的LED(黄灯)
+	echo 9 > /sys/class/gpio/export
+	echo out > gpio9/direction
+	#to set high
+	echo 1 > gpio9/value ==>  亮
+	#to set low
+	echo 0 > gpio9/value  ==>  灭
+	echo 9 > /sys/class/gpio/unexport
+	
+	2)GPIO10控制的是板子4G模块上最右边第二个的LED(黄灯)
+	echo 10 > /sys/class/gpio/export
+	echo out > gpio10/direction
+	#to set high
+	echo 1 > gpio10/value ==>  亮
+	#to set low
+	echo 0 > gpio10/value  ==>  灭
+	echo 10 > /sys/class/gpio/unexport
