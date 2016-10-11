@@ -1,0 +1,109 @@
+1.
+	客户端
+	mServiceProxy = new ServiceProxy(context);
+		Intent intent = new Intent("com.lanyou.tcu.protocol.remoteservice");
+		context.startService(intent);
+    context.bindService(intent, mServiceConnection, context.BIND_AUTO_CREATE);
+    		mServiceConnection.onServiceConnected //客户端成功获取了服务端通信接口
+    			//mDeviceManager是 AIDL中定义的 interface IDeviceManager(这个客户端和服务器中定义的必须一致)的实例
+    			mDeviceManager = IDeviceManager.Stub.asInterface(service);
+   
+					// DeviceManager实现 ITcuDeviceManager	
+					mTcuDevice = new DeviceManager(mDeviceManager);
+					// mTcuDevice 里面的各种方法调用的就是服务端的方法
+					// 实现 ITcuDeviceManager 里面的方法
+					startRegist(int developerId, String deviceSN, String softwareVersion)
+					
+	服务器端
+	//ProtocolService继承Service
+	IDeviceManager.Stub mDeviceManager = new IDeviceManager.Stub
+		//这个里面实现了 AIDL 中定义的各种接口
+		//客户端如果调用 getDeviceInfo
+		getDeviceInfo
+			mModuleManager.getDeviceInfo();
+			
+		
+	DeviceManager 类
+		// 构造函数中定义了 ModuleManager 对象
+		mModuleManager = new ModuleManager();
+		//定义了监听类 BusinessRegisterListener 实现 IModuleManager.IBusinessRegisterListener
+		private class BusinessRegisterListener implements IModuleManager.IBusinessRegisterListener
+				//实现了IBusinessRegisterListener里面的函数
+				onRegistSuccess
+						mDeviceInformation = new DeviceInformation(developerId, deviceSN, softwareVersion, hardwareVersion);
+						startHeartBeat();
+		//定义了消息处理变量
+		private Handler mRetransmissionHandler = new Handler()
+				handleMessage
+						
+		
+	IModuleManager 
+			/*以下三者均继承 IBusinessHandler 接口
+			 *IBusinessHandler
+			 *	handleBusinessData
+			 */
+			IBusinessRegister
+			IWLANmodule
+			I4Gmodule
+			
+	ModuleManager 实现 	IModuleManager
+		// BusinessRegisterHandler 实现 IModuleManager.IBusinessRegister 
+		mBusinessRegister = new BusinessRegisterHandler(dispatcher);
+																sendHeartBeatRequest
+																			DataDispatcher.sendBusinessData
+																					//通过JNI的socket发送给TCU
+		// WLANhandler 实现 IModuleManager.IWLANmodule
+    mWLANmodule = new WLANhandler(dispatcher);
+    // Module4Ghandler 实现 IModuleManager.I4Gmodule
+    m4Gmodule = new Module4Ghandler(dispatcher);
+	
+	DataDispatcher 类 !!!
+		System.loadLibrary("DataDispatcher");
+		//构造函数
+		nativeInit(new WeakReference<DataDispatcher>(this),Configure.SERVER_IP, Configure.SERVER_PORT);
+			//调用JNI层的
+			Java_com_lanyou_tcu_protocol_DataDispatcher_nativeInit(JNIEnv *env, jobject thiz, jobject weak_thiz, jstring ipAddr, jint port)
+				initialize();
+					pthread_create(&thread_connection_id, NULL, socketConnectionThread, NULL);
+							socketConnectionThread
+									//连接DA
+		sendBusinessData
+			Java_com_lanyou_tcu_protocol_DataDispatcher_packProtocolData(JNIEnv *env, jobject thiz, jint businessID, jbyteArray data, jint size) 
+					packet = make_frame(size, TCU_DA_VERSION, businessID,ENCRYPT_TYPE, sourceData))
+					da_send_packet(pRuntimeConfigure->socketFD, packet, size + FIXED_PART_LEN);
+							//通过socket发送给TCU
+
+
+DA-->*-->TCU
+	onServiceConnected
+			//注册按钮按下
+			mRegistButton.setOnClickListener
+					mTcuDevice.startRegist(0x3479, "LB123456789", "V1.01");
+					ITcuDeviceManager.startRegist(0x3479, "LB123456789", "V1.01");
+							DeviceManager.startRegist(int developerId, String deviceSN, String softwareVersion)
+									IDeviceManager.mDeviceManager.startRegist(developerId, deviceSN, softwareVersion);
+											//这个是AIDL中定义的接口,调用服务端的 startRegist 同名方法
+											.......
+											//调用服务端 ProtocolService(继承Service) 
+											startRegist(int developerId, String deviceSN, String softwareVersion)
+													mModuleManager.startRegist(developerId,deviceSN, softwareVersion);
+															//判断tcu是否准备就绪
+															if(!mIsTCUready.get())
+															//判断是否已经注册
+															if(mIsRegisted.get())
+															//以上均不满足,注册
+															IModuleManager.IBusinessRegister businessRegister = mModuleManager.getBusinessRegister();
+																	ModuleManager.getBusinessRegister();
+																			DataDispatcher dispatcher = new DataDispatcher(analyzer);
+																			return new BusinessRegisterHandler(dispatcher);;
+															businessRegister.sendRegisterRequest(developerId, deviceSN, softwareVersion);
+																	BusinessRegisterHandler.sendRegisterRequest(developerId, deviceSN, softwareVersion);
+																			//protobuf的序列化
+																			....
+																			//发送数据
+																			mDataDispatcher.sendBusinessData(Configure.BUSINESS_ID_CONNECT_REQ, message.toByteArray());
+																					DataDispatcher.sendBusinessData(Configure.BUSINESS_ID_CONNECT_REQ, message.toByteArray());
+																								packProtocolData(businessID,data, size);
+																										//调用JNI层发送给tcu
+
+ps:如何获取文件的修改时间,比较如果和上次修改的时间没有发生变化,则不读取其中的内容?????
