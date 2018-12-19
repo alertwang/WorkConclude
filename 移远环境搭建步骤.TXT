@@ -1,0 +1,58 @@
+1.驱动安装
+    Android USB ADB的驱动
+    /06 OpenSolution_AG35_EC2x_BGxx/EC2x_QuecOpen/4-Driver/Windows/Quectel_Windows_Android_USB_Driver(for EC20_EC25 module).rar
+    DM AT口驱动的安装,用于抓取log或者调试
+    /06 OpenSolution_AG35_EC2x_BGxx/EC2x_QuecOpen/4-Driver/Windows/Quectel_Windows_USB_Drivers_for_EC21&EC25_V1.0.zip
+2.下载SDK
+    /06 OpenSolution_AG35_EC2x_BGxx/EC2x_QuecOpen/5-SDK&Cross Compiler&FW/EC20&EC20 R2.1/SDK/EC20 R2.1/EC20CEFAGR06A01M4G_OCPU_SDK.tar.bz2
+    SDK里面包含源码和Cross Compile Tools
+    
+    根据 /06 OpenSolution_AG35_EC2x_BGxx/EC2x_QuecOpen/1-Document/EC2x Documents/KBA_QuecOpen_EC2X&AG35_Quick_Start_Priliminary_V1.4.pdf 这个文档   
+    tar -xf EC20CEFAGR06A01M4G_OCPU_SDK.tar.bz2 
+    cd ql-ol-sdk/
+    source ql-ol-crosstool/ql-ol-crosstool-env-init 
+    
+    烧写工具安装
+    /06 OpenSolution_AG35_EC2x_BGxx/EC2x_QuecOpen/3-Tools/Quectel_Customer_FW_Download_Tool_V4.31.rar
+    烧写的时候使用的FW的目录
+    /06 OpenSolution_AG35_EC2x_BGxx/EC2x_QuecOpen/5-SDK&Cross Compiler&FW/EC20&EC20 R2.1/FW/EC20 R2.1/EC20CEFAGR06A01M4G_OCPU.zip
+    这个文档说明了如何使用FW_Download_Tool工具来进行烧写
+    /06 OpenSolution_AG35_EC2x_BGxx/EC2x_QuecOpen/3-Tools/KBA_QuecOpen_Download_Guide.pdf
+    疑惑：
+    万一板子烧挂了(即无法跑起来了)怎么办？
+    标准和Open模块，短接7脚和115脚，上电强制模块进入烧录模式。
+    
+    编译App
+        编译所有的app
+        编译单个app
+    编译bootloader
+        make aboot/clean
+        make aboot
+        最终产生的文件在 ql-ol-sdk\target\appsboot.mbn
+    编译kernel
+        make kernel_menuconfig /* 是否需要配置? */
+        <==>
+        make ARCH=arm mdm9607-perf_defconfig
+        出现如下的错误： ../scripts/kconfig/lxdialog/dialog.h:38:20: fatal error: curses.h
+        表明的编译环境里面缺少如下的工具:
+        sudo apt-get install libncurses5-dev
+        make kernel
+        
+3.产品相关的学习
+    带"MINIPCIE"是直插式的通讯模块
+    带"TE"这种字样的是双插槽式的通讯模块
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
