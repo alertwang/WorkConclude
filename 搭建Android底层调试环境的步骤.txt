@@ -1,0 +1,32 @@
+1.在ubuntu14.04的环境下安装java环境
+    sudo apt-get install default-jdk
+    sudo apt-get install default-jre
+2.解压ADT
+    这个ADT中含SDK和Eclipse的开发环境。
+    注意：使用adt-bundle-linux-x86_64-20131030.zip。
+    因为:这个版本解压出来的时候有system-images这个目录，这样在创建emulator设备的时候才不会出现"No system image installed for this target"
+3.在win7下面清除samba用户的登录状态
+    net use * /del /y
+    net use \\192.168.229.130\samba /DELETE  //清除之前登录用户名和密码
+4.更新SDK
+    sudo apt-get install git
+    git clone https://github.com/thispc/psiphon.git
+
+    sudo apt-get install wine
+    wine psiphon3.exe
+5.遇到的问题
+    (1)在创建模拟器的时候出现"No system images installed for this target"
+        ①下载另外的一个版本的ADT：adt-bundle-linux-x86_64-20131030
+        ②直接下载android-4.4.w版本的system images放在对应的目录下面
+            下载链接：https://www.androiddevtools.cn/
+            在adt-bundle-linux-x86_64-20140702\sdk下面创建system-images，然后将解压后的android-20放在该目录下面即可
+    (2)在运行模拟器启动的时候出现"failed load libGL.so"
+        在虚拟机下安装如下的软件：sudo apt-get install libgl1-mesa-dev / sudo apt-get install -y steam
+    (3)启动模拟器如何查看ddd是否能成功
+        ①emulator -verbose -show-kernel -netfast -avd hd2 -shell -qemu -s -S -kernel gcc/c03e1.ax ==>-qemu -s -S这个会启动1234端口监听
+        ②使用netstat -ane | grep 1234这个时候可以看到端口正在被监听
+        ③ddd --debugger arm-none-eabi-gdb gcc/c03e1.axf 启动之后，在下面的输入框中输入 target remote localhost:1234
+        
+
+
+
