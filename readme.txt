@@ -1,9 +1,6 @@
-1.usernam & passwd
-    alertwang
-    wyd18670027870
-2.gitµÄÏà¹Ø²Ù×÷ËµÃ÷
+2.gitçš„ç›¸å…³æ“ä½œè¯´æ˜
     https://www.cnblogs.com/babysbreath/p/7274195.html
-3.ÉÏ´«ÎÄ¼şµ½githubµÄ²½Öè
+3.ä¸Šä¼ æ–‡ä»¶åˆ°githubçš„æ­¥éª¤
     git config --global user.name "yudewang"
     git config --global user.email "yudewang"   
     git pull origin master
